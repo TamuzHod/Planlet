@@ -5,7 +5,7 @@
         margin: 1em;
     }
     .grid-container {
-        grid-template-rows: 5em 1.5em 1.5em 1.5em 1.5em auto;
+        grid-template-rows: 5em 1.5em 1.5em 1.5em 1.5em;
         grid-template-columns: repeat(5, 1fr);
         display: grid;
         grid-gap: 2.5em .5em;
@@ -14,7 +14,7 @@
     }
 
     #lblTitle {
-        grid-column: span 6;
+        grid-column: span 4;
         grid-row: 1;
         height: 5em;
     }
@@ -48,10 +48,21 @@
         height: 4em;
     }
     #nextButt {
-        grid-column: 4;
+        grid-column: 5;
         align-content: center;
         grid-row: 6;
-        height: 1.5em;
+    }
+
+    #saveButt {
+        grid-column: 3;
+        align-content: center;
+        grid-row: 6;
+    }
+
+    #clearButt {
+        grid-column: 2 /span 3;
+        align-content: center;
+        grid-row: 7;
     }
 
     #nameInput{
