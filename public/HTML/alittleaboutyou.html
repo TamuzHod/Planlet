@@ -6,89 +6,18 @@
         <title>A Little About You</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<<<<<<< HEAD
         <link rel="stylesheet" href="../css/bootstrap-theme.css">
         <link rel="stylesheet" href="../css/bootstrap.css">
+=======
+        <link rel="stylesheet" href="../css/aboutyou.css">
+>>>>>>> 8946efe3634db5a9b95ae4f31e262685e79704b9
         <style>
             /* ========== VARIABLES ========== */
             :root {
                 --font-awesome-icons: "http://astronautweb.co/snippet/font-awesome/";
             }
 
-
-            @media screen and (max-width:600px) {
-                body{
-                    font-family:Arial, Helvetica, sans-serif;
-                    margin: 1em;
-                }
-                .grid-container {
-                    grid-template-columns: repeat(5, 1fr);
-                    display: grid;
-                    grid-gap: 3em 2em;
-                    grid-template-rows: auto;
-                    grid-template-columns: auto;
-                    justify-content: space-evenly;
-                }
-
-                #lblTitle {
-                    grid-column: span 5;
-                    grid-row: 1;
-                    height: 5em;
-                }
-                #lblTitle h1{
-                    size: 2em;
-                }
-
-                #lblName {
-                    grid-column: 1 / span 2;
-                    align-content: left;
-                    grid-row: 2;
-                    height: 4em;
-                }
-
-                #lblEmail {
-                    grid-column: 1 / span 2;
-                    align-content: left;
-                    grid-row: 3;
-                    height: 4em;
-                }
-                #lblMajor {
-                    grid-column: 1 /span 2;
-                    align-content: center;
-                    grid-row: 4;
-                    height: 4em;
-                }
-                #lblMinor {
-                    grid-column: 1 /span 2;
-                    align-content: center;
-                    grid-row: 5;
-                    height: 4em;
-                }
-                #nextButt {
-                    grid-column: 5;
-                    align-content: center;
-                    grid-row: 6;
-                    height: 4em;
-                }
-
-                #nameInput{
-                    grid-row: 2;
-                    grid-column: 3 / span 2;
-
-                }
-
-                #emailInput{
-                    grid-row: 3;
-                    grid-column: 3/span 2;
-                }
-
-
-                #selMajor{
-                    grid-row: 4;
-                    grid-column: 3/span 2;
-                }
-
-
-            }
 
         </style>
     </head>
@@ -104,10 +33,16 @@
                 <input id="emailInput" type="text"></input>
                 <div class="grid-item"id="lblMajor">Major(s)</div>
                 <select id="selMajor">
+                    <option>Select a major</option>
                     <option>Cogs: Design & Interaction</option>
                     <option>Cogs: Machine Learning</option>
                 </select>
                 <div class="grid-item" id="lblMinor">Minor(s)</div>
+                <select id="selMinor">
+                    <option>Select a Minor</option>
+                    <option>No Minor</option>
+                    <option>Computer Science</option>
+                </select>
                 <!--Select tag and option tag, https://blink.ucsd.edu/instructors/academic-info/majors/minor-codes.html-->
                 <button class="grid-item" id="nextButt"></button>   
      
