@@ -19,11 +19,11 @@
                     margin: 1em;
                 }
                 .grid-container {
+                    grid-template-rows: 5em 1.5em 1.5em 1.5em 1.5em auto;
                     grid-template-columns: repeat(5, 1fr);
                     display: grid;
-                    grid-gap: 3em 2em;
-                    grid-template-rows: auto;
-                    grid-template-columns: auto;
+                    grid-gap: 2.5em .5em;
+
                     justify-content: space-evenly;
                 }
 
@@ -33,7 +33,7 @@
                     height: 5em;
                 }
                 #lblTitle h1{
-                    size: 2em;
+                    font-size: 2em;
                 }
 
                 #lblName {
@@ -62,7 +62,7 @@
                     height: 4em;
                 }
                 #nextButt {
-                    grid-column: 5;
+                    grid-column: 4;
                     align-content: center;
                     grid-row: 6;
                     height: 4em;
@@ -106,11 +106,13 @@
                 <input id="emailInput" type="text"></input>
                 <div class="grid-item"id="lblMajor">Major(s)</div>
                 <select id="selMajor">
+                    <option>Select a major</option>
                     <option>Cogs: Design & Interaction</option>
                     <option>Cogs: Machine Learning</option>
                 </select>
                 <div class="grid-item" id="lblMinor">Minor(s)</div>
                 <select id="selMinor">
+                    <option>Select a Minor</option>
                     <option>No Minor</option>
                     <option>Computer Science</option>
                 </select>
