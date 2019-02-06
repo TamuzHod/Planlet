@@ -17,12 +17,6 @@ body{
 }
 
 
-#saveButt {
-    grid-column: 3;
-    align-content: center;
-    grid-row: 6;
-}
-
 
 .grid-container {
     grid-template-rows: 6em;
@@ -40,3 +34,38 @@ body{
 #lblTitle h1{
     font-size: 2em;
 }
+
+.classDiv{
+    padding: 1em;
+    border: .3em;
+    border-style: solid;
+    border-radius: 1em;
+    margin-bottom: 1.5em;
+}
+
+.className{
+    display: inline-block;
+    width: 76%;
+}
+
+.addButt{
+    display: inline-block;
+    width: 10%;
+}
+
+.finishedButt{
+    display: inline-block;
+    width: 10%;
+}
+
+#classSearch{
+    float: right;
+}
+
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+

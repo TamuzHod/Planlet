@@ -13,47 +13,7 @@
         <style>
             /* ========== VARIABLES ========== */
 
-            .classDiv{
-                border: .3em;
-                border-style: solid;
-                border-radius: .5em;
-            }
-/*
-            #lblMajorClasses {
-                grid-row: 2;
-                grid-column: 1 / span 5;
-            }
 
-            #majorClasses{
-                grid-row: 3;
-                grid-column: 1 / span 5;
-            }
-
-            #lblMinorClasses {
-                grid-row: 4;
-                grid-column: 1 / span 5;
-            }
-
-            #minorClasses{
-                grid-row: 5;
-                grid-column: 1 / span 5;
-            } 
-*/
-
-            .className{
-                display: inline-block;
-                width: 76%;
-            }
-
-            .addButt{
-                display: inline-block;
-                width: 10%;
-            }
-
-            .finishedButt{
-                display: inline-block;
-                width: 10%;
-            }
         </style>
     </head>
 
@@ -62,7 +22,7 @@
             <div class="grid-item" id="lblTitle">
                 <h4>Here are all the class you need that will be offered next quarter.</h5>
                 <h6>Select 2-6 classes you would like to take.</h6>
-                <button class="btn" id="settingButt">Back</button> 
+                <button class="btn" id="settingButt">Settings</button> 
             </div>
         </div>
             <h5 id="lblMajorClasses">Major:</h5>
@@ -70,20 +30,69 @@
                 <h4 class="className">Cogs 120</h4>
                 <button class="addButt">+</button>
                 <button class="finishedButt">-</button>
+
                 <h4 class="className">Cogs 100</h4>
                 <button class="addButt">+</button>
                 <button class="finishedButt">-</button>
+
                 <h4 class="className">Cogs 101A</h4>
                 <button class="addButt">+</button>
                 <button class="finishedButt">-</button>
+                
                 <h4 class="className">Cogs 101B</h4>
                 <button class="addButt">+</button>
                 <button class="finishedButt">-</button>
             </div>
+
             <h5 id="lblMinorClasses">Minor:</h5>
-            <div class="classdiv" id="minorClasses">
+            <div class="classDiv" id="minorClasses">
+                <h4 class="className">CSE 15L</h4>
+                <button class="addButt">+</button>
+                <button class="finishedButt">-</button>
+
+                <h4 class="className">CSE 30</h4>
+                <button class="addButt">+</button>
+                <button class="finishedButt">-</button>
+
+                <h4 class="className">CSE 20</h4>
+                <button class="addButt">+</button>
+                <button class="finishedButt">-</button>
+                
+                <h4 class="className">CSE 100</h4>
+                <button class="addButt">+</button>
+                <button class="finishedButt">-</button>
+            </div> 
+
+            <h5 id="lblGEClasses">General Education:</h5>
+            <div class="classDiv" id="geClasses">
+                <h4 class="className">WCWP 10A</h4>
+                <button class="addButt">+</button>
+                <button class="finishedButt">-</button>
+
+                <h4 class="className">WCWP 10B</h4>
+                <button class="addButt">+</button>
+                <button class="finishedButt">-</button>
+
+                <h4 class="className">PHIL 27</h4>
+                <button class="addButt">+</button>
+                <button class="finishedButt">-</button>
+                
+                <h4 class="className">POLI 27</h4>
+                <button class="addButt">+</button>
+                <button class="finishedButt">-</button>
             </div>
+
+            <h5 id="lblOthClasses">Other Classes:</h5>
+            <div class="classDiv" id="geClasses">
+                <input type="search"></input>
+                <button id="classSearch" type="btn">Search</button>
+            </div>
+
+            <div class="flex-container">
+            <button class="btn" id="backButt">Back</button>  
             <button class="btn" id="saveButt">Save</button>  
+            <button class="btn" id="nextButt">Next</button>  
+            </div>
 
     </body>
             
