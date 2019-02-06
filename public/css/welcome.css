@@ -1,5 +1,5 @@
 .grid-container {
-    grid-template-rows: 7em auto 14em; 
+    grid-template-rows: 7em auto auto; 
     grid-template-columns: repeat(3, auto);
     display: grid;
     grid-gap: 2.5em .5em;
@@ -47,8 +47,12 @@
     padding: .5em;
 }
 
-
 #emailInput, #passInput{
     width: 65%;
     float: right;
+}
+
+#mkButt{
+    display: block;
+    margin: .5em auto;
 }
