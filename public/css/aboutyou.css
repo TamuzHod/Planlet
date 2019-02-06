@@ -9,7 +9,6 @@
         grid-template-columns: repeat(5, 1fr);
         display: grid;
         grid-gap: 2.5em .5em;
-
         justify-content: space-evenly;
     }
 
