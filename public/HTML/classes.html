@@ -13,12 +13,12 @@
         <style>
             /* ========== VARIABLES ========== */
 
-            .classdiv{
+            .classDiv{
                 border: .3em;
                 border-style: solid;
                 border-radius: .5em;
             }
-
+/*
             #lblMajorClasses {
                 grid-row: 2;
                 grid-column: 1 / span 5;
@@ -38,7 +38,22 @@
                 grid-row: 5;
                 grid-column: 1 / span 5;
             } 
+*/
 
+            .className{
+                display: inline-block;
+                width: 76%;
+            }
+
+            .addButt{
+                display: inline-block;
+                width: 10%;
+            }
+
+            .finishedButt{
+                display: inline-block;
+                width: 10%;
+            }
         </style>
     </head>
 
@@ -49,13 +64,26 @@
                 <h6>Select 2-6 classes you would like to take.</h6>
                 <button class="btn" id="settingButt">Back</button> 
             </div>
+        </div>
             <h5 id="lblMajorClasses">Major:</h5>
-            <div class="classdiv" id="majorClasses">
+            <div class="classDiv" id="majorClasses">
+                <h4 class="className">Cogs 120</h4>
+                <button class="addButt">+</button>
+                <button class="finishedButt">-</button>
+                <h4 class="className">Cogs 100</h4>
+                <button class="addButt">+</button>
+                <button class="finishedButt">-</button>
+                <h4 class="className">Cogs 101A</h4>
+                <button class="addButt">+</button>
+                <button class="finishedButt">-</button>
+                <h4 class="className">Cogs 101B</h4>
+                <button class="addButt">+</button>
+                <button class="finishedButt">-</button>
             </div>
             <h5 id="lblMinorClasses">Minor:</h5>
             <div class="classdiv" id="minorClasses">
             </div>
             <button class="btn" id="saveButt">Save</button>  
-        </div>
+
     </body>
             
