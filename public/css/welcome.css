@@ -16,18 +16,39 @@
 }
 
 #contDiv{
-    display: flex;
-    align-items: center;
-    justify-content: center;
     grid-row: 3;
-    grid-column: 2;
+    grid-column: 1 / span 3;
     border: .3em;
     background-color:#c9c9c9;
     border-style: solid;
-    border-radius: 1em;
     margin-bottom: 1.5em;
 }
 
-#contDir{
-    text-align: center;
+#signMenu{
+    display: flex;
+    justify-content: space-around;
+}
+
+#loginMenu, #mkMenu, #fgtPass {
+    margin-bottom: 1.5em;
+}
+
+#mkMenu{
+    background-color: #c9c9c9;
+}
+
+#lblEmail, #lblPassword{
+    padding: .5em;
+    display: inline-block;
+    width: 35%;
+}
+
+#loginInfo{
+    padding: .5em;
+}
+
+
+#emailInput, #passInput{
+    width: 65%;
+    float: right;
 }

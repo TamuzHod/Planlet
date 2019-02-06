@@ -34,6 +34,7 @@
         grid-row: 3;
         height: 4em;
     }
+
     #lblMajor {
         grid-column: 1 /span 2;
         align-content: center;

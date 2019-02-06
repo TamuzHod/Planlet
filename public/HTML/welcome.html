@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+    <!--FIRST TIME YOU OPEN THE APP-->
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>A Little About You</title>
+        <title>Planlet</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/bootstrap-theme.css">
@@ -25,8 +26,21 @@
                 <h1>Planlet</h1>
             </div>
             <div id="contDiv">
-                <h1 id="contDir">Continue →</h1>
+                <div id="signMenu">
+                    <button class="btn" id="loginMenu">Login</button>
+                    <button class="btn" id="mkMenu">Make Account</button>
+                    <button class="btn" id="fgtPass">Forgot Password</button>
+                </div>
+                <div id="loginInfo">
+                    <div class="grid-item" id="lblEmail" >Email</div>
+                    <input id="emailInput" type="text"></input>
+
+                    <div class="grid-item" id="lblPassword" >Password</div>
+                    <input id="passInput" type="text"></input>
+
+                </div>
+                <!--<h1 id="contDir">Get Started →</h1>-->
             </div>
         </div>
     </body>
-            
+</html>
