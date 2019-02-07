@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Planlet - Class Selection</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap css -->
     <link href="/css/bootstrap.css" rel="stylesheet" media="screen">
@@ -27,7 +28,7 @@
             <a class="brand">Planlet</a>
         </header>
 
-        <a href="settings"> <button class="settings"> </button> </a>
+        <a href="/userinfo"> <button class="settings"> </button> </a>
         <a href="location.reload()"> <button class="clear"> </button> </a>
     </div> <!-- //end container --> 
     
@@ -102,8 +103,8 @@
         </div>
 
         <div class="flex-container">
-            <a href="window.history.back()"> <button class="btn" id="backButt">Back</button> </a>
-            <button class="btn" id="genButt">Generate</button> 
+            <button class="btn" id="backButt" onclick="window.history.back()">Back</button>
+            <a href="/availability"> <button class="btn" id="genButt">Generate</button> </a>
         </div>
 
             <script src="https://code.jquery.com/jquery.js"></script>

@@ -1,14 +1,9 @@
 {
-  "name": "IntroHCI",
+  "name": "Planlet",
   "version": "0.0.1",
-  "author": "Intro HCI Staff",
-
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/IntroHCI/lab4"
-  },
-  "license": "MIT",
-
+  "author": "Tamuz+Lauran+Neve",
+  "repository": "https://github.com/TamuzHod/Planlet",
+  "license": "UCSD",
   "private": true,
   "scripts": {
     "start": "node app.js"
@@ -17,9 +12,13 @@
     "express": "3.x",
     "express3-handlebars": "*",
     "mongodb": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "react-schedule-selector": "^1.0.3",
+    "styled-components": "^4.1.3"
   },
   "engines": {
     "node": "8.9.x"
-  }  
+  },
+  "description": "CSE 120 project",
+  "main": "index.js"
 }

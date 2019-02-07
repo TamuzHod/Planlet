@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    
+    <title>Planlet - Availability</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap css -->
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <!-- Theme css -->
+    <link href="css/colorfrog.css" rel="stylesheet" media="screen">   
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="js/respond.min.js"></script>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="js/bootstrap.js"></script> 
+    <script src="js/jquery.fitvids.js"></script>
+    <script src="js/colorfrog.js"></script>
+    <script src="js/schedule.js"></script>
+    <link rel="stylesheet" href="css/schedule_style.css">
+
+
+    <link rel="stylesheet" href="css/planlet.css">
+
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('header');document.createElement('nav');document.createElement('section');document.createElement('article');document.createElement('aside');document.createElement('footer');
+    </script>
+<![endif]-->
+
+</head>
+<body class="bw">
+
+    <div class="container">
+        <header>
+            <a class="brand">Planlet</a>
+        </header>
+
+        <a href="/userinfo"> <button class="settings"> </button> </a>
+        <button class="clear" onclick="location.reload()"> </button> </a>
+    </div> <!-- //end container --> 
+
+    <div class="jumbotron">
+        <div class="container">
+            <h4>Plese Indicate wich times you are unavilble</h5>
+            </div>
+        </div> <!-- //end hero-unit -->
+        <div id="weekly-schedule"></div>
+
+        <div id="day-schedule"></div>
+
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/schedule.js"></script>
+        <script>
+            (function ($) {
+                $("#day-schedule").dayScheduleSelector({
+                    days        : [0, 1, 2, 3, 4],  
+                    startTime   : '07:00',         
+                    endTime     : '20:00',         
+                    interval    : 30,    
+                    stringDays  : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                });
+
+                      })($);
+      </script>
+
+
+
+
+
+</body>
+</html>
