@@ -14,6 +14,7 @@ var classes = require('./routes/classes');
 var forgottenPassword = require('./routes/forgottenPassword');
 var availability = require('./routes/availability');
 var userinfo = require('./routes/userinfo');
+var possibleSchedules = require('./routes/possibleSchedules');
 
 
 var app = express();
@@ -44,6 +45,7 @@ app.get('/forgottenPassword', forgottenPassword.view);
 app.get('/classes/:major', classes.view);
 app.get('/availability', availability.view);
 app.get('/userinfo', userinfo.view);
+app.get('/possibleSchedules', possibleSchedules.view);
 
 
 http.createServer(app).listen(app.get('port'), function(){
