@@ -42,48 +42,31 @@
         <button class="clear" onclick="location.reload()"> </button> </a>
     </div> <!-- //end container --> 
 
-<div class="jumbotron">
+    <div class="jumbotron">
         <div class="container">
             <h4>Plese Indicate wich times you are unavilble</h5>
-        </div>
-    </div> <!-- //end hero-unit -->
-<div id="weekly-schedule"></div>
+            </div>
+        </div> <!-- //end hero-unit -->
+        <div id="weekly-schedule"></div>
 
-  <div id="day-schedule"></div>
+        <div id="day-schedule"></div>
 
-<script src="https://code.jquery.com/jquery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-  <script src="/js/schedule.js"></script>
-  <script>
-    (function ($) {
-      $("#day-schedule").dayScheduleSelector({
-        
-        days: [1, 2, 3, 5],
-        interval: 30
-      
-      });
-      $("#day-schedule").on('selected.artsy.dayScheduleSelector', function (e, selected) {
-        console.log(selected);
-      })
-      $("#day-schedule").data('artsy.dayScheduleSelector').deserialize({
-        '0': [['09:30', '11:00'], ['13:00', '16:30']]
-      });
-    })($);
-  </script>
-<script type="text/javascript">
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/schedule.js"></script>
+        <script>
+            (function ($) {
+                $("#day-schedule").dayScheduleSelector({
+                    days        : [0, 1, 2, 3, 4],  
+                    startTime   : '07:00',         
+                    endTime     : '20:00',         
+                    interval    : 30,    
+                    stringDays  : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                });
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
+                      })($);
+      </script>
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 
 
 
