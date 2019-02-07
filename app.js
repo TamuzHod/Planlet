@@ -9,8 +9,12 @@ var path = require('path');
 var handlebars = require('express3-handlebars')
 
 var index = require('./routes/index');
-// Example route
-// var user = require('./routes/user');
+var alittleaboutyou = require('./routes/alittleaboutyou');
+var classes = require('./routes/classes');
+var forgottenPassword = require('./routes/forgottenPassword');
+var availability = require('./routes/availability');
+var userinfo = require('./routes/userinfo');
+
 
 var app = express();
 
@@ -35,9 +39,14 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', index.view);
-// Example route
-// app.get('/users', user.list);
+app.get('/alittleaboutyou', alittleaboutyou.view);
+app.get('/forgottenPassword', forgottenPassword.view);
+app.get('/classes/:major', classes.view);
+app.get('/availability', availability.view);
+app.get('/userinfo', userinfo.view);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+availability
