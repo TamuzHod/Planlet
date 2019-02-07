@@ -67,5 +67,6 @@ body{
     justify-content: space-between;
 }
 
-
-
+#searchInput{
+    width: 60%;
+}
