@@ -773,11 +773,11 @@ form {
   background-color: #d8f3ff;
   border-top: solid 1px #029fe2; }
 .blue .btn {
-  background-color: #4697ab;
+  background-color: #005580;
   color: #fff; }
   .blue .btn:hover, .blue .btn:focus {
     color: #fff;
-    background-color: #10f2cc; }
+    background-color: #0088cc; }
 .blue .btn.navbar-toggle {
   background-color: #11c2d9;
   color: #fff; }
