@@ -511,7 +511,10 @@ iframe {
 footer {
   padding-top: 20px;
   padding-bottom: 10px;
-  position: relative; 
+  position: fixed; 
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
   background-color: blue;
 }
   footer ul {
