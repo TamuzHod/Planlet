@@ -16,7 +16,7 @@
 	<link href="css/colorfrog.css" rel="stylesheet" media="screen">
 
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet'
-		type='text/css'>
+	type='text/css'>
 	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 	<script src="js/respond.min.js"></script>
 
@@ -31,7 +31,7 @@
 	<script>
 		document.createElement('header');document.createElement('nav');document.createElement('section');document.createElement('article');document.createElement('aside');document.createElement('footer');
 	</script>
-	<![endif]-->
+<![endif]-->
 
 </head>
 
@@ -44,67 +44,105 @@ Use the corresponding body tag for your chosen theme
 <body class="bw">
 -->
 
+<div class="container">
+	<header>
+		<a class="brand">Planlet</a>
+	</header>
+
+	<a href="/userinfo"> <button class="settings"> </button> </a>
+</div> <!-- //end container -->
+
+<div class="jumbotron">
 	<div class="container">
-		<header>
-			<a class="brand">Planlet</a>
-		</header>
+		<h4>Here are all your possible schedules.</h4>
+		<h6>Use the filters to find what works for you.</h6>
+	</div>
+</div> <!-- //end hero-unit -->
 
-		<a href="/userinfo"> <button class="settings"> </button> </a>
-	</div> <!-- //end container -->
-
-	<div class="jumbotron">
-		<div class="container">
-			<h4>Here are all your possible schedules.</h4>
-			<h6>Use the filters to find what works for you.</h6>
-		</div>
-	</div> <!-- //end hero-unit -->
-
-	<div class="container content underHero">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="filters">
-					Showing:
-					<br><a href="#" data-filter="all" class="active-filter">All</a><br><a href="" data-filter="x"># of
-						Classes</a><br><a href="" data-filter="y">Time Preference</a><br><a href=""
-						data-filter="z">Starred</a>
-				</div>
+<div class="container content underHero">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="filters">
+				Showing:
+				<br><a href="#" data-filter="all" class="active-filter">All</a><br><a href="" data-filter="x"># of
+				Classes</a><br><a href="" data-filter="y">Time Preference</a><br><a href=""
+				data-filter="z">Starred</a>
 			</div>
 		</div>
+	</div>
 
-		<div class="filterContent">
+	<div class="filterContent">
 
-			<div class="filter-all">
-
-
-
-			</div> <!-- //end row -->
+		<div class="filter-all">
 
 
 
-		</div> <!-- //end filter-all -->
+		</div> <!-- //end row -->
 
-		<div class="filter-custom">
 
-		</div> <!-- //end filter custom -->
 
-	</div> <!-- //end filter content -->
+	</div> <!-- //end filter-all -->
 
-	</div> <!-- //end container -->
+	<div class="filter-custom">
 
-	<div id="dp"></div>
+	</div> <!-- //end filter custom -->
+
+</div> <!-- //end filter content -->
+</div> <!-- //end container -->
+<div class="container content">
+	<div id="dp"> </div>
 	<script type="text/javascript">
 		var dp = new DayPilot.Calendar("dp");
 		dp.viewType = "Week";
-		dp.init();
-	</script>
 
-	<br>
-	<footer>
-		<div class="container" style="width: 100%; padding: 0px;">
-			<a href="/classes/COGS?"><button class="btn bckBtn">Back</button></a>
-		</div>
-		<!--//end container -->
-	</footer>
+
+
+    // view
+    dp.startDate = "2013-03-25";  // or just dp.startDate = "2013-03-25";
+    dp.viewType = "Week";
+    
+    // event creating
+    dp.onTimeRangeSelected = function (args) {
+        var name = prompt("New event name:", "Event");
+        if (!name) return;
+        var e = new DayPilot.Event({
+            start: args.start,
+            end: args.end,
+            id: DayPilot.guid(),
+            text: name
+        });
+        dp.events.add(e);
+        dp.clearSelection();
+    };
+    
+    dp.onEventClick = function(args) {
+        alert("clicked: " + args.e.id());
+    };
+
+    dp.headerDateFormat = "dddd";
+    dp.init();
+
+    var e = new DayPilot.Event({
+        start: new DayPilot.Date("2013-03-25T12:00:00"),
+        end: new DayPilot.Date("2013-03-25T12:00:00").addHours(3).addMinutes(15),
+        id: "1",
+        text: "Special event"
+    });
+    dp.events.add(e);
+    
+
+		//dp.events.list = {{classes}};
+	</script>
+</div>
+
+
+<br>
+<footer>
+	<div class="container" style="width: 100%; padding: 0px;">
+		<a href="/classes/COGS?"><button class="btn bckBtn">Back</button></a>
+	</div>
+	<!--//end container -->
+</footer>
 
 
 
