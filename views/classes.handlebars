@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Planlet - Class Selection</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap css -->
     <link href="/css/bootstrap.css" rel="stylesheet" media="screen">
     <!-- Theme css -->
-    <link href="/css/colorfrog.css" rel="stylesheet" media="screen">   
+    <link href="/css/colorfrog.css" rel="stylesheet" media="screen">
 
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet'
+        type='text/css'>
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-                <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/respond.min.js"></script>
 
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="/js/bootstrap.js"></script> 
+    <script src="/js/bootstrap.js"></script>
     <script src="/js/jquery.fitvids.js"></script>
     <script src="/js/colorfrog.js"></script>
     <link rel="stylesheet" href="/css/planlet.css">
@@ -32,8 +34,8 @@
 
         <a href="/userinfo"> <button class="settings"> </button> </a>
         <button onclick="location.reload()" class="clear">Clear</button>
-    </div> <!-- //end container --> 
-    
+    </div> <!-- //end container -->
+
     <div class="jumbotron">
         <div class="container">
             <h4>Here are all the class you need that will be offered next quarter.</h5>
@@ -41,74 +43,77 @@
         </div>
     </div> <!-- //end hero-unit -->
 
-        <h5 id="lblMajorClasses">{{majorName}}</h5>
-        <div class="classDiv" id="majorClasses">
-            <h4 class="className">Cogs 120</h4>
-            <button class="addButt">+</button>
-            <button class="finishedButt">-</button>
+    <h5 id="lblMajorClasses">{{majorName}}</h5>
+    <div class="classDiv" id="majorClasses">
+        <h4 class="className">Cogs 120</h4>
+        <button class="addButt">+</button>
+        <button class="finishedButt">-</button>
 
-            <h4 class="className">Cogs 100</h4>
-            <button class="addButt">+</button>
-            <button class="finishedButt">-</button>
+        <h4 class="className">Cogs 100</h4>
+        <button class="addButt">+</button>
+        <button class="finishedButt">-</button>
 
-            <h4 class="className">Cogs 101A</h4>
-            <button class="addButt">+</button>
-            <button class="finishedButt">-</button>
-            
-            <h4 class="className">Cogs 101B</h4>
-            <button class="addButt">+</button>
-            <button class="finishedButt">-</button>
-        </div>
+        <h4 class="className">Cogs 101A</h4>
+        <button class="addButt">+</button>
+        <button class="finishedButt">-</button>
 
-        <h5 id="lblMinorClasses">Minor:</h5>
-        <div class="classDiv" id="minorClasses">
-            <h4 class="className">CSE 15L</h4>
-            <button class="addButt">+</button>
-            <button class="finishedButt">-</button>
+        <h4 class="className">Cogs 101B</h4>
+        <button class="addButt">+</button>
+        <button class="finishedButt">-</button>
+    </div>
 
-            <h4 class="className">CSE 30</h4>
-            <button class="addButt">+</button>
-            <button class="finishedButt">-</button>
+    <h5 id="lblMinorClasses">Minor:</h5>
+    <div class="classDiv" id="minorClasses">
+        <h4 class="className">CSE 15L</h4>
+        <button class="addButt">+</button>
+        <button class="finishedButt">-</button>
 
-            <h4 class="className">CSE 20</h4>
-            <button class="addButt">+</button>
-            <button class="finishedButt">-</button>
-            
-            <h4 class="className">CSE 100</h4>
-            <button class="addButt">+</button>
-            <button class="finishedButt">-</button>
-        </div> 
+        <h4 class="className">CSE 30</h4>
+        <button class="addButt">+</button>
+        <button class="finishedButt">-</button>
 
-        <h5 id="lblGEClasses">General Education:</h5>
-        <div class="classDiv" id="geClasses">
-            <h4 class="className">WCWP 10A</h4>
-            <button class="addButt">+</button>
-            <button class="finishedButt">-</button>
+        <h4 class="className">CSE 20</h4>
+        <button class="addButt">+</button>
+        <button class="finishedButt">-</button>
 
-            <h4 class="className">WCWP 10B</h4>
-            <button class="addButt">+</button>
-            <button class="finishedButt">-</button>
+        <h4 class="className">CSE 100</h4>
+        <button class="addButt">+</button>
+        <button class="finishedButt">-</button>
+    </div>
 
-            <h4 class="className">PHIL 27</h4>
-            <button class="addButt">+</button>
-            <button class="finishedButt">-</button>
-            
-            <h4 class="className">POLI 27</h4>
-            <button class="addButt">+</button>
-            <button class="finishedButt">-</button>
-        </div>
+    <h5 id="lblGEClasses">General Education:</h5>
+    <div class="classDiv" id="geClasses">
+        <h4 class="className">WCWP 10A</h4>
+        <button class="addButt">+</button>
+        <button class="finishedButt">-</button>
 
-        <h5 id="lblOthClasses">Other Classes:</h5>
-        <div class="classDiv" id="geClasses">
-            <input id="searchInput" type="search"></input>
-            <button id="classSearch" type="btn">Search</button>
-        </div>
+        <h4 class="className">WCWP 10B</h4>
+        <button class="addButt">+</button>
+        <button class="finishedButt">-</button>
 
-        <div class="flex-container">
-            <a href="/availability"> <button class="btn" id="backButt">Back</button></a>
-            <a href="/possibleSchedules"> <button class="btn" id="genButt">Generate</button> </a>
-        </div>
+        <h4 class="className">PHIL 27</h4>
+        <button class="addButt">+</button>
+        <button class="finishedButt">-</button>
+
+        <h4 class="className">POLI 27</h4>
+        <button class="addButt">+</button>
+        <button class="finishedButt">-</button>
+    </div>
+
+    <h5 id="lblOthClasses">Other Classes:</h5>
+    <div class="classDiv" id="geClasses">
+        <input id="searchInput" type="search"></input>
+        <button id="classSearch" type="btn">Search</button>
+    </div>
 
 
-    </body>
-    </html>
+
+    <div class="flex-container">
+        <a href="/availability"> <button class="btn backBtn" id="backButt">Back</button></a>
+        <a href="/possibleSchedules"> <button class="btn nxtBtn" id="genButt">Generate</button> </a>
+    </div>
+
+
+</body>
+
+</html>

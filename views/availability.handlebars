@@ -49,34 +49,41 @@
     <div class="jumbotron">
         <div class="container">
             <h4>Please indicate which times you are unavailable.</h5>
-            </div>
-        </div> <!-- //end hero-unit -->
-        <div id="weekly-schedule"></div>
-
-        <div id="day-schedule"></div>
-
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
-        <script src="/js/schedule.js"></script>
-        <script>
-            (function ($) {
-                $("#day-schedule").dayScheduleSelector({
-                    days        : [0, 1, 2, 3, 4],  
-                    startTime   : '07:00',         
-                    endTime     : '20:00',         
-                    interval    : 30,    
-                    stringDays  : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-                });
-
-                      })($);
-        </script>
-
-        <div class="form-group clearfix">
-             <a href="/alittleaboutyou"><button class="btn" type="submit">Back</button></a>
-            <a href="/classes/COGS"><button class="btn" type="submit">Next</button></a>
         </div>
+    </div> <!-- //end hero-unit -->
+    <div id="weekly-schedule"></div>
 
+    <div id="day-schedule"></div>
 
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/schedule.js"></script>
+    <script>
+        (function ($) {
+            $("#day-schedule").dayScheduleSelector({
+                days        : [0, 1, 2, 3, 4],  
+                startTime   : '07:00',         
+                endTime     : '20:00',         
+                interval    : 30,    
+                stringDays  : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+            });
+
+                    })($);
+    </script>
+
+    <footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+                    <div class="form-group clearfix">
+                        <a href="/alittleaboutyou"><button class="btn bckBtn" type="submit">Back</button></a>
+                        <a href="/classes/COGS"><button class="btn nxtBtn" type="submit">Next</button></a>
+                    </div>
+					<p>Copyright &copy; 2015 Colorfrog. All rights reserved. <a href="">Terms</a> &amp; <a href="">Privacy</a>.</p>		
+				</div>
+			</div>
+		</div>   <!--//end container -->   
+	</footer>
 
 </body>
 </html>
