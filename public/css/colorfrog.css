@@ -941,8 +941,10 @@ form {
   background-color: #ededed;
   border-top: solid 1px #0d0d0d; }
 .bw .btn {
-  background-color: #005580;
-  color: #fff; }
+  /*background-color: #005580;
+  color: #fff; }*/
+  background-color: #000000;
+  color: #FFF; }
   .bw .btn:hover, .bw .btn:focus {
     color: #fff;
     background-color: #0088cc; }
