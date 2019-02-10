@@ -13,6 +13,17 @@ body{
     align-content: center;
 }
 
+.bckBtn{
+	float: left;
+}
+
+.nxtBtn{
+	float: right;
+}
+
+
+
+
 //vars
 
 @blue: #626E7E;
