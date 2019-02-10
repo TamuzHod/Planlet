@@ -773,11 +773,11 @@ form {
   background-color: #d8f3ff;
   border-top: solid 1px #029fe2; }
 .blue .btn {
-  background-color: #8a46ab;
+  background-color: #4697ab;
   color: #fff; }
   .blue .btn:hover, .blue .btn:focus {
     color: #fff;
-    background-color: #bf10f2; }
+    background-color: #10f2cc; }
 .blue .btn.navbar-toggle {
   background-color: #11c2d9;
   color: #fff; }
@@ -944,10 +944,8 @@ form {
   background-color: #ededed;
   border-top: solid 1px #0d0d0d; }
 .bw .btn {
-  /*background-color: #005580;
-  color: #fff; }*/
-  background-color: #000000;
-  color: #FFF; }
+  background-color: #005580;
+  color: #fff; }
   .bw .btn:hover, .bw .btn:focus {
     color: #fff;
     background-color: #0088cc; }
