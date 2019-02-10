@@ -681,7 +681,7 @@ form {
   height: 30px;
   width: 30px;
   float: right;
-  background: url(../img/trash.png) 0 0 no-repeat; } 
+} 
 .blue a {
   color: #029fe2; }
 .blue .nav-tabs .open .dropdown-toggle,
@@ -860,8 +860,7 @@ form {
 .bw .clear {
   height: 30px;
   width: 30px;
-  float: right;
-  background: url(../img/trash.png) 0 0 no-repeat; } 
+  float: right; } 
 .bw h1 {
   text-shadow: 3px 0 3px rgba(255, 255, 255, 0.3), 2px 0 2px rgba(255, 255, 255, 0.3), 1px 0 1px rgba(255, 255, 255, 0.3); }
 .bw .nav-tabs .open .dropdown-toggle,
