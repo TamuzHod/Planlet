@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
-    
+
     <title>Planlet - Availability</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap css -->
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <!-- Theme css -->
-    <link href="css/colorfrog.css" rel="stylesheet" media="screen">   
+    <link href="css/colorfrog.css" rel="stylesheet" media="screen">
 
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet'
+        type='text/css'>
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -19,7 +21,7 @@
     <script src="js/respond.min.js"></script>
 
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="js/bootstrap.js"></script> 
+    <script src="js/bootstrap.js"></script>
     <script src="js/jquery.fitvids.js"></script>
     <script src="js/colorfrog.js"></script>
     <script src="js/schedule.js"></script>
@@ -35,7 +37,8 @@
 <![endif]-->
 
 </head>
-<body class="bw">
+
+<body class="blue">
 
     <div class="container">
         <header>
@@ -43,8 +46,8 @@
         </header>
 
         <a href="/userinfo"> <button class="settings"> </button> </a>
-        <button class="clear" onclick="location.reload()">Clear</button> </a>
-    </div> <!-- //end container --> 
+        <button class="clear" onclick="location.reload()">Clear</button>
+    </div> <!-- //end container -->
 
     <div class="jumbotron">
         <div class="container">
@@ -72,11 +75,44 @@
         </script>
 
         <div class="form-group clearfix">
-             <a href="/alittleaboutyou"><button class="btn" type="submit">Back</button></a>
+             <a href="/alitileaboutyou"><button class="btn" type="submit">Back</button></a>
             <a href="/classes/COGS"><button class="btn" type="submit">Next</button></a>
         </div>
+    </div> <!-- //end hero-unit -->
+    <div id="weekly-schedule"></div>
 
+    <div id="day-schedule"></div>
 
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/schedule.js"></script>
+    <script>
+        (function ($) {
+            $("#day-schedule").dayScheduleSelector({
+                days: [0, 1, 2, 3, 4],
+                startTime: '07:00',
+                endTime: '20:00',
+                interval: 30,
+                stringDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+            });
+
+        })($);
+    </script>
+
+    <footer>
+        <div class="container" >
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group clearfix">
+                        <a href="/alittleaboutyou"><button class="btn bckBtn" type="submit">Back</button></a>
+                        <a href="/classes/COGS"><button class="btn nxtBtn" type="submit">Next</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--//end container -->
+    </footer>
 
 </body>
+
 </html>
