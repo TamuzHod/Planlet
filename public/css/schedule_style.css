@@ -4,9 +4,9 @@
   height: 30px;
   margin: 3px;
   padding: 5px;
-  /*background-color: #3498DB;*/
-  background-color: #cfd0d6;
+  background-color: #3498DB;
   cursor: pointer;
+  border-style: solid;
 }
 
 .schedule-rows td:first-child {
@@ -14,8 +14,14 @@
   text-align: right;
   position: relative;
   top: -12px;
+  border-style: hidden;
+}
+
+}
+th {
+    font-weight: bold;
 }
 
 .schedule-rows td[data-selected],
-.schedule-rows td[data-selecting] { background-color: #000000/*#E74C3C*/; }
+.schedule-rows td[data-selecting] { background-color: #E74C3C; }
 .schedule-rows td[data-disabled] { opacity: 0.55; }
