@@ -14,10 +14,16 @@ body{
 }
 
 .bckBtn{
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
 	float: left;
 }
 
 .nxtBtn{
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
 	float: right;
 }
 
