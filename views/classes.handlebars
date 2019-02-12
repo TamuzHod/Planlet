@@ -43,9 +43,9 @@
         </div>
     </div> <!-- //end hero-unit -->
 
-    <h5 id="lblMajorClasses">{{majorName}}</h5>
+    <h5 id="lblMajorClasses">{{[1].majorName}}</h5>
     <div class="classDiv" id="majorClasses">
-        {{#each COGS}}
+        {{#each [0].majorClasses}}
         <h4 class="className">{{text}}</h4>
         <button class="addButt">+</button>
         <button class="finishedButt">-</button>
@@ -54,7 +54,7 @@
 
     <h5 id="lblMinorClasses">Minor:</h5>
     <div class="classDiv" id="minorClasses">
-        {{#each minorClasses}}
+        {{#each [0].minorClasses}}
         <h4 class="className">{{text}}</h4>
         <button class="addButt">+</button>
         <button class="finishedButt">-</button>
@@ -63,7 +63,7 @@
 
     <h5 id="lblGEClasses">General Education:</h5>
     <div class="classDiv" id="geClasses">
-        {{#each genEdClasses}}
+        {{#each [0].genEdClasses}}
         <h4 class="className">{{text}}</h4>
         <button class="addButt">+</button>
         <button class="finishedButt">-</button>
