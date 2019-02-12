@@ -31,6 +31,13 @@ body{
 	height: 36px;
 }
 
+.big-checkbox{
+	width: 30px; 
+	height: 30px; 
+	display: inline-block; 
+	float: right;
+}
+
 
 
 //vars
