@@ -685,6 +685,7 @@ form {
 .blue .clear {
   height: 30px;
   float: right;
+  margin-right: 20px;
 } 
 .blue a {
   color: #029fe2; }
