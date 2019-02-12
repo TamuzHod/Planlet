@@ -36,24 +36,24 @@
 
     <div class="jumbotron">
         <div class="container">
-            <h4>Here are all the class you need that will be offered next quarter.</h5>
+            <h4>Here are the classes you need that will be offered next quarter.</h5>
                 <h6>Select 2-6 classes you would like to take.</h6>
                     <button class="btn btn-small clear" style="font-size: 10px;" onclick="location.reload()">Clear Info</button>
         </div>
-    </div> <!-- //end hero-unit -->
+    </div> <!-- //end hero-unit --> 
 
-    <h5 id="lblMajorClasses">{{[1].majorName}}</h5>
+    <h5 id="lblMajorClasses">{{majorName}}</h5>
     <div class="classDiv" id="majorClasses">
-        {{#each [0].majorClasses}}
+        {{#each COGS}}
         <h4 class="className">{{text}}</h4>
         <button class="addButt">+</button>
         <button class="finishedButt">-</button>
         {{/each}}
-    </div>
+    </div> 
 
     <h5 id="lblMinorClasses">Minor:</h5>
     <div class="classDiv" id="minorClasses">
-        {{#each [0].minorClasses}}
+        {{#each minorClasses}}
         <h4 class="className">{{text}}</h4>
         <button class="addButt">+</button>
         <button class="finishedButt">-</button>
@@ -62,7 +62,7 @@
 
     <h5 id="lblGEClasses">General Education:</h5>
     <div class="classDiv" id="geClasses">
-        {{#each [0].genEdClasses}}
+        {{#each genEdClasses}}
         <h4 class="className">{{text}}</h4>
         <button class="addButt">+</button>
         <button class="finishedButt">-</button>
