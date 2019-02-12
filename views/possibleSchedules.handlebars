@@ -137,18 +137,47 @@ Use the corresponding body tag for your chosen theme
     dp.headerDateFormat = "dddd";
     dp.init();
     var data = JSON.parse(JSON.stringify("{{classes}}"));
-	$.each(data, function(index, element) {
+    var event0 = data[0];
+    var event1 = data[1];
+    var event2 = data[2];
+
+    var e = new DayPilot.Event({
+		start: new DayPilot.Date(event0.start),
+		end: new DayPilot.Date(event0.end),
+		id: event0.id,
+		text: event0.text
+  	});
+	dp.events.add(e);
+
+	    var e = new DayPilot.Event({
+		start: new DayPilot.Date(event1.start),
+		end: new DayPilot.Date(event1.end),
+		id: event1.id,
+		text: event1.text
+  	});
+	dp.events.add(e);
+
+	    var e = new DayPilot.Event({
+		start: new DayPilot.Date(event2.start),
+		end: new DayPilot.Date(event2.end),
+		id: event2.id,
+		text: event2.text
+  	});
+	dp.events.add(e);
+
+
+	/*$.each(data, function(index, element) {
 		   var e = new DayPilot.Event({
     		start: new DayPilot.Date(element.start),
     		end: new DayPilot.Date(element.end),
     		id: element.id,
     		text: elelemnt.text
       	});
-    	p.events.add(e);
-	});
+    	dp.events.add(e);
+	});*/
 
 
-	dp.events.list = data;
+	//dp.events.list = data;
 	dp.update();
 	</script>
 </div>
