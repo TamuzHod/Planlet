@@ -26,6 +26,8 @@
 	<script src="js/colorfrog.js"></script>
 	<script src="js/daypilot-all.min.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="css/planlet.css">
+	<link type="text/css" rel="stylesheet" href="css/calendar_green.css" /> 
+	
 
 	<!--[if lt IE 9]>
 	<script>
@@ -64,9 +66,22 @@ Use the corresponding body tag for your chosen theme
 		<div class="col-sm-12">
 			<div class="filters">
 				Showing:
-				<br><a href="#" data-filter="all" class="active-filter">All</a><br><a href="" data-filter="x"># of
-				Classes</a><br><a href="" data-filter="y">Time Preference</a><br><a href=""
-				data-filter="z">Starred</a>
+				<br><a href="#" data-filter="all" class="active-filter">All</a><br><a href="" data-filter="x">
+					<select>
+						<option value="">No class# preference</option>
+						<option value="1">1 classes</option>
+						<option value="2">2 classes</option>
+						<option value="3" selected>3 classes</option>
+						<option value="4">4 classes</option>
+						<option value="5">5 classes</option>
+					</select> </a> 
+					<br><a href="" data-filter="y">
+					<select>
+						<option selected>No Time Preference</option>
+						<option value="morn">Morning</option>
+						<option value="aft">Afternoon</option>
+					</select></a><br>
+					<a href=""	data-filter="z">Starred</a>
 			</div>
 		</div>
 	</div>
@@ -95,7 +110,7 @@ Use the corresponding body tag for your chosen theme
 		var dp = new DayPilot.Calendar("dp");
 		dp.viewType = "Week";
 
-
+	dp.theme = "calendar_green";
 
     // view
     dp.startDate = "2013-03-25";  // or just dp.startDate = "2013-03-25";

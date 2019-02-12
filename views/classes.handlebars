@@ -43,61 +43,31 @@
         </div>
     </div> <!-- //end hero-unit -->
 
-    <h5 id="lblMajorClasses">{{majorName}}</h5>
+    <h5 id="lblMajorClasses">{{[1].majorName}}</h5>
     <div class="classDiv" id="majorClasses">
-        <h4 class="className">Cogs 120</h4>
+        {{#each [0].majorClasses}}
+        <h4 class="className">{{text}}</h4>
         <button class="addButt">+</button>
         <button class="finishedButt">-</button>
-
-        <h4 class="className">Cogs 100</h4>
-        <button class="addButt">+</button>
-        <button class="finishedButt">-</button>
-
-        <h4 class="className">Cogs 101A</h4>
-        <button class="addButt">+</button>
-        <button class="finishedButt">-</button>
-
-        <h4 class="className">Cogs 101B</h4>
-        <button class="addButt">+</button>
-        <button class="finishedButt">-</button>
+        {{/each}}
     </div>
 
     <h5 id="lblMinorClasses">Minor:</h5>
     <div class="classDiv" id="minorClasses">
-        <h4 class="className">CSE 15L</h4>
+        {{#each [0].minorClasses}}
+        <h4 class="className">{{text}}</h4>
         <button class="addButt">+</button>
         <button class="finishedButt">-</button>
-
-        <h4 class="className">CSE 30</h4>
-        <button class="addButt">+</button>
-        <button class="finishedButt">-</button>
-
-        <h4 class="className">CSE 20</h4>
-        <button class="addButt">+</button>
-        <button class="finishedButt">-</button>
-
-        <h4 class="className">CSE 100</h4>
-        <button class="addButt">+</button>
-        <button class="finishedButt">-</button>
+        {{/each}}
     </div>
 
     <h5 id="lblGEClasses">General Education:</h5>
     <div class="classDiv" id="geClasses">
-        <h4 class="className">WCWP 10A</h4>
+        {{#each [0].genEdClasses}}
+        <h4 class="className">{{text}}</h4>
         <button class="addButt">+</button>
         <button class="finishedButt">-</button>
-
-        <h4 class="className">WCWP 10B</h4>
-        <button class="addButt">+</button>
-        <button class="finishedButt">-</button>
-
-        <h4 class="className">PHIL 27</h4>
-        <button class="addButt">+</button>
-        <button class="finishedButt">-</button>
-
-        <h4 class="className">POLI 27</h4>
-        <button class="addButt">+</button>
-        <button class="finishedButt">-</button>
+        {{/each}}
     </div>
 
     <h5 id="lblOthClasses">Other Classes:</h5>
