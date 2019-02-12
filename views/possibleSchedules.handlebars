@@ -103,35 +103,38 @@ Use the corresponding body tag for your chosen theme
     
     // event creating
     dp.onTimeRangeSelected = function (args) {
-        var name = prompt("New event name:", "Event");
-        if (!name) return;
-        var e = new DayPilot.Event({
-            start: args.start,
-            end: args.end,
-            id: DayPilot.guid(),
-            text: name
-        });
-        dp.events.add(e);
-        dp.clearSelection();
+    	var name = prompt("New event name:", "Event");
+    	if (!name) return;
+    	var e = new DayPilot.Event({
+    		start: args.start,
+    		end: args.end,
+    		id: DayPilot.guid(),
+    		text: name
+    	});
+    	dp.events.add(e);
+    	dp.clearSelection();
     };
     
     dp.onEventClick = function(args) {
-        alert("clicked: " + args.e.id());
+    	alert("clicked: " + args.e.id());
     };
 
     dp.headerDateFormat = "dddd";
     dp.init();
+    var data = JSON.parse(JSON.stringify("{{classes}}"));
+	$.each(data, function(index, element) {
+		   var e = new DayPilot.Event({
+    		start: new DayPilot.Date(element.start),
+    		end: new DayPilot.Date(element.end),
+    		id: element.id,
+    		text: elelemnt.text
+      	});
+    	p.events.add(e);
+	});
 
-    var e = new DayPilot.Event({
-        start: new DayPilot.Date("2013-03-25T12:00:00"),
-        end: new DayPilot.Date("2013-03-25T12:00:00").addHours(3).addMinutes(15),
-        id: "1",
-        text: "Special event"
-    });
-    dp.events.add(e);
-    
 
-		//dp.events.list = {{classes}};
+	dp.events.list = data;
+	dp.update();
 	</script>
 </div>
 
