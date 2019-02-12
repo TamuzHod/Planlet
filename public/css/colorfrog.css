@@ -515,7 +515,7 @@ footer {
   bottom: 0px;
   width: 100%;
   margin-top: 30px;
-  background-color: blue;
+  background-color: #005580
 }
   footer ul {
     list-style-type: none;
@@ -773,7 +773,7 @@ form {
   background-color: #d8f3ff;
   border-top: solid 1px #029fe2; }
 .blue .btn {
-  background-color: #005580;
+  background-color: #029fe2;;
   color: #fff; }
   .blue .btn:hover, .blue .btn:focus {
     color: #fff;
