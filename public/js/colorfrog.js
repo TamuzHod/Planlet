@@ -88,3 +88,12 @@ $(document).on('click', '.filters a', function(e){
 	
 	e.preventDefault();
 });
+
+function clearClick(e) {
+    var result = confirm("Are you sure you want to clear this page? You will lose all the information you have entered.");
+    if (result) {
+        location.reload();
+    }
+
+}
+
