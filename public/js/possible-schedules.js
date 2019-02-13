@@ -29,7 +29,7 @@ dp.days = 5;
 dp.theme = "calendar_green";
 
 // view
-dp.startDate = "2018-02-25";  // or just dp.startDate = "2013-03-25";
+dp.startDate = "2018-02-26";  // or just dp.startDate = "2013-03-25";
 
 dp.headerDateFormat = "dddd";
 dp.init();
