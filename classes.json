@@ -3,12 +3,16 @@
     {
       "id": "1",
       "text": "COGS 100",
+      "title": "Cyborgs Now and In the Future",
+      "units": "4",
       "start": "2018-02-25T10:30:00",
       "end": "2018-02-25T16:30:00"
     },
     {
       "id": "2",
       "text": "COGS 120",
+      "title": "Interaction Design",
+      "units": "5",
       "start": "2018-02-24T09:00:00",
       "end": "2018-02-24T14:30:00"
     }
@@ -16,19 +20,25 @@
   "minorClasses": [
     {
       "id": "4",
-      "text": "CS NEEDS TO CHANGE",
+      "text": "CSE 12",
+      "title": "Basic Data Structures and Object-Oriented Design",
+      "units": "4",
       "start": "2018-02-25T10:30:00",
       "end": "2018-02-25T16:30:00"
     },
     {
       "id": "5",
-      "text": "CS CHANGE",
+      "text": "CSE 20",
+      "title": "Discrete Mathematics",
+      "units": "4",
       "start": "2018-02-24T09:00:00",
       "end": "2018-02-24T14:30:00"
     },
     {
       "id": "6",
-      "text": "CS CHANGE",
+      "text": "CSE 86",
+      "title": "C++ for Java Programmers",
+      "units": "2",
       "start": "2018-02-27T12:00:00",
       "end": "2018-02-27T16:00:00"
     }
@@ -36,19 +46,33 @@
   "genEdClasses": [
     {
       "id": "7",
-      "text": "WCWP 10A Change",
+      "text": "WCWP 10A",
+      "title": "The Writing Course A",
+      "units": "4",
       "start": "2018-02-25T10:30:00",
       "end": "2018-02-25T16:30:00"
     },
     {
       "id": "8",
-      "text": "WCWP 10B Change",
+      "text": "WCWP 10B",
+      "title": "The Writing Course B",
+      "units": "4",
       "start": "2018-02-24T09:00:00",
       "end": "2018-02-24T14:30:00"
     },
     {
       "id": "9",
-      "text": "Phil 27 Change",
+      "text": "Phil 27",
+      "title": "Ethics and Society I",
+      "units": "4",
+      "start": "2018-02-27T12:00:00",
+      "end": "2018-02-27T16:00:00"
+    },
+    {
+      "id": "10",
+      "text": "Phil 28",
+      "title": "Ethics and Society II",
+      "units": "4",
       "start": "2018-02-27T12:00:00",
       "end": "2018-02-27T16:00:00"
     }
