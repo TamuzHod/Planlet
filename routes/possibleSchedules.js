@@ -1,7 +1,12 @@
-var data = require('../schedule-data.json');
+'use strict';
+
+const fs = require('fs');
+
+var rawdata = fs.readFileSync('schedule-data.json');  
+var classes = JSON.parse(rawdata);  
 
 exports.view = function(req, res){
-    res.render('possibleSchedules', data);
+    res.render('possibleSchedules', classes);
  };
 
 

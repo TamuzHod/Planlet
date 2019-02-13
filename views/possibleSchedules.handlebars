@@ -27,7 +27,7 @@
 	<script src="js/daypilot-all.min.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="css/planlet.css">
 	<link type="text/css" rel="stylesheet" href="css/calendar_green.css" /> 
-	
+
 
 	<!--[if lt IE 9]>
 	<script>
@@ -104,82 +104,14 @@ Use the corresponding body tag for your chosen theme
 
 </div> <!-- //end filter content -->
 </div> <!-- //end container -->
+{{#each classes}}
+        <h4 class="className">{{text}}</h4>
+        <button class="addButt">+</button>
+        <button class="finishedButt">-</button>
+  {{/each}}
 <div class="container content">
 	<div id="dp"> </div>
-	<script type="text/javascript">
-		var dp = new DayPilot.Calendar("dp");
-		dp.viewType = "Week";
-
-	dp.theme = "calendar_green";
-
-    // view
-    dp.startDate = "2013-03-25";  // or just dp.startDate = "2013-03-25";
-    dp.viewType = "Week";
-    
-    // event creating
-    dp.onTimeRangeSelected = function (args) {
-    	var name = prompt("New event name:", "Event");
-    	if (!name) return;
-    	var e = new DayPilot.Event({
-    		start: args.start,
-    		end: args.end,
-    		id: DayPilot.guid(),
-    		text: name
-    	});
-    	dp.events.add(e);
-    	dp.clearSelection();
-    };
-    
-    dp.onEventClick = function(args) {
-    	alert("clicked: " + args.e.id());
-    };
-
-    dp.headerDateFormat = "dddd";
-    dp.init();
-    var data = JSON.parse(JSON.stringify("{{classes}}"));
-    var event0 = data[0];
-    var event1 = data[1];
-    var event2 = data[2];
-
-    var e = new DayPilot.Event({
-		start: new DayPilot.Date(event0.start),
-		end: new DayPilot.Date(event0.end),
-		id: event0.id,
-		text: event0.text
-  	});
-	dp.events.add(e);
-
-	    var e = new DayPilot.Event({
-		start: new DayPilot.Date(event1.start),
-		end: new DayPilot.Date(event1.end),
-		id: event1.id,
-		text: event1.text
-  	});
-	dp.events.add(e);
-
-	    var e = new DayPilot.Event({
-		start: new DayPilot.Date(event2.start),
-		end: new DayPilot.Date(event2.end),
-		id: event2.id,
-		text: event2.text
-  	});
-	dp.events.add(e);
-
-
-	/*$.each(data, function(index, element) {
-		   var e = new DayPilot.Event({
-    		start: new DayPilot.Date(element.start),
-    		end: new DayPilot.Date(element.end),
-    		id: element.id,
-    		text: elelemnt.text
-      	});
-    	dp.events.add(e);
-	});*/
-
-
-	//dp.events.list = data;
-	dp.update();
-	</script>
+	<script src="js/possible-schedules.js" type="text/javascript"></script>
 </div>
 
 
