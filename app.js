@@ -43,7 +43,7 @@ if ('development' == app.get('env')) {
 app.get('/', index.view);
 app.get('/alittleaboutyou', alittleaboutyou.view);
 app.get('/forgottenPassword', forgottenPassword.view);
-app.get('/classes/:major', classes.view);
+app.get('/classes/:major/:minor/:college', classes.view);
 app.get('/availability', availability.view);
 app.get('/userinfo', userinfo.view);
 app.get('/possibleSchedules', possibleSchedules.view);
