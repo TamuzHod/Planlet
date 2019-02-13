@@ -42,19 +42,13 @@
 
 <body class="blue">
 
-    <div class="container">
-        <header>
-            <a class="brand">Planlet</a>
-        </header>
-
-        <a href="/userinfo"> <button class="settings"> </button> </a>
+    <div class="container" style="padding: 0px;">
+         <a href="/userinfo"> <button  class="settings"> </button> </a>
     </div> <!-- //end container -->
 
     <div class="jumbotron">
         <div class="container">
-            <h4>Please indicate which times you are unavailable.</h5>
-            <button class="btn btn-small clear" style="font-size: 10px;" onclick="clearClick()">Clear
-                    Info</button>
+            <h5>Select which times you will be unavailable.</h5>
         </div>
     </div> <!-- //end hero-unit -->
 
@@ -78,10 +72,14 @@
 
         })($);
     </script>
-
+    <br><br><br>
+    <div style="display: flex; align-content:center;">
+    <button class="btn btn-small clear"  onclick="clearClick()">Clear Info</button></div>
+    <br>
     <hr>
     <hr>
     <footer>
+        <div class="footerdiv"></div>
         <div class="container" style="width: 100%; padding: 0px;">
             <a href="/alittleaboutyou"><button class="btn bckBtn" type="submit">Back</button></a>
             <a href="/classes/COGS/CSE/Warren"><button class="btn nxtBtn" type="submit">Next</button></a>
