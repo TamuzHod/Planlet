@@ -1,0 +1,20 @@
+{
+	"users": [
+		{
+			"name" : "Tamuz Hod",
+			"email" : "thod@ucsd.edu"
+			"password" : "192837465",
+			"major" : "COGS",
+			"minor" : "CSE",
+			"college" : "warren",
+			"classesTaken" : [],
+			"classesApproved" : []
+		}
+
+
+
+
+	]
+
+
+}
