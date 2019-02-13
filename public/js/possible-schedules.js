@@ -1,33 +1,36 @@
 
+
+$.getJSON('/scheduleJson', { get_param: 'classes' }, function(data) {
+    //dp.events.list = data;
+    var id;
+    var text;
+    $.each(data.classes, function(index, course) {
+        id = course.id;
+        text = course.text;
+        $.each(course.times, function(index, time) {
+            var e = new DayPilot.Event({
+                start: time.start,
+                end: time.end,
+                id: id,
+                text: text
+            });
+            dp.events.add(e);
+        });
+    });
+    dp.update();
+});
+
+
 var dp = new DayPilot.Calendar("dp");
-dp.viewType = "Week";
+dp.viewType = "Days";
+dp.days = 5;
+
 
 dp.theme = "calendar_green";
 
 // view
 dp.startDate = "2018-02-25";  // or just dp.startDate = "2013-03-25";
-dp.viewType = "Week";
-
-// event creating
-dp.onTimeRangeSelected = function (args) {
-	var name = prompt("New event name:", "Event");
-	if (!name) return;
-	var e = new DayPilot.Event({
-		start: args.start,
-		end: args.end,
-		id: DayPilot.guid(),
-		text: name
-	});
-	dp.events.add(e);
-	dp.clearSelection();
-};
-alert({{classes}})
-dp.onEventClick = function(args) {
-	alert("clicked: " + args.e.id());
-};
 
 dp.headerDateFormat = "dddd";
 dp.init();
 
-//dp.events.list = data;
-dp.update();

@@ -15,6 +15,7 @@ var forgottenPassword = require('./routes/forgottenPassword');
 var availability = require('./routes/availability');
 var userinfo = require('./routes/userinfo');
 var possibleSchedules = require('./routes/possibleSchedules');
+//var possibleSchedulesJSON = require('./routes/scheduleJson');
 
 
 var app = express();
@@ -46,7 +47,11 @@ app.get('/classes/:major', classes.view);
 app.get('/availability', availability.view);
 app.get('/userinfo', userinfo.view);
 app.get('/possibleSchedules', possibleSchedules.view);
-
+//app.get('/scheduleJson', possibleSchedulesJSON.json);
+var jsonSchdeuleData = require('./schedule-data.json');
+app.get('/scheduleJson', (req, res) => {
+  res.json(jsonSchdeuleData);
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
