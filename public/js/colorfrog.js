@@ -97,3 +97,18 @@ function clearClick(e) {
 
 }
 
+function aboutYouNext(e){
+	var major = $("#selMajor :selected").text();
+	var college =  $("#selCollege :selected").text();
+	if(major == 'Select a Major'){
+		confirm("Please select a major");
+		$('#selMajor').css('border-color', 'red');
+	}
+	else if(college == 'Select a College'){
+		confirm("Please select a College");
+		$('#selCollege').css('border-color', 'red');
+	}
+	else {
+		document.location.href = '/availability';
+	}
+}

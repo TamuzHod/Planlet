@@ -39,27 +39,25 @@
 
                 <form class="form-signin clearfix" action='availability'>
                     <h2>A Little About You:</h2>
-                    <div class="form-group-sm">Major(s)</div>
+                    <div class="form-group-sm">Major(s)    <span style=" font-size: 20px; color: red">*</span></div>
                     <select class="form-group-lg form-control" id="selMajor" required>
-                        <option  disabled selected style="display: none;">Select a major</option>
+                        <option   selected style="display: none;">Select a Major</option>
                         <option>Cogs: Design & Interaction</option>
                         <option>Linguistics: General Linguistics</option>
                     </select>
                     <br>
                     <div class="form-group-sm">Minor(s)</div>
                     <select class="form-group-lg form-control" id="selMinor">
-                        <option value="" disabled selected style="display: none;">Select a Minor</option>
-                        <option>No Minor</option>
+                        <option value="" selected>No Minor</option>
                         <option>Computer Science</option>
                     </select>
                     <br>
-                    <div class="form-group-sm">College(s)</div>
-                    <select class="form-group-lg form-control" id="selMajor" required>
-                        <option value="" disabled selected style="display: none;">Select a College</option>
+                    <div class="form-group-sm">College(s) <span style=" font-size: 20px; color: red">*</span></div>
+                    <select class="form-group-lg form-control" id="selCollege" required>
+                        <option value=""  selected style="display: none;">Select a College</option>
                         <option>Warren</option>
                         <option>Revelle</option>
                     </select>
-
                 </form>
 
 
@@ -71,7 +69,7 @@
     
     <footer>
         <div class="container" style="width: 100%; padding: 0px;">
-            <a href="/availability"><button class="btn nxtBtn" type="submit">Next</button></a>
+            <button class="btn nxtBtn" type="submit" onClick="aboutYouNext()">Next</button>
         </div>
         <!--//end container -->
     </footer>
