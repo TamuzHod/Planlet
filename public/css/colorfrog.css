@@ -14,6 +14,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'PT Sans', sans-serif;
   font-weight: 700; }
 
+.filter{
+  border-style: solid;
+}
+
 /*
 * Header (Logo)
 */
@@ -215,7 +219,7 @@ blockquote.big-quote {
   border-radius: 3px;
   margin-top: -30px;
   margin-bottom: -20px;
-  font-size: 12px; }
+  font-size: 10px; }
   .filters a {
     margin: 0 0 0 3px;
     padding: 3px 6px;
