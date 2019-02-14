@@ -48,7 +48,7 @@
         <hr>
         <div class="row">
             <div class="col-xs-12">
-                <form class="form-signin clearfix" action="alittleaboutyou">
+                <form id="logInForm" class="form-signin clearfix" action="availability">
                     <h2>Login</h2>
                     <div class="form-group">
                         <input type="text" placeholder="Email address" class="form-control">
@@ -56,15 +56,42 @@
                     <div class="form-group">
                         <input type="password" placeholder="Password" class="form-control">
                     </div>
-                    <div class="form-group clearfix">
-                        <button class="btn btn-large" type="submit">Log in</button></a>
-                        <button class="btn btn-large" type="submit">Sign up</button></a>
-                    </div>
-                    <label class="checkbox">
+                    <label class="checkbox" style="margin-left: 20px" ;>
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                     <a href="forgottenPassword">Forgotten password?</a>
+                    <div class="form-group clearfix" style="display: flex; justify-content:center; margin-top: 10px;">
+                        <button class="btn btn-large" type="submit">Log in</button></a>
+                    </div>
                 </form>
+
+
+
+
+                <form style="display: none;" id="signUpForm" class="form-signin clearfix" action="alittleaboutyou">
+                    <h2>Create Account</h2>
+                    <div class="form-group">
+                        <input type="text" placeholder="Email address" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" class="form-control">
+                    </div>
+                    <label class="checkbox" style="margin-left: 20px" ;>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                    <div class="form-group clearfix" style="display: flex; justify-content:center; margin-top: 10px;">
+                        <button class="btn btn-large" type="submit">Create Account</button></a>
+                    </div>
+                </form>
+
+                <br><br>
+                <div style=" display: flex; justify-content:center;">
+                    <button id="switchtosignup" class="btn btn-sm" type="submit" onClick="seeSignUp()">Don't have an
+                        account? Create Account</button>
+                </div>
+
+
+
             </div> <!-- //end span12 -->
         </div> <!-- //end row -->
     </div> <!-- //end container -->

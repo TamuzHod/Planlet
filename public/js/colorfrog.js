@@ -101,14 +101,34 @@ function aboutYouNext(e){
 	var major = $("#selMajor :selected").text();
 	var college =  $("#selCollege :selected").text();
 	if(major == 'Select a Major'){
-		confirm("Please select a major");
+		alert("Please select a major");
 		$('#selMajor').css('border-color', 'red');
 	}
 	else if(college == 'Select a College'){
-		confirm("Please select a College");
+		alert("Please select a College");
 		$('#selCollege').css('border-color', 'red');
 	}
 	else {
 		document.location.href = '/availability';
+	}
+}
+
+function newSchedule(e){
+	var result = confirm("Are you sure you want to start a new schedule? You will lose all of your current planning info except for your starred schedules.")
+	if (result){
+		document.location.href = '/availability';
+	}
+}
+
+
+function seeSignUp(e){
+	$("#logInForm").toggle();
+	$("#signUpForm").toggle();
+
+	var oldText = document.getElementById("switchtosignup");
+  if (oldText.innerHTML === "Don't have an account? Create Account") {
+    oldText.innerHTML = "I already have an account! Sign in";
+  } else if (oldText.innerHTML === "I already have an account! Sign in") {
+    oldText.innerHTML = "Don't have an account? Create Account";
 	}
 }
