@@ -53,6 +53,11 @@ app.get('/scheduleJson', (req, res) => {
   res.json(jsonSchdeuleData);
 });
 
+var jsonClassesData = require('./classes.json');
+app.get('/classes', (req, res) => {
+  res.json(jsonClassesData);
+});
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
