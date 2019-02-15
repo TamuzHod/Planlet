@@ -6,5 +6,5 @@ exports.view = function(req, res){
 	var college = req.params.college; 
 
 	console.log("The major  is: " + major);
- 	res.render('classes', [data, {'majorName': major}, {'minorName': minor}, {'collegeName': college}]);
+ 	res.render('classes', [data, {'majorName': major, 'minorName': minor, 'collegeName': college}]);
 };

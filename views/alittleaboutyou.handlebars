@@ -19,6 +19,7 @@
     <script src="js/jquery.fitvids.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/colorfrog.js"></script>
+    <script src="js/aboutYou.js"></script>
     <link rel="stylesheet" href="css/planlet.css">
 
 </head>
@@ -37,27 +38,28 @@
         <div class="row">
             <div class="col-xs-12">
 
-                <form class="form-signin clearfix" action='availability'>
+                <form class="form-signin clearfix" action='availability' id="abouYouForm">
                     <h2>A Little About You:</h2>
-                    <div class="form-group-sm">Major(s)    <span style=" font-size: 20px; color: red">*</span></div>
+                    <div class="form-group-sm">Major(s)</div>
                     <select class="form-group-lg form-control" id="selMajor" required>
-                        <option   selected style="display: none;">Select a Major</option>
+                        <option  disabled selected style="display: none;">Select a major</option>
                         <option>Cogs: Design & Interaction</option>
                         <option>Linguistics: General Linguistics</option>
                     </select>
                     <br>
                     <div class="form-group-sm">Minor(s)</div>
                     <select class="form-group-lg form-control" id="selMinor">
-                        <option value="" selected>No Minor</option>
+                        <option value="" disabled selected style="display: none;">Select a Minor</option>
+                        <option>No Minor</option>
                         <option>Computer Science</option>
                     </select>
-                    <br>
-                    <div class="form-group-sm">College(s) <span style=" font-size: 20px; color: red">*</span></div>
-                    <select class="form-group-lg form-control" id="selCollege" required>
-                        <option value=""  selected style="display: none;">Select a College</option>
+                    <div class="form-group-sm">College(s)</div>
+                    <select class="form-group-lg form-control" id="selMajor" required>
+                        <option value="" disabled selected style="display: none;">Select a College</option>
                         <option>Warren</option>
                         <option>Revelle</option>
                     </select>
+
                 </form>
 
 
@@ -66,10 +68,9 @@
         </div> <!-- //end row -->
     </div> <!-- //end container -->
 
-    
     <footer>
         <div class="container" style="width: 100%; padding: 0px;">
-            <button class="btn nxtBtn" type="submit" onClick="aboutYouNext()">Next</button>
+            <button class="btn nxtBtn" type="submit" onclick="next()" >Next</button>
         </div>
         <!--//end container -->
     </footer>

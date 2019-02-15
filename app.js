@@ -44,10 +44,10 @@ app.get('/', index.view);
 app.get('/alittleaboutyou', alittleaboutyou.view);
 app.get('/forgottenPassword', forgottenPassword.view);
 app.get('/classes/:major/:minor/:college', classes.view);
-app.get('/availability', availability.view);
+app.get('/availability/:major/:minor/:college', availability.view);
 app.get('/userinfo', userinfo.view);
 app.get('/possibleSchedules', possibleSchedules.view);
-//app.get('/scheduleJson', possibleSchedulesJSON.json);
+
 var jsonSchdeuleData = require('./schedule-data.json');
 app.get('/scheduleJson', (req, res) => {
   res.json(jsonSchdeuleData);
