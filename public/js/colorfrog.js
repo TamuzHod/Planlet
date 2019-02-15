@@ -97,22 +97,6 @@ function clearClick(e) {
 
 }
 
-function aboutYouNext(e){
-	var major = $("#selMajor :selected").text();
-	var college =  $("#selCollege :selected").text();
-	if(major == 'Select a Major'){
-		alert("Please select a major");
-		$('#selMajor').css('border-color', 'red');
-	}
-	else if(college == 'Select a College'){
-		alert("Please select a College");
-		$('#selCollege').css('border-color', 'red');
-	}
-	else {
-		document.location.href = '/availability';
-	}
-}
-
 function newSchedule(e){
 	var result = confirm("Are you sure you want to start a new schedule? You will lose all of your current planning info except for your starred schedules.")
 	if (result){
