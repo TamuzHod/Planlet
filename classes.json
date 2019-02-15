@@ -1,16 +1,14 @@
 {
   "COGS": [
     {
-      "id": "cogs100",
-      "text": "COGS 100",
+      "id": "COGS 100",
       "title": "Cyborgs Now and In the Future",
       "units": "4",
       "start": "2018-02-25T10:30:00",
       "end": "2018-02-25T16:30:00"
     },
     {
-      "id": "cogs120",
-      "text": "COGS 120",
+      "id": "COGS 120",
       "title": "Interaction Design",
       "units": "5",
       "start": "2018-02-24T09:00:00",

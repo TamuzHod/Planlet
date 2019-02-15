@@ -6,17 +6,32 @@ function getClasses() {
         var minor = document.getElementById("lblMinorClasses").innerHTML;
         var college = document.getElementById("lblGEClasses").innerHTML;
 
+        var html = "";
         $.each(data[major], function(index, course) {
-            id = course.id;
-            text = course.text;
+             
+            html += '<input style="width: 30px; height: 30px; display: inline-block; float: right;"  id = "check'; 
+            html += course.id + ' type="checkbox"> \n';
+            html +='<h6 style="font-size: 10px; color: gray; margin: 0px;">' + course.id + '(' + course.units + 'u)</h4> \n';
+            html +='<h5 style="font-size: 15px; width: 80%; margin-top: 5px;">'+ course.title +'</h5> \n';
         });
-        $.each(data[major], function(index, course) {
-            id = course.id;
-            text = course.text;
+        document.getElementById("majorClasses").innerHTML = html;
+        html = "";
+        $.each(data[minor], function(index, course) {
+             
+            html += '<input style="width: 30px; height: 30px; display: inline-block; float: right;"  id = "check'; 
+            html += course.id + ' type="checkbox"> \n';
+            html +='<h6 style="font-size: 10px; color: gray; margin: 0px;">' + course.id + '(' + course.units + 'u)</h4> \n';
+            html +='<h5 style="font-size: 15px; width: 80%; margin-top: 5px;">'+ course.title +'</h5> \n';
         });
-        $.each(data[major], function(index, course) {
-            id = course.id;
-            text = course.text;
+        document.getElementById("lblMinorClasses").innerHTML = html;
+        html = "";
+        $.each(data[college], function(index, course) {
+             
+            html += '<input style="width: 30px; height: 30px; display: inline-block; float: right;"  id = "check'; 
+            html += course.id + ' type="checkbox"> \n';
+            html +='<h6 style="font-size: 10px; color: gray; margin: 0px;">' + course.id + '(' + course.units + 'u)</h4> \n';
+            html +='<h5 style="font-size: 15px; width: 80%; margin-top: 5px;">'+ course.title +'</h5> \n';
         });
+        document.getElementById("lblGEClasses").innerHTML = html;
     });
 };
