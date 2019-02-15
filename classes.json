@@ -1,14 +1,14 @@
 {
   "COGS": [
     {
-      "id": "COGS 100",
+      "text": "COGS 100",
       "title": "Cyborgs Now and In the Future",
       "units": "4",
       "start": "2018-02-25T10:30:00",
       "end": "2018-02-25T16:30:00"
     },
     {
-      "id": "COGS 120",
+      "text": "COGS 120",
       "title": "Interaction Design",
       "units": "5",
       "start": "2018-02-24T09:00:00",
@@ -17,7 +17,6 @@
   ],
   "LIGN": [
     {
-      "id": "lign101",
       "text": "LIGN 101",
       "title": "Introduction to the Study of Language",
       "units": "4",
@@ -25,7 +24,6 @@
       "end": "2018-02-25T16:30:00"
     },
     {
-      "id": "lign110",
       "text": "LIGN 110",
       "title": "Phonetics",
       "units": "4",
@@ -33,9 +31,8 @@
       "end": "2018-02-24T14:30:00"
     }
   ],
-  "minorClasses": [
+  "CSE": [
     {
-      "id": "cse12",
       "text": "CSE 12",
       "title": "Basic Data Structures and Object-Oriented Design",
       "units": "4",
@@ -43,7 +40,6 @@
       "end": "2018-02-25T16:30:00"
     },
     {
-      "id": "cse20",
       "text": "CSE 20",
       "title": "Discrete Mathematics",
       "units": "4",
@@ -51,7 +47,6 @@
       "end": "2018-02-24T14:30:00"
     },
     {
-      "id": "cse86",
       "text": "CSE 86",
       "title": "C++ for Java Programmers",
       "units": "2",
@@ -59,9 +54,8 @@
       "end": "2018-02-27T16:00:00"
     }
   ],
-  "genEdClasses": [
+  "Warren": [
     {
-      "id": "wcwp10a",
       "text": "WCWP 10A",
       "title": "The Writing Course A",
       "units": "4",
@@ -69,7 +63,6 @@
       "end": "2018-02-25T16:30:00"
     },
     {
-      "id": "wcwp10b",
       "text": "WCWP 10B",
       "title": "The Writing Course B",
       "units": "4",
@@ -77,7 +70,6 @@
       "end": "2018-02-24T14:30:00"
     },
     {
-      "id": "phil27",
       "text": "Phil 27",
       "title": "Ethics and Society I",
       "units": "4",
@@ -85,9 +77,31 @@
       "end": "2018-02-27T16:00:00"
     },
     {
-      "id": "phil28",
       "text": "Phil 28",
       "title": "Ethics and Society II",
+      "units": "4",
+      "start": "2018-02-27T12:00:00",
+      "end": "2018-02-27T16:00:00"
+    }
+  ],
+  "Revelle": [
+    {
+      "text": "HUM 1",
+      "title": "Humanities 1",
+      "units": "4",
+      "start": "2018-02-25T10:30:00",
+      "end": "2018-02-25T16:30:00"
+    },
+    {
+      "text": "HUM 3",
+      "title": "Rome,Christianity & Middle Ages",
+      "units": "6",
+      "start": "2018-02-27T12:00:00",
+      "end": "2018-02-27T16:00:00"
+    },
+    {
+      "text": "HUM 4",
+      "title": "Modern Culture (1848-Present)",
       "units": "4",
       "start": "2018-02-27T12:00:00",
       "end": "2018-02-27T16:00:00"
