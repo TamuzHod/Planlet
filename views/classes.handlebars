@@ -49,7 +49,7 @@
         {{/each}}
     </div>
 
-    <h5 id="lblMinorClasses">{{[2].minorName}}:</h5>
+    <h5 id="lblMinorClasses">{{[1].minorName}}:</h5>
     <div class="classDiv" id="minorClasses">
         {{#each [0].minorClasses}}
         <input style="width: 30px; height: 30px; display: inline-block; float: right;"  id = "check{{id}}" type="checkbox"></button>
@@ -59,7 +59,7 @@
         {{/each}}
     </div>
 
-    <h5 id="lblGEClasses">{{[3].collegeName}} General Education:</h5>
+    <h5 id="lblGEClasses">{{[1].collegeName}} General Education:</h5>
     <div class="classDiv" id="geClasses">
         {{#each [0].genEdClasses}}
         <input style="width: 30px; height: 30px; display: inline-block; float: right;"  id = "check{{id}}" type="checkbox"></button>
@@ -87,8 +87,8 @@
     <footer>
         <div class="footerdiv"></div>
         <div class="container" style="width: 100%; padding: 0px;">
-            <a href="/availability"> <button class="btn bckBtn">Back</button></a>
-            <a href="/possibleSchedules"> <button class="btn" id="genBtn">Generate</button> </a>
+            <a href="/availability/{{[1].majorName}}/{{[1].minorName}}/{{[1].collegeName}}"> <button class="btn bckBtn">Back</button></a>
+            <a href="/possibleSchedules/{{[1].majorName}}/{{[1].minorName}}/{{[1].collegeName}}"> <button class="btn" id="genBtn">Generate</button> </a>
         </div>
         <!--//end container -->
     </footer>
