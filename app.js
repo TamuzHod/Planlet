@@ -15,7 +15,6 @@ var forgottenPassword = require('./routes/forgottenPassword');
 var availability = require('./routes/availability');
 var userinfo = require('./routes/userinfo');
 var possibleSchedules = require('./routes/possibleSchedules');
-//var possibleSchedulesJSON = require('./routes/scheduleJson');
 
 
 var app = express();
