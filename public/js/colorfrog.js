@@ -132,3 +132,19 @@ function seeSignUp(e){
     oldText.innerHTML = "Don't have an account? Create Account";
 	}
 }
+
+
+function generate(e){
+	var n = $("input:checked").length;
+	var print = "";
+	for (var counter = 0; counter < n; counter++){
+		var object = $("input:checked")[counter];
+		var string = $(object).attr("id")
+		string = string.split('check')[1];
+		print = print + " " +string;
+	}
+	var result = confirm("Confirm that you want schedules with the following classes:"+ print + ".");
+	if (result){
+		document.location.href = '/possibleSchedules';
+	}
+}
