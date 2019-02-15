@@ -133,7 +133,7 @@ function seeSignUp(e){
 	}
 }
 
-
+/*
 function generate(e){
 	var n = $("input:checked").length;
 	var print = "";
@@ -147,4 +147,4 @@ function generate(e){
 	if (result){
 		document.location.href = '/possibleSchedules';
 	}
-}
+} */
