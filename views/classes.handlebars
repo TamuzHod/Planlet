@@ -40,34 +40,18 @@
         </div>
     </div> <!-- //end hero-unit -->
 
-    <h5 id="lblMajorClasses">{{[1].majorName}}</h5>
+    <h5 id="lblMajorClasses">{{majorName}}</h5>
     <div class="classDiv" id="majorClasses">
-        {{#each [0].COGS}}
-        <input style="width: 30px; height: 30px; display: inline-block; float: right;"  id = "check{{id}}"  type="checkbox"></button>
-        <h6 style="font-size: 10px; color: gray; margin: 0px;">{{text}} ({{units}}u)</h4>
-            <h5 style="font-size: 15px; width: 80%; margin-top: 5px;">{{title}}</h5>
-            {{#unless @last}}<hr>{{/unless}}
-        {{/each}}
+
     </div>
 
-    <h5 id="lblMinorClasses">{{[1].minorName}}:</h5>
+    <h5 id="lblMinorClasses">{{minorName}}</h5>
     <div class="classDiv" id="minorClasses">
-        {{#each [0].minorClasses}}
-        <input style="width: 30px; height: 30px; display: inline-block; float: right;"  id = "check{{id}}" type="checkbox"></button>
-        <h6 style="font-size: 10px; color: gray; margin: 0px;">{{text}} ({{units}}u)</h4>
-            <h5 style="font-size: 15px; width: 80%; margin-top: 5px;">{{title}}</h5>
-            {{#unless @last}}<hr>{{/unless}}
-        {{/each}}
     </div>
 
-    <h5 id="lblGEClasses">{{[1].collegeName}} General Education:</h5>
+    <h5 id="lblGEClasses">{{collegeName}}</h5>
+    <h5>General Education:</h5>
     <div class="classDiv" id="geClasses">
-        {{#each [0].genEdClasses}}
-        <input style="width: 30px; height: 30px; display: inline-block; float: right;"  id = "check{{id}}" type="checkbox"></button>
-        <h6 style="font-size: 10px; color: gray; margin: 0px;">{{text}} ({{units}}u)</h4>
-            <h5 style="font-size: 15px; width: 80%; margin-top: 5px;">{{title}}</h5>
-            {{#unless @last}}<hr>{{/unless}}
-        {{/each}}
     </div>
 
     <h5 id="lblOthClasses">Other Classes:</h5>
@@ -88,8 +72,8 @@
     <footer>
         <div class="footerdiv"></div>
         <div class="container" style="width: 100%; padding: 0px;">
-            <a href="/availability/{{[1].majorName}}/{{[1].minorName}}/{{[1].collegeName}}"> <button class="btn bckBtn">Back</button></a>
-            <a href="/possibleSchedules/{{[1].majorName}}/{{[1].minorName}}/{{[1].collegeName}}"> <button class="btn" id="genBtn">Generate</button> </a>
+            <a href="/availability"> <button class="btn bckBtn">Back</button></a>
+            <a href="/possibleSchedules"> <button class="btn" id="genBtn">Generate</button> </a>
         </div>
         <!--//end container -->
     </footer>
