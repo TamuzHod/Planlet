@@ -1,12 +1,12 @@
 {
 	"users": [
 		{
-			"name" : "Tamuz Hod",
-			"email" : "thod@ucsd.edu"
+			"name" : "Tamuz",
+			"email" : "thod@ucsd.edu",
 			"password" : "192837465",
-			"major" : "COGS",
-			"minor" : "CSE",
-			"college" : "warren",
+			"major" : "Cogs: Design & Interaction",
+			"minor" : "Computer Science",
+			"college" : "Warren",
 			"classesTaken" : [],
 			"classesApproved" : []
 		}

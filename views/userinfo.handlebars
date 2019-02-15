@@ -42,19 +42,19 @@
 
             <div class="form-group">
                 <div class="grid-item" id="lblName">First Name</div>
-                <input size="7" id="nameInput" type="text"></input>
+                <input size="7" id="nameInput" placeholder="{{name}}" type="text"></input>
             </div>
 
             <div class="form-group">
                 <div class="grid-item" id="lblEmail">Email</div>
-                <input id="emailInput" type="text"></input>
+                <input id="emailInput" placeholder="{{email}}"  type="text"></input>
             </div>
 
             <div class="form-group">
                 <div class="grid-item" id="lblMajor">Major(s)</div>
-                <select class="form-group-lg form-control" id="selMajor" required>
-                    <option disabled selected style="display: none;">Select a major</option>
-                    <option>Cogs: Design & Interaction</option>
+                <select class="form-group-lg form-control"  id="selMajor" >
+                    <option value="" disabled selected style="display: none;">{{major}}</option>
+                    <option >Cogs: Design & Interaction</option>
                     <option>Linguistics: General Linguistics</option>
                 </select>
             </div>
@@ -62,9 +62,9 @@
             <div class="form-group">
                 <div class="grid-item" id="lblMinor">Minor(s)</div>
                 <select class="form-group-lg form-control" id="selMinor">
-                    <option value="" disabled selected style="display: none;">Select a Minor</option>
+                    <option value="" disabled selected style="display: none;">{{minor}}</option>
                     <option>No Minor</option>
-                    <option>Computer Science</option>
+                    <option >Computer Science</option>
                 </select>
             </div>
         </div>
