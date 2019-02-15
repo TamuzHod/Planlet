@@ -20,12 +20,13 @@
     <script src="/js/bootstrap.js"></script>
     <script src="/js/jquery.fitvids.js"></script>
     <script src="/js/colorfrog.js"></script>
+    <script src="/js/classesDisplay.js"></script>
     <link rel="stylesheet" href="/css/planlet.css">
     <link rel="stylesheet" href="/css/classes.css">
 
 </head>
 
-<body class="blue">
+<body class="blue" onload="getClasses()>
 
     <div class="container" style="padding: 0px;">
         <a href="/userinfo"> <button class="settings"> </button> </a>
@@ -59,7 +60,12 @@
         {{/each}}
     </div>
 
+<<<<<<< HEAD
     <h5 id="lblGEClasses">{{[1].collegeName}} General Education:</h5>
+=======
+    <h5 id="lblGEClasses">{{[1].collegeName}}</h5>
+    <h5>General Education:</h5>
+>>>>>>> 757dbc7e4f1c04cfeed5dd862b34196abc50cd9f
     <div class="classDiv" id="geClasses">
         {{#each [0].genEdClasses}}
         <input style="width: 30px; height: 30px; display: inline-block; float: right;"  id = "check{{id}}" type="checkbox"></button>
