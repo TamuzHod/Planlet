@@ -66,6 +66,98 @@ function createHTML() {
         });
         dp.update();
     });
+
+    $.each(subsets4, function(index, courseSubset){
+
+        i++;
+        var div = '<div id="'+i+'" class="container content type-4"> \n';
+        div += '<div id="DP'+i+'"> \n'
+        $("#class-filter").append(div);
+
+        // $('#class-filter').append(
+        //   $('<div/>')
+        //     .attr("id", "newDiv1")
+        //     .addClass("newDiv purple bloated")
+        //     .append("<span/>")
+        //       .text("hello world")
+        // );
+
+        var dp = new DayPilot.Calendar("DP"+i);
+        dp.viewType = "Days";
+        dp.days = 5;
+        dp.start = "7:00"
+
+        dp.theme = "calendar_green";
+
+        // view
+        dp.startDate = "2018-02-26";  // or just dp.startDate = "2013-03-25";
+
+        dp.headerDateFormat = "dddd";
+        dp.init();
+        var id;
+        var text;
+
+        $.each(courseSubset, function(index, course) {
+            id = course.id;
+            text = course.text;
+            $.each(course.times, function(index, time) {
+                var e = new DayPilot.Event({
+                    start: time.start,
+                    end: time.end,
+                    id: id,
+                    text: text
+                });
+                dp.events.add(e);
+            });
+        });
+        dp.update();
+    });
+
+    $.each(subsets5, function(index, courseSubset){
+
+        i++;
+        var div = '<div id="'+i+'" class="container content type-5"> \n';
+        div += '<div id="DP'+i+'"> \n'
+        $("#class-filter").append(div);
+
+        // $('#class-filter').append(
+        //   $('<div/>')
+        //     .attr("id", "newDiv1")
+        //     .addClass("newDiv purple bloated")
+        //     .append("<span/>")
+        //       .text("hello world")
+        // );
+
+        var dp = new DayPilot.Calendar("DP"+i);
+        dp.viewType = "Days";
+        dp.days = 5;
+        dp.start = "7:00"
+
+        dp.theme = "calendar_green";
+
+        // view
+        dp.startDate = "2018-02-26";  // or just dp.startDate = "2013-03-25";
+
+        dp.headerDateFormat = "dddd";
+        dp.init();
+        var id;
+        var text;
+
+        $.each(courseSubset, function(index, course) {
+            id = course.id;
+            text = course.text;
+            $.each(course.times, function(index, time) {
+                var e = new DayPilot.Event({
+                    start: time.start,
+                    end: time.end,
+                    id: id,
+                    text: text
+                });
+                dp.events.add(e);
+            });
+        });
+        dp.update();
+    });
 }
 
 function getSubsetsofSizeK(input, k) {
