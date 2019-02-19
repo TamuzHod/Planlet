@@ -11,9 +11,9 @@ var subsets5 = [];
 
 $.getJSON('/scheduleJson', { get_param: 'classes' }, function(data) {
 
-    getSubsetsofSizeK(data.classes, 3);
-    getSubsetsofSizeK(data.classes, 4);
-    getSubsetsofSizeK(data.classes, 5);
+    getSubsetsofSizeK(data.classes, 3, subsets3);
+    getSubsetsofSizeK(data.classes, 4, subsets4);
+    getSubsetsofSizeK(data.classes, 5, subsets5);
 
     createHTML();
 
@@ -160,12 +160,12 @@ function createHTML() {
     });
 }
 
-function getSubsetsofSizeK(input, k) {
+function getSubsetsofSizeK(input, k, subset) {
     var s = [];                  // here we'll keep indices 
     if (k <= input.length) {
         // first index sequence: 0, 1, 2, ...
         for (var i = 0; (s[i] = i) < k - 1; i++);  
-            subsets3.push(getSubset(input, s));
+            subset.push(getSubset(input, s));
         for(;;) {
             var i;
             // find position of item that can be incremented
@@ -177,7 +177,7 @@ function getSubsetsofSizeK(input, k) {
             for (++i; i < k; i++) {    // fill up remaining items
                 s[i] = s[i - 1] + 1; 
             }
-            subsets3.push(getSubset(input, s));
+            subset.push(getSubset(input, s));
         }
     }
 }
