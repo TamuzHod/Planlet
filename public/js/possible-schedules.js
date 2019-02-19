@@ -23,31 +23,34 @@ function createHTML() {
     var i = 0;
     $.each(subsets3, function(index, courseSubset){
 
-    
-
         i++;
-        var $div = $("<div>", {id: i, "class": "container content type-3"});
-        //$div.click(function(){ /* ... */ });
-        $("#class-filter").append($div);
-        var $divDP = $("<div>", {id: "DP"+i, "class": "schedule"});
-        //$div.click(function(){ /* ... */ });
-        $("#i").append($divDP);
+        var div = '<div id="'+i+'" class="container content type-3"> \n';
+        div += '<div id="DP'+i+'"> \n'
+        $("#class-filter").append(div);
 
+        // $('#class-filter').append(
+        //   $('<div/>')
+        //     .attr("id", "newDiv1")
+        //     .addClass("newDiv purple bloated")
+        //     .append("<span/>")
+        //       .text("hello world")
+        // );
 
         var dp = new DayPilot.Calendar("DP"+i);
-    dp.viewType = "Days";
-    dp.days = 5;
-    dp.start = "7:00"
+        dp.viewType = "Days";
+        dp.days = 5;
+        dp.start = "7:00"
 
-    dp.theme = "calendar_green";
+        dp.theme = "calendar_green";
 
-    // view
-    dp.startDate = "2018-02-26";  // or just dp.startDate = "2013-03-25";
+        // view
+        dp.startDate = "2018-02-26";  // or just dp.startDate = "2013-03-25";
 
-    dp.headerDateFormat = "dddd";
-    dp.init();
+        dp.headerDateFormat = "dddd";
+        dp.init();
         var id;
         var text;
+
         $.each(courseSubset, function(index, course) {
             id = course.id;
             text = course.text;

@@ -25,3 +25,47 @@ th {
 .schedule-rows td[data-selected],
 .schedule-rows td[data-selecting] { background-color: #E74C3C; }
 .schedule-rows td[data-disabled] { opacity: 0.55; }
+
+
+/*Condensed Schedule!!!!!*/
+
+.schCond{
+  text-align: center;
+  width: 47%;
+  height: 0;
+  padding-bottom: 47%;
+  border-style: solid;
+  border-width: 2px;
+
+}
+
+.dayTitle{
+  text-align: center;
+  font-size: 15px;
+}
+
+.condDay{
+  width: 17%;
+  height: 100%;
+  display: inline-block ;
+  vertical-align: top;
+}
+
+.class{
+  align-content: center;
+  text-align: center;
+  color: white;
+  margin-bottom: 10%;
+  font-size: 8px;
+}
+
+.shortClass{
+  height: 1.5em;
+  background-color: red;
+}
+
+
+.longClass{
+  height: 2em;
+  background-color: blue;
+}
