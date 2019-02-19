@@ -1,11 +1,9 @@
- window.onload=function(){
-     $(function(){
-         if(window.location.protocol==="https:")
-             window.location.protocol="http";
-     });
+function httpFix(){
+	if(window.location.protocol==="https:")
+	 window.location.protocol="http";
  }
 
- 
+
 function next() { 
 	var major = $("#selMajor :selected").text();
 	var college =  $("#selCollege :selected").text();
