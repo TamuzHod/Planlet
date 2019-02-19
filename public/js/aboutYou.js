@@ -1,3 +1,8 @@
+function httpFix(){
+	if(window.location.protocol==="https:")
+	 window.location.protocol="http";
+ }
+
 
 function next() { 
 	var major = $("#selMajor :selected").text();
