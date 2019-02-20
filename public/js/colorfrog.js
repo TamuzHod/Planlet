@@ -117,6 +117,15 @@ function seeSignUp(e){
 	}
 }
 
+
+function seeCommitScreen(e){
+	var pageElements = $('div.possSchedules').children();
+	for (var child in pageElements){
+		$(child).toggle();
+	}
+}
+
+
 /*
 function generate(e){
 	var n = $("input:checked").length;
@@ -132,3 +141,6 @@ function generate(e){
 		document.location.href = '/possibleSchedules';
 	}
 } */
+
+
+/*toggle color as well as starred class!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! /*

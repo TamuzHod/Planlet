@@ -69,3 +69,8 @@ th {
   height: 2em;
   background-color: blue;
 }
+
+
+commSchedules{
+  visibility: hidden;
+}
