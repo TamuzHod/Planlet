@@ -5,7 +5,7 @@
 var data = require('../users.json');
 
 exports.view = function (req, res) {
-	res.render('userinfo'); res.render('userinfo',
+	 res.render('userinfo',
 		{
 			"name": "Tamuz",
 			"email": "thod@ucsd.edu",
