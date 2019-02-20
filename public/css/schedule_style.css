@@ -70,6 +70,10 @@ th {
   background-color: blue;
 }
 
+#starButt.starred {
+  color: yellow;
+}
+
 
 #commSchedule{
   display: none;

@@ -128,13 +128,9 @@ function seeCommitScreen(e){
 
 function starSchedule(e){
 	/*if schedule has class starred --> toggle color of star*/
-	$('.star').toggleClass(function() {
-		if ($(this).is('.blue')) {
-			return 'red';
-		} else {
-			return 'blue';
-		}
-	});
+	console.log("clicked");
+	var element = document.getElementById("starButt");
+	$(element).toggleClass('starred');
 }
 
 /*
