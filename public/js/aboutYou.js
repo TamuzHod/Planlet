@@ -18,7 +18,7 @@ function next() {
 		$('#selCollege').css('border-color', 'red');
 	}
 	else {
-		window.location.href = '/availability/' + major +'/'+ minor + '/' + college;
+		window.location.href = '/classes/' + major +'/'+ minor + '/' + college;
 	}
 	
 };
