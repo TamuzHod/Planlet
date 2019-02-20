@@ -9,7 +9,7 @@ var subsets3 = [];
 var subsets4 = [];
 var subsets5 = [];
 
-$.getJSON('/selectedClasses', { get_param: 'classes' }, function(data) {
+$.getJSON('/getSelectedClasses', { get_param: 'classes' }, function(data) {
 
     getSubsetsofSizeK(data, 3, subsets3);
     getSubsetsofSizeK(data, 4, subsets4);
@@ -20,6 +20,7 @@ $.getJSON('/selectedClasses', { get_param: 'classes' }, function(data) {
 });
 
 function createHTML() {
+
     var i = 0;
     $.each(subsets3, function(index, courseSubset){
 

@@ -51,7 +51,7 @@ app.get('/possibleSchedules/:major/:minor/:college', possibleSchedules.view);
 app.post('/selectedClasses', selectedClasses.view);
 
 var jsonSchdeuleData = require('./selectedClasses.json');
-app.get('/selectedClasses', (req, res) => {
+app.get('/getSelectedClasses', (req, res) => {
   res.json(jsonSchdeuleData);
 });
 
