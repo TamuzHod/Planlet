@@ -15,6 +15,7 @@ var forgottenPassword = require('./routes/forgottenPassword');
 var availability = require('./routes/availability');
 var userinfo = require('./routes/userinfo');
 var possibleSchedules = require('./routes/possibleSchedules');
+var selectedClasses = require('./routes/selectedClasses');
 
 
 var app = express();
@@ -46,6 +47,8 @@ app.get('/classes/:major/:minor/:college', classes.view);
 app.get('/availability/:major/:minor/:college', availability.view);
 app.get('/userinfo', userinfo.view);
 app.get('/possibleSchedules/:major/:minor/:college', possibleSchedules.view);
+
+app.post('/selectedClasses', selectedClasses.view);
 
 var jsonSchdeuleData = require('./schedule-data.json');
 app.get('/scheduleJson', (req, res) => {
