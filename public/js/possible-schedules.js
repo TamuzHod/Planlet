@@ -9,11 +9,11 @@ var subsets3 = [];
 var subsets4 = [];
 var subsets5 = [];
 
-$.getJSON('/scheduleJson', { get_param: 'classes' }, function(data) {
+$.getJSON('/selectedClasses', { get_param: 'classes' }, function(data) {
 
-    getSubsetsofSizeK(data.classes, 3, subsets3);
-    getSubsetsofSizeK(data.classes, 4, subsets4);
-    getSubsetsofSizeK(data.classes, 5, subsets5);
+    getSubsetsofSizeK(data, 3, subsets3);
+    getSubsetsofSizeK(data, 4, subsets4);
+    getSubsetsofSizeK(data, 5, subsets5);
 
     createHTML();
 
@@ -39,27 +39,30 @@ function createHTML() {
         var dp = new DayPilot.Calendar("DP"+i);
         dp.viewType = "Days";
         dp.days = 5;
-        dp.start = "7:00"
 
         dp.theme = "calendar_green";
-
         // view
-        dp.startDate = "2018-02-26";  // or just dp.startDate = "2013-03-25";
-
+        dp.startDate = "2018-02-26T00:00:00";  // or just dp.startDate = "2013-03-25";
         dp.headerDateFormat = "dddd";
+        dp.showNonBusiness = false;
+
         dp.init();
+
+
         var id;
         var text;
 
         $.each(courseSubset, function(index, course) {
             id = course.id;
-            text = course.text;
+            text = course.title;
             $.each(course.times, function(index, time) {
                 var e = new DayPilot.Event({
                     start: time.start,
                     end: time.end,
                     id: id,
-                    text: text
+                    text: text,
+                    moveDisabled: true
+
                 });
                 dp.events.add(e);
             });
@@ -74,14 +77,7 @@ function createHTML() {
         div += '<div id="DP'+i+'"> \n'
         $("#class-filter").append(div);
 
-        // $('#class-filter').append(
-        //   $('<div/>')
-        //     .attr("id", "newDiv1")
-        //     .addClass("newDiv purple bloated")
-        //     .append("<span/>")
-        //       .text("hello world")
-        // );
-
+ 
         var dp = new DayPilot.Calendar("DP"+i);
         dp.viewType = "Days";
         dp.days = 5;
@@ -99,7 +95,7 @@ function createHTML() {
 
         $.each(courseSubset, function(index, course) {
             id = course.id;
-            text = course.text;
+            text = course.title;
             $.each(course.times, function(index, time) {
                 var e = new DayPilot.Event({
                     start: time.start,
@@ -145,7 +141,7 @@ function createHTML() {
 
         $.each(courseSubset, function(index, course) {
             id = course.id;
-            text = course.text;
+            text = course.title;
             $.each(course.times, function(index, time) {
                 var e = new DayPilot.Event({
                     start: time.start,

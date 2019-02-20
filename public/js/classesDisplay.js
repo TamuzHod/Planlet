@@ -68,7 +68,7 @@ function generate(){
     $.postJSON('/selectedClasses', selectedClasses, function(result) {
         console.log('result', result);
     });
-    //window.location.href = '/possibleSchedules/' + major +'/'+ minor + '/' + college;
+    window.location.href = '/possibleSchedules/' + major +'/'+ minor + '/' + college;
 }
 
 $.postJSON = function(url, data, success, args) {
