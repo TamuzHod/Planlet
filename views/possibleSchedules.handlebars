@@ -40,22 +40,30 @@
 </head>
 
 <body class="blue">
-	<div class="container" style="padding: 0px;">
-		<a href="/userinfo"><button class="settings"> </button></a>
-	</div> <!-- //end container -->
-	
+
+
 	<!--what will show when schedule is clicked on-->
 	<div id="commSchedule">
+		<button style="float: right;" class="btn" onclick="seeCommitScreen()">Back</button>
 		<div class="upclose">
 
 		</div>
-		<button>Send to Email</button>
-		<button><i class="fas fa-star"></i></button>
-		<button onclick="seeCommitScreen()">back</button>
+		<br><br>
+		<hr>
+
+		<div style="display: flex; justify-content:space-evenly;">
+			<button class="btn btn-lg">Send to Email</button>
+			<button class="btn btn-lg star" onclick="starSchedule()"><i class="fas fa-star"></i></button>
+		</div>
 	</div>
+
+
 
 	<!--initial page-->
 	<div id="possSchedules">
+		<div class="container" style="padding: 0px;">
+			<a href="/userinfo"><button class="settings"> </button></a>
+		</div> <!-- //end container -->
 		<div class="jumbotron">
 			<div class="container">
 				<h5>Here are all your possible schedules.</h5>
@@ -114,7 +122,7 @@
 			</div>
 			<!--//end container -->
 		</footer>
-	<div>
+		<div>
 
 
 

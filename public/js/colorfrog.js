@@ -124,9 +124,18 @@ function seeCommitScreen(e){
 
 	var commitdiv = document.getElementById('commSchedule');
 	$(commitdiv).toggle();
-
 }
 
+function starSchedule(e){
+	/*if schedule has class starred --> toggle color of star*/
+	$('.star').toggleClass(function() {
+		if ($(this).is('.blue')) {
+			return 'red';
+		} else {
+			return 'blue';
+		}
+	});
+}
 
 /*
 function generate(e){
