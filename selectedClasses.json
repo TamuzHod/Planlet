@@ -1,0 +1,23 @@
+[
+    {
+        "id": "LIGN 101",
+        "title": "Introduction to the Study of Language",
+        "units": "4",
+        "start": "2018-02-25T10:30:00",
+        "end": "2018-02-25T16:30:00"
+    },
+    {
+        "id": "LIGN 110",
+        "title": "Phonetics",
+        "units": "4",
+        "start": "2018-02-24T09:00:00",
+        "end": "2018-02-24T14:30:00"
+    },
+    {
+        "id": "WCWP 10A",
+        "title": "The Writing Course A",
+        "units": "4",
+        "start": "2018-02-25T10:30:00",
+        "end": "2018-02-25T16:30:00"
+    }
+]
