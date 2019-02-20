@@ -36,20 +36,19 @@
     </div> <!-- //end container -->
     <div class="container content">
         <div class="grid-container">
-            <div class="grid-item" id="lblTitle">
+            <br>
+            <div style="width: 100%; display:flex; justify-content: space-between;">
+                <div style="display: inline-block;" class="form-group">
+                    <div class="grid-item" id="lblName">First Name</div>
+                    <input size="7" id="nameInput" placeholder="{{name}}" type="text"></input>
+                </div>
 
+                <div style="float: right;" class="form-group">
+                    <div style="width: 80%; float: right;" class="grid-item" id="lblEmail">Email</div>
+                    <input style="width: 80%; float: right;" id="emailInput" placeholder="{{email}}"
+                        type="text"></input>
+                </div>
             </div>
-
-            <div class="form-group">
-                <div class="grid-item" id="lblName">First Name</div>
-                <input size="7" id="nameInput" placeholder="{{name}}" type="text"></input>
-            </div>
-
-            <div class="form-group">
-                <div class="grid-item" id="lblEmail">Email</div>
-                <input id="emailInput" placeholder="{{email}}" type="text"></input>
-            </div>
-
             <div class="form-group">
                 <div class="grid-item" id="lblMajor">Major(s)</div>
                 <select class="form-group-lg form-control" id="selMajor">
@@ -83,7 +82,7 @@
                     style="font-size: 25px; padding-left: 40px; padding-right: 40px; display: block; margin-left: auto; margin-right: auto;"
                     id="saveButt"><b>Save</b></button>
             </div>
-            <br>
+            <hr>
             <div style="display: flex; justify-content:space-between;">
                 <button class="btn" style="font-size: 13px;" onclick="next()">Start New Schedule</button>
                 <!--onClick="newSchedule()"-->
