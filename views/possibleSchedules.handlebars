@@ -43,7 +43,19 @@
 	<div class="container" style="padding: 0px;">
 		<a href="/userinfo"><button class="settings"> </button></a>
 	</div> <!-- //end container -->
-	<div class="possSchedules">
+	
+	<!--what will show when schedule is clicked on-->
+	<div id="commSchedule">
+		<div class="upclose">
+
+		</div>
+		<button>Send to Email</button>
+		<button><i class="fas fa-star"></i></button>
+		<button onclick="seeCommitScreen()">back</button>
+	</div>
+
+	<!--initial page-->
+	<div id="possSchedules">
 		<div class="jumbotron">
 			<div class="container">
 				<h5>Here are all your possible schedules.</h5>
@@ -91,7 +103,7 @@
 			</div> <!-- //end filter content -->
 		</div> <!-- //end container -->
 
-<button class="btn" onclick="seeCommitScreen()">TEMPORARY BUTTON TO TEST STAR</button>
+		<button class="btn" onclick="seeCommitScreen()">TEMPORARY BUTTON TO TEST STAR</button>
 
 		<br><br>
 		<br>
@@ -102,15 +114,8 @@
 			</div>
 			<!--//end container -->
 		</footer>
-	</div>
+	<div>
 
-	<div class="commSchedule">
-		<div class="upclose">
-
-		</div>
-		<button>Send to Email</button>
-		<button><i class="fas fa-star"></i></button>
-	</div>
 
 
 </body>

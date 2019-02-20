@@ -119,10 +119,12 @@ function seeSignUp(e){
 
 
 function seeCommitScreen(e){
-	var pageElements = $('div.possSchedules').children();
-	for (var child in pageElements){
-		$(child).toggle();
-	}
+	var schedulesdiv = document.getElementById('possSchedules');
+	$(schedulesdiv).toggle();
+
+	var commitdiv = document.getElementById('commSchedule');
+	$(commitdiv).toggle();
+
 }
 
 
@@ -143,4 +145,4 @@ function generate(e){
 } */
 
 
-/*toggle color as well as starred class!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! /*
+/*toggle color as well as starred class!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */

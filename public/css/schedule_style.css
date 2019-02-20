@@ -71,6 +71,6 @@ th {
 }
 
 
-commSchedules{
-  visibility: hidden;
+#commSchedule{
+  display: none;
 }
