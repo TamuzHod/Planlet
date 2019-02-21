@@ -1,9 +1,10 @@
 var fs = require("fs");
+var path = require('path');
 
 
 exports.view = function(req, res){
 
-	fs.writeFile("__dirname/selectedClasses.json", JSON.stringify(req.body, null, 4), (err) => {
+	fs.writeFile(path.dirname(require.main.filename) + "/selectedClasses.json", JSON.stringify(req.body, null, 4), (err) => {
     if (err) {
         console.error(err);
         return;
