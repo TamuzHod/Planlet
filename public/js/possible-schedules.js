@@ -33,19 +33,18 @@ $.getScript('/js/daypilot-all.min.js', function()
   var subset5 = [];
   var schedules = [];
 
-function starSchedule(e){
+  function starSchedule(e){
     /*if schedule has class starred --> toggle color of star*/
     console.log("clicked");
     var element = document.getElementById("starButt");
     $(element).toggleClass('starred');
 }
 
-$("schCond").click(function (){
-    var schedule;   
+function seeNewSchedule(scheduleHTML){
     var dp = new DayPilot.Calendar("DP");
     dp.viewType = "Days";
     dp.days = 5;
-
+    schedule = schedules[scheduleHTML.id];
     dp.theme = "calendar_green";
     // view
     dp.startDate = "2018-02-26";  // or just dp.startDate = "2013-03-25";
@@ -54,7 +53,7 @@ $("schCond").click(function (){
 
     dp.init();
 
-    $.each(schedule.events, function(index, event) {
+/*    $.each(schedule.events, function(index, event) {
         var e = new DayPilot.Event({
             start: event.start,
             end: event.end,
@@ -67,14 +66,14 @@ $("schCond").click(function (){
     });
 
     dp.update();
-
+*/
     var schedulesdiv = document.getElementById('possSchedules');
     $(schedulesdiv).toggle();
 
     var commitdiv = document.getElementById('commSchedule');
     $(commitdiv).toggle();
+}
 
-});
 
 $.getJSON('/getSelectedClasses', { get_param: 'classes' }, function(data) {
 
@@ -86,6 +85,11 @@ $.getJSON('/getSelectedClasses', { get_param: 'classes' }, function(data) {
     createSchedule(subset5, schedules);
 
     createHTML(schedules);
+    $.each($('div.schClick'), function(index, schedule) {
+        schedule.addEventListener("click", function(){
+          seeNewSchedule(this);
+      });
+    });
 
 });
 
@@ -105,7 +109,7 @@ function createHTML() {
         else{
             timeday = 'afternoon';
         }
-        html += '<div class="schCond content type-' + timeday + ' type-' + schedule.numClasses +'" onClick="seeCommitScreen(this)">\n';
+        html += '<div id="'+index+'" class="schClick content type-' + timeday + ' type-' + schedule.numClasses +'">\n';
         $.each(schedule.events, function(index, dayEvents) {
             html += '\t<div class="condDay" id="'+days[index]+'">\n';
             html += '\t\t<div class="dayTitle">' + daysAbbrev[index] + ' </div>\n';

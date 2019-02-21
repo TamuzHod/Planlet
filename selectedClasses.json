@@ -1,27 +1,73 @@
 [
     {
-        "id": "CSE 12",
+        "id": "LIGN 101",
         "tags": "afternoon",
-        "title": "Basic Data Structures and Object-Oriented Design",
+        "title": "Introduction to the Study of Language",
         "units": "4",
         "times": [
             {
                 "day": "T",
-                "start": "12:00",
-                "end": "14:00"
+                "start": "14:00",
+                "end": "20:00"
             },
             {
                 "day": "Th",
-                "start": "12:00",
-                "end": "14:00"
+                "start": "14:00",
+                "end": "20:00"
             }
         ]
     },
     {
-        "id": "CSE 20",
+        "id": "LIGN 148",
         "tags": "morning",
-        "title": "Discrete Mathematics",
+        "title": "Psycholinguistics of Sign Language",
         "units": "4",
+        "times": [
+            {
+                "day": "T",
+                "start": "09:30",
+                "end": "10:50"
+            },
+            {
+                "day": "Th",
+                "start": "09:30",
+                "end": "10:50"
+            }
+        ]
+    },
+    {
+        "id": "HUM 2",
+        "tags": "afternoon",
+        "title": "Rome,Christianity & Middle Ages",
+        "units": "6",
+        "times": [
+            {
+                "day": "T",
+                "start": "12:30",
+                "end": "13:50"
+            },
+            {
+                "day": "Th",
+                "start": "12:30",
+                "end": "13:50"
+            },
+            {
+                "day": "W",
+                "start": "17:00",
+                "end": "15:00"
+            },
+            {
+                "day": "F",
+                "start": "17:00",
+                "end": "15:50"
+            }
+        ]
+    },
+    {
+        "id": "HUM 5",
+        "tags": "morning",
+        "title": "Modern Culture (1848-Present)",
+        "units": "6",
         "times": [
             {
                 "day": "M",
@@ -35,8 +81,13 @@
             },
             {
                 "day": "F",
-                "start": "10:00",
+                "start": "10:00)",
                 "end": "10:50"
+            },
+            {
+                "day": "M",
+                "start": "11:00",
+                "end": "11:50"
             }
         ]
     }
