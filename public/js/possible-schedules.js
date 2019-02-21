@@ -67,8 +67,8 @@ function getDay(dayStr){
                 (course.tags === "afternoon") ? morningCounter-- : morningCounter++;
                 numUnits += course.units;
                 $.each(course.times, function(indexTime, time) {
-                    var calcLength = parseInt(time.end) * 60 + parseInt(time.end.substring(3))
-                    calcLength -= parseInt(time.start) * 60 + parseInt(time.start.substring(3))
+                    var calcLength = hrToMinutes(time.end);
+                    calcLength -= hrToMinutes(time.start);
                     event = {
                         id: course.id,
                         index: index,
@@ -80,6 +80,10 @@ function getDay(dayStr){
                     events[getDay(time.day)].push(event)
                 });
             });
+            for(var i=0; i<events.length; i++){
+                if(classCollisionCheack(events[i]))
+                    break;
+            }
             schedule = {
                 morning: morningCounter > 0,
                 numClasses : classSubset.length,
@@ -92,12 +96,23 @@ function getDay(dayStr){
         });
     }
 
-    // function classCollisionCheack(events) {
-    //     $.each(events, function(index, event) {
+    function hrToMinutes(time){
+        return parseInt(time) * 60 + parseInt(time.substring(3));
+    }
 
-    //     }
-    //     return true;
-    // }
+    function classCollisionCheack(events) {
+        $.each(events, function(index, eventA) {
+            for (var i = index+1; i<events.length; i++){
+                var aStart = hrToMinutes(eventA.start)
+                var bStart = hrToMinutes(events[i].start)
+                var aEnd = hrToMinutes(eventA.end)
+                var bEnd = hrToMinutes(events[i].end)
+                if(aStart < bStart && aStart > bEnd || aEnd < bStart && aStart > bEnd)
+                    return true;
+            }
+            return false;
+        });
+    }
 
     function getSubsetsofSizeK(input, k, subset) {
     var s = [];                  // here we'll keep indices 

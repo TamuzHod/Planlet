@@ -1,1 +1,56 @@
-[]
+[
+    {
+        "id": "COGS 100",
+        "tags": "morning",
+        "title": "Cyborgs Now and In the Future",
+        "units": "4",
+        "times": [
+            {
+                "day": "M",
+                "start": "10:30",
+                "end": "11:30"
+            },
+            {
+                "day": "W",
+                "start": "10:30",
+                "end": "11:30"
+            }
+        ]
+    },
+    {
+        "id": "COGS 120",
+        "tags": "afternoon",
+        "title": "Interaction Design",
+        "units": "5",
+        "times": [
+            {
+                "day": "M",
+                "start": "17:00",
+                "end": "17:50"
+            },
+            {
+                "day": "W",
+                "start": "17:00",
+                "end": "17:50"
+            }
+        ]
+    },
+    {
+        "id": "COGS 121",
+        "tags": "afternoon",
+        "title": "HCI Program Study",
+        "units": "4",
+        "times": [
+            {
+                "day": "T",
+                "start": "18:00",
+                "end": "18:50"
+            },
+            {
+                "day": "Th",
+                "start": "18:00",
+                "end": "18:50"
+            }
+        ]
+    }
+]
