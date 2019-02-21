@@ -42,33 +42,77 @@ function getDay(dayStr){
         createSchedule(subset4, schedules);
         createSchedule(subset5, schedules);
 
-        createHTML();
+        createHTML(schedules);
 
     });
 
-    // function createHTML() {
-    //     var html = "";
-    //     var days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
-    //     var daysAbbrev = ['M', 'T', 'W', 'T', 'F'];
+    function starSchedule(e){
+        /*if schedule has class starred --> toggle color of star*/
+        console.log("clicked");
+        var element = document.getElementById("starButt");
+        $(element).toggleClass('starred');
+    }
 
-    //     for (var schedule in schedules) {
-    //         for (var day in this.events) {
-    //             /*var day = days[daynum];
-    //             var dayAbbrev = daysAbbrev[daynum]; */
-    //             html += '<div class="schCond content type-' + this.numClasses +'">\n';
-    //             html += '<div class="condDay">\n';
-    //             html += '<div class="dayTitle">\n' + dayAbbrev + '\n </div>\n';
+    function seeCommitScreen(schedule){
+
+        var dp = new DayPilot.Calendar("DP");
+        dp.viewType = "Days";
+        dp.days = 5;
+
+        dp.theme = "calendar_green";
+        // view
+        dp.startDate = "2018-02-26";  // or just dp.startDate = "2013-03-25";
+        dp.headerDateFormat = "dddd";
+        dp.showNonBusiness = false;
+
+        dp.init();
+
+        $.each(schedule.events, function(index, event) {
+            var e = new DayPilot.Event({
+                start: event.start,
+                end: event.end,
+                id: event.id,
+                text: schedule.classes[event.index].text,
+                moveDisabled: true
+
+            });
+            dp.events.add(e);
+        });
+
+        dp.update();
+
+        var schedulesdiv = document.getElementById('possSchedules');
+        $(schedulesdiv).toggle();
+
+        var commitdiv = document.getElementById('commSchedule');
+        $(commitdiv).toggle();
+
+    }
+
+    function createHTML() {
+        var html = "";
+        var days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+        var daysAbbrev = ['M', 'T', 'W', 'T', 'F'];
+
+        $.each(schedules, function(index, schedule) {
+            html += '<div class="schCond content type-' + schedule.numClasses +'" onClick="seeCommitScreen(this)"">\n';
+            $.each(schedule.events, function(index, dayEvents) {
+                html += '\t<div class="condDay" id="'+days[index]+'">\n';
+                html += '\t\t<div class="dayTitle">' + daysAbbrev[index] + ' </div>\n';
     
-    //             for (var subject in ) {
-    //                 var subjectID = subject.GETID;
-    //                 var subjectLength = subject.GETLENGTH;
-    //                 html += '<div class="class">\n subjectID\n</div>\n';
-    //             }
-    //             html += '</div>\n';
-    //         }
-    //         html += '</div>\n';
-    //     }
-    // }
+                $.each(dayEvents, function(index, event) {
+                    if(event.length > 60)
+                        html += '\t\t\t<div class="class longClass">' + event.id + '</div>\n';
+                    else
+                        html += '\t\t\t<div class="class shortClass">' + event.id + '</div>\n';
+                });
+                html += '\t</div>\n';
+            });
+            html += '</div>\n';
+        });
+        $("#class-filter").append(html);
+
+    }
 
     function createSchedule(subset, schedules) {
         var schedule = {};
@@ -139,20 +183,18 @@ function getDay(dayStr){
     }
 
     function getSubsetsofSizeK(input, k, subset) {
-    var s = [];                  // here we'll keep indices 
+    var s = [];                  
     if (k <= input.length) {
-        // first index sequence: 0, 1, 2, ...
         for (var i = 0; (s[i] = i) < k - 1; i++);  
             subset.push(getSubset(input, s));
         for(;;) {
             var i;
-            // find position of item that can be incremented
             for (i = k - 1; i >= 0 && s[i] == input.length - k + i; i--); 
                 if (i < 0) {
                     break;
                 }
-            s[i]++;                    // increment this item
-            for (++i; i < k; i++) {    // fill up remaining items
+            s[i]++;                    
+            for (++i; i < k; i++) {    
                 s[i] = s[i - 1] + 1; 
             }
             subset.push(getSubset(input, s));
@@ -168,8 +210,9 @@ function getSubset(input,subset) {
     return result;
 }
 
-
 });
+
+
 
 
 

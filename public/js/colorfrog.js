@@ -118,36 +118,9 @@ function seeSignUp(e){
 }
 
 
-function seeCommitScreen(e){
-	var schedulesdiv = document.getElementById('possSchedules');
-	$(schedulesdiv).toggle();
 
-	var commitdiv = document.getElementById('commSchedule');
-	$(commitdiv).toggle();
-}
 
-function starSchedule(e){
-	/*if schedule has class starred --> toggle color of star*/
-	console.log("clicked");
-	var element = document.getElementById("starButt");
-	$(element).toggleClass('starred');
-}
 
-/*
-function generate(e){
-	var n = $("input:checked").length;
-	var print = "";
-	for (var counter = 0; counter < n; counter++){
-		var object = $("input:checked")[counter];
-		var string = $(object).attr("id")
-		string = string.split('check')[1];
-		print = print + " " +string;
-	}
-	var result = confirm("Confirm that you want schedules with the following classes:"+ print + ".");
-	if (result){
-		document.location.href = '/possibleSchedules';
-	}
-} */
 
 
 /*toggle color as well as starred class!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
