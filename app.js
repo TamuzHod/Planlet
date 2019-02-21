@@ -40,6 +40,8 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+var selectedClassesName = "";
+
 app.get('/', index.view);
 app.get('/alittleaboutyou', alittleaboutyou.view);
 app.get('/forgottenPassword', forgottenPassword.view);

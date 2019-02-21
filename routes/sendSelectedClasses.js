@@ -6,7 +6,7 @@ var path = require('path');
 
 var content;
 exports.send = function(req, res){
-    var filePath = path.dirname(require.main.filename) + "/selectedClasses.json";
+    var filePath = path.dirname(require.main.filename) + "/selectedClassesTest.json";
 	fs.readFile(filePath, "utf8", function read(err, data) {
 	    if (err) {
 	    	res.json("Failed to read file")
