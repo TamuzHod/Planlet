@@ -47,7 +47,27 @@ function getDay(dayStr){
     });
 
     function createHTML() {
+        var html = "";
+        var days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+        var daysAbbrev = ['M', 'T', 'W', 'T', 'F'];
 
+        for (var schedule in schedules) {
+            for (var day in this.events) {
+                /*var day = days[daynum];
+                var dayAbbrev = daysAbbrev[daynum]; */
+                html += '<div class="schCond content type-' + this.numClasses +'">\n';
+                html += '<div class="condDay">\n';
+                html += '<div class="dayTitle">\n' + dayAbbrev + '\n </div>\n';
+    
+                for (var subject in ) {
+                    var subjectID = subject.GETID;
+                    var subjectLength = subject.GETLENGTH;
+                    html += '<div class="class">\n subjectID\n</div>\n';
+                }
+                html += '</div>\n';
+            }
+            html += '</div>\n';
+        }
     }
 
     function createSchedule(subset, schedules) {
@@ -131,6 +151,9 @@ function getSubset(input,subset) {
 
 
 });
+
+
+
 
 /*    var i = 0;
     $.each(subsets3, function(index, courseSubset){
