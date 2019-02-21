@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="/js/bootstrap.min.js"></script>
 
+
     <!-- Bootstrap css -->
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <!-- Theme css -->
@@ -25,14 +26,14 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.fitvids.js"></script>
     <script src="js/colorfrog.js"></script>
-    {{> facebook}}
-    <script src="/js/facebook.js"></script>
     <script>
         function httpFix() {
             if (window.location.protocol === "https:")
                 window.location.protocol = "http";
         }
     </script>
+    {{> facebook}}
+    <script src="/js/facebook.js"></script>
 
     <!--[if lt IE 9]>
     <script>
@@ -63,12 +64,14 @@
                     <div class="form-group">
                         <input type="password" placeholder="Password" class="form-control">
                     </div>
-                    <fb:login-button style="float: right;" scope="public_profile,email" onlogin="checkLoginState();">
-                    </fb:login-button>
+                    <p style="float: right;" class="facebookLogin">
+                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                        </fb:login-button>
+                    </p>
                     <label class="checkbox" style="margin-left: 20px" ;>
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
-                    
+
                     <a href="forgottenPassword">Forgotten password?</a>
                     <div class="form-group clearfix" style="display: flex; justify-content:center; margin-top: 10px;">
                         <button class="btn btn-large" type="submit">Log in</button></a>
