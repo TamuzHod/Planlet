@@ -97,7 +97,15 @@ function createHTML() {
     var daysAbbrev = ['M', 'T', 'W', 'T', 'F'];
 
     $.each(schedules, function(index, schedule) {
-        html += '<div class="schCond content type-' + schedule.numClasses +'" onClick="seeCommitScreen(this)">\n';
+        console.log(schedule.morning);
+        var timeday = '';
+        if (schedule.morning == true){
+            timeday = 'morning';
+        }
+        else{
+            timeday = 'afternoon';
+        }
+        html += '<div class="schCond content type-' + timeday + ' type-' + schedule.numClasses +'" onClick="seeCommitScreen(this)">\n';
         $.each(schedule.events, function(index, dayEvents) {
             html += '\t<div class="condDay" id="'+days[index]+'">\n';
             html += '\t\t<div class="dayTitle">' + daysAbbrev[index] + ' </div>\n';
