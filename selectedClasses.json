@@ -36,20 +36,43 @@
         ]
     },
     {
-        "id": "COGS 121",
+        "id": "CSE 12",
         "tags": "afternoon",
-        "title": "HCI Program Study",
+        "title": "Basic Data Structures and Object-Oriented Design",
         "units": "4",
         "times": [
             {
                 "day": "T",
-                "start": "18:00",
-                "end": "18:50"
+                "start": "12:00",
+                "end": "14:00"
             },
             {
                 "day": "Th",
-                "start": "18:00",
-                "end": "18:50"
+                "start": "12:00",
+                "end": "14:00"
+            }
+        ]
+    },
+    {
+        "id": "CSE 20",
+        "tags": "morning",
+        "title": "Discrete Mathematics",
+        "units": "4",
+        "times": [
+            {
+                "day": "M",
+                "start": "10:00",
+                "end": "10:50"
+            },
+            {
+                "day": "W",
+                "start": "10:00",
+                "end": "10:50"
+            },
+            {
+                "day": "F",
+                "start": "10:00",
+                "end": "10:50"
             }
         ]
     }

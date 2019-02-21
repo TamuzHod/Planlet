@@ -46,29 +46,29 @@ function getDay(dayStr){
 
     });
 
-    function createHTML() {
-        var html = "";
-        var days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
-        var daysAbbrev = ['M', 'T', 'W', 'T', 'F'];
+    // function createHTML() {
+    //     var html = "";
+    //     var days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+    //     var daysAbbrev = ['M', 'T', 'W', 'T', 'F'];
 
-        for (var schedule in schedules) {
-            for (var day in this.events) {
-                /*var day = days[daynum];
-                var dayAbbrev = daysAbbrev[daynum]; */
-                html += '<div class="schCond content type-' + this.numClasses +'">\n';
-                html += '<div class="condDay">\n';
-                html += '<div class="dayTitle">\n' + dayAbbrev + '\n </div>\n';
+    //     for (var schedule in schedules) {
+    //         for (var day in this.events) {
+    //             /*var day = days[daynum];
+    //             var dayAbbrev = daysAbbrev[daynum]; */
+    //             html += '<div class="schCond content type-' + this.numClasses +'">\n';
+    //             html += '<div class="condDay">\n';
+    //             html += '<div class="dayTitle">\n' + dayAbbrev + '\n </div>\n';
     
-                for (var subject in ) {
-                    var subjectID = subject.GETID;
-                    var subjectLength = subject.GETLENGTH;
-                    html += '<div class="class">\n subjectID\n</div>\n';
-                }
-                html += '</div>\n';
-            }
-            html += '</div>\n';
-        }
-    }
+    //             for (var subject in ) {
+    //                 var subjectID = subject.GETID;
+    //                 var subjectLength = subject.GETLENGTH;
+    //                 html += '<div class="class">\n subjectID\n</div>\n';
+    //             }
+    //             html += '</div>\n';
+    //         }
+    //         html += '</div>\n';
+    //     }
+    // }
 
     function createSchedule(subset, schedules) {
         var schedule = {};
@@ -100,10 +100,14 @@ function getDay(dayStr){
                     events[getDay(time.day)].push(event)
                 });
             });
+            var collision = false;
             for(var i=0; i<events.length; i++){
-                if(classCollisionCheack(events[i]))
+                if(classCollisionCheack(events[i])){
+                    collision = true;
                     break;
+                }
             }
+
             schedule = {
                 morning: morningCounter > 0,
                 numClasses : classSubset.length,
@@ -111,8 +115,8 @@ function getDay(dayStr){
                 classes: classSubset,
                 events: events
             };
-            schedules.push(schedule);
-
+            if(!collision)
+                schedules.push(schedule);
         });
     }
 
@@ -121,17 +125,17 @@ function getDay(dayStr){
     }
 
     function classCollisionCheack(events) {
-        $.each(events, function(index, eventA) {
-            for (var i = index+1; i<events.length; i++){
-                var aStart = hrToMinutes(eventA.start)
+        for(var j = 0; j<events.length; j++) {
+            for (var i = j+1; i<events.length; i++){
+                var aStart = hrToMinutes(events[j].start)
                 var bStart = hrToMinutes(events[i].start)
-                var aEnd = hrToMinutes(eventA.end)
+                var aEnd = hrToMinutes(events[j].end)
                 var bEnd = hrToMinutes(events[i].end)
-                if(aStart < bStart && aStart > bEnd || aEnd < bStart && aStart > bEnd)
+                if(aStart > bStart && aStart < bEnd || aEnd > bStart && aStart < bEnd)
                     return true;
             }
             return false;
-        });
+        }
     }
 
     function getSubsetsofSizeK(input, k, subset) {
