@@ -1,69 +1,105 @@
 
+
+
 // jQuery
 $.getScript('/js/daypilot-all.min.js', function()
 {
 
-
-
-var subset3 = [];
-var subset4 = [];
-var subset5 = [];
-var schedules = [];
-
-$.getJSON('/getSelectedClasses', { get_param: 'classes' }, function(data) {
-
-    getSubsetsofSizeK(data, 3, subset3);
-    getSubsetsofSizeK(data, 4, subset4);
-    getSubsetsofSizeK(data, 5, subset5);
-    createSchedule(subset3, schedules);
-    createSchedule(subset4, schedules);
-    createSchedule(subset5, schedules);
-
-    createHTML();
-
-});
-
-function createHTML() {
-    
+var day = {
+    monday: 0,
+    tuesday: 1,
+    wednesday: 2,
+    thursday: 3,
+    friday: 4,
 }
 
-function createSchedule(subset, schedules) {
-    var schedule = {};
-    $.each(subset, function(index, classSubset){
-        var morningCounter = 0;
-        var numUnits = 0;
-        var events = [];
-        var event = {};
-        $.each(classSubset, function(index, course) {
-            (course.tags === "afternoon") ? morningCounter-- : morningCounter++;
-            numUnits += course.units;
-            $.each(course.times, function(indexTime, time) {
-                var calcLength = parseInt(time.end) * 60 + parseInt(time.end.substring(3))
-                calcLength -= parseInt(time.start) * 60 + parseInt(time.start.substring(3))
-                event = {
-                    id: course.id,
-                    index: index,
-                    start: time.start,
-                    end: time.end,
-                    day: time.day,
-                    length: calcLength
-                }
-                events.push(event)
-            });
-        });
-        schedule = {
-          morning: morningCounter > 0,
-          numClasses : classSubset.length,
-          starred: false,
-          classes: classSubset,
-          events: events
-        };
-        schedules.push(schedule);
+function getDay(dayStr){
+    switch(dayStr) {
+      case "M":
+        return day.monday;
+      case "T":
+        return day.tuesday;
+      case "W":
+        return day.wednesday;
+      case "Th":
+        return day.thursday;
+      case "F":
+        return day.friday;
+  }
+}
+
+    var subset3 = [];
+    var subset4 = [];
+    var subset5 = [];
+    var schedules = [];
+
+    $.getJSON('/getSelectedClasses', { get_param: 'classes' }, function(data) {
+
+        getSubsetsofSizeK(data, 3, subset3);
+        getSubsetsofSizeK(data, 4, subset4);
+        getSubsetsofSizeK(data, 5, subset5);
+        createSchedule(subset3, schedules);
+        createSchedule(subset4, schedules);
+        createSchedule(subset5, schedules);
+
+        createHTML();
 
     });
-}
 
-function getSubsetsofSizeK(input, k, subset) {
+    function createHTML() {
+
+    }
+
+    function createSchedule(subset, schedules) {
+        var schedule = {};
+        $.each(subset, function(index, classSubset){
+            var morningCounter = 0;
+            var numUnits = 0;
+            var events = [
+            [],
+            [],
+            [],
+            [],
+            []
+            ];
+            var event = {};
+            $.each(classSubset, function(index, course) {
+                (course.tags === "afternoon") ? morningCounter-- : morningCounter++;
+                numUnits += course.units;
+                $.each(course.times, function(indexTime, time) {
+                    var calcLength = parseInt(time.end) * 60 + parseInt(time.end.substring(3))
+                    calcLength -= parseInt(time.start) * 60 + parseInt(time.start.substring(3))
+                    event = {
+                        id: course.id,
+                        index: index,
+                        start: time.start,
+                        end: time.end,
+                        day: time.day,
+                        length: calcLength
+                    }
+                    events[getDay(time.day)].push(event)
+                });
+            });
+            schedule = {
+                morning: morningCounter > 0,
+                numClasses : classSubset.length,
+                starred: false,
+                classes: classSubset,
+                events: events
+            };
+            schedules.push(schedule);
+
+        });
+    }
+
+    // function classCollisionCheack(events) {
+    //     $.each(events, function(index, event) {
+
+    //     }
+    //     return true;
+    // }
+
+    function getSubsetsofSizeK(input, k, subset) {
     var s = [];                  // here we'll keep indices 
     if (k <= input.length) {
         // first index sequence: 0, 1, 2, ...
