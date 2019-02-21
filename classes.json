@@ -5,12 +5,14 @@
       "title": "Cyborgs Now and In the Future",
       "units": "4",
       "times": [{
-          "start": "2018-02-26T10:30:00",
-          "end": "2018-02-26T11:30:00"
+          "day": "M",
+          "start": "10:30",
+          "end": "11:30"
         },
         {
-          "start": "2018-02-28T10:30:00",
-          "end": "2018-02-28T11:30:00"
+          "day": "W",
+          "start": "10:30",
+          "end": "11:30"
         }
       ]
     },
@@ -20,12 +22,14 @@
       "title": "Interaction Design",
       "units": "5",
       "times": [{
-          "start": "2018-02-26T17:00:00",
-          "end": "2018-02-26T17:50:00"
+          "day": "M",
+          "start": "17:00",
+          "end": "17:50"
         },
         {
-          "start": "2018-02-28T17:00:00",
-          "end": "2018-02-28T17:50:00"
+          "day": "W",
+          "start": "17:00",
+          "end": "17:50"
         }
       ]
     },
@@ -35,12 +39,14 @@
       "title": "HCI Program Study",
       "units": "4",
       "times": [{
-          "start": "2018-02-27T18:00:00",
-          "end": "2018-02-27T18:50:00"
+          "day": "T",
+          "start": "18:00",
+          "end": "18:50"
         },
         {
-          "start": "2018-02-29T18:00:00",
-          "end": "2018-02-29T18:50:00"
+          "day": "Th",
+          "start": "18:00",
+          "end": "18:50"
         }
       ]
     }
@@ -51,10 +57,12 @@
       "title": "Introduction to the Study of Language",
       "units": "4",
       "times": [{
+          "day": "T",
           "start": "2018-02-27T14:00:00",
           "end": "2018-02-27T15:20:00"
         },
         {
+          "day": "Th",
           "start": "2018-02-29T14:00:00",
           "end": "2018-02-29T15:20:00"
         }
@@ -66,10 +74,12 @@
       "title": "Psycholinguistics of Sign Language",
       "units": "4",
       "times": [{
+          "day": "T",
           "start": "2018-02-27T09:30:00",
           "end": "2018-02-27T10:50:00"
         },
         {
+          "day": "Th",
           "start": "2018-02-29T09:30:00",
           "end": "2018-02-29T10:50:00"
         }
@@ -82,10 +92,12 @@
       "title": "Basic Data Structures and Object-Oriented Design",
       "units": "4",
       "times": [{
+          "day": "T",
           "start": "2018-02-27T12:00:00",
           "end": "2018-02-27T14:00:00"
         },
         {
+          "day": "Th",
           "start": "2018-02-29T12:00:00",
           "end": "2018-02-29T14:00:00"
         }
@@ -97,6 +109,7 @@
       "title": "Discrete Mathematics",
       "units": "4",
       "times": [{
+          "day": "M",
           "start": "2018-02-26T10:00:00",
           "end": "2018-02-26T10:50:00"
         },
@@ -116,6 +129,7 @@
       "title": "Software Tools & Techniques Lab",
       "units": "2",
       "times": [{
+          "day": "M",
           "start": "2018-02-26T08:00:00",
           "end": "2018-02-26T08:50:00"
         },
@@ -137,6 +151,7 @@
       "title": "The Writing Course A",
       "units": "4",
       "times": [{
+          "day": "M",
           "start": "2018-02-26T12:30:00",
           "end": "2018-02-26T13:50:00"
         },
@@ -152,6 +167,7 @@
       "title": "The Writing Course B",
       "units": "4",
       "times": [{
+          "day": "M",
           "start": "2018-02-26T15:30:00",
           "end": "2018-02-26T16:50:00"
         },
@@ -167,6 +183,7 @@
       "title": "Ethics and Society I",
       "units": "4",
       "times": [{
+          "day": "M",
           "start": "2018-02-26T12:00:00",
           "end": "2018-02-26T12:50:00"
         },
@@ -182,6 +199,7 @@
       "title": "Ethics and Society II",
       "units": "4",
       "times": [{
+          "day": "M",
           "start": "2018-02-26T15:00:00",
           "end": "2018-02-26T15:50:00"
         },

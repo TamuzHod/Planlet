@@ -1,89 +1,55 @@
 [
     {
-        "id": "LIGN 101",
+        "id": "COGS 100",
+        "tags": "morning",
+        "title": "Cyborgs Now and In the Future",
+        "units": "4",
+        "times": [
+            {
+                "day": "M",
+                "start": "10:30",
+                "end": "11:30"
+            },
+            {
+                "day": "W",
+                "start": "10:30",
+                "end": "11:30"
+            }
+        ]
+    },
+    {
+        "id": "COGS 120",
         "tags": "afternoon",
-        "title": "Introduction to the Study of Language",
-        "units": "4",
+        "title": "Interaction Design",
+        "units": "5",
         "times": [
             {
-                "start": "2018-02-27T14:00:00",
-                "end": "2018-02-27T15:20:00"
+                "day": "M",
+                "start": "17:00",
+                "end": "17:50"
             },
             {
-                "start": "2018-02-29T14:00:00",
-                "end": "2018-02-29T15:20:00"
+                "day": "W",
+                "start": "17:00",
+                "end": "17:50"
             }
         ]
     },
     {
-        "id": "LIGN 148",
-        "tags": "morning",
-        "title": "Psycholinguistics of Sign Language",
-        "units": "4",
-        "times": [
-            {
-                "start": "2018-02-27T09:30:00",
-                "end": "2018-02-27T10:50:00"
-            },
-            {
-                "start": "2018-02-29T09:30:00",
-                "end": "2018-02-29T10:50:00"
-            }
-        ]
-    },
-    {
-        "id": "CSE 12",
+        "id": "COGS 121",
         "tags": "afternoon",
-        "title": "Basic Data Structures and Object-Oriented Design",
+        "title": "HCI Program Study",
         "units": "4",
         "times": [
             {
-                "start": "2018-02-27T12:00:00",
-                "end": "2018-02-27T14:00:00"
+                "day": "T",
+                "start": "18:00",
+                "end": "18:50"
             },
             {
-                "start": "2018-02-29T12:00:00",
-                "end": "2018-02-29T14:00:00"
-            }
-        ]
-    },
-    {
-        "id": "CSE 20",
-        "tags": "morning",
-        "title": "Discrete Mathematics",
-        "units": "4",
-        "times": [
-            {
-                "start": "2018-02-26T10:00:00",
-                "end": "2018-02-26T10:50:00"
-            },
-            {
-                "start": "2018-02-28T10:00:00",
-                "end": "2018-02-28T10:50:00"
-            },
-            {
-                "start": "2018-02-30T10:00:00",
-                "end": "2018-02-30T10:50:00"
-            }
-        ]
-    },
-    {
-        "id": "CSE 15L",
-        "tags": "morning",
-        "title": "Software Tools & Techniques Lab",
-        "units": "2",
-        "times": [
-            {
-                "start": "2018-02-26T08:00:00",
-                "end": "2018-02-26T08:50:00"
-            },
-            {
-                "start": "2018-02-26T08:00:00",
-                "end": "2018-02-26T08:50:00"
-            },
-            {
-                "start": "2018-02-28T12:00:00",
-                "end": "2018-02-28T13:50:00"
+                "day": "Th",
+                "start": "18:00",
+                "end": "18:50"
             }
         ]
     }
