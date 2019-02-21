@@ -852,7 +852,9 @@ form {
     background: #029fe2;
     color: #fff; }
   .blue .filters .active-filter {
-    background: #d8f3ff; }
+    /*background: #d8f3ff; */
+    background: #029fe2;
+    color: #fff;}
 
 /*
 * // end blue styles
