@@ -36,6 +36,9 @@ function getClasses() {
                 html += '<hr>';
         });
         document.getElementById("minorClasses").innerHTML = html;
+        if (minor == "No Minor"){
+            $(document.getElementById("minorDiv")).hide();
+        }
         html = "";
         $.each(data[college], function(index, course) {
              
