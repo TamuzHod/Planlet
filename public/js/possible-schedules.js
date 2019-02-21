@@ -89,6 +89,14 @@ function getDay(dayStr){
 
     }
 
+    function hideCommitScreen(){
+        var schedulesdiv = document.getElementById('possSchedules');
+        $(schedulesdiv).toggle();
+
+        var commitdiv = document.getElementById('commSchedule');
+        $(commitdiv).toggle();
+    }
+
     function createHTML() {
         var html = "";
         var days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
