@@ -46,16 +46,17 @@ function createSchedule(subset, schedules) {
                     start: time.start,
                     end: time.end,
                     day: time.day,
-                    length: 
+                    length: calcLength
                 }
+                events.push(event)
             });
         });
         schedule = {
           morning: morningCounter > 0,
           numClasses : classSubset.length,
           starred: false,
-          classes: classSubset
-          events
+          classes: classSubset,
+          events: events
         };
         schedules.push(schedule);
 
