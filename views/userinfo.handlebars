@@ -4,21 +4,21 @@
 <title>Planlet - Availability</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap css -->
-<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+<link href="/css/bootstrap.css" rel="stylesheet" media="screen">
 <!-- Theme css -->
-<link href="css/colorfrog.css" rel="stylesheet" media="screen">
+<link href="/css/colorfrog.css" rel="stylesheet" media="screen">
 
 <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet'
     type='text/css'>
-<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
-<script src="js/respond.min.js"></script>
-<script src="js/aboutYou.js"></script>
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<script src="/js/respond.min.js"></script>
+<script src="/js/aboutYou.js"></script>
 
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/jquery.fitvids.js"></script>
-<script src="js/colorfrog.js"></script>
-<link rel="stylesheet" href="../css/planlet.css">
+<script src="/js/bootstrap.js"></script>
+<script src="/js/jquery.fitvids.js"></script>
+<script src="/js/colorfrog.js"></script>
+<link rel="stylesheet" href="/../css/planlet.css">
 <!--[if lt IE 9]>
     <script>
         document.createElement('header');document.createElement('nav');document.createElement('section');document.createElement('article');document.createElement('aside');document.createElement('footer');
@@ -40,19 +40,19 @@
             <div style="width: 100%; display:flex; justify-content: space-between;">
                 <div style="display: inline-block;" class="form-group">
                     <div class="grid-item" id="lblName">First Name</div>
-                    <input size="7" id="nameInput" placeholder="{{name}}" type="text"></input>
+                    <input size="7" id="nameInput" placeholder="Tamuz" type="text"></input>
                 </div>
 
                 <div style="float: right;" class="form-group">
                     <div style="width: 80%; float: right;" class="grid-item" id="lblEmail">Email</div>
-                    <input style="width: 80%; float: right;" id="emailInput" placeholder="{{email}}"
+                    <input style="width: 80%; float: right;" id="emailInput" placeholder="thod@ucsd.edu"
                         type="text"></input>
                 </div>
             </div>
             <div class="form-group">
                 <div class="grid-item" id="lblMajor">Major(s)</div>
                 <select class="form-group-lg form-control" id="selMajor">
-                    <option value="" disabled selected style="display: none;">{{major}}</option>
+                    <option value="" disabled selected style="display: none;">{{majorName}}</option>
                     <option>COGS</option>
                     <option>LIGN</option>
                 </select>
@@ -61,7 +61,7 @@
             <div class="form-group">
                 <div class="grid-item" id="lblMinor">Minor(s)</div>
                 <select class="form-group-lg form-control" id="selMinor">
-                    <option value="" disabled selected style="display: none;">{{minor}}</option>
+                    <option value="" disabled selected style="display: none;">{{minorName}}</option>
                     <option>No Minor</option>
                     <option>CSE</option>
                 </select>
@@ -70,7 +70,7 @@
             <div class="form-group">
                 <div class="grid-item" id="lblCollege">College</div>
                 <select class="form-group-lg form-control" id="selCollege">
-                    <option value="" disabled selected style="display: none;">{{college}}</option>
+                    <option value="" disabled selected style="display: none;">{{collegeName}}</option>
                     <option>Warren</option>
                     <option>Revelle</option>
                 </select>
@@ -78,10 +78,10 @@
 
             <!--Select tag and option tag, https://blink.ucsd.edu/instructors/academic-info/majors/minor-codes.html-->
 
-            <div class="form-group"><button class="btn"
+            <!--<div class="form-group"><button class="btn"
                     style="font-size: 25px; padding-left: 40px; padding-right: 40px; display: block; margin-left: auto; margin-right: auto;"
                     id="saveButt"><b>Save</b></button>
-            </div>
+            </div>-->
             <hr>
             <div style="display: flex; justify-content:space-between;">
                 <button class="btn" style="font-size: 13px;" onclick="next()">Start New Schedule</button>
