@@ -68,10 +68,10 @@ function seeNewSchedule(scheduleHTML){
     dp.update();
 */
     var schedulesdiv = document.getElementById('possSchedules');
-    $(schedulesdiv).toggle();
+    $(schedulesdiv).hide();
 
     var commitdiv = document.getElementById('commSchedule');
-    $(commitdiv).toggle();
+    $(commitdiv).show();
 }
 
 
