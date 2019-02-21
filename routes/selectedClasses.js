@@ -3,10 +3,14 @@ var path = require('path');
 
 
 exports.view = function(req, res){
-
-	fs.writeFile(path.dirname(require.main.filename) + "/selectedClasses.json", JSON.stringify(req.body, null, 4), (err) => {
+    var filePath = path.dirname(require.main.filename) + "/selectedClasses.json";
+	fs.writeFile(filePath, JSON.stringify(req.body, null, 4), (err) => {
     if (err) {
         console.error(err);
+        res.writeHead(200, {
+          'Content-Type': 'application/json; charset=utf-8',
+        });
+        res.end('value = ' + filePath);;
         return;
     };
     	console.log("File has been created");
