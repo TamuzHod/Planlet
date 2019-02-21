@@ -36,6 +36,7 @@
         ]
     },
     {
+<<<<<<< HEAD
         "id": "CSE 15L",
         "tags": "morning",
         "title": "Software Tools & Techniques Lab",
@@ -53,6 +54,50 @@
             {
                 "start": "12:00",
                 "end": "13:50"
+=======
+        "id": "COGS 121",
+        "tags": "afternoon",
+        "title": "HCI Program Study",
+        "units": "4",
+        "times": [
+            {
+                "day": "T",
+                "start": "18:00",
+                "end": "18:50"
+            },
+            {
+                "day": "Th",
+                "start": "18:00",
+                "end": "18:50"
+            }
+        ]
+    },
+    {
+        "id": "HUM 5",
+        "tags": "morning",
+        "title": "Modern Culture (1848-Present)",
+        "units": "6",
+        "times": [
+            {
+                "day": "M",
+                "start": "10:00",
+                "end": "10:50"
+            },
+            {
+                "day": "W",
+                "start": "10:00",
+                "end": "10:50"
+            },
+            {
+                "day": "F",
+                "start": "10:00)",
+                "end": "10:50"
+            },
+            {
+                "day": "M",
+                "start": "11:00",
+                "end": "11:50"
+>>>>>>> f263ec98cdc3bfddf9f5e39bd8189539cba5e992
             }
         ]
     }
