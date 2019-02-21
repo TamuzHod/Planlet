@@ -46,24 +46,20 @@
 
 	<!--what will show when schedule is clicked on-->
 	<div id="commSchedule">
-		<button style="float: right;" class="btn" onclick="seeCommitScreen()">Back</button>
+		<button style="float: right;" class="btn" onclick="hideNewSchedule()">Back</button>
+		<br><br>
 		<div class="upclose">
 			<div id="DP"></div>
 		</div>
 		<br><br>
-		<hr>
 
-		<div style="display: flex; justify-content:space-evenly;">
-			<button class="btn btn-lg">Send to Email</button>
-			<button id="starButt" class="btn btn-lg " onclick="starSchedule()"><i class="fas fa-star"></i></button>
-		</div>
 
 		<br><br>
 		<br>
 		<footer>
 			<div class="container" style="width: 100%; padding: 0px;">
-				<button class="btn btn-lg">Send to Email</button>
-				<button id="starButt" class="btn btn-lg " onclick="starSchedule()"><i class="fas fa-star"></i></button>
+				<button style="border-radius: 0px;" class="btn btn-lg" onclick="sendToEmail()">Send to Email</button>
+				<button style="border-radius: 0px; float: right;" id="starButt" class="btn btn-lg " onclick="starSchedule()"><i class="fas fa-star"></i></button>
 			</div>
 			<!--//end container -->
 		</footer>
