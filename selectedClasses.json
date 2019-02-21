@@ -1,23 +1,5 @@
 [
     {
-        "id": "COGS 100",
-        "tags": "morning",
-        "title": "Cyborgs Now and In the Future",
-        "units": "4",
-        "times": [
-            {
-                "day": "M",
-                "start": "10:30",
-                "end": "11:30"
-            },
-            {
-                "day": "W",
-                "start": "10:30",
-                "end": "11:30"
-            }
-        ]
-    },
-    {
         "id": "COGS 120",
         "tags": "afternoon",
         "title": "Interaction Design",
@@ -50,6 +32,75 @@
                 "day": "Th",
                 "start": "18:00",
                 "end": "18:50"
+            }
+        ]
+    },
+    {
+        "id": "CSE 12",
+        "tags": "afternoon",
+        "title": "Basic Data Structures and Object-Oriented Design",
+        "units": "4",
+        "times": [
+            {
+                "day": "T",
+                "start": "12:00",
+                "end": "14:00"
+            },
+            {
+                "day": "Th",
+                "start": "12:00",
+                "end": "14:00"
+            }
+        ]
+    },
+    {
+        "id": "CSE 20",
+        "tags": "morning",
+        "title": "Discrete Mathematics",
+        "units": "4",
+        "times": [
+            {
+                "day": "M",
+                "start": "10:00",
+                "end": "10:50"
+            },
+            {
+                "day": "W",
+                "start": "10:00",
+                "end": "10:50"
+            },
+            {
+                "day": "F",
+                "start": "10:00",
+                "end": "10:50"
+            }
+        ]
+    },
+    {
+        "id": "HUM 2",
+        "tags": "afternoon",
+        "title": "Rome,Christianity & Middle Ages",
+        "units": "6",
+        "times": [
+            {
+                "day": "T",
+                "start": "12:30",
+                "end": "13:50"
+            },
+            {
+                "day": "Th",
+                "start": "12:30",
+                "end": "13:50"
+            },
+            {
+                "day": "W",
+                "start": "17:00",
+                "end": "15:00"
+            },
+            {
+                "day": "F",
+                "start": "17:00",
+                "end": "15:50"
             }
         ]
     }
