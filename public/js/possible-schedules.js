@@ -40,8 +40,8 @@ function starSchedule(e){
     $(element).toggleClass('starred');
 }
 
-function seeCommitScreen(schedule){
-
+$("schCond").click(function (){
+    var schedule;   
     var dp = new DayPilot.Calendar("DP");
     dp.viewType = "Days";
     dp.days = 5;
@@ -74,7 +74,7 @@ function seeCommitScreen(schedule){
     var commitdiv = document.getElementById('commSchedule');
     $(commitdiv).toggle();
 
-}
+});
 
 $.getJSON('/getSelectedClasses', { get_param: 'classes' }, function(data) {
 
