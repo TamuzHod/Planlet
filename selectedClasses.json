@@ -36,28 +36,6 @@
         ]
     },
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-        "id": "CSE 15L",
-        "tags": "morning",
-        "title": "Software Tools & Techniques Lab",
-        "units": "2",
-        "times": [
-            {
-                "day": "M",
-                "start": "08:00",
-                "end": "08:50"
-            },
-            {
-                "start": "08:00",
-                "end": "08:50"
-            },
-            {
-                "start": "12:00",
-                "end": "13:50"
-=======
->>>>>>> 0046affa431e20c8cc4b0e9531eead5a37508dcf
         "id": "COGS 121",
         "tags": "afternoon",
         "title": "HCI Program Study",
@@ -76,7 +54,6 @@
         ]
     },
     {
-<<<<<<< HEAD
         "id": "HUM 2",
         "tags": "afternoon",
         "title": "Rome,Christianity & Middle Ages",
@@ -105,8 +82,6 @@
         ]
     },
     {
-=======
->>>>>>> 0046affa431e20c8cc4b0e9531eead5a37508dcf
         "id": "HUM 5",
         "tags": "morning",
         "title": "Modern Culture (1848-Present)",
@@ -124,17 +99,13 @@
             },
             {
                 "day": "F",
-                "start": "10:00)",
+                "start": "10:00",
                 "end": "10:50"
             },
             {
                 "day": "M",
                 "start": "11:00",
                 "end": "11:50"
-<<<<<<< HEAD
-=======
->>>>>>> f263ec98cdc3bfddf9f5e39bd8189539cba5e992
->>>>>>> 0046affa431e20c8cc4b0e9531eead5a37508dcf
             }
         ]
     }

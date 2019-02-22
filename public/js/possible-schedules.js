@@ -1,5 +1,6 @@
 
-
+    var schedules = [];
+    var currentScheduleIndex;
 
 // jQuery
 $.getScript('/js/daypilot-all.min.js', function () {
@@ -15,64 +16,27 @@ $.getScript('/js/daypilot-all.min.js', function () {
     function getDay(dayStr) {
         switch (dayStr) {
             case "M":
-                return day.monday;
+            return day.monday;
             case "T":
-                return day.tuesday;
+            return day.tuesday;
             case "W":
-                return day.wednesday;
+            return day.wednesday;
             case "Th":
-                return day.thursday;
+            return day.thursday;
             case "F":
-                return day.friday;
+            return day.friday;
         }
     }
 
     var subset3 = [];
     var subset4 = [];
     var subset5 = [];
-    var schedules = [];
-
-    
-
-    function seeNewSchedule(scheduleHTML) {
-        var dp = new DayPilot.Calendar("DP");
-        dp.viewType = "Days";
-        dp.days = 5;
-        schedule = schedules[scheduleHTML.id];
-        dp.theme = "calendar_green";
-        // view
-        dp.startDate = "2018-02-26";  // or just dp.startDate = "2013-03-25";
-        dp.headerDateFormat = "dddd";
-        dp.showNonBusiness = false;
-
-        dp.init();
-
-        /*    $.each(schedule.events, function(index, event) {
-                var e = new DayPilot.Event({
-                    start: event.start,
-                    end: event.end,
-                    id: event.id,
-                    text: schedule.classes[event.index].text,
-                    moveDisabled: true
-        
-                });
-                dp.events.add(e);
-            });
-        
-            dp.update();
-        */
-        var schedulesdiv = document.getElementById('possSchedules');
-        $(schedulesdiv).hide();
-
-        var commitdiv = document.getElementById('commSchedule');
-        $(commitdiv).show();
-    }
 
 
 
 
-    $.getJSON('/getSelectedClasses', { get_param: 'classes' }, function (data) {
-
+$.getJSON('/getSelectedClasses', { get_param: 'classes' }, function (data) {
+    if(!$('#0').length){
         getSubsetsofSizeK(data, 3, subset3);
         getSubsetsofSizeK(data, 4, subset4);
         getSubsetsofSizeK(data, 5, subset5);
@@ -81,15 +45,74 @@ $.getScript('/js/daypilot-all.min.js', function () {
         createSchedule(subset5, schedules);
 
         createHTML(schedules);
+
+        addEventListners();
+    }
+}); 
+  
+
+
+    "2019-02-18T10:00:00"
+    "2015-01-01T00:00:00"
+
+
+    function seeNewSchedule(scheduleHTML) {
+
+
+        var dp = new DayPilot.Calendar("DP");
+        dp.viewType = "Days";
+        dp.days = 5;
+        currentScheduleIndex = scheduleHTML.id;
+        schedule = schedules[currentScheduleIndex];
+        dp.theme = "calendar_green";
+        dp.businessBeginsHour = 7;
+        dp.businessEndsHour = 20;
+        // view
+        dp.startDate = "2019-02-11";  // or just dp.startDate = "2013-03-25";
+        dp.headerDateFormat = "dddd";
+        dp.showNonBusiness = false;
+        dp.init();
+
+        $.each(schedule.events, function(index, day) {
+            $.each(day, function(index, event) {
+                var e = new DayPilot.Event({
+                    start: dp.startDate.value.substring(0,9) + (1+getDay(event.day)) + "T" + event.start + ":00",
+                    end: dp.startDate.value.substring(0,9) + (1+getDay(event.day)) + "T" + event.end + ":00",
+                    id: event.id,
+                    text: schedule.classes[event.index].title,
+
+                });
+                dp.events.add(e);
+            });
+        });
+        dp.update();
+        
+        var schedulesdiv = document.getElementById('possSchedules');
+        $(schedulesdiv).hide();
+
+        
+        var element = document.getElementById("starButt");
+        if(schedules[currentScheduleIndex].starred)
+            $(element).addClass('starred');
+        else
+            $(element).removeClass('starred');
+
+        var commitdiv = document.getElementById('commSchedule');
+        $(commitdiv).show();
+    }
+
+
+
+
+    
+
+    function addEventListners(){
         $.each($('div.schClick'), function (index, schedule) {
             schedule.addEventListener("click", function () {
                 seeNewSchedule(this);
             });
         });
-
-    });
-
-
+    }
 
     function createHTML() {
         var html = "";
@@ -120,7 +143,6 @@ $.getScript('/js/daypilot-all.min.js', function () {
             html += '</div>\n';
         });
         $("#class-filter").append(html);
-
     }
 
     function createSchedule(subset, schedules) {
@@ -129,11 +151,11 @@ $.getScript('/js/daypilot-all.min.js', function () {
             var morningCounter = 0;
             var numUnits = 0;
             var events = [
-                [],
-                [],
-                [],
-                [],
-                []
+            [],
+            [],
+            [],
+            [],
+            []
             ];
             var event = {};
             $.each(classSubset, function (index, course) {
@@ -195,21 +217,21 @@ $.getScript('/js/daypilot-all.min.js', function () {
         var s = [];
         if (k <= input.length) {
             for (var i = 0; (s[i] = i) < k - 1; i++);
-            subset.push(getSubset(input, s));
+                subset.push(getSubset(input, s));
             for (; ;) {
                 var i;
                 for (i = k - 1; i >= 0 && s[i] == input.length - k + i; i--);
-                if (i < 0) {
-                    break;
+                    if (i < 0) {
+                        break;
+                    }
+                    s[i]++;
+                    for (++i; i < k; i++) {
+                        s[i] = s[i - 1] + 1;
+                    }
+                    subset.push(getSubset(input, s));
                 }
-                s[i]++;
-                for (++i; i < k; i++) {
-                    s[i] = s[i - 1] + 1;
-                }
-                subset.push(getSubset(input, s));
             }
         }
-    }
 
     // generate actual subset by index sequence
     function getSubset(input, subset) {
@@ -223,8 +245,16 @@ $.getScript('/js/daypilot-all.min.js', function () {
 
 function starSchedule(e) {
     /*if schedule has class starred --> toggle color of star*/
+
     var element = document.getElementById("starButt");
     $(element).toggleClass('starred');
+    schedules[currentScheduleIndex].starred = !schedules[currentScheduleIndex].starred;
+
+    if(schedules[currentScheduleIndex].starred)
+        $("#"+currentScheduleIndex).addClass("type-starred");
+    else
+        $("#"+currentScheduleIndex).removeClass("type-starred");
+
 }
 
 function hideNewSchedule(){
