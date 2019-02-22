@@ -2,6 +2,9 @@
     var schedules = [];
     var currentScheduleIndex;
 
+    var colors = ["Chocolate", "Peru", "Sienna", "Goldenrod", "Brown", "Maroon", "pink", "orange", "violet", "Tomato", "DarkRed", "LightCoral"]
+    var classNameIndex = [];
+
 // jQuery
 $.getScript('/js/daypilot-all.min.js', function () {
 
@@ -133,10 +136,20 @@ $.getJSON('/getSelectedClasses', { get_param: 'classes' }, function (data) {
                 html += '\t\t<div class="dayTitle">' + daysAbbrev[index] + ' </div>\n';
 
                 $.each(dayEvents, function (index, event) {
+                    var courseIndex = classNameIndex.findIndex(id => id === event.id);
+                    var color;
+                    if(courseIndex >= 0) {
+                        color = 'style="background-color:'+colors[courseIndex]+';"';
+                    }else {
+                        classNameIndex.push(event.id);
+                        color = 'style="background-color:'+colors[classNameIndex.length-1]+';"';
+                    }
                     if (event.length > 60)
-                        html += '\t\t\t<div class="class longClass">' + event.id + '</div>\n';
-                    else
-                        html += '\t\t\t<div class="class shortClass">' + event.id + '</div>\n';
+                        html += '\t\t\t<div '+color+' class="class longClass">' + event.id + '</div>\n';
+                    else {
+                        html += '\t\t\t<div '+color+' class="class shortClass">' + event.id + '</div>\n';
+                    }
+
                 });
                 html += '\t</div>\n';
             });

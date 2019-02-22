@@ -73,13 +73,11 @@ th {
 
 .shortClass{
   height: 3em;
-  background-color: red;
 }
 
 
 .longClass{
   height: 5em;
-  background-color: blue;
 }
 
 #starButt.starred {
