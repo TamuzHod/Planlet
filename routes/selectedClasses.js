@@ -15,5 +15,7 @@ exports.view = function(req, res){
     	console.log(JSON.stringify(req.body));
 
 	});
+    req.app.locals.slectedClassesJson = JSON.stringify(req.body, null, 4);
+
     res.json(JSON.stringify(req.body, null, 4))
 };

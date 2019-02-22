@@ -49,6 +49,9 @@ app.get('/availability/:major/:minor/:college', availability.view);
 app.get('/userinfo/:major/:minor/:college', userinfo.view);
 app.get('/possibleSchedules/:major/:minor/:college', possibleSchedules.view);
 
+
+app.locals.slectedClassesJson;
+
 app.post('/selectedClasses', selectedClasses.view);
 
 app.get('/getSelectedClasses', sendSelectedClasses.send);

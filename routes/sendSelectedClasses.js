@@ -12,7 +12,7 @@ exports.send = function(req, res){
 	    	res.json("Failed to read file")
 	        throw err;
 	    }
-	    content = data;
+	    content = req.app.locals.slectedClassesJson;
 
 	    // Invoke the next step here however you like
 	    console.log(content);   // Put all of the code here (not the best solution)
