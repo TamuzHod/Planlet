@@ -57,6 +57,8 @@ $.getJSON('/getSelectedClasses', { get_param: 'classes' }, function (data) {
 
 
     function seeNewSchedule(scheduleHTML) {
+
+
         var dp = new DayPilot.Calendar("DP");
         dp.viewType = "Days";
         dp.days = 5;
@@ -87,6 +89,13 @@ $.getJSON('/getSelectedClasses', { get_param: 'classes' }, function (data) {
         
         var schedulesdiv = document.getElementById('possSchedules');
         $(schedulesdiv).hide();
+
+        
+        var element = document.getElementById("starButt");
+        if(schedules[currentScheduleIndex].starred)
+            $(element).addClass('starred');
+        else
+            $(element).removeClass('starred');
 
         var commitdiv = document.getElementById('commSchedule');
         $(commitdiv).show();
@@ -236,13 +245,15 @@ $.getJSON('/getSelectedClasses', { get_param: 'classes' }, function (data) {
 
 function starSchedule(e) {
     /*if schedule has class starred --> toggle color of star*/
+
     var element = document.getElementById("starButt");
     $(element).toggleClass('starred');
-    schedules[currentScheduleIndex].starred != schedules[currentScheduleIndex].starred;
+    schedules[currentScheduleIndex].starred = !schedules[currentScheduleIndex].starred;
+
     if(schedules[currentScheduleIndex].starred)
-        $("#"+currentScheduleIndex).addClass("fav");
+        $("#"+currentScheduleIndex).addClass("type-starred");
     else
-        $("#"+currentScheduleIndex).removeClass("fav");
+        $("#"+currentScheduleIndex).removeClass("type-starred");
 
 }
 
