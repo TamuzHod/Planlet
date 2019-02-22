@@ -10,7 +10,7 @@ pids
 logs
 results
 selectedClasses.json
-tmp
+
 
 npm-debug.log
 #node_modules
