@@ -43,7 +43,7 @@
 
 </head>
 
-<body class="blue" onload="httpFix()">
+<body class="blue" >
 
     <div class="container">
         <header>
@@ -64,10 +64,13 @@
                     <div class="form-group">
                         <input type="password" placeholder="Password" class="form-control">
                     </div>
-                    <p style="float: right;" class="facebookLogin">
+                    <div>
+                                            <p style="float: right;" class="facebookLogin">
                         <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
                         </fb:login-button>
                     </p>
+                    </div>
+
                     <label class="checkbox" style="margin-left: 20px" ;>
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
