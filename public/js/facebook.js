@@ -1,5 +1,6 @@
 function checkLoginState() {
-    FB.getLoginStatus(function (response) {
+    console.log('checkLoginState called!')
+    FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
     });
 }
@@ -18,6 +19,10 @@ function statusChangeCallback(response) {
     }
 }
 
+//Add this callback at bottom of facebook.js and add the required functionality in it 
 function changeUser(response) {
-    console.log("in here");
+    //Add code to change name and image 
+    $("p.facebookLogin").hide()
+    $("h1#name").text(response.name)
+    $("img#photo").attr("src",response.picture.data.url)
 }
