@@ -117,8 +117,19 @@ function seeSignUp(e){
 	}
 }
 
-
-
+/*
+function login(){
+	var username = $("#emailinput").val(); 
+	var password = $("#passwordinput").val(); 
+	console.log(username + " " + password);
+	if (username != "thod@ucsd.edu" || password != "192837465"){
+		alert("Username or password is incorrect");
+	}
+	else{
+		window.location.href = '/alittleaboutyou';
+	}
+}
+ */
 
 
 
