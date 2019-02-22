@@ -122,15 +122,17 @@ function login(){
 	var username = $("#emailinput").val(); 
 	var password = $("#passwordinput").val(); 
 	console.log(username + " " + password);
-	if (username != "thod@ucsd.edu" || password != "192837465"){
-		alert("Username or password is incorrect");
+	if (username != "thod@ucsd.edu"){
+		alert("Username is incorrect");
+	}
+	else if (password != "password"){
+		alert("password is incorrect");
 	}
 	else{
-		window.location.href = '/alittleaboutyou';
+		
 	}
 }
  */
-
 
 
 
