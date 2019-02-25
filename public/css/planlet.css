@@ -54,6 +54,14 @@ body{
 	float: right;
 }
 
+#clearBtn{
+	border: solid 2px;
+	display: inline-block;
+	float: right;
+	padding: 3px;
+	margin-bottom: 5px;
+	border-color: white;
+}
 
 
 //vars
