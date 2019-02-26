@@ -45,7 +45,7 @@ th {
   padding-top: .5em;
   padding-bottom: .5em;
   margin-bottom: 2em;
-  box-shadow: 0 0 13px #333;
+  box-shadow: 0 0 15px #333;
 
 }
 
@@ -82,6 +82,12 @@ th {
 
 #starButt.starred {
   color: yellow;
+}
+
+.schClick.type-starred {
+  /*border: solid 2px;
+  border-color: yellow;*/
+  box-shadow: 0 0 15px #e5e500;
 }
 
 
