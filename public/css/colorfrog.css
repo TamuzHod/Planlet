@@ -242,13 +242,13 @@ blockquote.big-quote {
     transition: 0.5s; }
   .filters .active-filter {
     border-radius: 3px; }
-
+/*
 .filter-custom {
   margin-left: -15px;
   margin-right: -15px; }
   .filter-custom .col-sm-4 {
     margin-top: 60px; }
-
+*/
 .package {
   margin-top: 27px;
   -webkit-transition: background-color 0.5s;

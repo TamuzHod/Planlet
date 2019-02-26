@@ -63,6 +63,9 @@ $(function($){ $('.mediaVideo').fitVids(); });
 /*
 * Filtering function for clients and products
 */
+
+var schdules;
+
 $(document).on('click', '.filters a', function(e){
 	$('.filters a').removeClass('active-filter');
 	$(this).addClass('active-filter');
@@ -80,7 +83,8 @@ $(document).on('click', '.filters a', function(e){
  		contentLength = $('.type-'+filterThis, $('.filter-all')).length;
  		
  		$('.type-'+filterThis, $('.filter-all')).each(function(e, index){
- 			$('.filter-custom').append($(this).clone());
+ 			//$('.filter-custom').append($(this).clone(true))
+ 			$(this).clone(true, true).appendTo($('.filter-custom'));
  		});
  		$('.filter-all').hide();
  		$('.filter-custom').show();
