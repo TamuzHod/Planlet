@@ -52,25 +52,28 @@
             <div class="form-group">
                 <div class="grid-item" id="lblMajor">Major(s)</div>
                 <select class="form-group-lg form-control" id="selMajor">
-                    <option value="" disabled selected style="display: none;">{{majorName}}</option>
-                    <option>COGS</option>
-                    <option>LIGN</option>
+                    <option disabled selected style="display: none;">{{[1].majorName}}</option>
+                    {{#each [0].programs}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/each}}
                 </select>
             </div>
 
             <div class="form-group">
                 <div class="grid-item" id="lblMinor">Minor(s)</div>
                 <select class="form-group-lg form-control" id="selMinor">
-                    <option value="" disabled selected style="display: none;">{{minorName}}</option>
-                    <option>No Minor</option>
-                    <option>CSE</option>
+                    <option disabled selected style="display: none;">{{[1].minorName}}</option>
+                        <option value="No Minor">No Minor</option>
+                        {{#each [0].programs}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/each}}
                 </select>
             </div>
 
             <div class="form-group">
                 <div class="grid-item" id="lblCollege">College</div>
                 <select class="form-group-lg form-control" id="selCollege">
-                    <option value="" disabled selected style="display: none;">{{collegeName}}</option>
+                    <option disabled selected style="display: none;">{{[1].collegeName}}</option>
                     <option>Warren</option>
                     <option>Revelle</option>
                 </select>
@@ -84,7 +87,7 @@
             </div>-->
             <hr>
             <div style="display: flex; justify-content:space-between;">
-                <button class="btn" style="font-size: 13px;" onclick="next()">Start New Schedule</button>
+                <button class="btn" style="font-size: 13px;" onclick="startNewSchedule()">Start New Schedule</button>
                 <!--onClick="newSchedule()"-->
                 <br><br>
                 <!--<button class="btn" style="background-color: red; font-size: 10px;" id="clearButt">Clear

@@ -4,7 +4,7 @@ function httpFix(){
  }
 
 
-function next() { 
+function startNewSchedule() { 
 	var major = $("#selMajor :selected").val();
 	var college =  $("#selCollege :selected").text();
 	var minor =  $("#selMinor :selected").val();
