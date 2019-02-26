@@ -1,10 +1,12 @@
 {
-  "COGS": [{
+  "COGS": [
+    {
       "id": "COGS 1",
       "tags": "morning",
       "title": "Introduction to CogSci",
       "units": "4",
-      "times": [{
+      "times": [
+        {
           "day": "M",
           "start": "09:00",
           "end": "09:50"
@@ -26,7 +28,8 @@
       "tags": "morning",
       "title": "Intro to Statistical Analysis",
       "units": "4",
-      "times": [{
+      "times": [
+        {
           "day": "M",
           "start": "12:00",
           "end": "12:50"
@@ -53,7 +56,8 @@
       "tags": "morning",
       "title": "Cyborgs Now and In the Future",
       "units": "4",
-      "times": [{
+      "times": [
+        {
           "day": "M",
           "start": "10:30",
           "end": "11:30"
@@ -70,7 +74,8 @@
       "tags": "morning",
       "title": "Sensation and Perception",
       "units": "4",
-      "times": [{
+      "times": [
+        {
           "day": "M",
           "start": "15:00",
           "end": "15:50"
@@ -97,7 +102,8 @@
       "tags": "afternoon",
       "title": "Learning, Memory, and Attention",
       "units": "4",
-      "times": [{
+      "times": [
+        {
           "day": "F",
           "start": "09:00",
           "end": "09:50"
@@ -124,7 +130,8 @@
       "tags": "afternoon",
       "title": "Language",
       "units": "4",
-      "times": [{
+      "times": [
+        {
           "day": "M",
           "start": "16:00",
           "end": "16:50"
@@ -146,7 +153,8 @@
       "tags": "afternoon",
       "title": "Interaction Design",
       "units": "5",
-      "times": [{
+      "times": [
+        {
           "day": "M",
           "start": "17:00",
           "end": "17:50"
@@ -163,7 +171,8 @@
       "tags": "afternoon",
       "title": "HCI Program Study",
       "units": "4",
-      "times": [{
+      "times": [
+        {
           "day": "T",
           "start": "18:00",
           "end": "18:50"
@@ -176,21 +185,63 @@
       ]
     }
   ],
-
-  "LIGN": [{
+  "LIGN": [
+    {
+      "id": "LIGN 8",
+      "tags": "morning",
+      "title": "Sign Languages & Their Cultures",
+      "units": "4",
+      "times": [
+        {
+          "day": "M",
+          "start": "10:00",
+          "end": "10:50"
+        },
+        {
+          "day": "W",
+          "start": "10:00",
+          "end": "10:50"
+        },
+        {
+          "day": "F",
+          "start": "10:00",
+          "end": "10:50"
+        }
+      ]
+    },
+    {
       "id": "LIGN 101",
       "tags": "afternoon",
       "title": "Introduction to the Study of Language",
       "units": "4",
-      "times": [{
+      "times": [
+        {
           "day": "T",
           "start": "14:00",
-          "end": "20:00"
+          "end": "15:20"
         },
         {
           "day": "Th",
           "start": "14:00",
-          "end": "20:00"
+          "end": "15:20"
+        }
+      ]
+    },
+    {
+      "id": "LIGN 130",
+      "tags": "afternoon",
+      "title": "Semantics",
+      "units": "4",
+      "times": [
+        {
+          "day": "T",
+          "start": "14:00",
+          "end": "15:20"
+        },
+        {
+          "day": "Th",
+          "start": "14:00",
+          "end": "15:20"
         }
       ]
     },
@@ -199,7 +250,8 @@
       "tags": "morning",
       "title": "Psycholinguistics of Sign Language",
       "units": "4",
-      "times": [{
+      "times": [
+        {
           "day": "T",
           "start": "09:30",
           "end": "10:50"
@@ -212,13 +264,14 @@
       ]
     }
   ],
-
-  "CSE": [{
+  "CSE": [
+    {
       "id": "CSE 12",
       "tags": "afternoon",
       "title": "Basic Data Structures and Object-Oriented Design",
       "units": "4",
-      "times": [{
+      "times": [
+        {
           "day": "T",
           "start": "12:00",
           "end": "14:00"
@@ -235,7 +288,8 @@
       "tags": "morning",
       "title": "Software Tools & Techniques Lab",
       "units": "2",
-      "times": [{
+      "times": [
+        {
           "day": "M",
           "start": "08:00",
           "end": "08:50"
@@ -257,7 +311,8 @@
       "tags": "morning",
       "title": "Discrete Mathematics",
       "units": "4",
-      "times": [{
+      "times": [
+        {
           "day": "M",
           "start": "10:00",
           "end": "10:50"
@@ -279,7 +334,8 @@
       "tags": "morning",
       "title": "Computer Organization and Systems Programming",
       "units": "4",
-      "times": [{
+      "times": [
+        {
           "day": "M",
           "start": "12:00",
           "end": "12:50"
@@ -298,18 +354,20 @@
     }
   ],
   "No Minor": [],
-  "Warren": [{
+  "Warren": [
+    {
       "id": "WCWP 10A",
       "tags": "morning",
       "title": "The Writing Course A",
       "units": "4",
-      "times": [{
+      "times": [
+        {
           "day": "M",
           "start": "12:30",
           "end": "13:50"
         },
         {
-          "day" : "W",
+          "day": "W",
           "start": "12:30",
           "end": "13:50"
         }
@@ -320,7 +378,8 @@
       "tags": "afternoon",
       "title": "The Writing Course B",
       "units": "4",
-      "times": [{
+      "times": [
+        {
           "day": "M",
           "start": "15:30",
           "end": "16:50"
@@ -337,7 +396,8 @@
       "tags": "morning",
       "title": "Ethics and Society I",
       "units": "4",
-      "times": [{
+      "times": [
+        {
           "day": "M",
           "start": "12:00",
           "end": "12:50"
@@ -354,7 +414,8 @@
       "tags": "afternoon",
       "title": "Ethics and Society II",
       "units": "4",
-      "times": [{
+      "times": [
+        {
           "day": "M",
           "start": "15:00",
           "end": "15:50"
@@ -365,19 +426,21 @@
           "end": "15:50"
         },
         {
-          "day":"M",
+          "day": "M",
           "start": "17:00",
           "end": "17:50"
         }
       ]
     }
   ],
-  "Revelle": [{
+  "Revelle": [
+    {
       "id": "HUM 2",
       "tags": "afternoon",
       "title": "Rome,Christianity & Middle Ages",
       "units": "6",
-      "times": [{
+      "times": [
+        {
           "day": "T",
           "start": "12:30",
           "end": "13:50"
@@ -404,7 +467,8 @@
       "tags": "morning",
       "title": "Modern Culture (1848-Present)",
       "units": "6",
-      "times": [{
+      "times": [
+        {
           "day": "M",
           "start": "10:00",
           "end": "10:50"
