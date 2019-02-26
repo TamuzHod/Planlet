@@ -41,6 +41,8 @@ body{
     border-style: solid;
     border-radius: 1em;
     margin-bottom: 1.5em;
+    transition: max-height 0.2s ease-out;
+    overflow:hidden
 }
 
 .className{
