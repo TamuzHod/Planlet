@@ -104,3 +104,16 @@ $.postJSON = function (url, data, success, args) {
     return $.ajax(args);
 };
 
+
+$( document ).ready(function() {
+    var majorDiv = document.getElementById("majorClasses");
+    majorDiv.addEventListener("click", function() {
+        if (this.style.maxHeight == this.scrollHeight + "px"){
+            this.style.maxHeight = "0px";
+        } else {
+            this.style.maxHeight = this.scrollHeight + "px";
+        } 
+    });
+});
+
+
