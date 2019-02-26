@@ -1,0 +1,16 @@
+{
+	"programs": [
+		{
+            "name": "Cognitive Science",
+            "id" : "COGS"
+        },
+        {
+            "name": "Linguistics",
+            "id" : "LIGN"
+        },
+        {
+            "name": "Computer Science & Engineering",
+            "id" : "CSE"
+        }
+    ]
+}

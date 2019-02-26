@@ -12,7 +12,7 @@
     <link href="css/colorfrog.css" rel="stylesheet" media="screen">
 
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet'
-    type='text/css'>
+        type='text/css'>
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="/js/jquery.fitvids.js"></script>
@@ -39,20 +39,23 @@
 
                 <form class="form-signin clearfix" action='availability' id="abouYouForm">
                     <h2>A Little About You:</h2>
-                    <div class="form-group-sm">Major(s)    <span style=" font-size: 20px; color: red">*</span>
+                    <div class="form-group-sm">Major(s) <span style=" font-size: 20px; color: red">*</span>
                     </div>
 
                     <select class="form-group-lg form-control" id="selMajor" required>
-                        <option  disabled selected style="display: none;">Select a Major</option>
-                        <option>COGS</option>
-                        <option>LIGN</option>
+                        <option disabled selected style="display: none;">Select a Major</option>
+                        {{#each programs}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/each}}
                     </select>
                     <br>
                     <div class="form-group-sm">Minor(s)</div>
                     <select class="form-group-lg form-control" id="selMinor">
-                        <option value="NoMinor" disabled selected style="display: none;">No Minor</option>
-                        <option>No Minor</option>
-                        <option>CSE</option>
+                        <option value="No Minor" disabled selected style="display: none;">No Minor</option>
+                        <option value="No Minor">No Minor</option>
+                        {{#each programs}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/each}}
                     </select>
                     <br>
                     <div class="form-group-sm">College(s) <span style=" font-size: 20px; color: red">*</span></div>
@@ -72,7 +75,7 @@
 
     <footer>
         <div class="container" style="width: 100%; padding: 0px;">
-            <button class="btn nxtBtn" type="submit" onclick="next()" >Next</button>
+            <button class="btn nxtBtn" type="submit" onclick="next()">Next</button>
         </div>
         <!--//end container -->
     </footer>

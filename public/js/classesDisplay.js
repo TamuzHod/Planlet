@@ -36,7 +36,9 @@ function getClasses() {
                 html += '<hr>';
         });
         document.getElementById("minorClasses").innerHTML = html;
+        console.log("d"+minor+"d");
         if (minor == "No Minor") {
+
             $(document.getElementById("minorDiv")).hide();
         }
         html = "";

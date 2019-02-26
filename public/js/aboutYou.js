@@ -5,9 +5,9 @@ function httpFix(){
 
 
 function next() { 
-	var major = $("#selMajor :selected").text();
+	var major = $("#selMajor :selected").val();
 	var college =  $("#selCollege :selected").text();
-	var minor =  $("#selMinor :selected").text();
+	var minor =  $("#selMinor :selected").val();
 
 	if(major == 'Select a Major'){
 		alert("Please select a major");
