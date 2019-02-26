@@ -5,8 +5,7 @@
     var colors = ["Chocolate", "Peru", "Sienna", "Goldenrod", "Brown", "Maroon", "pink", "orange", "violet", "Tomato", "DarkRed", "LightCoral"]
     var classNameIndex = [];
 
-// jQuery
-$.getScript('/js/daypilot-all.min.js', function () {
+
 
     var day = {
         monday: 0,
@@ -48,8 +47,6 @@ $.getJSON('/getSelectedClasses', { get_param: 'classes' }, function (data) {
         createSchedule(subset5, schedules);
 
         createHTML(schedules);
-
-        addEventListners();
     }
 }); 
   
@@ -104,19 +101,6 @@ $.getJSON('/getSelectedClasses', { get_param: 'classes' }, function (data) {
         $(commitdiv).show();
     }
 
-
-
-
-    
-
-    function addEventListners(){
-        $.each($('div.schClick'), function (index, schedule) {
-            schedule.addEventListener("click", function () {
-                seeNewSchedule(this);
-            });
-        });
-    }
-
     function createHTML() {
         var html = "";
         var days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
@@ -130,7 +114,7 @@ $.getJSON('/getSelectedClasses', { get_param: 'classes' }, function (data) {
             else {
                 timeday = 'afternoon';
             }
-            html += '<div id="' + index + '" class="schClick content type-' + timeday + ' type-' + schedule.numClasses + '">\n';
+            html += '<div id="' + index + '" onClick="seeNewSchedule(this)" class="schClick content type-' + timeday + ' type-' + schedule.numClasses + '">\n';
             $.each(schedule.events, function (index, dayEvents) {
                 html += '\t<div class="condDay" id="' + days[index] + '">\n';
                 html += '\t\t<div class="dayTitle">' + daysAbbrev[index] + ' </div>\n';
@@ -254,7 +238,7 @@ $.getJSON('/getSelectedClasses', { get_param: 'classes' }, function (data) {
         return result;
     }
 
-});
+
 
 function starSchedule(e) {
     /*if schedule has class starred --> toggle color of star*/
@@ -286,57 +270,3 @@ function sendToEmail(e){
     else{
     }
 }
-
-
-
-
-
-/*    var i = 0;
-    $.each(subsets3, function(index, courseSubset){
-
-        i++;
-        var div = '<div id="'+i+'" class="container content type-3"> \n';
-        div += '<div id="DP'+i+'"> \n'
-        $("#class-filter").append(div);
-
-        // $('#class-filter').append(
-        //   $('<div/>')
-        //     .attr("id", "newDiv1")
-        //     .addClass("newDiv purple bloated")
-        //     .append("<span/>")
-        //       .text("hello world")
-        // );
-
-        var dp = new DayPilot.Calendar("DP"+i);
-        dp.viewType = "Days";
-        dp.days = 5;
-
-        dp.theme = "calendar_green";
-        // view
-        dp.startDate = "2018-02-26T00:00:00";  // or just dp.startDate = "2013-03-25";
-        dp.headerDateFormat = "dddd";
-        dp.showNonBusiness = false;
-
-        dp.init();
-
-
-        var id;
-        var text;
-
-        $.each(courseSubset, function(index, course) {
-            id = course.id;
-            text = course.title;
-            $.each(course.times, function(index, time) {
-                var e = new DayPilot.Event({
-                    start: time.start,
-                    end: time.end,
-                    id: id,
-                    text: text,
-                    moveDisabled: true
-
-                });
-                dp.events.add(e);
-            });
-        });
-        dp.update();
-    });*/
