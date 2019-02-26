@@ -8,7 +8,7 @@ function getClasses() {
         courses = data;
         major = document.getElementById("lblMajorClasses").innerHTML;
         minor = document.getElementById("lblMinorClasses").innerHTML;
-        college = document.getElementById("lblGEClasses").innerHTML;
+        college = document.getElementById("spanGEClasses").innerHTML;
 
 
         $('#yourDivName').html('yourtHTML');
