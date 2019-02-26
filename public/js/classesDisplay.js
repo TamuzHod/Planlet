@@ -1,4 +1,3 @@
-
 var courses;
 var major;
 var minor;
