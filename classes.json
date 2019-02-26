@@ -1,5 +1,54 @@
 {
   "COGS": [{
+      "id": "COGS 1",
+      "tags": "morning",
+      "title": "Introduction to CogSci",
+      "units": "4",
+      "times": [{
+          "day": "M",
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "day": "T",
+          "start": "11:00",
+          "end": "12:20"
+        },
+        {
+          "day": "Th",
+          "start": "11:00",
+          "end": "12:20"
+        }
+      ]
+    },
+    {
+      "id": "COGS 14B",
+      "tags": "morning",
+      "title": "Intro to Statistical Analysis",
+      "units": "4",
+      "times": [{
+          "day": "M",
+          "start": "12:00",
+          "end": "12:50"
+        },
+        {
+          "day": "M",
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "day": "W",
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "day": "F",
+          "start": "09:00",
+          "end": "09:50"
+        }
+      ]
+    },
+    {
       "id": "COGS 100",
       "tags": "morning",
       "title": "Cyborgs Now and In the Future",
@@ -13,6 +62,82 @@
           "day": "W",
           "start": "10:30",
           "end": "11:30"
+        }
+      ]
+    },
+    {
+      "id": "COGS 101A",
+      "tags": "morning",
+      "title": "Sensation and Perception",
+      "units": "4",
+      "times": [{
+          "day": "M",
+          "start": "15:00",
+          "end": "15:50"
+        },
+        {
+          "day": "M",
+          "start": "11:00",
+          "end": "11:50"
+        },
+        {
+          "day": "W",
+          "start": "11:00",
+          "end": "11:50"
+        },
+        {
+          "day": "F",
+          "start": "11:00",
+          "end": "11:50"
+        }
+      ]
+    },
+    {
+      "id": "COGS 101B",
+      "tags": "afternoon",
+      "title": "Learning, Memory, and Attention",
+      "units": "4",
+      "times": [{
+          "day": "F",
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "day": "M",
+          "start": "14:00",
+          "end": "14:50"
+        },
+        {
+          "day": "W",
+          "start": "14:00",
+          "end": "14:50"
+        },
+        {
+          "day": "F",
+          "start": "14:00",
+          "end": "14:50"
+        }
+      ]
+    },
+    {
+      "id": "COGS 101C",
+      "tags": "afternoon",
+      "title": "Language",
+      "units": "4",
+      "times": [{
+          "day": "M",
+          "start": "16:00",
+          "end": "16:50"
+        },
+        {
+          "day": "T",
+          "start": "17:00",
+          "end": "18:20"
+        },
+        {
+          "day": "Th",
+          "start": "17:00",
+          "end": "18:20"
         }
       ]
     },
@@ -51,6 +176,7 @@
       ]
     }
   ],
+
   "LIGN": [{
       "id": "LIGN 101",
       "tags": "afternoon",
@@ -86,6 +212,7 @@
       ]
     }
   ],
+
   "CSE": [{
       "id": "CSE 12",
       "tags": "afternoon",
@@ -100,6 +227,28 @@
           "day": "Th",
           "start": "12:00",
           "end": "14:00"
+        }
+      ]
+    },
+    {
+      "id": "CSE 15L",
+      "tags": "morning",
+      "title": "Software Tools & Techniques Lab",
+      "units": "2",
+      "times": [{
+          "day": "M",
+          "start": "08:00",
+          "end": "08:50"
+        },
+        {
+          "day": "W",
+          "start": "08:00",
+          "end": "08:50"
+        },
+        {
+          "day": "F",
+          "start": "12:00",
+          "end": "13:50"
         }
       ]
     },
@@ -126,24 +275,24 @@
       ]
     },
     {
-      "id": "CSE 15L",
+      "id": "CSE 30",
       "tags": "morning",
-      "title": "Software Tools & Techniques Lab",
-      "units": "2",
+      "title": "Computer Organization and Systems Programming",
+      "units": "4",
       "times": [{
           "day": "M",
-          "start": "08:00",
-          "end": "08:50"
-        },
-        {
-          "day": "W",
-          "start": "08:00",
-          "end": "08:50"
-        },
-        {
-          "day": "F",
           "start": "12:00",
-          "end": "13:50"
+          "end": "12:50"
+        },
+        {
+          "day": "T",
+          "start": "08:00",
+          "end": "09:20"
+        },
+        {
+          "day": "Th",
+          "start": "08:00",
+          "end": "09:20"
         }
       ]
     }
