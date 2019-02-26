@@ -1,38 +1,38 @@
 
-    var schedules = [];
-    var currentScheduleIndex;
+var schedules = [];
+var currentScheduleIndex;
 
-    var colors = ["Chocolate", "Peru", "Sienna", "Goldenrod", "Brown", "Maroon", "pink", "orange", "violet", "Tomato", "DarkRed", "LightCoral"]
-    var classNameIndex = [];
+var colors = ["Chocolate", "Peru", "Sienna", "Goldenrod", "Brown", "Maroon", "pink", "orange", "violet", "Tomato", "DarkRed", "LightCoral"]
+var classNameIndex = [];
 
 
 
-    var day = {
-        monday: 0,
-        tuesday: 1,
-        wednesday: 2,
-        thursday: 3,
-        friday: 4,
+var day = {
+    monday: 0,
+    tuesday: 1,
+    wednesday: 2,
+    thursday: 3,
+    friday: 4,
+}
+
+function getDay(dayStr) {
+    switch (dayStr) {
+        case "M":
+        return day.monday;
+        case "T":
+        return day.tuesday;
+        case "W":
+        return day.wednesday;
+        case "Th":
+        return day.thursday;
+        case "F":
+        return day.friday;
     }
+}
 
-    function getDay(dayStr) {
-        switch (dayStr) {
-            case "M":
-            return day.monday;
-            case "T":
-            return day.tuesday;
-            case "W":
-            return day.wednesday;
-            case "Th":
-            return day.thursday;
-            case "F":
-            return day.friday;
-        }
-    }
-
-    var subset3 = [];
-    var subset4 = [];
-    var subset5 = [];
+var subset3 = [];
+var subset4 = [];
+var subset5 = [];
 
 
 
@@ -49,24 +49,24 @@ $.getJSON('/getSelectedClasses', { get_param: 'classes' }, function (data) {
         createHTML(schedules);
     }
 }); 
-  
 
 
-    "2019-02-18T10:00:00"
-    "2015-01-01T00:00:00"
+
+"2019-02-18T10:00:00"
+"2015-01-01T00:00:00"
 
 
-    function seeNewSchedule(scheduleHTML) {
+function seeNewSchedule(scheduleHTML) {
 
 
-        var dp = new DayPilot.Calendar("DP");
-        dp.viewType = "Days";
-        dp.days = 5;
-        currentScheduleIndex = scheduleHTML.id;
-        schedule = schedules[currentScheduleIndex];
-        dp.theme = "calendar_green";
-        dp.businessBeginsHour = 7;
-        dp.businessEndsHour = 20;
+    var dp = new DayPilot.Calendar("DP");
+    dp.viewType = "Days";
+    dp.days = 5;
+    currentScheduleIndex = scheduleHTML.id;
+    schedule = schedules[currentScheduleIndex];
+    dp.theme = "calendar_green";
+    dp.businessBeginsHour = 7;
+    dp.businessEndsHour = 20;
         // view
         dp.startDate = "2019-02-11";  // or just dp.startDate = "2013-03-25";
         dp.headerDateFormat = "dddd";
@@ -240,33 +240,39 @@ $.getJSON('/getSelectedClasses', { get_param: 'classes' }, function (data) {
 
 
 
-function starSchedule(e) {
-    /*if schedule has class starred --> toggle color of star*/
+    function starSchedule(e) {
+        /*if schedule has class starred --> toggle color of star*/
 
-    var element = document.getElementById("starButt");
-    $(element).toggleClass('starred');
-    schedules[currentScheduleIndex].starred = !schedules[currentScheduleIndex].starred;
+        var element = document.getElementById("starButt");
+        $(element).toggleClass('starred');
+        schedules[currentScheduleIndex].starred = !schedules[currentScheduleIndex].starred;
 
-    if(schedules[currentScheduleIndex].starred)
-        $("#"+currentScheduleIndex).addClass("type-starred");
-    else
-        $("#"+currentScheduleIndex).removeClass("type-starred");
+        if(schedules[currentScheduleIndex].starred){
+            $('div[id='+currentScheduleIndex+']').each(function() { 
+                $(this).addClass("type-starred");
+            });
+        }
+        else{
+            $("#"+currentScheduleIndex).each(function() { 
+                $(this).removeClass("type-starred");
+            });
+        }
 
-}
-
-function hideNewSchedule(){
-    var schedulesdiv = document.getElementById('possSchedules');
-    $(schedulesdiv).show();
-
-    var commitdiv = document.getElementById('commSchedule');
-    $(commitdiv).hide();
-}
-
-function sendToEmail(e){
-    var response = prompt("Please enter your email: ");
-    if (response != null){
-        alert("Schedule sent to: " + response);
     }
-    else{
+
+    function hideNewSchedule(){
+        var schedulesdiv = document.getElementById('possSchedules');
+        $(schedulesdiv).show();
+
+        var commitdiv = document.getElementById('commSchedule');
+        $(commitdiv).hide();
     }
-}
+
+    function sendToEmail(e){
+        var response = prompt("Please enter your email: ");
+        if (response != null){
+            alert("Schedule sent to: " + response);
+        }
+        else{
+        }
+    }
