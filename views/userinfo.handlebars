@@ -7,6 +7,8 @@
 <link href="/css/bootstrap.css" rel="stylesheet" media="screen">
 <!-- Theme css -->
 <link href="/css/colorfrog.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet'
     type='text/css'>
@@ -30,8 +32,10 @@
 <body class="blue">
 
     <div class="container">
-        <h2 style="display: inline;">Your Settings:</h2>
-        <button class="btn" onclick="window.history.back()" style="float: right;">Back</button> </a>
+        <button style="top: .5em;" class="btn" id="backButt" onclick="window.history.back()"><i class="fas fa-arrow-left"></i></button> </a>
+        <br>
+        <h2 >Your Settings:</h2>
+
 
     </div> <!-- //end container -->
     <div class="container content">
@@ -63,10 +67,10 @@
                 <div class="grid-item" id="lblMinor">Minor(s)</div>
                 <select class="form-group-lg form-control" id="selMinor">
                     <option disabled selected style="display: none;">{{[1].minorName}}</option>
-                        <option value="No Minor">No Minor</option>
-                        {{#each [0].programs}}
-                        <option value="{{id}}">{{name}}</option>
-                        {{/each}}
+                    <option value="No Minor">No Minor</option>
+                    {{#each [0].programs}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/each}}
                 </select>
             </div>
 
