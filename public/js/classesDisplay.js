@@ -35,7 +35,7 @@ function getClasses() {
                 html += '<hr>';
         });
         document.getElementById("minorClasses").innerHTML = html;
-        console.log("d"+minor+"d");
+        console.log("d" + minor + "d");
         if (minor == "No Minor") {
 
             $(document.getElementById("minorDiv")).hide();
@@ -66,10 +66,10 @@ function generate() {
         print = print + " " + string; 
     }
     var result = confirm("Confirm that you want schedules with the following classes:" + print + "."); */
-    if (n <3 ) {
+    if (n < 3) {
         alert("Please select at least 3 classes.")
     }
-    else{
+    else {
         var selectedClasses = [];
         $('.courseCheckMajor').each(function (i, obj) {
             if (obj.checked)
@@ -104,14 +104,14 @@ $.postJSON = function (url, data, success, args) {
 };
 
 
-$( document ).ready(function() {
+$(document).ready(function () {
     var majorDiv = document.getElementById("majorClasses");
-    majorDiv.addEventListener("click", function() {
-        if (this.style.maxHeight == this.scrollHeight + "px"){
+    majorDiv.addEventListener("click", function () {
+        if (this.style.maxHeight == this.scrollHeight + "px") {
             this.style.maxHeight = "0px";
         } else {
             this.style.maxHeight = this.scrollHeight + "px";
-        } 
+        }
     });
 });
 

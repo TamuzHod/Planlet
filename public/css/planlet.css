@@ -4,9 +4,13 @@ body{
 }
 
 #settingButt {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+	float: right;
+	position: relative;
+	background: none;
+	color: #029fe2;
+	font-size: 20px;
+	left: .7em;
+	bottom: .5em;
 }
 
 #saveButt {

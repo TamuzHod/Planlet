@@ -33,7 +33,7 @@
 	<link rel="stylesheet" href="/css/schedule_style.css">
 
 
-<!--
+	<!--
 	<link rel="stylesheet" href="/path/to/bootstrap.min.css">
 	<script src="/path/to/jquery.min.js"></script>
 	<script src="/path/to/bootstrap.min.js"></script>
@@ -54,7 +54,12 @@
 
 	<!--what will show when schedule is clicked on-->
 	<div id="commSchedule">
-		<button style="font-size: 30px;float: left; background-color: white; color: #029fe2;" class="btn" onclick="hideNewSchedule()"><i class="far fa-arrow-alt-circle-left"></i></button>
+		<div
+			style="background-color: white; position: fixed; left: 0em;top: 0em; height: 3.5em;width: 100%; z-index: 4;">
+			<button
+				style="padding: 0em; position: fixed; left:.5em; z-index: 5; top: .2em; font-size: 30px; background: none; color: #029fe2;"
+				class="btn" onclick="hideNewSchedule()"><i class="fas fa-arrow-left"></i></button>
+		</div>
 		<br><br>
 		<div class="upclose">
 			<div id="DP"></div>
@@ -67,7 +72,8 @@
 		<footer>
 			<div class="container" style="width: 100%; padding: 0px;">
 				<button style="border-radius: 0px;" class="btn btn-lg" onclick="sendToEmail()">Send to Email</button>
-				<button style="border-radius: 0px; float: right;" id="starButt" class="btn btn-lg " onclick="starSchedule()"><i class="fas fa-star"></i></button>
+				<button style="border-radius: 0px; float: right;" id="starButt" class="btn btn-lg "
+					onclick="starSchedule()"><i class="fas fa-star"></i></button>
 			</div>
 			<!--//end container -->
 		</footer>
@@ -77,9 +83,10 @@
 
 	<!--initial page-->
 	<div id="possSchedules">
-		<div class="container" style="padding: 0px;">
+		<div class="container" style="height: 2.5em;padding: 0px;">
 			<!--<a href="/classes/{{majorName}}/{{minorName}}/{{collegeName}}"><button id="newSchedule">Start New Schedule</button></a>-->
-			<a href="/userinfo/{{majorName}}/{{minorName}}/{{collegeName}}"><button class="settings"> </button></a>
+			<a href="/userinfo/{{majorName}}/{{minorName}}/{{collegeName}}"><button id="settingButt" class="btn"><i
+						class="fas fa-cog"></i> </button></a>
 		</div> <!-- //end container -->
 		<div class="jumbotron">
 			<div class="container">
@@ -94,7 +101,8 @@
 					<div class="filters" style="display: flex; align-items: center; justify-content: space-around;">
 						<div style="height: 100%;">
 							<a href="#" data-filter="all" class="filter active-filter" style="font-size: 23px;">All</a>
-							<br><br><a href="#" data-filter="starred" class="filter" style="font-size: 20px;"><i style="color: #ffff41;" class="fas fa-star"></i></a>
+							<br><br><a href="#" data-filter="starred" class="filter" style="font-size: 20px;"><i
+									style="color: #ffff41;" class="fas fa-star"></i></a>
 						</div>
 						<div style="height: 100%;"><label>Filter By # of Classes:</label>
 							<br><a href="#" class="filter" data-filter="3">3</a>
@@ -108,7 +116,7 @@
 				</div>
 			</div> <!-- //end row -->
 			<br>
-			<div  class="filterContent">
+			<div class="filterContent">
 
 				<div class="filter-all" id="class-filter">
 
@@ -131,8 +139,8 @@
 		<br>
 		<footer>
 			<div class="container" style="width: 100%; padding: 0px;">
-				<a href="/classes/{{majorName}}/{{minorName}}/{{collegeName}}"><button
-						class="btn bckBtn">Back</button></a>
+				<a href="/classes/{{majorName}}/{{minorName}}/{{collegeName}}"><button class="btn bckBtn">Class
+						Selection</button></a>
 			</div>
 			<!--//end container -->
 		</footer>

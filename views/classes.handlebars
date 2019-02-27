@@ -8,6 +8,8 @@
     <link href="/css/bootstrap.css" rel="stylesheet" media="screen">
     <!-- Theme css -->
     <link href="/css/colorfrog.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet'
         type='text/css'>
@@ -28,17 +30,19 @@
 
 <body class="blue" onload="getClasses()">
 
-    <div class="container" style="padding: 0px;">
-        <a href="/userinfo/{{majorName}}/{{minorName}}/{{collegeName}}"> <button class="settings"> </button> </a>
-
+    <div class="container" style="height: 2.5em;padding: 0px;">
+        <!--<a href="/classes/{{majorName}}/{{minorName}}/{{collegeName}}"><button id="newSchedule">Start New Schedule</button></a>-->
+        <a href="/userinfo/{{majorName}}/{{minorName}}/{{collegeName}}"><button id="settingButt" class="btn"><i
+                    class="fas fa-cog"></i> </button></a>
     </div> <!-- //end container -->
 
     <div class="jumbotron">
         <div class="container">
             <h5>Here are all the class you need that will be offered next quarter.</h5>
             <h6 style="float: left;">Select 3-6 classes you would like to take.</h6>
-            <button class="btn btn-small clear" id="clearBtn" onclick="clearClick()">Clear Info</button></div>
+            <button class="btn btn-small clear" id="clearBtn" onclick="clearClick()">Clear Info</button>
         </div>
+    </div>
     </div> <!-- //end hero-unit -->
 
     <h5 id="lblMajorClasses">{{majorName}}</h5>
@@ -55,14 +59,14 @@
     <h5 id="lblGEClasses"><span id="spanGEClasses">{{collegeName}}</span> General Education:</h5>
     <div class="classDiv" id="geClasses">
     </div>
-    
+
     <!--
     <h5 id="lblOthClasses">Other Classes:</h5>
     <div class="classDiv" id="geClasses">
         <input id="searchInput" type="search"></input>
         <button id="classSearch" type="btn">Search</button>
     </div> -->
-<!--
+    <!--
     <br><br><br>
     <div style="display: flex; align-content:center;">
         <button class="btn btn-small clear" onclick="clearClick()">Clear Info</button></div>

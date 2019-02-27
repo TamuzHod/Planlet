@@ -10,17 +10,17 @@
   }
 
   DayScheduleSelector.DEFAULTS = {
-    days        : [0, 1, 2, 3, 4, 5, 6],  // Sun - Sat
-    startTime   : '08:00',                // HH:mm format
-    endTime     : '20:00',                // HH:mm format
-    interval    : 30,                     // minutes
-    stringDays  : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-    template    : '<div class="day-schedule-selector">'         +
-                    '<table class="schedule-table">'            +
-                      '<thead class="schedule-header"></thead>' +
-                      '<tbody class="schedule-rows"></tbody>'   +
-                    '</table>'                                  +
-                  '<div>'
+    days: [0, 1, 2, 3, 4, 5, 6],  // Sun - Sat
+    startTime: '08:00',                // HH:mm format
+    endTime: '20:00',                // HH:mm format
+    interval: 30,                     // minutes
+    stringDays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    template: '<div class="day-schedule-selector">' +
+      '<table class="schedule-table">' +
+      '<thead class="schedule-header"></thead>' +
+      '<tbody class="schedule-rows"></tbody>' +
+      '</table>' +
+      '<div>'
   };
 
   /**
@@ -88,7 +88,7 @@
   function getSelection(plugin, $a, $b) {
     var $slots, small, large, temp;
     if (!$a.hasClass('time-slot') || !$b.hasClass('time-slot') ||
-        ($a.data('day') != $b.data('day'))) { return []; }
+      ($a.data('day') != $b.data('day'))) { return []; }
     $slots = plugin.$el.find('.time-slot[data-day="' + $a.data('day') + '"]');
     small = $slots.index($a); large = $slots.index($b);
     if (small > large) { temp = small; small = large; large = temp; }
@@ -195,9 +195,9 @@
    */
   DayScheduleSelector.prototype.deserialize = function (schedule) {
     var plugin = this, i;
-    $.each(schedule, function(d, ds) {
+    $.each(schedule, function (d, ds) {
       var $slots = plugin.$el.find('.time-slot[data-day="' + d + '"]');
-      $.each(ds, function(_, s) {
+      $.each(ds, function (_, s) {
         for (i = 0; i < $slots.length; i++) {
           if ($slots.eq(i).data('time') >= s[1]) { break; }
           if ($slots.eq(i).data('time') >= s[0]) { plugin.select($slots.eq(i)); }
@@ -210,9 +210,9 @@
   // =====================================
 
   function Plugin(option) {
-    return this.each(function (){
-      var $this   = $(this)
-        , data    = $this.data('artsy.dayScheduleSelector')
+    return this.each(function () {
+      var $this = $(this)
+        , data = $this.data('artsy.dayScheduleSelector')
         , options = typeof option == 'object' && option;
 
       if (!data) {
@@ -246,7 +246,7 @@
   function timeDiff(start, end) {   // time in HH:mm format
     // need a dummy date to utilize the Date object
     return (new Date(2000, 0, 1, end.split(':')[0], end.split(':')[1]).getTime() -
-            new Date(2000, 0, 1, start.split(':')[0], start.split(':')[1]).getTime()) / 60000;
+      new Date(2000, 0, 1, start.split(':')[0], start.split(':')[1]).getTime()) / 60000;
   }
 
   /**
@@ -285,7 +285,7 @@
   function secondsSinceMidnightToHhmm(seconds) {
     var minutes = Math.floor(seconds / 60);
     return ('0' + Math.floor(minutes / 60)).slice(-2) + ':' +
-           ('0' + (minutes % 60)).slice(-2);
+      ('0' + (minutes % 60)).slice(-2);
   }
 
   // Expose some utility functions
