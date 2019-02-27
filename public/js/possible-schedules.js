@@ -129,9 +129,9 @@ function seeNewSchedule(scheduleHTML) {
                         color = 'style="background-color:'+colors[classNameIndex.length-1]+';"';
                     }
                     if (event.length > 60)
-                        html += '\t\t\t<div '+color+' class="class longClass">' + event.id + '</div>\n';
+                        html += '\t\t\t<div '+color+' class="class longClass"><span style="margin-left: .3em;float: left;font-size: 9px">' + event.start +'</span><br>' + event.id + '</div>\n';
                     else {
-                        html += '\t\t\t<div '+color+' class="class shortClass">' + event.id + '</div>\n';
+                        html += '\t\t\t<div '+color+' class="class shortClass"><span style="margin-left: .3em;float: left;font-size: 9px">' + event.start +'</span><br>' + event.id + '</div>\n';
                     }
 
                 });
