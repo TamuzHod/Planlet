@@ -58,6 +58,7 @@ $.getJSON('/getSelectedClasses', { get_param: 'classes' }, function (data) {
 
 function seeNewSchedule(scheduleHTML) {
 
+    ga("send", "event", "lookedAtSchedule", "action");
 
     var dp = new DayPilot.Calendar("DP");
     dp.viewType = "Days";
