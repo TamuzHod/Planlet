@@ -151,7 +151,7 @@ function createHTML() {
             });
             html += '\t</div>\n';
         });
-        html += '<div style="display: flex; justify-content: space-between; background-color: #E8E8E8; opacity: .8;height: 3.1em; width:100%; margin-top: .5em; margin-bottom: 0px;" >'
+        html += '<div style="display: flex; justify-content: space-between; background-color: #696969; opacity: .8;height: 3.1em; width:100%; margin-top: .5em; margin-bottom: 0px;" >'
         html += '<button class="btn btn-lg" style="background-color:#696969; border-radius: 2px;"><i class="fas fa-expand-arrows-alt"></i></button>';
         html += '<button style="background-color:#696969; z-index: 100; ;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation();starSchedule(this);  "><i class="fas fa-star"></i></button>';
         html += '</div></div>\n';
