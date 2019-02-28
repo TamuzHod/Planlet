@@ -34,11 +34,12 @@ var subset3 = [];
 var subset4 = [];
 var subset5 = [];
 
-
-
-
-$.getJSON('/getSelectedClasses', { get_param: 'classes' }, function (data) {
+$.getJSON('/getSelectedClasses', function (data) {
     if(!$('#0').length){
+        var link = '/classes/' + data.majorName +'/'+ data.minorName + '/' + data.collegeName;
+        $("#backToClasses").attr("href", link);
+
+        data = data.classes;
         getSubsetsofSizeK(data, 3, subset3);
         getSubsetsofSizeK(data, 4, subset4);
         getSubsetsofSizeK(data, 5, subset5);

@@ -73,23 +73,28 @@ function generate() {
         alert("Please select at least 3 classes.")
     }
     else {
-        var selectedClasses = [];
+        var selectedClasses = {classes : []};
         $('.courseCheckMajor').each(function (i, obj) {
             if (obj.checked)
-                selectedClasses.push(courses[major].find(course => course.id === obj.id))
+                selectedClasses.classes.push(courses[major].find(course => course.id === obj.id))
         });
         $('.courseCheckMinor').each(function (i, obj) {
             if (obj.checked)
-                selectedClasses.push(courses[minor].find(course => course.id === obj.id))
+                selectedClasses.classes.push(courses[minor].find(course => course.id === obj.id))
         });
         $('.courseCheckCollege').each(function (i, obj) {
             if (obj.checked)
-                selectedClasses.push(courses[college].find(course => course.id === obj.id))
+                selectedClasses.classes.push(courses[college].find(course => course.id === obj.id))
         });
+
+        selectedClasses.majorName = major;
+        selectedClasses.minorName = minor;
+        selectedClasses.collegeName = college;
+
         $.postJSON('/selectedClasses', selectedClasses, function (result) {
             console.log('result', result);
         });
-        window.location.href = '/possibleSchedules/' + major + '/' + minor + '/' + college;
+        window.location.href = '/possibleSchedules/';
     }
 }
 

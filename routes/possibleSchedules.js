@@ -8,7 +8,7 @@ exports.view = function(req, res){
 	var minor = req.params.minor; 
 	var college = req.params.college; 
 
- 	res.render('possibleSchedulesA', {'majorName': major, 'minorName': minor, 'collegeName': college});
+ 	res.render('possibleSchedulesA');
 };
 
 exports.viewAlt = function(req, res){
@@ -16,5 +16,5 @@ exports.viewAlt = function(req, res){
 	var minor = req.params.minor; 
 	var college = req.params.college; 
 
- 	res.render('possibleSchedulesB', {'majorName': major, 'minorName': minor, 'collegeName': college});
+ 	res.render('possibleSchedulesB');
 };

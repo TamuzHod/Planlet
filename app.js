@@ -47,8 +47,8 @@ app.get('/forgottenPassword', forgottenPassword.view);
 app.get('/classes/:major/:minor/:college', classes.view);
 app.get('/availability/:major/:minor/:college', availability.view);
 app.get('/userinfo/:major/:minor/:college', userinfo.view);
-app.get('/possibleSchedules/:major/:minor/:college', possibleSchedules.view);
-app.get('/possibleSchedulesB/:major/:minor/:college', possibleSchedules.viewAlt);
+app.get('/possibleSchedules/', possibleSchedules.view);
+app.get('/possibleSchedulesB/', possibleSchedules.viewAlt);
 
 app.locals.slectedClassesJson;
 
