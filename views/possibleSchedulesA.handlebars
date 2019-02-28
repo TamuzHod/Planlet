@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+
+	<meta charset="utf-8" />
+
+	<title>Planlet - Schedule Selection</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<!-- Bootstrap css -->
+	<link href="/css/bootstrap.css" rel="stylesheet" media="screen">
+	<!-- Theme css -->
+	<link href="/css/colorfrog.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet'
+		type='text/css'>
+	<link href="/favicon.ico" rel="shortcut icon" type="/image/x-icon" />
+	<script src="/js/respond.min.js"></script>
+
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/jquery.fitvids.js"></script>
+	<script src="/js/daypilot-all.min.js"></script>
+	<script src="/js/possible-schedules.js"></script>
+	<script src="/js/colorfrog.js"></script>
+	<link rel="stylesheet" href="/css/planlet.css">
+	<link type="text/css" rel="stylesheet" href="/css/calendar_green.css" />
+	<link rel="stylesheet" href="/css/schedule_style.css">
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-135349211-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
+</head>
+
+<body class="blue">
+
+
+	<!--what will show when schedule is clicked on-->
+	<div id="commSchedule">
+		<div
+			style="background-color: white; position: fixed; left: 0em;top: 0em; height: 3.5em;width: 100%; z-index: 4;">
+			<button
+				id = "backButt" class="btn" onclick="hideNewSchedule()"><i class="fas fa-arrow-left"></i></button>
+		</div>
+		<br><br>
+		<div class="upclose">
+			<div id="DP"></div>
+		</div>
+		<br><br>
+
+
+		<br><br>
+		<br>
+		<footer>
+			<div class="container" style="width: 100%; padding: 0px;">
+				<button style="border-radius: 0px;" class="btn btn-lg" onclick="sendToEmail()"><i class="far fa-envelope"></i></button>
+				<button style="border-radius: 0px; float: right;" id="starButt" class="btn btn-lg "
+					onclick="starSchedule()"><i class="fas fa-star"></i></button>
+			</div>
+			<!--//end container -->
+		</footer>
+	</div>
+
+
+
+	<!--initial page-->
+	<div id="possSchedules">
+		<div class="container" style="height: 2.5em;padding: 0px;">
+			<!--<a href="/classes/{{majorName}}/{{minorName}}/{{collegeName}}"><button id="newSchedule">Start New Schedule</button></a>-->
+			<a href="/userinfo/{{majorName}}/{{minorName}}/{{collegeName}}"><button id="settingButt" class="btn"><i
+						class="fas fa-cog"></i> </button></a>
+		</div> <!-- //end container -->
+		<div class="jumbotron">
+			<div class="container">
+				<h5>Here are all your possible schedules.</h5>
+				<h6>Use the filters to find what works for you.</h6>
+			</div>
+		</div> <!-- //end hero-unit -->
+
+		<div class="container content underHero">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="filters" style="display: flex; align-items: center; justify-content: space-around;">
+						<div style="height: 100%;">
+							<a href="#" data-filter="all" class="filter active-filter" style="font-size: 23px;">All</a>
+							<br><br><a href="#" data-filter="starred" class="filter" style="font-size: 20px;"><i
+									style="color: #ffff41;" class="fas fa-star"></i></a>
+						</div>
+						<div style="height: 100%;"><label># of Classes in Schedule:</label>
+							<br><a href="#" class="filter" data-filter="3">3</a>
+							<a href="#" class="filter" data-filter="4">4</a>
+							<a href="#" class="filter" data-filter="5">5</a>
+							<br><label style="margin-top: 10px;">Time Preference:</label>
+							<br><a href="#" class="filter" data-filter="morning">Morning</a>
+							<a href="#" class="filter" data-filter="afternoon">Afternoon</a>
+						</div>
+					</div>
+				</div>
+			</div> <!-- //end row -->
+			<br>
+			<div class="filterContent">
+
+				<div class="filter-all" id="class-filter">
+
+
+
+
+				</div> <!-- //end filter-all -->
+
+
+
+
+
+				<div class="filter-custom">
+
+				</div> <!-- //end filter custom -->
+
+			</div> <!-- //end filter content -->
+		</div> <!-- //end container -->
+		<br><br>
+		<br>
+		<footer>
+			<div class="container" style="width: 100%; padding: 0px;">
+				<a href="/classes/{{majorName}}/{{minorName}}/{{collegeName}}"><button class="btn bckBtn"><i class="fas fa-tasks"></i></button></a>
+			</div>
+			<!--//end container -->
+		</footer>
+	</div>
+
+
+
+</body>
+
+</html>
