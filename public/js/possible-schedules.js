@@ -48,10 +48,23 @@ $.getJSON('/getSelectedClasses', function (data) {
         createSchedule(subset5, schedules);
 
         createHTML(schedules);
+
+        if(window.location.href.includes("possibleSchedulesB")){
+            danceLoop(schedules.length, 0);
+        }
+        
+
+
+
     }
 }); 
 
-
+function danceLoop (i, j) {
+    setTimeout(function () {   
+        $("#"+j++).effect( "shake");
+        if (--i) danceLoop(i, j);      //  decrement i and call myLoop again if i > 0
+    }, 250)
+}
 
 "2019-02-18T10:00:00"
 "2015-01-01T00:00:00"
