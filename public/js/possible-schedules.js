@@ -36,8 +36,10 @@ var subset5 = [];
 
 $.getJSON('/getSelectedClasses', function (data) {
     if (!$('#0').length) {
-        var link = '/classes/' + data.majorName + '/' + data.minorName + '/' + data.collegeName;
-        $("#backToClasses").attr("href", link);
+        var classesLink = '/classes/' + data.majorName + '/' + data.minorName + '/' + data.collegeName;
+        var settingsLink = '/userinfo/' + data.majorName + '/' + data.minorName + '/' + data.collegeName;
+        $("#backToClasses").attr("href", classesLink);
+        $("#toSettings").attr("href", settingsLink);
 
         data = data.classes;
         getSubsetsofSizeK(data, 3, subset3);

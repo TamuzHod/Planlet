@@ -33,17 +33,19 @@
 	<link type="text/css" rel="stylesheet" href="/css/calendar_green.css" />
 	<link rel="stylesheet" href="/css/schedule_style.css">
 
- 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
- 	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
 
 	<!-- Google Analytics -->
 	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		(function (i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date(); a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
 		ga('create', 'UA-135349211-1', 'auto');
 		ga('send', 'pageview');
@@ -59,8 +61,7 @@
 	<div id="commSchedule">
 		<div
 			style="background-color: white; position: fixed; left: 0em;top: 0em; height: 3.5em;width: 100%; z-index: 4;">
-			<button
-				id = "backButt" class="btn" onclick="hideNewSchedule()"><i class="fas fa-arrow-left"></i></button>
+			<button id="backButt" class="btn" onclick="hideNewSchedule()"><i class="fas fa-arrow-left"></i></button>
 		</div>
 		<br><br>
 		<div class="upclose">
@@ -73,7 +74,8 @@
 		<br>
 		<footer>
 			<div class="container" style="width: 100%; padding: 0px;">
-				<button style="border-radius: 0px;" class="btn btn-lg" onclick="sendToEmail()"><i class="far fa-envelope"></i></button>
+				<button style="border-radius: 0px;" class="btn btn-lg" onclick="sendToEmail()"><i
+						class="far fa-envelope"></i></button>
 				<button style="border-radius: 0px; float: right;" id="starButt" class="btn btn-lg "
 					onclick="starSchedule()"><i class="fas fa-star"></i></button>
 			</div>
@@ -87,8 +89,7 @@
 	<div id="possSchedules">
 		<div class="container" style="height: 2.5em;padding: 0px;">
 			<!--<a href="/classes/{{majorName}}/{{minorName}}/{{collegeName}}"><button id="newSchedule">Start New Schedule</button></a>-->
-			<a href="/userinfo/{{majorName}}/{{minorName}}/{{collegeName}}"><button id="settingButt" class="btn"><i
-						class="fas fa-cog"></i> </button></a>
+			<a id="toSettings"><button id="settingButt" class="btn"><i class="fas fa-cog"></i> </button></a>
 		</div> <!-- //end container -->
 		<div class="jumbotron">
 			<div class="container">
