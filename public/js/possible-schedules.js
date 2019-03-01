@@ -157,7 +157,7 @@ function createHTML() {
         if (!window.location.href.includes("possibleSchedulesB")) {
         html += '<button class="btn btn-lg" style="float: left; background-color:#696969; border-radius: 2px;"><i class="fas fa-expand-arrows-alt"></i></button>';
         }
-        html += '<button style="float: right; background-color:#696969; z-index: 100;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation();starSchedule(this);  "><i class="fas fa-star"></i></button>';
+        html += '<button style="float: right; background-color:#696969; z-index: 100;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation();starSchedule(this); "><i class="fas fa-star"></i></button>';
         html += '</div></div>\n';
     });
     $("#class-filter").append(html);
