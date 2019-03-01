@@ -131,7 +131,10 @@ function createHTML() {
         else {
             timeday = 'afternoon';
         }
-        html += '<div id="' + index + '" onClick="seeNewSchedule(this)" class="schClick content type-' + timeday + ' type-' + schedule.numClasses + '">\n';
+        if (window.location.href.includes("possibleSchedulesB")) {
+            var type = "B";
+        }
+        html += '<div id="' + index + '" onClick="seeNewSchedule(this)" class="schClick content '  + type +' type-' + timeday + ' type-' + schedule.numClasses + '">\n';
         $.each(schedule.events, function (index, dayEvents) {
             html += '\t<div class="condDay" id="' + days[index] + '">\n';
             html += '\t\t<div class="dayTitle">' + daysAbbrev[index] + ' </div>\n';
@@ -153,11 +156,13 @@ function createHTML() {
             });
             html += '\t</div>\n';
         });
-        html += '<div style=" background-color: #696969; opacity: .8;height: 3.1em; width:100%; margin-top: .5em; margin-bottom: 0px;" >';
         if (!window.location.href.includes("possibleSchedulesB")) {
-        html += '<button class="btn btn-lg" style="float: left; background-color:#696969; border-radius: 2px;"><i class="fas fa-expand-arrows-alt"></i></button>';
+            html += '<div style=" background-color: #696969; opacity: .8;height: 3.1em; width:100%; margin-top: .5em; margin-bottom: 0px;" >';
+
+            html += '<button class="btn btn-lg" style="float: left; background-color:#696969; border-radius: 2px;"><i class="fas fa-expand-arrows-alt"></i></button>';
+
+            html += '<button style="float: right; background-color:#696969; z-index: 100;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation();starSchedule(this); "><i class="fas fa-star"></i></button>';
         }
-        html += '<button style="float: right; background-color:#696969; z-index: 100;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation();starSchedule(this); "><i class="fas fa-star"></i></button>';
         html += '</div></div>\n';
     });
     $("#class-filter").append(html);
@@ -264,17 +269,23 @@ function getSubset(input, subset) {
 function starSchedule(e) {
     var element = document.getElementById("starButt");
     /*if schedule has class starred --> toggle color of star*/
-    if (e.id != "starButt") {
-        currentScheduleIndex = e.parentElement.parentElement.id;
-        console.log('star'+currentScheduleIndex);
-        var element2 = document.getElementById('star' + currentScheduleIndex);
-        $(element2).toggleClass('starred');
+    if (!window.location.href.includes("possibleSchedulesB")) {
+        if (e.id != "starButt") {
+            currentScheduleIndex = e.parentElement.parentElement.id;
+            console.log('star' + currentScheduleIndex);
+            var element2 = document.getElementById('star' + currentScheduleIndex);
+            $(element2).toggleClass('starred');
+        }
+        else {
+            var element2 = document.getElementById('star' + currentScheduleIndex);
+            $(element2).toggleClass('starred');
+            $(element).toggleClass('starred');
+        }
     }
     else {
-        var element2 = document.getElementById('star' + currentScheduleIndex);
-        $(element2).toggleClass('starred');
         $(element).toggleClass('starred');
     }
+
 
     schedules[currentScheduleIndex].starred = !schedules[currentScheduleIndex].starred;
 
