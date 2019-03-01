@@ -124,7 +124,10 @@ function seeNewSchedule(scheduleHTML) {
             else {
                 timeday = 'afternoon';
             }
-            html += '<div id="' + index + '" onClick="seeNewSchedule(this)" class="schClick content type-' + timeday + ' type-' + schedule.numClasses; 
+            if (window.location.href.includes("possibleSchedulesB")) {
+                var type = "B";
+            }
+            html += '<div id="' + index + '" onClick="seeNewSchedule(this)" class="schClick content '  + type +' type-' + timeday + ' type-' + schedule.numClasses; 
             $.each(schedule.classes, function (index, course) {
                // html += ' type-' class.id;
             });
