@@ -91,6 +91,10 @@ th {
 }
 
 
+.condB.type-starred {
+  box-shadow: 0 0 25px 15px #e5e500;
+} 
+
 .schClick.B.type-starred {
   box-shadow: 0 0 15px #e5e500;
 } 

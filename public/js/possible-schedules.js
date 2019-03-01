@@ -120,7 +120,7 @@ function seeNewSchedule(scheduleHTML) {
         var html = "";
         var days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
         var daysAbbrev = ['M', 'T', 'W', 'T', 'F'];
-
+        var uniqueClasses = [];
         $.each(schedules, function (index, schedule) {
             var timeday = '';
             if (schedule.morning == true) {
@@ -131,7 +131,10 @@ function seeNewSchedule(scheduleHTML) {
             }
             html += '<div id="' + index + '" onClick="seeNewSchedule(this)" class="schClick content type-' + timeday + ' type-' + schedule.numClasses; 
             $.each(schedule.classes, function (index, course) {
-               // html += ' type-' class.id;
+                html += ' type-' + course.id.replace(/\s/g, '');
+                if(uniqueClasses.indexOf(course.id) === -1) {
+                    uniqueClasses.push(course.id);
+                }
             });
             if(window.location.href.includes("possibleSchedulesB"))
                 html += ' condB';
@@ -161,6 +164,15 @@ function seeNewSchedule(scheduleHTML) {
             html += '</div>\n';
         });
         $("#class-filter").append(html);
+                                    
+        var i=0;             
+        $.each(uniqueClasses, function (index, course) {
+            if(i%3 == 0)
+                $("#courseID").append('<br><br>\n')
+            $("#courseID").append('<a href="#" class="filter" data-filter="'+course.replace(/\s/g, '')+'">'+course+'</a>\n')
+                        i++;
+
+        });
     }
 
     function createSchedule(subset, schedules) {
