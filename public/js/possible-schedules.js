@@ -54,10 +54,6 @@ $.getJSON('/getSelectedClasses', function (data) {
         if (window.location.href.includes("possibleSchedulesB")) {
             danceLoop(schedules.length, 0);
         }
-
-
-
-
     }
 });
 
@@ -73,7 +69,6 @@ function danceLoop(i, j) {
 
 
 function seeNewSchedule(scheduleHTML) {
-
     ga("send", "event", "lookedAtSchedule", "action");
 
     var dp = new DayPilot.Calendar("DP");
@@ -161,7 +156,7 @@ function createHTML() {
 
             html += '<button class="btn btn-lg" style="float: left; background-color:#696969; border-radius: 2px;"><i class="fas fa-expand-arrows-alt"></i></button>';
 
-            html += '<button style="float: right; background-color:#696969; z-index: 100;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation();starSchedule(this); "><i class="fas fa-star"></i></button>';
+            html += '<button style="float: right; background-color:#696969; z-index: 100;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation(), starSchedule(this); "><i class="fas fa-star"></i></button>';
         }
         html += '</div></div>\n';
     });
@@ -272,19 +267,20 @@ function starSchedule(e) {
     if (!window.location.href.includes("possibleSchedulesB")) {
         if (e.id != "starButt") {
             currentScheduleIndex = e.parentElement.parentElement.id;
-            console.log('star' + currentScheduleIndex);
             var element2 = document.getElementById('star' + currentScheduleIndex);
             $(element2).toggleClass('starred');
         }
         else {
             var element2 = document.getElementById('star' + currentScheduleIndex);
-            $(element2).toggleClass('starred');
             $(element).toggleClass('starred');
+            $(element2).toggleClass('starred');
+
         }
     }
     else {
         $(element).toggleClass('starred');
     }
+
 
 
     schedules[currentScheduleIndex].starred = !schedules[currentScheduleIndex].starred;
