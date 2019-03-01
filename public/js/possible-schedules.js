@@ -160,20 +160,28 @@ function seeNewSchedule(scheduleHTML) {
 
                 });
                 html += '\t</div>\n';
-            });
-            html += '</div>\n';
-        });
-        $("#class-filter").append(html);
-                                    
-        var i=0;             
-        $.each(uniqueClasses, function (index, course) {
-            if(i%3 == 0)
-                $("#courseID").append('<br><br>\n')
-            $("#courseID").append('<a href="#" class="filter" data-filter="'+course.replace(/\s/g, '')+'">'+course+'</a>\n')
-                        i++;
 
         });
-    }
+        if (!window.location.href.includes("possibleSchedulesB")) {
+            html += '<div style=" background-color: #696969; opacity: .8;height: 3.1em; width:100%; margin-top: .5em; margin-bottom: 0px;" >';
+
+            html += '<button class="btn btn-lg" style="float: left; background-color:#696969; border-radius: 2px;"><i class="fas fa-expand-arrows-alt"></i></button>';
+
+            html += '<button style="float: right; background-color:#696969; z-index: 100;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation(), starSchedule(this); "><i class="fas fa-star"></i></button>';
+        }
+        html += '</div></div>\n';
+    });
+    $("#class-filter").append(html);
+
+    var i = 0;
+    $.each(uniqueClasses, function (index, course) {
+        if (i % 3 == 0)
+            $("#courseID").append('<br><br>\n')
+        $("#courseID").append('<a href="#" class="filter" data-filter="' + course.replace(/\s/g, '') + '">' + course + '</a>\n')
+        i++;
+
+    });
+}
 
     function createSchedule(subset, schedules) {
         var schedule = {};
@@ -278,24 +286,42 @@ function seeNewSchedule(scheduleHTML) {
 
 
 
+
+
     function starSchedule(e) {
-        /*if schedule has class starred --> toggle color of star*/
-
         var element = document.getElementById("starButt");
-        $(element).toggleClass('starred');
+        /*if schedule has class starred --> toggle color of star*/
+        if (!window.location.href.includes("possibleSchedulesB")) {
+            if (e.id != "starButt") {
+                currentScheduleIndex = e.parentElement.parentElement.id;
+                var element2 = document.getElementById('star' + currentScheduleIndex);
+                $(element2).toggleClass('starred');
+            }
+            else {
+                var element2 = document.getElementById('star' + currentScheduleIndex);
+                $(element).toggleClass('starred');
+                $(element2).toggleClass('starred');
+    
+            }
+        }
+        else {
+            $(element).toggleClass('starred');
+        }
+    
+    
+    
         schedules[currentScheduleIndex].starred = !schedules[currentScheduleIndex].starred;
-
-        if(schedules[currentScheduleIndex].starred){
-            $('div[id='+currentScheduleIndex+']').each(function() { 
+    
+        if (schedules[currentScheduleIndex].starred) {
+            $('div[id=' + currentScheduleIndex + ']').each(function () {
                 $(this).addClass("type-starred");
             });
         }
-        else{
-            $("#"+currentScheduleIndex).each(function() { 
+        else {
+            $("#" + currentScheduleIndex).each(function () {
                 $(this).removeClass("type-starred");
             });
         }
-
     }
 
     function hideNewSchedule(){
@@ -314,3 +340,4 @@ function seeNewSchedule(scheduleHTML) {
         else{
         }
     }
+
