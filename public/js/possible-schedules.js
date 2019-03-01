@@ -171,16 +171,16 @@ function seeNewSchedule(scheduleHTML) {
         }
         html += '</div></div>\n';
     });
-    $("#class-filter").append(html);
+        $("#class-filter").append(html);
 
-    var i = 0;
-    $.each(uniqueClasses, function (index, course) {
-        if (i % 3 == 0)
-            $("#courseID").append('<br><br>\n')
-        $("#courseID").append('<a href="#" class="filter" data-filter="' + course.replace(/\s/g, '') + '">' + course + '</a>\n')
-        i++;
+        var i = 0;
+        $.each(uniqueClasses, function (index, course) {
+            if (i % 3 == 0)
+                $("#courseID").append('<br><br>\n')
+            $("#courseID").append('<a href="#" class="filter" data-filter="' + course.replace(/\s/g, '') + '">' + course + '</a>\n')
+            i++;
 
-    });
+        });
 }
 
     function createSchedule(subset, schedules) {
