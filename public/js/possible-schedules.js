@@ -184,7 +184,12 @@ function seeNewSchedule(scheduleHTML) {
                         day: time.day,
                         length: calcLength
                     }
-                    events[getDay(time.day)].push(event)
+                    var day = getDay(time.day);
+                    var i;
+                    for(i=0; hrToMinutes(events[day][i].start) < hrToMinutes(event.start) || i < events[day].length; i++){
+                    }
+                    events[day].splice(i, 0, event);
+
                 });
             });
             var collision = false;
