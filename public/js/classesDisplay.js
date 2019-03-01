@@ -16,25 +16,26 @@ function getClasses() {
         var html = "";
         html+='<p  id="majorp"  style="position: relative; bottom: .5em;"><span style="float: left;">'+data[major].length + ' Classes</span> <span style="float: right;">0 Selected</span><br><br></p>';
         $.each(data[major], function (index, course) {
-
-            html += '<input style="width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckMajor" id = "';
-            html += course.id + '" type="checkbox">\n';
+            html += '<div style="padding-top:20px;" id = "' + course.id + 'div" onclick="selectClass(this)"><input style="width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckMajor"  id = "';
+            html += course.id + '"type="checkbox">\n';
             html += '<h6 style="font-size: 10px; color: gray; margin: 0px;">' + course.id + '(' + course.units + 'u)</h4> \n';
-            html += '<h5 style="font-size: 15px; width: 80%; margin-top: 5px;">' + course.title + '</h5> \n';
+            html += '<h5 style="font-size: 15px; width: 80%; margin-top: 5px;">' + course.title + '</h5>\n';
             if (index + 1 < data[major].length)
-                html += '<hr>';
+                html += '<hr style="margin-bottom: 0px;">';
+            html += '</div>'
         });
         document.getElementById("majorClasses").innerHTML = html;
         html = "";
         html+='<p  id="minorp"  style="position: relative; bottom: .5em;"><span style="float: left;">'+data[minor].length + ' Classes</span> <span style="float: right;">0 Selected</span><br><br></p>';
         $.each(data[minor], function (index, course) {
 
-            html += '<p id="minorp" style="position: relative; bottom: .5em;"></p><input style="width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckMinor" id = "';
+            html += '<div style="padding-top:20px;" id = "' + course.id + 'div" onclick="selectClass(this)"><p id="minorp" style="position: relative; bottom: .5em;"></p><input style="width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckMinor" id = "';
             html += course.id + '" type="checkbox"> \n';
             html += '<h6 style="font-size: 10px; color: gray; margin: 0px;">' + course.id + '(' + course.units + 'u)</h4> \n';
             html += '<h5 style="font-size: 15px; width: 80%; margin-top: 5px;">' + course.title + '</h5> \n';
             if (index + 1 < data[minor].length)
-                html += '<hr>';
+                html += '<hr style="margin-bottom: 0px;"></div>';
+            html += '</div>'
         });
         document.getElementById("minorClasses").innerHTML = html;
         console.log("d" + minor + "d");
@@ -46,17 +47,34 @@ function getClasses() {
         html+='<p  id="collegep"  style="position: relative; bottom: .5em;"><span style="float: left;">'+data[college].length + ' Classes</span> <span style="float: right;">0 Selected</span><br><br></p>';
         $.each(data[college], function (index, course) {
 
-            html += '<p id="collegep" style="position: relative; bottom: .5em;"></p><input style="width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckCollege" id = "';
+            html += '<div style="padding-top:20px;" id = "' + course.id + 'div" onclick="selectClass(this)"><p id="collegep" style="position: relative; bottom: .5em;"></p><input style="width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckCollege" id = "';
             html += course.id + '" type="checkbox"> \n';
             html += '<h6 style="font-size: 10px; color: gray; margin: 0px;">' + course.id + '(' + course.units + 'u)</h4> \n';
             html += '<h5 style="font-size: 15px; width: 80%; margin-top: 5px;">' + course.title + '</h5> \n';
             if (index + 1 < data[college].length)
-                html += '<hr>';
+                html += '<hr style="margin-bottom: 0px;"></div>';
+            html+='</div>'
         });
         $('#geClasses').html(html);
 
     });
 };
+
+function selectClass(e){
+    console.log(e.id);
+    $(e).toggleClass("selectedClass");
+    var newstring = e.id.split("div");
+    console.log(newstring[0]);
+    var element = (document.getElementById(newstring[0]));
+    if ($(element).attr("checked") == "checked"){
+        console.log($(element).attr("checked"));
+        element.removeAttribute("checked");
+        console.log($(element).attr("checked"));
+    }
+    else{
+        element.setAttribute("checked", "checked");
+    }
+}
 
 function generate() {
     var n = $("input:checked").length; /*

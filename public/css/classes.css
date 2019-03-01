@@ -72,3 +72,7 @@ body{
 #searchInput{
     width: 60%;
 }
+
+.selectedClass{
+    background-color: #e8f4f8;
+}
