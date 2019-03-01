@@ -129,7 +129,13 @@ function seeNewSchedule(scheduleHTML) {
             else {
                 timeday = 'afternoon';
             }
-            html += '<div id="' + index + '" onClick="seeNewSchedule(this)" class="schClick content type-' + timeday + ' type-' + schedule.numClasses + '">\n';
+            html += '<div id="' + index + '" onClick="seeNewSchedule(this)" class="schClick content type-' + timeday + ' type-' + schedule.numClasses; 
+            $.each(schedule.classes, function (index, course) {
+               // html += ' type-' class.id;
+            });
+            if(window.location.href.includes("possibleSchedulesB"))
+                html += ' condB';
+            html += '">\n';
             $.each(schedule.events, function (index, dayEvents) {
                 html += '\t<div class="condDay" id="' + days[index] + '">\n';
                 html += '\t\t<div class="dayTitle">' + daysAbbrev[index] + ' </div>\n';
