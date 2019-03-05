@@ -22,7 +22,7 @@ var app = express();
 
 const crypto = require('crypto');
 const Datastore = require('@google-cloud/datastore');
-const global.datastore = Datastore();
+datastore = Datastore();
 
 
 // all environments

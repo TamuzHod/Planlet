@@ -13,7 +13,14 @@ exports.view = function(req, res){
 
    try {
    	insertData(selectedClasses);
-   	res.json(selectedClasses.jsonData)
+   	const query = datastore
+	 	.createQuery('selectedClasses')
+	 	.order('timestamp', {descending: true})
+	 	.limit(1);
+
+ 	content = datastore.runQuery(query);
+
+	res.json(JSON.parse(content.jsonData));    
    } catch (error) {
    	res.send(error);
    }
