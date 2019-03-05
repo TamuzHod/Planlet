@@ -14,9 +14,9 @@ function getClasses() {
 
 
         var html = "";
-        html+='<p  id="majorp"  style="position: relative; bottom: .5em;"><span style="float: left;">'+data[major].length + ' Classes</span> <span style="float: right;">0 Selected</span><br><br></p>';
+        html += '<p  id="majorp"  style="position: relative; bottom: .5em;"><span style="float: left;">' + data[major].length + ' Classes</span> <span style="float: right;">0 Selected</span><br><br></p>';
         $.each(data[major], function (index, course) {
-            html += '<div style="padding-top:20px;" id = "' + course.id + 'div" onclick="selectClass(this)"><input style="width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckMajor"  id = "';
+            html += '<div style="padding-top:20px;" id = "' + course.id + 'div" onclick="selectClass(this)"><input style="visibility: hidden; width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckMajor"  id = "';
             html += course.id + '"type="checkbox">\n';
             html += '<h6 style="font-size: 10px; color: gray; margin: 0px;">' + course.id + '(' + course.units + 'u)</h4> \n';
             html += '<h5 style="font-size: 15px; width: 80%; margin-top: 5px;">' + course.title + '</h5>\n';
@@ -26,10 +26,10 @@ function getClasses() {
         });
         document.getElementById("majorClasses").innerHTML = html;
         html = "";
-        html+='<p  id="minorp"  style="position: relative; bottom: .5em;"><span style="float: left;">'+data[minor].length + ' Classes</span> <span style="float: right;">0 Selected</span><br><br></p>';
+        html += '<p  id="minorp"  style="position: relative; bottom: .5em;"><span style="float: left;">' + data[minor].length + ' Classes</span> <span style="float: right;">0 Selected</span><br><br></p>';
         $.each(data[minor], function (index, course) {
 
-            html += '<div style="padding-top:20px;" id = "' + course.id + 'div" onclick="selectClass(this)"><p id="minorp" style="position: relative; bottom: .5em;"></p><input style="width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckMinor" id = "';
+            html += '<div style="padding-top:20px;" id = "' + course.id + 'div" onclick="selectClass(this)"><p id="minorp" style="position: relative; bottom: .5em;"></p><input style="visibility: hidden; width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckMinor" id = "';
             html += course.id + '" type="checkbox"> \n';
             html += '<h6 style="font-size: 10px; color: gray; margin: 0px;">' + course.id + '(' + course.units + 'u)</h4> \n';
             html += '<h5 style="font-size: 15px; width: 80%; margin-top: 5px;">' + course.title + '</h5> \n';
@@ -43,31 +43,31 @@ function getClasses() {
             $(document.getElementById("minorDiv")).hide();
         }
         html = "";
-        html+='<p  id="collegep"  style="position: relative; bottom: .5em;"><span style="float: left;">'+data[college].length + ' Classes</span> <span style="float: right;">0 Selected</span><br><br></p>';
+        html += '<p  id="collegep"  style="position: relative; bottom: .5em;"><span style="float: left;">' + data[college].length + ' Classes</span> <span style="float: right;">0 Selected</span><br><br></p>';
         $.each(data[college], function (index, course) {
 
-            html += '<div style="padding-top:20px;" id = "' + course.id + 'div" onclick="selectClass(this)"><p id="collegep" style="position: relative; bottom: .5em;"></p><input style="width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckCollege" id = "';
+            html += '<div style="padding-top:20px;" id = "' + course.id + 'div" onclick="selectClass(this)"><p id="collegep" style="position: relative; bottom: .5em;"></p><input style="visibility: hidden; width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckCollege" id = "';
             html += course.id + '" type="checkbox"> \n';
             html += '<h6 style="font-size: 10px; color: gray; margin: 0px;">' + course.id + '(' + course.units + 'u)</h4> \n';
             html += '<h5 style="font-size: 15px; width: 80%; margin-top: 5px;">' + course.title + '</h5> \n';
             if (index + 1 < data[college].length)
                 html += '<hr style="margin-bottom: 0px;"></div>';
-            html+='</div>'
+            html += '</div>'
         });
         $('#geClasses').html(html);
 
     });
 };
 
-function selectClass(e){
-    $(e).toggleClass("selectedClass");
+function selectClass(e) {
     var newstring = e.id.split("div");
-    var element = (document.getElementById(newstring[0]));
-    if ($(element).attr("checked") == "checked"){
-        element.removeAttribute("checked");
+    var element = document.getElementById(newstring[0]);
+    $(e).toggleClass("selectedClass");
+    if ($(element).prop('checked') == true) {
+        $(element).prop('checked', false);
     }
-    else{
-        element.setAttribute("checked", "checked");
+    else {
+        $(element).prop('checked', true);
     }
 }
 
@@ -86,7 +86,7 @@ function generate() {
         alert("Please select at least 3 classes.")
     }
     else {
-        var selectedClasses = {classes : []};
+        var selectedClasses = { classes: [] };
         $('.courseCheckMajor').each(function (i, obj) {
             if (obj.checked)
                 selectedClasses.classes.push(courses[major].find(course => course.id === obj.id))
@@ -131,43 +131,43 @@ $.postJSON = function (url, data, success, args) {
 
 /*Neve's messy code for collapsibles. Sorry for the messiness!!!!!!!!*/
 
-function changeCarrot(carrot, direction){
-    if (direction == "down"){
+function changeCarrot(carrot, direction) {
+    if (direction == "down") {
         $(carrot).removeClass("fas fa-angle-up");
         $(carrot).addClass("fas fa-angle-down");
     }
-    else if (direction == "up"){
+    else if (direction == "up") {
         $(carrot).removeClass("fas fa-angle-down");
         $(carrot).addClass("fas fa-angle-up");
     }
 }
 
-function collapseMajor(){
+function collapseMajor() {
     var majorDiv = document.getElementById("majorClasses");
-    var numClasses = majorDiv.querySelectorAll("input").length; 
+    var numClasses = majorDiv.querySelectorAll("input").length;
     var checkedClasses = majorDiv.querySelectorAll('input[type="checkbox"]:checked').length;
-    changeCarrot(document.getElementById("majorCarrot"),"down");
-    $(document.getElementById("majorp")).html('<span style="float: left;">'+numClasses + ' Classes</span> <span style="float: right;">'+checkedClasses + ' Selected</span><br><br>');
+    changeCarrot(document.getElementById("majorCarrot"), "down");
+    $(document.getElementById("majorp")).html('<span style="float: left;">' + numClasses + ' Classes</span> <span style="float: right;">' + checkedClasses + ' Selected</span><br><br>');
     majorDiv.style.maxHeight = "0px";
 }
 
-function collapseMinor(){
+function collapseMinor() {
     var minorTitle = document.getElementById("lblMinorClasses");
     var minorDiv = document.getElementById("minorClasses");
-    var numClasses = minorDiv.querySelectorAll("input").length; 
+    var numClasses = minorDiv.querySelectorAll("input").length;
     var checkedClasses = minorDiv.querySelectorAll('input[type="checkbox"]:checked').length;
     changeCarrot(document.getElementById("minorCarrot"), "down");
-    $(document.getElementById("minorp")).html('<span style="float: left;">'+numClasses + ' Classes</span> <span style="float: right;">'+checkedClasses + ' Selected</span><br><br>');
+    $(document.getElementById("minorp")).html('<span style="float: left;">' + numClasses + ' Classes</span> <span style="float: right;">' + checkedClasses + ' Selected</span><br><br>');
     minorDiv.style.maxHeight = "0px";
 
 }
 
-function collapseGE(){
+function collapseGE() {
     var geDiv = document.getElementById("geClasses");
-    var numClasses = geDiv.querySelectorAll("input").length; 
+    var numClasses = geDiv.querySelectorAll("input").length;
     changeCarrot(document.getElementById("geCarrot"), "down");
     var checkedClasses = geDiv.querySelectorAll('input[type="checkbox"]:checked').length;
-    $(document.getElementById("collegep")).html('<span style="float: left;">'+numClasses + ' Classes</span> <span style="float: right;">'+checkedClasses + ' Selected</span><br><br>');
+    $(document.getElementById("collegep")).html('<span style="float: left;">' + numClasses + ' Classes</span> <span style="float: right;">' + checkedClasses + ' Selected</span><br><br>');
     geDiv.style.maxHeight = "0px";
 }
 
@@ -181,7 +181,7 @@ $(document).ready(function () {
     var geTitle = document.getElementById("lblGEClasses");
     majorTitle.addEventListener("click", function () {
         var majorDiv = document.getElementById("majorClasses");
-        var numClasses = majorDiv.querySelectorAll("input").length; 
+        var numClasses = majorDiv.querySelectorAll("input").length;
         var checkedClasses = majorDiv.querySelectorAll('input[type="checkbox"]:checked').length;
         if (majorDiv.style.maxHeight == majorDiv.scrollHeight + "px") {
             collapseMajor();
@@ -196,7 +196,7 @@ $(document).ready(function () {
 
     minorTitle.addEventListener("click", function () {
         var minorDiv = document.getElementById("minorClasses");
-        var numClasses = minorDiv.querySelectorAll("input").length; 
+        var numClasses = minorDiv.querySelectorAll("input").length;
         var checkedClasses = minorDiv.querySelectorAll('input[type="checkbox"]:checked').length;
         if (minorDiv.style.maxHeight == minorDiv.scrollHeight + "px") {
             collapseMinor();
@@ -211,7 +211,7 @@ $(document).ready(function () {
 
     geTitle.addEventListener("click", function () {
         var geDiv = document.getElementById("geClasses");
-        var numClasses = geDiv.querySelectorAll("input").length; 
+        var numClasses = geDiv.querySelectorAll("input").length;
         var checkedClasses = geDiv.querySelectorAll('input[type="checkbox"]:checked').length;
         if (geDiv.style.maxHeight == geDiv.scrollHeight + "px") {
             collapseGE();
