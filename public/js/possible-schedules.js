@@ -295,12 +295,12 @@ function seeNewSchedule(scheduleHTML) {
             if (e.id != "starButt") {
                 currentScheduleIndex = e.parentElement.parentElement.id;
                 var element2 = document.getElementById('star' + currentScheduleIndex);
-                $(element2).toggleClass('starred');
+                $(element2.children[0]).toggleClass('starred');
             }
             else {
                 var element2 = document.getElementById('star' + currentScheduleIndex);
                 $(element).toggleClass('starred');
-                $(element2).toggleClass('starred');
+                $(element2.children[0]).toggleClass('starred');
     
             }
         }
@@ -322,6 +322,7 @@ function seeNewSchedule(scheduleHTML) {
                 $(this).removeClass("type-starred");
             });
         }
+        update();
     }
 
     function hideNewSchedule(){
