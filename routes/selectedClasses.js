@@ -1,6 +1,5 @@
 var fs = require("fs");
 var path = require('path');
-var dataStore;
 exports.view = function(req, res){
    // req.app.locals.slectedClassesJson = JSON.stringify(req.body, null, 4);
    // console.log(req.app.locals.slectedClassesJson);
@@ -25,24 +24,13 @@ exports.view = function(req, res){
  * @param {object} selectedClasses The selectedClasses record to insert.
  */
    function insertData(selectedClasses) {
- 	return req.app.locals.datastore.save({
+ 	return datastore.save({
  		key: datastore.key('selectedClasses'),
  		data: selectedClasses,
  	});
+ 	console(req.app.locals.datastore);
  }
 
 };
 
-
- /**
- * Retrieve the latest 10 visit records from the database.
- */
- function getVisits() {
- 	const query = datastore
- 	.createQuery('visit')
- 	.order('timestamp', {descending: true})
- 	.limit(10);
-
- 	return datastore.runQuery(query);
- }
 
