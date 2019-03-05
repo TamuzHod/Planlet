@@ -299,6 +299,7 @@ function seeNewSchedule(scheduleHTML) {
                 currentScheduleIndex = e.parentElement.parentElement.id;
                 var element2 = document.getElementById('star' + currentScheduleIndex);
                 $(element2.children[0]).toggleClass('starred');
+                
             }
             else {
                 var element2 = document.getElementById('star' + currentScheduleIndex);
@@ -325,6 +326,7 @@ function seeNewSchedule(scheduleHTML) {
                 $(this).removeClass("type-starred");
             });
         }
+        update();
     }
 
     function hideNewSchedule(){

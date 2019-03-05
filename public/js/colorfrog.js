@@ -1,3 +1,5 @@
+var currFilter = "all";
+
 /*
 * Initialise the Google Map in the footer
 */
@@ -72,6 +74,7 @@ $(document).on('click', '.filters a', function(e){
 	
 	// Get filter key
 	filterThis = $(this).data('filter');
+	currFilter = $(this).data('filter');
 
 	// Filter things	
 	if(filterThis == 'all'){
@@ -92,6 +95,31 @@ $(document).on('click', '.filters a', function(e){
 	
 	e.preventDefault();
 });
+
+function update(e){
+	console.log("here");
+	console.log(currFilter);
+	// Get filter key
+
+
+	// Filter things	
+	if(currFilter == 'all'){
+		$('.filter-all').show();
+		$('.filter-custom').empty().hide();	
+	}
+	else{
+ 		$('.filter-custom').empty();
+ 		contentLength = $('.type-'+currFilter, $('.filter-all')).length;
+ 		
+ 		$('.type-'+currFilter, $('.filter-all')).each(function(e, index){
+ 			//$('.filter-custom').append($(this).clone(true))
+ 			$(this).clone(true, true).appendTo($('.filter-custom'));
+ 		});
+ 		$('.filter-all').hide();
+ 		$('.filter-custom').show();
+	}
+
+};
 
 function clearClick(e) {
     var result = confirm("Are you sure you want to clear this page? You will lose all the information you have entered.");
