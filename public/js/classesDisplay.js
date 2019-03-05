@@ -38,7 +38,6 @@ function getClasses() {
             html += '</div>'
         });
         document.getElementById("minorClasses").innerHTML = html;
-        console.log("d" + minor + "d");
         if (minor == "No Minor") {
 
             $(document.getElementById("minorDiv")).hide();
@@ -61,15 +60,11 @@ function getClasses() {
 };
 
 function selectClass(e){
-    console.log(e.id);
     $(e).toggleClass("selectedClass");
     var newstring = e.id.split("div");
-    console.log(newstring[0]);
     var element = (document.getElementById(newstring[0]));
     if ($(element).attr("checked") == "checked"){
-        console.log($(element).attr("checked"));
         element.removeAttribute("checked");
-        console.log($(element).attr("checked"));
     }
     else{
         element.setAttribute("checked", "checked");
