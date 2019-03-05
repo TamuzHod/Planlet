@@ -92,16 +92,11 @@ $(document).on('click', '.filters a', function(e){
  		$('.filter-all').hide();
  		$('.filter-custom').show();
 	}
-	
+	checkLength();
 	e.preventDefault();
 });
 
 function update(e){
-	console.log("here");
-	console.log(currFilter);
-	// Get filter key
-
-
 	// Filter things	
 	if(currFilter == 'all'){
 		$('.filter-all').show();
@@ -109,17 +104,25 @@ function update(e){
 	}
 	else{
  		$('.filter-custom').empty();
- 		contentLength = $('.type-'+currFilter, $('.filter-all')).length;
+		 contentLength = $('.type-'+currFilter, $('.filter-all')).length;
  		
  		$('.type-'+currFilter, $('.filter-all')).each(function(e, index){
  			//$('.filter-custom').append($(this).clone(true))
  			$(this).clone(true, true).appendTo($('.filter-custom'));
  		});
  		$('.filter-all').hide();
- 		$('.filter-custom').show();
+		 $('.filter-custom').show();
+		 checkLength();
 	}
 
 };
+
+function checkLength(){
+
+	if (contentLength = $('.type-'+currFilter, $('.filter-all')).length == 0){
+		$('<br><div style="text-align: center; font-size: 12px"><b><p style="font-size: 16px;">No schedules with this filter.</p></b>Pick another filter or select new classes!<br><br><i style="font-size: 50px; " class="fas fa-sad-tear"></i></div>').appendTo($('.filter-custom'));
+	}
+}
 
 function clearClick(e) {
     var result = confirm("Are you sure you want to clear this page? You will lose all the information you have entered.");
