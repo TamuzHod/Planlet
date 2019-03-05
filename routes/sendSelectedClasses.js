@@ -5,7 +5,7 @@ var fs = require("fs");
 var path = require('path');
 
 var content;
-exports.send = function(req, res){
+exports.send = async function(req, res){
 
 	//content = req.app.locals.slectedClassesJson;
 
@@ -14,9 +14,9 @@ exports.send = function(req, res){
 	 	.order('timestamp', {descending: true})
 	 	.limit(1);
 
- 	content = datastore.runQuery(query);
-
-	res.json(JSON.parse(content.jsonData));          
+ 	content = await  datastore.runQuery(query);
+	console.log(content);
+	res.json(content);          
 	
 };
 
