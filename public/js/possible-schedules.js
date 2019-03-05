@@ -75,7 +75,7 @@ function danceLoop (i, j) {
 
 function seeNewSchedule(scheduleHTML) {
 
-    ga("send", "event", "lookedAtSchedule", "action");
+    //ga("send", "event", "lookedAtSchedule", "action");
 
     var dp = new DayPilot.Calendar("DP");
     dp.viewType = "Days";
