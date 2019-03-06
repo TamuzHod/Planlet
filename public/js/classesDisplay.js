@@ -2,6 +2,11 @@ var courses;
 var major;
 var minor;
 var college;
+
+var expandedmajor = false;
+var expandedminor = false;
+var expandedcollege = false;
+
 function getClasses() {
     $.getJSON('/classes', function (data) {
         courses = data;
@@ -14,65 +19,73 @@ function getClasses() {
 
 
         var html = "";
-        html+='<p  id="majorp"  style="position: relative; bottom: .5em;"><span style="float: left;">'+data[major].length + ' Classes</span> <span style="float: right;">0 Selected</span><br><br></p>';
+        html+='<div id="majordiv"><p  id="majorp"  style="position: relative; bottom: .5em;"><span style="float: left;">'+data[major].length + ' Classes</span> <span style="float: right;">0 Selected</span><br><br></p>';
         $.each(data[major], function (index, course) {
-            html += '<div style="padding-top:20px;" id = "' + course.id + 'div" onclick="selectClass(this)"><input style="width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckMajor"  id = "';
+            html += '<div style="padding-top:20px;" id = "' + course.id + 'div" onclick="event.stopPropagation(); selectClass(this)"><input style="visibility: hidden; width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckMajor"  id = "';
             html += course.id + '"type="checkbox">\n';
-            html += '<h6 style="font-size: 10px; color: gray; margin: 0px;">' + course.id + '(' + course.units + 'u)</h4> \n';
+            html += '<h6 style="font-size: 10px; color: gray; margin: 0px;">' + course.id + ' (' + course.units + 'u)</h4> \n';
             html += '<h5 style="font-size: 15px; width: 80%; margin-top: 5px;">' + course.title + '</h5>\n';
-            if (index + 1 < data[major].length)
+            if (index + 1 < data[major].length){
                 html += '<hr style="margin-bottom: 0px;">';
-            html += '</div>'
+            }
+            else {
+                html += '<hr style="visibility: hidden; margin-bottom: 0px;">';
+            }
+
+            html += '</div></div>'
         });
         document.getElementById("majorClasses").innerHTML = html;
         html = "";
-        html+='<p  id="minorp"  style="position: relative; bottom: .5em;"><span style="float: left;">'+data[minor].length + ' Classes</span> <span style="float: right;">0 Selected</span><br><br></p>';
+        html+='<div id="minordiv"><p  id="minorp"  style="position: relative; bottom: .5em;"><span style="float: left;">'+data[minor].length + ' Classes</span> <span style="float: right;">0 Selected</span><br><br></p>';
         $.each(data[minor], function (index, course) {
 
-            html += '<div style="padding-top:20px;" id = "' + course.id + 'div" onclick="selectClass(this)"><p id="minorp" style="position: relative; bottom: .5em;"></p><input style="width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckMinor" id = "';
+            html += '<div style="padding-top:20px;" id = "' + course.id + 'div" onclick="event.stopPropagation(); selectClass(this)"><input style="visibility: hidden; width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckMinor"  id = "';
             html += course.id + '" type="checkbox"> \n';
-            html += '<h6 style="font-size: 10px; color: gray; margin: 0px;">' + course.id + '(' + course.units + 'u)</h4> \n';
+            html += '<h6 style="font-size: 10px; color: gray; margin: 0px;">' + course.id + ' (' + course.units + 'u)</h4> \n';
             html += '<h5 style="font-size: 15px; width: 80%; margin-top: 5px;">' + course.title + '</h5> \n';
-            if (index + 1 < data[minor].length)
-                html += '<hr style="margin-bottom: 0px;"></div>';
-            html += '</div>'
+            if (index + 1 < data[minor].length){
+                html += '<hr style="margin-bottom: 0px;">';
+            }
+            else {
+                html += '<hr style="visibility: hidden; margin-bottom: 0px;">';
+            }
+            html += '</div></div>'
         });
         document.getElementById("minorClasses").innerHTML = html;
-        console.log("d" + minor + "d");
         if (minor == "No Minor") {
 
             $(document.getElementById("minorDiv")).hide();
         }
         html = "";
-        html+='<p  id="collegep"  style="position: relative; bottom: .5em;"><span style="float: left;">'+data[college].length + ' Classes</span> <span style="float: right;">0 Selected</span><br><br></p>';
+        html+='<div id="collegediv"><p  id="collegep"  style="position: relative; bottom: .5em;"><span style="float: left;">'+data[college].length + ' Classes</span> <span style="float: right;">0 Selected</span><br><br></p>';
         $.each(data[college], function (index, course) {
 
-            html += '<div style="padding-top:20px;" id = "' + course.id + 'div" onclick="selectClass(this)"><p id="collegep" style="position: relative; bottom: .5em;"></p><input style="width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckCollege" id = "';
+            html += '<div style="padding-top:20px;" id = "' + course.id + 'div" onclick="event.stopPropagation(); selectClass(this)"><input style="visibility: hidden; width: 30px; height: 30px; display: inline-block; float: right;" class="courseCheckCollege"  id = "';
             html += course.id + '" type="checkbox"> \n';
-            html += '<h6 style="font-size: 10px; color: gray; margin: 0px;">' + course.id + '(' + course.units + 'u)</h4> \n';
+            html += '<h6 style="font-size: 10px; color: gray; margin: 0px;">' + course.id + ' (' + course.units + 'u)</h4> \n';
             html += '<h5 style="font-size: 15px; width: 80%; margin-top: 5px;">' + course.title + '</h5> \n';
-            if (index + 1 < data[college].length)
-                html += '<hr style="margin-bottom: 0px;"></div>';
-            html+='</div>'
+            if (index + 1 < data[college].length){
+                html += '<hr style="margin-bottom: 0px;">';
+            }
+            else {
+                html += '<hr style="visibility: hidden; margin-bottom: 0px;">';
+            }
+            html+='</div></div>'
         });
         $('#geClasses').html(html);
 
     });
 };
 
-function selectClass(e){
-    console.log(e.id);
-    $(e).toggleClass("selectedClass");
+function selectClass(e) {
     var newstring = e.id.split("div");
-    console.log(newstring[0]);
-    var element = (document.getElementById(newstring[0]));
-    if ($(element).attr("checked") == "checked"){
-        console.log($(element).attr("checked"));
-        element.removeAttribute("checked");
-        console.log($(element).attr("checked"));
+    var element = document.getElementById(newstring[0]);
+    $(e).toggleClass("selectedClass");
+    if ($(element).prop('checked') == true) {
+        $(element).prop('checked', false);
     }
-    else{
-        element.setAttribute("checked", "checked");
+    else {
+        $(element).prop('checked', true);
     }
 }
 
@@ -148,6 +161,8 @@ function changeCarrot(carrot, direction){
 }
 
 function collapseMajor(){
+    expandedmajor = false;
+    $("#majorp").show();
     var majorDiv = document.getElementById("majorClasses");
     var numClasses = majorDiv.querySelectorAll("input").length; 
     var checkedClasses = majorDiv.querySelectorAll('input[type="checkbox"]:checked').length;
@@ -157,6 +172,8 @@ function collapseMajor(){
 }
 
 function collapseMinor(){
+    expandedminor = false;
+    $("#minorp").show();
     var minorTitle = document.getElementById("lblMinorClasses");
     var minorDiv = document.getElementById("minorClasses");
     var numClasses = minorDiv.querySelectorAll("input").length; 
@@ -168,6 +185,8 @@ function collapseMinor(){
 }
 
 function collapseGE(){
+    expandedcollege = false;
+    $("#collegep").show();
     var geDiv = document.getElementById("geClasses");
     var numClasses = geDiv.querySelectorAll("input").length; 
     changeCarrot(document.getElementById("geCarrot"), "down");
@@ -184,50 +203,67 @@ $(document).ready(function () {
     var majorTitle = document.getElementById("lblMajorClasses");
     var minorTitle = document.getElementById("lblMinorClasses");
     var geTitle = document.getElementById("lblGEClasses");
-    majorTitle.addEventListener("click", function () {
+    majorTitle.addEventListener("click", majorExpand);
+    (document.getElementById("majorClasses").addEventListener("click", majorExpand));
+    minorTitle.addEventListener("click", minorExpand);
+    (document.getElementById("minorClasses").addEventListener("click", minorExpand));
+    geTitle.addEventListener("click", collegeExpand);
+    (document.getElementById("geClasses").addEventListener("click", collegeExpand));
+
+
+    function majorExpand(){
         var majorDiv = document.getElementById("majorClasses");
         var numClasses = majorDiv.querySelectorAll("input").length; 
         var checkedClasses = majorDiv.querySelectorAll('input[type="checkbox"]:checked').length;
         if (majorDiv.style.maxHeight == majorDiv.scrollHeight + "px") {
+            $("#majorp").show();
             collapseMajor();
         } else {
+            $("#majorp").hide();
             $(document.getElementById("majorp")).html("");
             collapseMinor();
             collapseGE();
             changeCarrot(document.getElementById("majorCarrot"), "up");
             majorDiv.style.maxHeight = majorDiv.scrollHeight + "px";
         }
-    });
+        expandedmajor = true;
+    }
 
-    minorTitle.addEventListener("click", function () {
+    function minorExpand() {
         var minorDiv = document.getElementById("minorClasses");
         var numClasses = minorDiv.querySelectorAll("input").length; 
         var checkedClasses = minorDiv.querySelectorAll('input[type="checkbox"]:checked').length;
         if (minorDiv.style.maxHeight == minorDiv.scrollHeight + "px") {
+            $("#minorp").show();
             collapseMinor();
         } else {
+            $("#minorp").hide();
             $(document.getElementById("minorp")).html("");
             collapseMajor();
             collapseGE();
             changeCarrot(document.getElementById("minorCarrot"), "up");
             minorDiv.style.maxHeight = minorDiv.scrollHeight + "px";
         }
-    });
+        expandedminor = true;
+    }
 
-    geTitle.addEventListener("click", function () {
+    function collegeExpand() {
         var geDiv = document.getElementById("geClasses");
         var numClasses = geDiv.querySelectorAll("input").length; 
         var checkedClasses = geDiv.querySelectorAll('input[type="checkbox"]:checked').length;
         if (geDiv.style.maxHeight == geDiv.scrollHeight + "px") {
+            $("#collegep").show();
             collapseGE();
         } else {
+            $("#collegep").hide();
             $(document.getElementById("collegep")).html("");
             collapseMajor();
             collapseMinor();
             changeCarrot(document.getElementById("geCarrot"), "up");
             geDiv.style.maxHeight = geDiv.scrollHeight + "px";
         }
-    });
+        expandedcollege = true;
+    }
 });
 
 

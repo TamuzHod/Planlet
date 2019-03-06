@@ -184,6 +184,7 @@ function seeNewSchedule(scheduleHTML) {
             i++;
 
         });
+        update();
 }
 
     function createSchedule(subset, schedules) {
