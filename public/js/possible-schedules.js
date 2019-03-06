@@ -36,6 +36,7 @@ var subset5 = [];
 
 $.getJSON('/getSelectedClasses', function (data) {
     if(!$('#0').length){
+	data = data.jsonData;
         var link = '/classes/' + data.majorName +'/'+ data.minorName + '/' + data.collegeName;
         $("#backToClasses").attr("href", link);
         link = '/userInfo/' + data.majorName +'/'+ data.minorName + '/' + data.collegeName;

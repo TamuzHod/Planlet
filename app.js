@@ -20,6 +20,10 @@ var sendSelectedClasses = require('./routes/sendSelectedClasses');
 
 var app = express();
 
+const crypto = require('crypto');
+const Datastore = require('@google-cloud/datastore');
+datastore = Datastore();
+
 
 // all environments
 app.set('port', process.env.PORT || 3000);
