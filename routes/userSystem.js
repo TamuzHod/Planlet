@@ -1,4 +1,4 @@
-var alittleaboutyou = require('./routes/alittleaboutyou');
+var programs = require('../programs.json');
 
 exports.logIn = async function(req, res){
    // req.app.locals.slectedClassesJson = JSON.stringify(req.body, null, 4);
@@ -15,9 +15,10 @@ exports.logIn = async function(req, res){
 
    try {
    	await insertData(newUser);
-      alittleaboutyou.view(req,res);
+      res.render('alittleaboutyou', programs);
+      res.end();
    } catch (error) {
-      res.send('error');
+      res.end('error');
    }
 
 /**
