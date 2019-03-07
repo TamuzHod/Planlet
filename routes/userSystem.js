@@ -12,8 +12,8 @@ exports.register = async function(req, res){
 
    var user = await  datastore.runQuery(query);
    if(user.length = 1){
-      var email = false;
-      var password = true;
+      var email = true;
+      var password = false;
       res.render('index', {email, password});   
    }
 
@@ -64,8 +64,8 @@ exports.logIn = async function(req, res){
    console.log(user);
 
    if(user.length = 0){
-      var email = false;
-      var password = true;
+      var email = true;
+      var password = false;
       res.render('index', {email, password});   
    }
 
