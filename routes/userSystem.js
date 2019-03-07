@@ -18,7 +18,7 @@ exports.register = async function(req, res){
 
    try {
    	await insertData(newUser);
-      res.end('succses');
+      res.end('alittleaboutyou', programs);
    } catch (error) {
 	console.log(error);
       res.end('error');
@@ -54,6 +54,6 @@ exports.logIn = async function(req, res){
    var major = user[0][0].major; 
    var minor = user[0][0].minor; 
    var college = user[0][0].college; 
-      res.send('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});
-      res.end();     
+
+      res.render('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});     
 };
