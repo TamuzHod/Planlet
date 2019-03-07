@@ -47,17 +47,17 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', index.view);
-app.get('/alittleaboutyou', alittleaboutyou.view);
+app.get('/alittleaboutyou/:email', alittleaboutyou.view);
 app.get('/forgottenPassword', forgottenPassword.view);
-app.get('/classes/:major/:minor/:college', classes.view);
-app.get('/availability/:major/:minor/:college', availability.view);
-app.get('/userinfo/:major/:minor/:college', userinfo.view);
-app.get('/possibleSchedules/', possibleSchedules.view);
-app.get('/possibleSchedulesB/', possibleSchedules.viewAlt);
+app.get('/classes/:email/:major/:minor/:college', classes.view);
+app.get('/availability/:email/:major/:minor/:college', availability.view);
+app.get('/userinfo/:email/:major/:minor/:college', userinfo.view);
+app.get('/possibleSchedules/:email', possibleSchedules.view);
+app.get('/possibleSchedulesB/:email', possibleSchedules.viewAlt);
 app.post('/logIn', userSystem.logIn);
 app.post('/register', userSystem.register);
-app.get('/logIn', alittleaboutyou.view);
-app.get('/register', alittleaboutyou.view);
+app.get('/logIn/:email', alittleaboutyou.view);
+app.get('/register/:email', alittleaboutyou.view);
 app.post('/update/', userSystem.update);
 
 app.locals.slectedClassesJson;

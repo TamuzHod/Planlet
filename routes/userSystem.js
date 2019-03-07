@@ -34,7 +34,8 @@ exports.register = async function(req, res){
 
    try {
    	await insertData(newUser);
-      res.render('alittleaboutyou', programs);
+     var email = req.body.email;
+     res.render('alittleaboutyou', [programs, {'email' : email}]);
    } catch (error) {
      console.log(error);
      res.end('error');
@@ -92,7 +93,7 @@ exports.logIn = async function(req, res){
    console.log(major === "noMajor");
    if(major === "noMajor"){
       console.log("no Major");
-      res.render('alittleaboutyou', programs);
+     res.render('alittleaboutyou', [programs, {'email' : req.body.email}]);
    }
    else 
       res.render('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});     
