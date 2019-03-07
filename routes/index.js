@@ -4,5 +4,7 @@
  */
 
 exports.view = function(req, res){
-  res.render('index');
+	var email = true;
+	var password = true;
+  res.render('index', {email, password});
 };

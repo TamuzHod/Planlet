@@ -5,11 +5,23 @@ exports.register = async function(req, res){
    // console.log(req.app.locals.slectedClassesJson);
    // res.json(JSON.stringify(req.body, null, 4))
 
+   const query = datastore
+   .createQuery('user')
+   .filter('email', '=', req.body.email)
+   .limit(1);
+
+   var user = await  datastore.runQuery(query);
+   if(user.length = 1){
+      var email = false;
+      var password = true;
+      res.render('index', {email, password});   
+   }
+
    // Create a visit record to be stored in the database
    const newUser = {
    	timestamp: new Date(),
       email: req.body.email,
-   	data: req.body,
+      data: req.body,
       password:  req.body.password,
       major: "noMajor",
       minor: "noMinor",
@@ -20,16 +32,16 @@ exports.register = async function(req, res){
    	await insertData(newUser);
       res.end('alittleaboutyou', programs);
    } catch (error) {
-	console.log(error);
-      res.end('error');
-   }
+     console.log(error);
+     res.end('error');
+  }
 
 /**
  * Insert a selectedClasses record into the database.
  *
  * @param {object} selectedClasses The selectedClasses record to insert.
  */
-   function insertData(newUser) {
+ function insertData(newUser) {
  	return datastore.save({
  		key: datastore.key('user'),
  		data: newUser,
@@ -43,17 +55,23 @@ exports.logIn = async function(req, res){
    //content = req.app.locals.slectedClassesJson;
 
    const query = datastore
-      .createQuery('user')
-      .filter('email', '=', req.body.email)
-      .filter('password', '=', req.body.password)
-      .limit(1);
+   .createQuery('user')
+   .filter('email', '=', req.body.email)
+   .filter('password', '=', req.body.password)
+   .limit(1);
 
    var user = await  datastore.runQuery(query);
-   console.log(content);
+   console.log(user);
+
+   if(user.length = 0){
+      var email = false;
+      var password = true;
+      res.render('index', {email, password});   
+   }
 
    var major = user[0][0].major; 
    var minor = user[0][0].minor; 
    var college = user[0][0].college; 
 
-      res.render('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});     
+   res.render('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});     
 };

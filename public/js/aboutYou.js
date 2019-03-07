@@ -18,7 +18,8 @@ function startNewSchedule() {
 		$('#selCollege').css('border-color', 'red');
 	}
 	else {
-		window.location.href = '/classes/' + major +'/'+ minor + '/' + college;
+		$.getJSON('/getSelectedClasses', function (data) {
+		//window.location.href = '/classes/' + major +'/'+ minor + '/' + college;
 	}
 	
 };
