@@ -12,8 +12,8 @@ function getClasses() {
     minor = document.getElementById("spanMinorClasses").innerHTML;
     college = document.getElementById("spanGEClasses").innerHTML;
     if(major == "noMajor"){
-        window.location.href = '/alitleaboutyou/';
-    }
+        window.location.href = '/alittleaboutyou/';
+    }                            
     $.getJSON('/classes', function (data) {
         courses = data;
         
