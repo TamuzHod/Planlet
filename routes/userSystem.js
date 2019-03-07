@@ -82,7 +82,9 @@ exports.logIn = async function(req, res){
    console.log("noMajor =? " + major);
    console.log(major === "noMajor");
    if(major === "noMajor"){
+      console.log("no Major");
       res.render('alittleaboutyou', programs);
    }
-   res.render('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});     
+   else 
+      res.render('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});     
 };
