@@ -1,6 +1,6 @@
 var programs = require('../programs.json');
 
-exports.logIn = async function(req, res){
+exports.register = async function(req, res){
    // req.app.locals.slectedClassesJson = JSON.stringify(req.body, null, 4);
    // console.log(req.app.locals.slectedClassesJson);
    // res.json(JSON.stringify(req.body, null, 4))
@@ -11,6 +11,9 @@ exports.logIn = async function(req, res){
       email: req.body.email,
    	data: req.body,
       password:  req.body.password,
+      major: "noMajor",
+      minor: "noMinor",
+      college: "noCollege"
    };
 
    try {
@@ -35,7 +38,7 @@ exports.logIn = async function(req, res){
 
 };
 
-exports.register = async function(req, res){
+exports.logIn = async function(req, res){
 
    //content = req.app.locals.slectedClassesJson;
 
@@ -44,12 +47,12 @@ exports.register = async function(req, res){
       .filter('email', '=', req.body.email)
       .limit(1);
 
-   content = await  datastore.runQuery(query);
+   var user = await  datastore.runQuery(query);
    console.log(content);
 
-   var major = req.params.major; 
-      var minor = req.params.minor; 
-      var college = req.params.college; 
+   var major = user[0][0].major; 
+   var minor = user[0][0].minor; 
+   var college = user[0][0].college; 
 
       res.render('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});     
 };
