@@ -16,7 +16,7 @@ exports.send = async function(req, res){
 
  	content = await  datastore.runQuery(query);
 	console.log(content);
-	res.json(content);          
+	res.json(content[0][0].jsonData);          
 	
 };
 
