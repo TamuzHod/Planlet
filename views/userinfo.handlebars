@@ -42,15 +42,15 @@
         <div class="grid-container">
             <br>
             <div style="width: 100%; display:flex; justify-content: space-between;">
-                <div style="display: inline-block;" class="form-group">
+                <!--<div style="display: inline-block;" class="form-group">
                     <div class="grid-item" id="lblName">First Name</div>
-                    <input size="7" id="nameInput" placeholder="Tamuz" type="text"></input>
-                </div>
+                    <input size="7" id="nameInput" placeholder="F" type="text"></input>
+                </div>-->
 
                 <div style="float: right;" class="form-group">
-                    <div style="width: 80%; float: right;" class="grid-item" id="lblEmail">Email</div>
-                    <input style="width: 80%; float: right;" id="emailInput" placeholder="thod@ucsd.edu"
-                        type="text"></input>
+                    <div <!-- style="width: 80%; float: right;"--> class="grid-item" id="lblEmail">Email</div>
+                    <input <!--style="width: 80%; float: right;"--> id="emailInput" placeholder="{{[1].email}}"
+                        type="text">{{[1].email}}</input>
                 </div>
             </div>
             <div class="form-group">
@@ -91,7 +91,7 @@
             </div>-->
             <hr>
             <div style="display: flex; justify-content:space-between;">
-                <button class="btn" style="font-size: 13px;" onclick="startNewSchedule()">Start New Schedule</button>
+                <button class="btn" style="font-size: 13px;" onclick="startNewSchedule()">Save &amp; Start New Schedule</button>
                 <!--onClick="newSchedule()"-->
                 <br><br>
                 <!--<button class="btn" style="background-color: red; font-size: 10px;" id="clearButt">Clear

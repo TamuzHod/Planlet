@@ -43,7 +43,7 @@
 
                     <select class="form-group-lg form-control" id="selMajor" required>
                         <option disabled selected style="display: none;">Select a Major</option>
-                        {{#each programs}}
+                        {{#each  [0].programs}}
                         <option value="{{id}}">{{name}}</option>
                         {{/each}}
                     </select>
@@ -52,7 +52,7 @@
                     <select class="form-group-lg form-control" id="selMinor">
                         <option value="No Minor" disabled selected style="display: none;">No Minor</option>
                         <option value="No Minor">No Minor</option>
-                        {{#each programs}}
+                        {{#each  [0].programs}}
                         <option value="{{id}}">{{name}}</option>
                         {{/each}}
                     </select>
@@ -65,6 +65,11 @@
                     </select>
 
                 </form>
+                <div style="display: none;" class="form-group">
+                    <div <!-- style="width: 80%; float: right;" --> class="grid-item" id="lblEmail">Email</div>
+                    <input <!--style="width: 80%; float: right;" --> id="emailInput" placeholder="{{[1].email}}"
+                    type="text">{{[1].email}}</input>
+                </div>
 
 
                 <!--Select tag and option tag, https://blink.ucsd.edu/instructors/academic-info/majors/minor-codes.html-->
