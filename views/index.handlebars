@@ -51,12 +51,12 @@
             <a class="brand">Planlet</a>
         </header>
     </div> <!-- //end container -->
-    {{#if password}}
+    {{#if !password}}
         <script>
             alert("Password or email are incorect")
         </script>
     {{else}}
-        {{#if email}}
+        {{#if !email}}
             <script>
                 alert("Email has alredy been used")
             </script>
