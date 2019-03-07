@@ -125,8 +125,8 @@ function generate() {
         selectedClasses.majorName = major;
         selectedClasses.minorName = minor;
         selectedClasses.collegeName = college;
-
-        $.postJSON('/selectedClasses'+localStorage.user.email, selectedClasses, function (result) {
+        var user = JSON.parse(localStorage.getItem('user'));
+        $.postJSON('/selectedClasses'+user.email, selectedClasses, function (result) {
             console.log('result', result);
         });
         window.location.href = '/possibleSchedules/';

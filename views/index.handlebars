@@ -33,9 +33,10 @@
                 window.location.protocol = "http";
         }
         function saveUser(start){
-            localStorage.user = {
-                email: $(start+"email"),
+            var user {
+                email: $(start+"email")
             }
+            localStorage..setItem('user', JSON.stringify(user));
         }
     </script>
     {{> facebook}}

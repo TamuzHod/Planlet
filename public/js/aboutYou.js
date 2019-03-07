@@ -19,11 +19,13 @@ function startNewSchedule() {
 		$('#selCollege').css('border-color', 'red');
 	}
 	else {
-		localStorage.user.major = major;
-		localStorage.user.minor = minor;
-		localStorage.user.college = college;
+		var user = JSON.parse(localStorage.getItem('user'));
+		user.major = major;
+		user.minor = minor;
+		user.college = college;
+        localStorage.setItem('user', JSON.stringify(user));
 
-		$.postJSON('/update',  localStorage.user, function (result) {
+		$.postJSON('/update',  user, function (result) {
             console.log('result', result);
         });
 		window.location.href = '/classes/' + major +'/'+ minor + '/' + college;
