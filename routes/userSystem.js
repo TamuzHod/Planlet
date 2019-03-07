@@ -60,9 +60,10 @@ exports.update = async function(req, res){
    var user = await  datastore.get(taskKey);
    user = user[0];
    user.major = req.body.major;
-   var id = req.body.email;
-   var key = datastore.key([kind, id]);
-   ds.save(key, user);
+   user.minor = req.body.minor;
+   user.college = req.body.college;
+
+   ds.save(taskKey, user);
 };
 
 exports.logIn = async function(req, res){
