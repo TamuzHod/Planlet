@@ -45,6 +45,7 @@ exports.register = async function(req, res){
  * @param {object} selectedClasses The selectedClasses record to insert.
  */
  function insertData(newUser) {
+   console.log("saved" + [kind, newUser.email]);
  	return datastore.save({
  		key: datastore.key([kind, newUser.email]),
  		data: newUser,
