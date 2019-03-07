@@ -8,11 +8,15 @@ var expandedminor = false;
 var expandedcollege = false;
 
 function getClasses() {
+    major = document.getElementById("spanMajorClasses").innerHTML;
+    minor = document.getElementById("spanMinorClasses").innerHTML;
+    college = document.getElementById("spanGEClasses").innerHTML;
+    if(major == "noMajor"){
+        window.location.href = '/alitleaboutyou/';
+    }
     $.getJSON('/classes', function (data) {
         courses = data;
-        major = document.getElementById("spanMajorClasses").innerHTML;
-        minor = document.getElementById("spanMinorClasses").innerHTML;
-        college = document.getElementById("spanGEClasses").innerHTML;
+        
 
 
         $('#yourDivName').html('yourtHTML');
