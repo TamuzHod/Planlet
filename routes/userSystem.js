@@ -54,7 +54,7 @@ exports.register = async function(req, res){
 
 exports.update = async function(req, res){
    var id = req.body.email;
-   var key(['user', id]);
+   var key = (['user', id]);
    ds.save(req.body.email);
 };
 

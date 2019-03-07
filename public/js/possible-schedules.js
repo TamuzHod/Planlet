@@ -34,7 +34,7 @@ var subset3 = [];
 var subset4 = [];
 var subset5 = [];
 
-$.getJSON('/getSelectedClasses', function (data) {
+$.getJSON('/getSelectedClasses/'+window.user.email, function (data) {
     if(!$('#0').length){
 	data = data;
         var link = '/classes/' + data.majorName +'/'+ data.minorName + '/' + data.collegeName;

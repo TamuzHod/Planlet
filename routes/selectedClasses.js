@@ -4,6 +4,7 @@ exports.view = async function(req, res){
    // req.app.locals.slectedClassesJson = JSON.stringify(req.body, null, 4);
    // console.log(req.app.locals.slectedClassesJson);
    // res.json(JSON.stringify(req.body, null, 4))
+   var email = req.params.email; 
 
    // Create a visit record to be stored in the database
    const selectedClasses = {
@@ -12,7 +13,7 @@ exports.view = async function(req, res){
    };
 
    try {
-   	await insertData(selectedClasses);
+   	await insertData(selectedClasses, email);
 	res.json(JSON.parse(selectedClasses.jsonData));    
    } catch (error) {
    	res.send(error);
@@ -23,9 +24,9 @@ exports.view = async function(req, res){
  *
  * @param {object} selectedClasses The selectedClasses record to insert.
  */
-   function insertData(selectedClasses) {
+   function insertData(selectedClasses, id) {
  	return datastore.save({
- 		key: datastore.key('selectedClasses'),
+ 		key: datastore.key(['selectedClasses', id]),
  		data: selectedClasses,
  	});
  	console(req.app.locals.datastore);

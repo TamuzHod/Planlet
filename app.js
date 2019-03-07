@@ -62,9 +62,9 @@ app.post('/update/', userSystem.update);
 
 app.locals.slectedClassesJson;
 
-app.post('/selectedClasses', selectedClasses.view);
+app.post('/selectedClasses/:email', selectedClasses.view);
 
-app.get('/getSelectedClasses', sendSelectedClasses.send);
+app.get('/getSelectedClasses/:email', sendSelectedClasses.send);
 
 var jsonClassesData = require('./classes.json');
 app.get('/classes', (req, res) => {
