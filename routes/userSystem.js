@@ -8,11 +8,13 @@ exports.register = async function(req, res){
    // Create a visit record to be stored in the database
    const newUser = {
    	timestamp: new Date(),
-   	data: req.body;
+      email: req.body.email,
+   	data: req.body,
+      password:  req.body.password,
    };
 
    try {
-   	await insertData(selectedClasses);
+   	await insertData(newUser);
       res.render('alittleaboutyou', programs);
    } catch (error) {
       res.send('error');
@@ -25,7 +27,7 @@ exports.register = async function(req, res){
  */
    function insertData(newUser) {
  	return datastore.save({
- 		key: datastore.key('newUser'),
+ 		key: datastore.key('user'),
  		data: newUser,
  	});
  }
@@ -37,8 +39,8 @@ exports.logIn = async function(req, res){
    //content = req.app.locals.slectedClassesJson;
 
    const query = datastore
-      .createQuery('selectedClasses')
-      .order('timestamp', {descending: true})
+      .createQuery('user')
+      .filter('email', '=', req.body.email)
       .limit(1);
 
    content = await  datastore.runQuery(query);
