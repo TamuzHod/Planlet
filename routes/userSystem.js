@@ -18,7 +18,7 @@ exports.register = async function(req, res){
 
    try {
    	await insertData(newUser);
-      res.end('alittleaboutyou', programs);
+      res.render('alittleaboutyou', programs);
    } catch (error) {
 	console.log(error);
       res.end('error');
@@ -42,18 +42,23 @@ exports.logIn = async function(req, res){
 
    //content = req.app.locals.slectedClassesJson;
 
-   const query = datastore
+var query = datastore
+      .createQuery('user');
+   var user = await  datastore.runQuery(query);
+
+console.log(user);
+
+
+   query = datastore
       .createQuery('user')
       .filter('email', '=', req.body.email)
       .filter('password', '=', req.body.password)
       .limit(1);
-
-   var user = await  datastore.runQuery(query);
-   console.log(content);
+  user = await  datastore.runQuery(query);
 
    var major = user[0][0].major; 
    var minor = user[0][0].minor; 
    var college = user[0][0].college; 
 
-      res.render('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});     
+   res.render('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});     
 };
