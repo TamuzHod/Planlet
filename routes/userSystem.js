@@ -76,7 +76,7 @@ exports.logIn = async function(req, res){
    var major = user.major; 
    var minor = user.minor; 
    var college = user.college; 
-   console.log('classes', {'majorName': major, 'minorName': minor, 'collegeName': college);
+   console.log('classes majorName = ' + major + ' minorName = ' + minor + 'collegeName = ' + college);
 
    res.render('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});     
 };
