@@ -56,9 +56,13 @@ exports.register = async function(req, res){
 };
 
 exports.update = async function(req, res){
+   var taskKey = datastore.key([kind, req.body.email]);
+   var user = await  datastore.get(taskKey);
+   user = user[0];
+   user.major = req.body.major;
    var id = req.body.email;
    var key = datastore.key([kind, id]);
-   ds.save(key, req.body.email);
+   ds.save(key, user);
 };
 
 exports.logIn = async function(req, res){

@@ -19,11 +19,12 @@ function startNewSchedule() {
 		$('#selCollege').css('border-color', 'red');
 	}
 	else {
-		var user = JSON.parse(localStorage.getItem('user'));
+		var user = {}
 		user.major = major;
 		user.minor = minor;
 		user.college = college;
-        localStorage.setItem('user', JSON.stringify(user));
+		user.email = email;
+        localStorage.setItem('user/', JSON.stringify(user));
 
 		$.postJSON('/update',  user, function (result) {
             console.log('result', result);
