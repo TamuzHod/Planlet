@@ -27,9 +27,6 @@ function startNewSchedule() {
 	
 };
 
-
-        window.location.href = '/possibleSchedules/';
-
 $.postJSON = function (url, data, success, args) {
     args = $.extend({
         url: url,
