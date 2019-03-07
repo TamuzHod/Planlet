@@ -1,4 +1,5 @@
 var programs = require('../programs.json');
+const kind = 'user';
 
 exports.register = async function(req, res){
    // req.app.locals.slectedClassesJson = JSON.stringify(req.body, null, 4);
@@ -6,7 +7,7 @@ exports.register = async function(req, res){
    // res.json(JSON.stringify(req.body, null, 4))
 
    const query = datastore
-   .createQuery('user')
+   .createQuery(kind)
    .filter('email', '=', req.body.email)
    .limit(1);
 
@@ -45,7 +46,7 @@ exports.register = async function(req, res){
  */
  function insertData(newUser) {
  	return datastore.save({
- 		key: datastore.key(['user', newUser.email]),
+ 		key: datastore.key([kind, newUser.email]),
  		data: newUser,
  	});
  }
@@ -54,7 +55,7 @@ exports.register = async function(req, res){
 
 exports.update = async function(req, res){
    var id = req.body.email;
-   var key = (['user', id]);
+   var key = ([kind, id]);
    ds.save(req.body.email);
 };
 
@@ -63,7 +64,7 @@ exports.logIn = async function(req, res){
    //content = req.app.locals.slectedClassesJson;
 
    const query = datastore
-   .createQuery(['user', req.body.email])
+   .createQuery([kind, req.body.email])
    .filter('password', '=', req.body.password)
    .limit(1);
 
