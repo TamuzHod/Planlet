@@ -26,6 +26,8 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.fitvids.js"></script>
     <script src="js/colorfrog.js"></script>
+    <script src="js/clientSideUser.js"></script>
+
     <script>
         function httpFix() {
             if (window.location.protocol === "https:")
@@ -56,13 +58,13 @@
         <hr>
         <div class="row">
             <div class="col-xs-12">
-                <form id="logInForm" class="form-signin clearfix" action="alittleaboutyou">
+                <form id="logInForm" class="form-signin clearfix" action="logIn" method="post">
                     <h2>Login</h2>
                     <div class="form-group">
-                        <input type="text" placeholder="Email address" class="form-control">
+                        <input type="text" name="email" placeholder="Email address" class="form-control">
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="Password" class="form-control">
+                        <input type="password" name="password" placeholder="Password" class="form-control">
                     </div>
                         <p style="float: right;" class="facebookLogin">
 				            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
@@ -82,13 +84,13 @@
 
 
 
-                <form style="display: none;" id="signUpForm" class="form-signin clearfix" action="alittleaboutyou">
+                <form style="display: none;" id="signUpForm" class="form-signin clearfix" action="register" method="post">
                     <h2>Create Account</h2>
                     <div class="form-group">
-                        <input type="text" placeholder="Email address" class="form-control">
+                        <input type="text" name="email" placeholder="Email address" class="form-control">
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="Password" class="form-control">
+                        <input type="password" name="password" placeholder="Password" class="form-control">
                     </div>
                     <label class="checkbox" style="margin-left: 20px" ;>
                         <input type="checkbox" value="remember-me"> Remember me

@@ -101,6 +101,7 @@ function update(e){
 	if(currFilter == 'all'){
 		$('.filter-all').show();
 		$('.filter-custom').empty().hide();	
+		checkLength();
 	}
 	else{
  		$('.filter-custom').empty();
@@ -117,10 +118,17 @@ function update(e){
 
 };
 
-function checkLength(){
-
-	if (contentLength = $('.type-'+currFilter, $('.filter-all')).length == 0){
-		$('<br><div style="text-align: center; font-size: 12px"><b><p style="font-size: 16px;">No schedules with this filter.</p></b>Pick another filter or select new classes!<br><br><i style="font-size: 50px; " class="fas fa-sad-tear"></i></div>').appendTo($('.filter-custom'));
+function checkLength() {
+	if (currFilter == "all") {
+		if (contentLength = $('.type-' + currFilter, $('.filter-all')).length == 0) {
+			$('.outerdiv').remove()
+			$('<div class="outerdiv"><br><div style="text-align: center; font-size: 12px"><b><p style="font-size: 16px;">No schedules due to conflicts.</p></b>Select more classes!<br><br><i style="font-size: 50px; " class="fas fa-sad-tear"></i></div></div>').appendTo($('.filter-all'));
+		}
+	}
+	else {
+		if (contentLength = $('.type-' + currFilter, $('.filter-all')).length == 0) {
+			$('<br><div style="text-align: center; font-size: 12px"><b><p style="font-size: 16px;">No schedules with this filter.</p></b>Pick another filter or select new classes!<br><br><i style="font-size: 50px; " class="fas fa-sad-tear"></i></div>').appendTo($('.filter-custom'));
+		}
 	}
 }
 
