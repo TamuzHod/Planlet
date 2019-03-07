@@ -11,7 +11,9 @@ exports.register = async function(req, res){
    .limit(1);
 
    var user = await  datastore.runQuery(query);
-   if(user.length = 1){
+   user = user[0][0];
+
+   if(user){
       var email = true;
       var password = false;
       res.render('index', {email, password});   
