@@ -93,11 +93,3 @@ exports.logIn = async function(req, res){
    else 
       res.render('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});     
 };
-
-module.exports = {
-  create,
-  read,
-  update,
-  delete: _delete,
-  list
-};
