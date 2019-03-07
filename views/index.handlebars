@@ -51,7 +51,17 @@
             <a class="brand">Planlet</a>
         </header>
     </div> <!-- //end container -->
-
+    {{#if password}}
+        <script>
+            alert("Password or email are incorect")
+        </script>
+    {{else}}
+        {{#if email}}
+            <script>
+                alert("Email has alredy been used")
+            </script>
+         {{/if}}
+    {{/if}}
 
     <div class="container content">
         <hr>

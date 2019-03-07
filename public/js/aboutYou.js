@@ -1,3 +1,5 @@
+var 
+
 function httpFix(){
 	if(window.location.protocol==="https:")
 	 window.location.protocol="http";
@@ -18,8 +20,27 @@ function startNewSchedule() {
 		$('#selCollege').css('border-color', 'red');
 	}
 	else {
-		$.getJSON('/getSelectedClasses', function (data) {
-		//window.location.href = '/classes/' + major +'/'+ minor + '/' + college;
+		$.postJSON('/userInfo', currentUser, function (result) {
+            console.log('result', result);
+        });
+		window.location.href = '/classes/' + major +'/'+ minor + '/' + college;
 	}
 	
 };
+
+
+        window.location.href = '/possibleSchedules/';
+
+$.postJSON = function (url, data, success, args) {
+    args = $.extend({
+        url: url,
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        async: true,
+        success: success
+    }, args);
+    return $.ajax(args);
+};
+
