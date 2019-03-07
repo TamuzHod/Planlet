@@ -1,6 +1,6 @@
 var programs = require('../programs.json');
 
-exports.register = async function(req, res){
+exports.logIn = async function(req, res){
    // req.app.locals.slectedClassesJson = JSON.stringify(req.body, null, 4);
    // console.log(req.app.locals.slectedClassesJson);
    // res.json(JSON.stringify(req.body, null, 4))
@@ -34,7 +34,7 @@ exports.register = async function(req, res){
 
 };
 
-exports.logIn = async function(req, res){
+exports.register = async function(req, res){
 
    //content = req.app.locals.slectedClassesJson;
 
