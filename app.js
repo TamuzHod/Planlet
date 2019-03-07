@@ -56,8 +56,8 @@ app.get('/possibleSchedules/', possibleSchedules.view);
 app.get('/possibleSchedulesB/', possibleSchedules.viewAlt);
 app.post('/logIn', userSystem.logIn);
 app.post('/register', userSystem.register);
-app.get('/logIn', alittleaboutyou.view);
-app.get('/register', alittleaboutyou.view);
+// app.get('/logIn', alittleaboutyou.view);
+// app.get('/register', alittleaboutyou.view);
 app.post('/update/', userSystem.update);
 
 app.locals.slectedClassesJson;
