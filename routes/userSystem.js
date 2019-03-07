@@ -61,17 +61,22 @@ exports.logIn = async function(req, res){
    .limit(1);
 
    var user = await  datastore.runQuery(query);
+   user = user[0][0];
    console.log(user);
 
-   if(!user[0][0]){
-      var email = true;
-      var password = false;
+
+   if(!user){
+      console.log("wrong password or email");
+
+      var email = false;
+      var password = true;
       res.render('index', {email, password});   
    }
 
-   var major = user[0][0].major; 
-   var minor = user[0][0].minor; 
-   var college = user[0][0].college; 
+   var major = user.major; 
+   var minor = user.minor; 
+   var college = user.college; 
+   console.log('classes', {'majorName': major, 'minorName': minor, 'collegeName': college);
 
    res.render('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});     
 };
