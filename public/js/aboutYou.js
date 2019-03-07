@@ -19,7 +19,11 @@ function startNewSchedule() {
 		$('#selCollege').css('border-color', 'red');
 	}
 	else {
-		$.postJSON('/userInfo', currentUser, function (result) {
+		window.user.major = major;
+		window.user.minor = minor;
+		window.user.college = college;
+
+		$.postJSON('/userInfo',  window.user, function (result) {
             console.log('result', result);
         });
 		window.location.href = '/classes/' + major +'/'+ minor + '/' + college;

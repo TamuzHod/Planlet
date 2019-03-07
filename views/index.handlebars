@@ -32,6 +32,11 @@
             if (window.location.protocol === "https:")
                 window.location.protocol = "http";
         }
+        function saveUser(start){
+            window.user = {
+                email: $(start+"email"),
+            }
+        }
     </script>
     {{> facebook}}
     <script src="/js/facebook.js"></script>
@@ -70,10 +75,10 @@
                 <form id="logInForm" class="form-signin clearfix" action="logIn" method="post">
                     <h2>Login</h2>
                     <div class="form-group">
-                        <input type="text" name="email" placeholder="Email address" class="form-control">
+                        <input type="text" id="email" name="email" placeholder="Email address" class="form-control">
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" placeholder="Password" class="form-control">
+                        <input type="password" id="password" name="password" placeholder="Password" class="form-control">
                     </div>
                         <p style="float: right;" class="facebookLogin">
 				            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
@@ -85,7 +90,7 @@
 
                     <a href="forgottenPassword">Forgotten password?</a>
                     <div class="form-group clearfix" style="display: flex; justify-content:center; margin-top: 10px;">
-                        <button class="btn btn-large" type="submit">Log in</button></a>
+                        <button class="btn btn-large" type="submit" onClick="saveUser('')">Log in</button></a>
 
                     </div>
                 </form>
@@ -96,22 +101,22 @@
                 <form style="display: none;" id="signUpForm" class="form-signin clearfix" action="register" method="post">
                     <h2>Create Account</h2>
                     <div class="form-group">
-                        <input type="text" name="email" placeholder="Email address" class="form-control">
+                        <input type="text" id="new_email" name="email" placeholder="Email address" class="form-control">
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" placeholder="Password" class="form-control">
+                        <input type="password" id="new_password" name="password" placeholder="Password" class="form-control">
                     </div>
                     <label class="checkbox" style="margin-left: 20px" ;>
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                     <div class="form-group clearfix" style="display: flex; justify-content:center; margin-top: 10px;">
-                        <button class="btn btn-large" type="submit">Create Account</button></a>
+                        <button class="btn btn-large" type="submit" onClick="saveUser(new)">Create Account</button></a>
                     </div>
                 </form>
 
                 <br><br>
                 <div style=" display: flex; justify-content:center;">
-                    <button id="switchtosignup" class="btn btn-sm" type="submit" onClick="seeSignUp()">Don't have an
+                    <button id="switchtosignup" class="btn btn-sm" type="submit" onClick="seeSignUp('new_')">Don't have an
                         account? Create Account</button>
                 </div>
 
