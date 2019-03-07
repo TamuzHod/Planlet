@@ -23,7 +23,7 @@ function startNewSchedule() {
 		window.user.minor = minor;
 		window.user.college = college;
 
-		$.postJSON('/userInfo',  window.user, function (result) {
+		$.postJSON('/update',  window.user, function (result) {
             console.log('result', result);
         });
 		window.location.href = '/classes/' + major +'/'+ minor + '/' + college;

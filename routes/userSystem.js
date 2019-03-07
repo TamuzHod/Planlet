@@ -45,11 +45,17 @@ exports.register = async function(req, res){
  */
  function insertData(newUser) {
  	return datastore.save({
- 		key: datastore.key('user'),
+ 		key: datastore.key(['user', newUser.email]),
  		data: newUser,
  	});
  }
 
+};
+
+exports.update = async function(req, res){
+   var id = req.body.email;
+   var key(['user', id]);
+   ds.save(req.body.email);
 };
 
 exports.logIn = async function(req, res){
@@ -57,8 +63,7 @@ exports.logIn = async function(req, res){
    //content = req.app.locals.slectedClassesJson;
 
    const query = datastore
-   .createQuery('user')
-   .filter('email', '=', req.body.email)
+   .createQuery(['user', req.body.email])
    .filter('password', '=', req.body.password)
    .limit(1);
 
@@ -87,4 +92,12 @@ exports.logIn = async function(req, res){
    }
    else 
       res.render('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});     
+};
+
+module.exports = {
+  create,
+  read,
+  update,
+  delete: _delete,
+  list
 };
