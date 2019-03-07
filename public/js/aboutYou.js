@@ -1,4 +1,3 @@
-var 
 
 function httpFix(){
 	if(window.location.protocol==="https:")
