@@ -18,7 +18,7 @@ exports.register = async function(req, res){
 
    try {
    	await insertData(newUser);
-      res.render('alittleaboutyou', programs);
+      res.end('succses');
    } catch (error) {
 	console.log(error);
       res.end('error');
@@ -45,6 +45,7 @@ exports.logIn = async function(req, res){
    const query = datastore
       .createQuery('user')
       .filter('email', '=', req.body.email)
+      .filter('password', '=', req.body.password)
       .limit(1);
 
    var user = await  datastore.runQuery(query);
@@ -53,6 +54,6 @@ exports.logIn = async function(req, res){
    var major = user[0][0].major; 
    var minor = user[0][0].minor; 
    var college = user[0][0].college; 
-
-      res.render('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});     
+      res.send('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});
+      res.end();     
 };
