@@ -30,6 +30,7 @@ exports.register = async function(req, res){
       minor: "noMinor",
       college: "noCollege"
    };
+   console.log("saved" + [kind, newUser.email]);
 
    try {
    	await insertData(newUser);
@@ -56,21 +57,17 @@ exports.register = async function(req, res){
 
 exports.update = async function(req, res){
    var id = req.body.email;
-   var key = ([kind, id]);
-   ds.save(req.body.email);
+   var key = datastore.key([kind, id]);
+   ds.save(key, req.body.email);
 };
 
 exports.logIn = async function(req, res){
 
    //content = req.app.locals.slectedClassesJson;
 
-   const query = datastore
-   .createQuery([kind, req.body.email])
-   .filter('password', '=', req.body.password)
-   .limit(1);
-
-   var user = await  datastore.runQuery(query);
-   user = user[0][0];
+   var taskKey = datastore.key([kind, req.body.email]);
+   var user = await  datastore.get(taskKey);
+   //user = user[0][0];
    console.log(user);
 
 
