@@ -63,7 +63,7 @@ exports.logIn = async function(req, res){
    var user = await  datastore.runQuery(query);
    console.log(user);
 
-   if(user.length = 0){
+   if(!user[0][0]){
       var email = true;
       var password = false;
       res.render('index', {email, password});   
