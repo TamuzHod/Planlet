@@ -30,7 +30,7 @@ exports.register = async function(req, res){
 
    try {
    	await insertData(newUser);
-      res.end('alittleaboutyou', programs);
+      res.render('alittleaboutyou', programs);
    } catch (error) {
      console.log(error);
      res.end('error');
