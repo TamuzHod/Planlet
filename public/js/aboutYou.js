@@ -19,11 +19,11 @@ function startNewSchedule() {
 		$('#selCollege').css('border-color', 'red');
 	}
 	else {
-		window.user.major = major;
-		window.user.minor = minor;
-		window.user.college = college;
+		localStorage.user.major = major;
+		localStorage.user.minor = minor;
+		localStorage.user.college = college;
 
-		$.postJSON('/update',  window.user, function (result) {
+		$.postJSON('/update',  localStorage.user, function (result) {
             console.log('result', result);
         });
 		window.location.href = '/classes/' + major +'/'+ minor + '/' + college;

@@ -126,7 +126,7 @@ function generate() {
         selectedClasses.minorName = minor;
         selectedClasses.collegeName = college;
 
-        $.postJSON('/selectedClasses'+window.user.email, selectedClasses, function (result) {
+        $.postJSON('/selectedClasses'+localStorage.user.email, selectedClasses, function (result) {
             console.log('result', result);
         });
         window.location.href = '/possibleSchedules/';
