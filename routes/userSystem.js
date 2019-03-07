@@ -19,8 +19,8 @@ exports.register = async function(req, res){
    try {
    	await insertData(newUser);
       res.render('alittleaboutyou', programs);
-      res.end();
    } catch (error) {
+	console.log(error);
       res.end('error');
    }
 
