@@ -67,7 +67,7 @@ exports.logIn = async function(req, res){
 
    var taskKey = datastore.key([kind, req.body.email]);
    var user = await  datastore.get(taskKey);
-   //user = user[0][0];
+   user = user[0];
    console.log(user);
 
 
