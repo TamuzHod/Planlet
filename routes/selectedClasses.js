@@ -26,7 +26,7 @@ exports.view = async function(req, res){
  * @param {object} selectedClasses The selectedClasses record to insert.
  */
    function insertData(selectedClasses, id) {
-      await datastore.upsert(selectedClasses);
+      datastore.upsert(selectedClasses);
  	console(req.app.locals.datastore);
  }
 
