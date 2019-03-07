@@ -17,6 +17,7 @@ var userinfo = require('./routes/userinfo');
 var possibleSchedules = require('./routes/possibleSchedules');
 var selectedClasses = require('./routes/selectedClasses');
 var sendSelectedClasses = require('./routes/sendSelectedClasses');
+var userSystem = require('./routes/userSystem');
 
 var app = express();
 
@@ -53,6 +54,8 @@ app.get('/availability/:major/:minor/:college', availability.view);
 app.get('/userinfo/:major/:minor/:college', userinfo.view);
 app.get('/possibleSchedules/', possibleSchedules.view);
 app.get('/possibleSchedulesB/', possibleSchedules.viewAlt);
+app.post('/logIn', userSystem.logIn);
+app.post('/register', userSystem.register);
 
 app.locals.slectedClassesJson;
 
