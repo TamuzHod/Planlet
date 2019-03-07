@@ -75,7 +75,7 @@
         <hr>
         <div class="row">
             <div class="col-xs-12">
-                <form id="logInForm" class="form-signin clearfix" action="logIn()" method="post">
+                <form id="logInForm" class="form-signin clearfix" action="logIn/{{[0].email}}" --></form>method="post">
                     <h2>Login</h2>
                     <div class="form-group">
                         <input type="text" id="email" name="email" placeholder="Email address" class="form-control">
@@ -101,7 +101,7 @@
 
 
 
-                <form style="display: none;" id="signUpForm" class="form-signin clearfix" action="makeAccount()" method="post">
+                <form style="display: none;" id="signUpForm" class="form-signin clearfix" action="register/{{[0].email}}" method="post">
                     <h2>Create Account</h2>
                     <div class="form-group">
                         <input type="text" id="new_email" name="email" placeholder="Email address" class="form-control">
