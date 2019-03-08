@@ -43,7 +43,6 @@ exports.register = async function(req, res){
          error: 'Sucssess',
          address: '/alittleaboutyou/'+user.email
       }
-      }
       res.json(response);   
    } catch (error) {
      console.log(error);
