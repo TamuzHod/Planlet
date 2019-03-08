@@ -118,7 +118,7 @@ exports.logIn = async function(req, res){
       var response = {
          succses: true,
          error: 'Sucssess',
-         address: '/possibleSchedules/'+email
+         address: '/possibleSchedules/'+req.body.email
       }
       res.json(response);    
    } else if(major === "noMajor"){
