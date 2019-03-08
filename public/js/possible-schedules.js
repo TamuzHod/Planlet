@@ -7,7 +7,7 @@ var classNameIndex = [];
 
 
 $( window ).unload(function() {
-  $.postJSON('/save/schdules/'+email, schedules, function (result) {
+  $.postJSON('/save/schedules/'+email, schedules, function (result) {
         console.log('result', result);
     });
 });
