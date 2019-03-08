@@ -22,7 +22,9 @@ exports.save = async function(req, res){
 }
 
 function insertData(data, key) {
-   console.log("saved " + data);
+   console.log("saved ");
+   console.log(data);
+   console.log(key);
    return datastore.save({
       key: key,
       data: data,
