@@ -17,7 +17,7 @@
     <link href="/css/colorfrog.css" rel="stylesheet" media="screen">
 
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet'
-        type='text/css'>
+    type='text/css'>
     <link rel="stylesheet" href="/css/planlet.css">
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <script src="/js/respond.min.js"></script>
@@ -33,7 +33,15 @@
             if (window.location.protocol === "https:")
                 window.location.protocol = "http";
         }
-    </script>
+        $(document).ready(function() {
+          $("#logInForm").submit(function(event){
+            event.preventDefault();  
+         });
+        $("#signUpForm").submit(function(event){
+            event.preventDefault();  
+         });
+      });
+  </script>
     <!--
     {{> facebook}}
     <script src="/js/facebook.js"></script>-->
@@ -42,7 +50,7 @@
     <script>
         document.createElement('header');document.createElement('nav');document.createElement('section');document.createElement('article');document.createElement('aside');document.createElement('footer');
     </script>
-    <![endif]-->
+<![endif]-->
 
 </head>
 
@@ -71,8 +79,8 @@
                         <!--<p style="float: right;" class="facebookLogin">
 				            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 				            </fb:login-button>
-			            </p>-->
-                    <label class="checkbox" style="margin-left: 20px" ;>
+                     </p>-->
+                     <label class="checkbox" style="margin-left: 20px" ;>
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
 

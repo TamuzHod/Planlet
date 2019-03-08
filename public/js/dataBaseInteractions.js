@@ -17,7 +17,7 @@ function logInOrRegister(address){
 		email: $(prefix+"email")[0].value,
     	password: $(prefix+"password")[0].value
 	}
-        $.postJSON('/'+address, data, function (result) {
+        postJSON('/'+address, data, function (result) {
             if(!result.succses) {
             	alert(result.error);
             	return;
@@ -26,6 +26,18 @@ function logInOrRegister(address){
         });
 }
 
+function postJSON(url, data, success, args) {
+    args = $.extend({
+        url: url,
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        async: true,
+        success: success
+    }, args);
+    return $.ajax(args);
+}
 
 
 
