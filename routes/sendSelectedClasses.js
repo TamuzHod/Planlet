@@ -15,16 +15,16 @@ exports.send = async function(req, res){
 
 	if(schedules){
 		res.json(schedules);
-		else{
-			taskKey = datastore.key(['selectedClasses',email]);
-			var content = await  datastore.get(taskKey);
-			content = content[0];
+	}else{
+		taskKey = datastore.key(['selectedClasses',email]);
+		var content = await  datastore.get(taskKey);
+		content = content[0];
 
-			console.log(content);
-			res.json(content.jsonData);        
-		}
+		console.log(content);
+		res.json(content.jsonData);        
+	}
 
-		
-		
+
+
 	};
 
