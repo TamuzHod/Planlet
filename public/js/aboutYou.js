@@ -28,10 +28,10 @@ function startNewSchedule() {
 		}
         window.location.href = '/classes/' + email +'/'+ major +'/'+ minor + '/' + college;
 
-		// $.postJSON('/update',  user, function (result) {
-  //           console.log('result', result);
-  //           window.location.href = '/classes/' + email +'/'+ major +'/'+ minor + '/' + college;
-  //       });
+		$.postJSON('/update',  user, function (result) {
+            console.log('result', result);
+            window.location.href = '/classes/' + email +'/'+ major +'/'+ minor + '/' + college;
+        });
 
 	}
 	
