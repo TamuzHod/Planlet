@@ -33,35 +33,33 @@ function getDay(dayStr) {
 var subset3 = [];
 var subset4 = [];
 var subset5 = [];
+$( document ).ready(function() {
+    $.getJSON('/getSelectedClasses/'+$("#emailInput").text(), function (data) {
+        if(!$('#0').length){
+        data = data;
+            var link = '/classes/' +$("#emailInput").text()+"/"+ data.majorName +'/'+ data.minorName + '/' + data.collegeName;
+            $("#backToClasses").attr("href", link);
+            link = '/userInfo/' + $("#emailInput").text()+"/"+data.majorName +'/'+ data.minorName + '/' + data.collegeName;
+            $("#toSettings").attr("href", link);
 
-$.getJSON('/getSelectedClasses/'+$("#emailInput").text(), function (data) {
-    if(!$('#0').length){
-	data = data;
-        var link = '/classes/' +$("#emailInput").text()+"/"+ data.majorName +'/'+ data.minorName + '/' + data.collegeName;
-        $("#backToClasses").attr("href", link);
-        link = '/userInfo/' + $("#emailInput").text()+"/"+data.majorName +'/'+ data.minorName + '/' + data.collegeName;
-        $("#toSettings").attr("href", link);
 
+            data = data.classes;
+            getSubsetsofSizeK(data, 3, subset3);
+            getSubsetsofSizeK(data, 4, subset4);
+            getSubsetsofSizeK(data, 5, subset5);
+            createSchedule(subset3, schedules);
+            createSchedule(subset4, schedules);
+            createSchedule(subset5, schedules);
 
-        data = data.classes;
-        getSubsetsofSizeK(data, 3, subset3);
-        getSubsetsofSizeK(data, 4, subset4);
-        getSubsetsofSizeK(data, 5, subset5);
-        createSchedule(subset3, schedules);
-        createSchedule(subset4, schedules);
-        createSchedule(subset5, schedules);
+            createHTML(schedules);
 
-        createHTML(schedules);
-
-        if(window.location.href.includes("possibleSchedulesB")){
-            danceLoop(schedules.length, 0);
+            if(window.location.href.includes("possibleSchedulesB")){
+                danceLoop(schedules.length, 0);
+            }
         }
-        
+    }); 
+});
 
-
-
-    }
-}); 
 
 function danceLoop (i, j) {
     setTimeout(function () {   
