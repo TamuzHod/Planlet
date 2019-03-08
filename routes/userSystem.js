@@ -108,7 +108,20 @@ exports.logIn = async function(req, res){
    var major = user.major; 
    var minor = user.minor; 
    var college = user.college; 
-   if(major === "noMajor"){
+
+   taskKey = datastore.key(['selectedClasses', req.body.email]);
+   var selectedClasses = await  datastore.get(taskKey);
+   selectedClasses = selectedClasses[0];
+
+   if(selectedClasses){
+      console.log("no Major");
+      var response = {
+         succses: true,
+         error: 'Sucssess',
+         address: '/possibleSchedules/'+email
+      }
+      res.json(response);    
+   } else if(major === "noMajor"){
       console.log("no Major");
       var response = {
          succses: true,
@@ -117,11 +130,12 @@ exports.logIn = async function(req, res){
       }
       res.json(response);   
    }
-   else 
+   else {
       var response = {
          succses: true,
          error: 'Sucssess',
          address: '/classes/' + user.email +'/'+ major +'/'+ minor + '/' + college
       }
-      res.json(response);        
+      res.json(response); 
+   }       
 };
