@@ -22,7 +22,7 @@ function logInOrRegister(address){
             	alert(result.error);
             	return;
             }
-       		window.location.href = results.address;
+       		window.location.href = result.address;
         });
 }
 
