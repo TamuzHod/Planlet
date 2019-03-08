@@ -128,7 +128,7 @@ function generate() {
 
         var email = $("#emailInput").text();
 
-        $.postJSON('/selectedClasses'+email, selectedClasses, function (result) {
+        $.postJSON('/selectedClasses/'+email, selectedClasses, function (result) {
             console.log('result', result);
         });
         window.location.href = '/possibleSchedules/'+email;
