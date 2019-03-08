@@ -130,8 +130,8 @@ function generate() {
 
         $.postJSON('/selectedClasses/'+email, selectedClasses, function (result) {
             console.log('result', result);
+            window.location.href = '/possibleSchedules/'+email;
         });
-        window.location.href = '/possibleSchedules/'+email;
     }
 }
 
