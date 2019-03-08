@@ -6,6 +6,24 @@ var colors = ["Chocolate", "Peru", "Sienna", "Goldenrod", "Brown", "Maroon", "pi
 var classNameIndex = [];
 
 
+$( window ).unload(function() {
+  $.postJSON('/save/schdules/'+email, schedules, function (result) {
+        console.log('result', result);
+    });
+});
+
+$.postJSON = function (url, data, success, args) {
+    args = $.extend({
+        url: url,
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        async: true,
+        success: success
+    }, args);
+    return $.ajax(args);
+};
 
 var day = {
     monday: 0,
@@ -35,8 +53,7 @@ var subset4 = [];
 var subset5 = [];
 $( document ).ready(function() {
     $.getJSON('/getSelectedClasses/'+$("#emailInput").text(), function (data) {
-        if(!$('#0').length){
-        data = data;
+        if(data.majorName){
             var link = '/classes/' +$("#emailInput").text()+"/"+ data.majorName +'/'+ data.minorName + '/' + data.collegeName;
             $("#backToClasses").attr("href", link);
             link = '/userInfo/' + $("#emailInput").text()+"/"+data.majorName +'/'+ data.minorName + '/' + data.collegeName;
@@ -56,6 +73,10 @@ $( document ).ready(function() {
             if(window.location.href.includes("possibleSchedulesB")){
                 danceLoop(schedules.length, 0);
             }
+        }
+        else{
+            schedules = data;
+            createHTML(schedules);
         }
     }); 
 });

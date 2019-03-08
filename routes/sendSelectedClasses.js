@@ -9,7 +9,7 @@ exports.send = async function(req, res){
 	var email = req.params.email; 
 
 
-	var taskKey = datastore.key(['schedules', req.body.email]);
+	var taskKey = datastore.key(['schedules', email]);
 	var schedules = await  datastore.get(taskKey);
 	schedules = schedules[0];
 

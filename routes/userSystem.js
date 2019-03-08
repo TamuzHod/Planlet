@@ -1,6 +1,32 @@
 var programs = require('../programs.json');
 const kind = 'user';
 
+exports.save = async function(req, res){
+   try {
+      await insertData(req.body.data, datastore.key([req.params.kind, req.params.id]));
+      var response = {
+         succses: true,
+         error: 'Sucssess',
+      }
+      res.json(response);   
+   } catch (error) {
+     console.log(error);
+      var response = {
+         succses: false,
+         error: 'Error upon enetering data to database' + error,
+      }
+     res.json(response);
+  }
+}
+
+function insertData(data, key) {
+   console.log("saved " + data);
+   return datastore.save({
+      key: key,
+      data: data,
+   });
+}
+
 exports.register = async function(req, res){
    // req.app.locals.slectedClassesJson = JSON.stringify(req.body, null, 4);
    // console.log(req.app.locals.slectedClassesJson);
@@ -47,19 +73,6 @@ exports.register = async function(req, res){
       }
      res.json(response);
   }
-
-/**
- * Insert a selectedClasses record into the database.
- *
- * @param {object} selectedClasses The selectedClasses record to insert.
- */
- function insertData(data, key) {
-   console.log("saved " + data);
- 	return datastore.save({
- 		key: key,
- 		data: data,
- 	});
- }
 
 };
 
