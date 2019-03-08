@@ -15,9 +15,13 @@ exports.register = async function(req, res){
    user = user[0][0];
 
    if(user){
-      var email = true;
-      var password = false;
-      res.render('index', {email, password});   
+      var response = {
+         succses: false,
+         error: 'A user with this email alredy exsists',
+         address: '/'
+      }
+
+      res.json(response);   
    }
 
    // Create a visit record to be stored in the database
@@ -34,11 +38,21 @@ exports.register = async function(req, res){
 
    try {
    	await insertData(newUser);
-     var email = req.body.email;
-     res.render('alittleaboutyou', [programs, {'email' : email}]);
+      var response = {
+         succses: true,
+         error: 'Sucssess',
+         address: '/alittleaboutyou/'+user.email
+      }
+      }
+      res.json(response);   
    } catch (error) {
      console.log(error);
-     res.end('error');
+      var response = {
+         succses: false,
+         error: 'Error upon enetering data to database' + error,
+         address: '/'
+      }
+     res.json(response);
   }
 
 /**
@@ -80,9 +94,12 @@ exports.logIn = async function(req, res){
    if(!user){
       console.log("wrong password or email");
 
-      var email = false;
-      var password = true;
-      res.render('index', {email, password});   
+      var response = {
+         succses: false,
+         error: 'Wrong password or email',
+         address: '/'
+      }
+      res.json(response);    
    }
 
    var major = user.major; 
@@ -93,8 +110,18 @@ exports.logIn = async function(req, res){
    console.log(major === "noMajor");
    if(major === "noMajor"){
       console.log("no Major");
-     res.render('alittleaboutyou', [programs, {'email' : req.body.email}]);
+      var response = {
+         succses: true,
+         error: 'Sucssess',
+         address: '/alittleaboutyou/'+user.email
+      }
+      res.json(response);   
    }
    else 
-      res.render('classes', {'majorName': major, 'minorName': minor, 'collegeName': college});     
+      var response = {
+         succses: true,
+         error: 'Sucssess',
+         address: '/classes/' + user.email +'/'+ major +'/'+ minor + '/' + college
+      }
+      res.json(response);        
 };
