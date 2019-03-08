@@ -80,7 +80,7 @@ exports.register = async function(req, res){
 
 exports.update = async function(req, res){
    var taskKey = datastore.key([kind, req.body.email]);
-   console.log('updating = ' + taskKey);
+   console.log('updating = ' + taskKey[0] + " " + taskKey[1]);
 
    var user = await  datastore.get(taskKey);
 
@@ -93,6 +93,8 @@ exports.update = async function(req, res){
    console.log("changed too " + user);
    try {
       await insertData(user, taskKey);
+      res.send("sucsees"); 
+      console.log("sucsees");
    } catch (error) {
       res.send(error); 
       console.log(error);
