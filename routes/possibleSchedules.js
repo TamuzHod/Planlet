@@ -4,13 +4,8 @@
  */
 
 exports.view = function(req, res){
-	var college = req.params.college; 
+	var email = req.params.email;
+
 
  	res.render('possibleSchedulesA', email);
-};
-
-exports.viewAlt = function(req, res){
-	var college = req.params.college; 
-
- 	res.render('possibleSchedulesB');
 };
