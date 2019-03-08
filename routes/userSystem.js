@@ -76,7 +76,8 @@ exports.update = async function(req, res){
    user.minor = req.body.minor;
    user.college = req.body.college;
    console.log("changed too " + user);
-   await res.send(ds.update(taskKey, user)); 
+   var message = await ds.update(taskKey, user);
+   res.send(message); 
 };
 
 exports.logIn = async function(req, res){

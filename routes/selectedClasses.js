@@ -1,5 +1,4 @@
-var fs = require("fs");
-var path = require('path');
+
 exports.view = async function(req, res){
    // req.app.locals.slectedClassesJson = JSON.stringify(req.body, null, 4);
    // console.log(req.app.locals.slectedClassesJson);
@@ -12,7 +11,7 @@ exports.view = async function(req, res){
    	timestamp: new Date(),
    	jsonData: req.body
    };
-   console("saving " + selectedClasses);
+   console.log("saving " + selectedClasses);
 
    try {
    	await insertData(selectedClasses, email);
@@ -27,8 +26,8 @@ exports.view = async function(req, res){
  * @param {object} selectedClasses The selectedClasses record to insert.
  */
    function insertData(selectedClasses) {
-         console(datastore.upsert(selectedClasses));
-         console("saved " + selectedClasses);
+         console.log(datastore.upsert(selectedClasses));
+         console.log("saved " + selectedClasses);
  }
 
 };
