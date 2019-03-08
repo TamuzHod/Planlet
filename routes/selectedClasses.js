@@ -7,14 +7,13 @@ exports.view = async function(req, res){
 
    // Create a visit record to be stored in the database
    const selectedClasses = {
-      key: datastore.key(['selectedClasses', email]),
    	timestamp: new Date(),
-   	jsonData: req.body
+   	jsonData: req.body,
    };
    console.log("saving " + selectedClasses);
 
    try {
-   	await insertData(selectedClasses, email);
+   	await insertData(selectedClasses, datastore.key(['selectedClasses', email]);
          console.log("sucsees");
 	     res.json(JSON.parse(selectedClasses.jsonData));    
    } catch (error) {
