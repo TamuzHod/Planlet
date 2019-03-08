@@ -49,4 +49,3 @@ $.postJSON = function (url, data, success, args) {
     }, args);
     return $.ajax(args);
 };
-
