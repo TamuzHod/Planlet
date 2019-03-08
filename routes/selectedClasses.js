@@ -10,19 +10,18 @@ exports.view = async function(req, res){
    	timestamp: new Date(),
    	jsonData: req.body,
    };
-   console.log("saving " + selectedClasses);
-
    try {
    	await insertData(selectedClasses, datastore.key(['selectedClasses', email]));
          console.log("sucsees");
-	     res.json(JSON.parse(selectedClasses.jsonData));    
+	     res.json(selectedClasses.jsonData);    
    } catch (error) {
       console.log(error);
    	res.send(error);
    }
 
  function insertData(data, key) {
-   console.log("saved " + data);
+   console.log("saved ");
+   console.log(data);
    return datastore.save({
       key: key,
       data: data,
