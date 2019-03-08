@@ -56,7 +56,7 @@ app.get('/possibleSchedules/:email', possibleSchedules.view);
 app.get('/possibleSchedulesB/:email', possibleSchedules.viewAlt);
 app.post('/logIn', userSystem.logIn);
 app.post('/register', userSystem.register);
-app.post('/update/', userSystem.update);
+app.post('/update', userSystem.update);
 
 app.locals.slectedClassesJson;
 

@@ -71,7 +71,7 @@ exports.update = async function(req, res){
 
    user = user[0];
    console.log(user);
-
+   user.timestamp = new Date(),
    user.major = req.body.major;
    user.minor = req.body.minor;
    user.college = req.body.college;
