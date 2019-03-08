@@ -65,13 +65,18 @@ exports.register = async function(req, res){
 
 exports.update = async function(req, res){
    var taskKey = datastore.key([kind, req.body.email]);
+   console.log('updating = ' + taskKey);
+
    var user = await  datastore.get(taskKey);
+
    user = user[0];
+   console.log(user);
+   user.timestamp = new Date(),
    user.major = req.body.major;
    user.minor = req.body.minor;
    user.college = req.body.college;
-
-   ds.save(taskKey, user);
+   console.log("changed too " + user);
+   await res.send(ds.save(taskKey, user)); 
 };
 
 exports.logIn = async function(req, res){
