@@ -15,19 +15,19 @@ exports.view = async function(req, res){
 
    try {
    	await insertData(selectedClasses, email);
+         console.log("sucsees");
 	     res.json(JSON.parse(selectedClasses.jsonData));    
    } catch (error) {
+      console.log(error);
    	res.send(error);
    }
 
-/**
- * Insert a selectedClasses record into the database.
- *
- * @param {object} selectedClasses The selectedClasses record to insert.
- */
-   function insertData(selectedClasses) {
-         console.log(datastore.upsert(selectedClasses));
-         console.log("saved " + selectedClasses);
+ function insertData(data, key) {
+   console.log("saved " + data);
+   return datastore.save({
+      key: key,
+      data: data,
+   });
  }
 
 };

@@ -31,7 +31,7 @@ exports.register = async function(req, res){
       college: "noCollege"
    };
    try {
-   	await insertData(newUser);
+   	await insertData(newUser, datastore.key([kind, newUser.email]));
       var response = {
          succses: true,
          error: 'Sucssess',
@@ -53,11 +53,11 @@ exports.register = async function(req, res){
  *
  * @param {object} selectedClasses The selectedClasses record to insert.
  */
- function insertData(newUser) {
-   console.log("saved " + [kind, newUser.email]);
+ function insertData(data, key) {
+   console.log("saved " + data);
  	return datastore.save({
- 		key: datastore.key([kind, newUser.email]),
- 		data: newUser,
+ 		key: key,
+ 		data: data,
  	});
  }
 
@@ -76,8 +76,12 @@ exports.update = async function(req, res){
    user.minor = req.body.minor;
    user.college = req.body.college;
    console.log("changed too " + user);
-   var message = await ds.update(taskKey, user);
-   res.send(message); 
+   try {
+      await insertData(user, taskKey);
+   } catch (error) {
+      res.send(error); 
+      console.log(error);
+   }
 };
 
 exports.logIn = async function(req, res){
