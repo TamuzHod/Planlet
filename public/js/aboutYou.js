@@ -28,22 +28,21 @@ function startNewSchedule() {
 		}
 
 
-		$.postJSON('/update',  user, function (result) {
-            console.log('result', result);
-            window.location.href = '/classes/' + email +'/'+ major +'/'+ minor + '/' + college;
-        });
+		
 
-        $.postJSON = function (url, data, success, args) {
 		    args = $.extend({
-		        url: url,
+		        url: '/update',
 		        type: 'POST',
-		        data: JSON.stringify(data),
+		        data: JSON.stringify(user),
 		        contentType: 'application/json; charset=utf-8',
 		        dataType: 'json',
 		        async: true,
-		        success: success
+		        success: function(result) {
+            console.log('result', result);
+            window.location.href = '/classes/' + email +'/'+ major +'/'+ minor + '/' + college;
+        }),
 		    }, args);
-    	return $.ajax(args);
+    	$.ajax(args);
 };
         
 	}
