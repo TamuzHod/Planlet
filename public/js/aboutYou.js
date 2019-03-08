@@ -32,20 +32,22 @@ function startNewSchedule() {
             console.log('result', result);
             window.location.href = '/classes/' + email +'/'+ major +'/'+ minor + '/' + college;
         });
+
+        $.postJSON = function (url, data, success, args) {
+		    args = $.extend({
+		        url: url,
+		        type: 'POST',
+		        data: JSON.stringify(data),
+		        contentType: 'application/json; charset=utf-8',
+		        dataType: 'json',
+		        async: true,
+		        success: success
+		    }, args);
+    	return $.ajax(args);
+};
         
 	}
 	
 };
 
-$.postJSON = function (url, data, success, args) {
-    args = $.extend({
-        url: url,
-        type: 'POST',
-        data: JSON.stringify(data),
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
-        async: true,
-        success: success
-    }, args);
-    return $.ajax(args);
-};
+
