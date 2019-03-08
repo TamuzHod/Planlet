@@ -9,7 +9,7 @@ function startNewSchedule() {
 	var major = $("#selMajor :selected").val();
 	var college =  $("#selCollege :selected").text();
 	var minor =  $("#selMinor :selected").val();
-	var email = $("#emailinput").text();
+	var email = $("#emailInput").text();
 
 	if(major == 'Select a Major'){
 		alert("Please select a major");
@@ -21,18 +21,18 @@ function startNewSchedule() {
 	}
 	else {
 		var user = {
-			user: major,
-			user: minor,
-			user: college,
-			user: email
+			major: major,
+			minor: minor,
+			college: college,
+			email: email
 		}
 
-        localStorage.setItem('user/', JSON.stringify(user));
 
 		$.postJSON('/update',  user, function (result) {
             console.log('result', result);
+            window.location.href = '/classes/' + email +'/'+ major +'/'+ minor + '/' + college;
         });
-		window.location.href = '/classes/' + email +'/'+ major +'/'+ minor + '/' + college;
+        
 	}
 	
 };

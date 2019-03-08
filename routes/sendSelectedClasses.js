@@ -1,6 +1,4 @@
 
-//var selectedClasses = require('./selectedClasses.json');
-
 var fs = require("fs");
 var path = require('path');
 
@@ -10,12 +8,23 @@ exports.send = async function(req, res){
 	//content = req.app.locals.slectedClassesJson;
 	var email = req.params.email; 
 
-	const query = datastore
-	 	.createQuery(['selectedClasses',email])
 
- 	content = await  datastore.runQuery(query);
-	console.log(content);
-	res.json(content[0][0].jsonData);          
-	
-};
+	var taskKey = datastore.key(['schedules', email]);
+	var schedules = await  datastore.get(taskKey);
+	schedules = schedules[0];
+
+	if(schedules){
+		res.json(schedules);
+	}else{
+		taskKey = datastore.key(['selectedClasses',email]);
+		var content = await  datastore.get(taskKey);
+		content = content[0];
+
+		console.log(content);
+		res.json(content.jsonData);        
+	}
+
+
+
+	};
 

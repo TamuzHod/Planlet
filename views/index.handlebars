@@ -12,34 +12,36 @@
 
 
     <!-- Bootstrap css -->
-    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="/css/bootstrap.css" rel="stylesheet" media="screen">
     <!-- Theme css -->
-    <link href="css/colorfrog.css" rel="stylesheet" media="screen">
+    <link href="/css/colorfrog.css" rel="stylesheet" media="screen">
 
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet'
-        type='text/css'>
-    <link rel="stylesheet" href="css/planlet.css">
-    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <script src="js/respond.min.js"></script>
+    type='text/css'>
+    <link rel="stylesheet" href="/css/planlet.css">
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="/js/respond.min.js"></script>
 
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/jquery.fitvids.js"></script>
-    <script src="js/colorfrog.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/jquery.fitvids.js"></script>
+    <script src="/js/colorfrog.js"></script>
+    <script src="/js/dataBaseInteractions.js"></script>
 
     <script>
         function httpFix() {
             if (window.location.protocol === "https:")
                 window.location.protocol = "http";
         }
-        function saveUser(start){
-            var user = {
-                email: $(start+"email")
-            }
-            localStorage.setItem('user', JSON.stringify(user));
-            var x;
-        }
-    </script>
+        $(document).ready(function() {
+          $("#logInForm").submit(function(event){
+            event.preventDefault();  
+         });
+        $("#signUpForm").submit(function(event){
+            event.preventDefault();  
+         });
+      });
+  </script>
     <!--
     {{> facebook}}
     <script src="/js/facebook.js"></script>-->
@@ -48,7 +50,7 @@
     <script>
         document.createElement('header');document.createElement('nav');document.createElement('section');document.createElement('article');document.createElement('aside');document.createElement('footer');
     </script>
-    <![endif]-->
+<![endif]-->
 
 </head>
 
@@ -59,23 +61,14 @@
             <a class="brand">Planlet</a>
         </header>
     </div> <!-- //end container -->
-    {{#if password}}
-        <script>
-            alert("Password or email are incorect")
-        </script>
-    {{else}}
-        {{#if email}}
-            <script>
-                alert("Email has alredy been used")
-            </script>
-         {{/if}}
-    {{/if}}
+    
 
     <div class="container content">
         <hr>
         <div class="row">
             <div class="col-xs-12">
-                <form id="logInForm" class="form-signin clearfix" action="logIn" method="post">
+                <form id="logInForm" class="form-signin clearfix">
+
                     <h2>Login</h2>
                     <div class="form-group">
                         <input type="text" id="email" name="email" placeholder="Email address" class="form-control">
@@ -86,22 +79,22 @@
                         <!--<p style="float: right;" class="facebookLogin">
 				            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 				            </fb:login-button>
-			            </p>-->
-                    <label class="checkbox" style="margin-left: 20px" ;>
+                     </p>-->
+                     <label class="checkbox" style="margin-left: 20px" ;>
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
 
                     <a href="forgottenPassword">Forgotten password?</a>
                     <div class="form-group clearfix" style="display: flex; justify-content:center; margin-top: 10px;">
-                        <button class="btn btn-large" type="submit" onClick="saveUser('')">Log in</button></a>
-
+                        <button class="btn btn-large" onClick="logInOrRegister('logIn')">Log in</button></a>
                     </div>
                 </form>
 
 
 
 
-                <form style="display: none;" id="signUpForm" class="form-signin clearfix" action="register" method="post">
+
+                <form style="display: none;" id="signUpForm" class="form-signin clearfix">
                     <h2>Create Account</h2>
                     <div class="form-group">
                         <input type="text" id="new_email" name="email" placeholder="Email address" class="form-control">
@@ -113,13 +106,13 @@
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                     <div class="form-group clearfix" style="display: flex; justify-content:center; margin-top: 10px;">
-                        <button class="btn btn-large" type="submit" onClick="saveUser(new)">Create Account</button></a>
+                        <button class="btn btn-large" type="submit" onClick="logInOrRegister('register')">Create Account</button></a>
                     </div>
                 </form>
 
                 <br><br>
                 <div style=" display: flex; justify-content:center;">
-                    <button id="switchtosignup" class="btn btn-sm" type="submit" onClick="seeSignUp('new_')">Don't have an account? Create Account</button>
+                    <button id="switchtosignup" class="btn btn-sm" onClick="seeSignUp('new_')">Don't have an account? Create Account</button>
                 </div>
 
 

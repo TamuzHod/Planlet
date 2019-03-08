@@ -6,6 +6,24 @@ var colors = ["Chocolate", "Peru", "Sienna", "Goldenrod", "Brown", "Maroon", "pi
 var classNameIndex = [];
 
 
+$(window).on('beforeunload', function () {
+    $.postJSON('/save/schedules/' + $("#emailInput").text(), schedules, function (result) {
+        console.log('result', result);
+    });
+});
+
+$.postJSON = function (url, data, success, args) {
+    args = $.extend({
+        url: url,
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        async: true,
+        success: success
+    }, args);
+    return $.ajax(args);
+};
 
 var day = {
     monday: 0,
@@ -18,54 +36,55 @@ var day = {
 function getDay(dayStr) {
     switch (dayStr) {
         case "M":
-        return day.monday;
+            return day.monday;
         case "T":
-        return day.tuesday;
+            return day.tuesday;
         case "W":
-        return day.wednesday;
+            return day.wednesday;
         case "Th":
-        return day.thursday;
+            return day.thursday;
         case "F":
-        return day.friday;
+            return day.friday;
     }
 }
 
 var subset3 = [];
 var subset4 = [];
 var subset5 = [];
+$(document).ready(function () {
+    $.getJSON('/getSelectedClasses/' + $("#emailInput").text(), function (data) {
+        if (data.majorName) {
+            var link = '/classes/' + $("#emailInput").text() + "/" + data.majorName + '/' + data.minorName + '/' + data.collegeName;
+            $("#backToClasses").attr("href", link);
+            link = '/userInfo/' + $("#emailInput").text() + "/" + data.majorName + '/' + data.minorName + '/' + data.collegeName;
+            $("#toSettings").attr("href", link);
 
-$.getJSON('/getSelectedClasses/'+window.user.email, function (data) {
-    if(!$('#0').length){
-	data = data;
-        var link = '/classes/' + data.majorName +'/'+ data.minorName + '/' + data.collegeName;
-        $("#backToClasses").attr("href", link);
-        link = '/userInfo/' + data.majorName +'/'+ data.minorName + '/' + data.collegeName;
-        $("#toSettings").attr("href", link);
 
+            data = data.classes;
+            getSubsetsofSizeK(data, 3, subset3);
+            getSubsetsofSizeK(data, 4, subset4);
+            getSubsetsofSizeK(data, 5, subset5);
+            createSchedule(subset3, schedules);
+            createSchedule(subset4, schedules);
+            createSchedule(subset5, schedules);
 
-        data = data.classes;
-        getSubsetsofSizeK(data, 3, subset3);
-        getSubsetsofSizeK(data, 4, subset4);
-        getSubsetsofSizeK(data, 5, subset5);
-        createSchedule(subset3, schedules);
-        createSchedule(subset4, schedules);
-        createSchedule(subset5, schedules);
+            createHTML(schedules);
 
-        createHTML(schedules);
-
-        if(window.location.href.includes("possibleSchedulesB")){
-            danceLoop(schedules.length, 0);
+            if (window.location.href.includes("possibleSchedulesB")) {
+                danceLoop(schedules.length, 0);
+            }
         }
-        
+        else {
+            schedules = data;
+            createHTML(schedules);
+        }
+    });
+});
 
 
-
-    }
-}); 
-
-function danceLoop (i, j) {
-    setTimeout(function () {   
-        $("#"+j++).effect( "shake");
+function danceLoop(i, j) {
+    setTimeout(function () {
+        $("#" + j++).effect("shake");
         if (--i) danceLoop(i, j);      //  decrement i and call myLoop again if i > 0
     }, 250)
 }
@@ -74,50 +93,110 @@ function danceLoop (i, j) {
 "2015-01-01T00:00:00"
 
 
+
 function seeNewSchedule(scheduleHTML) {
 
     //ga("send", "event", "lookedAtSchedule", "action");
 
-    var dp = new DayPilot.Calendar("DP");
-    dp.viewType = "Days";
-    dp.days = 5;
-    currentScheduleIndex = scheduleHTML.id;
-    schedule = schedules[currentScheduleIndex];
-    dp.theme = "calendar_green";
-    dp.businessBeginsHour = 7;
-    dp.businessEndsHour = 20;
-        // view
-        dp.startDate = "2019-02-11";  // or just dp.startDate = "2013-03-25";
-        dp.headerDateFormat = "dddd";
-        dp.showNonBusiness = false;
-        dp.init();
-
-        $.each(schedule.events, function(index, day) {
-            $.each(day, function(index, event) {
-                var e = new DayPilot.Event({
-                    start: dp.startDate.value.substring(0,9) + (1+getDay(event.day)) + "T" + event.start + ":00",
-                    end: dp.startDate.value.substring(0,9) + (1+getDay(event.day)) + "T" + event.end + ":00",
-                    id: event.id,
-                    text: schedule.classes[event.index].title,
-
+        /*var dp = new DayPilot.Calendar("DP");
+        dp.viewType = "Days";
+        dp.days = 5; */
+        currentScheduleIndex = scheduleHTML.id;
+        schedule = schedules[currentScheduleIndex];
+        /*dp.theme = "calendar_green";
+        dp.businessBeginsHour = 7;
+        dp.businessEndsHour = 20;
+            // view
+            dp.startDate = "2019-02-11";  // or just dp.startDate = "2013-03-25";
+            dp.headerDateFormat = "dddd";
+            dp.showNonBusiness = false;
+            dp.init();
+    
+            $.each(schedule.events, function(index, day) {
+                $.each(day, function(index, event) {
+                    var e = new DayPilot.Event({
+                        start: dp.startDate.value.substring(0,9) + (1+getDay(event.day)) + "T" + event.start + ":00",
+                        end: dp.startDate.value.substring(0,9) + (1+getDay(event.day)) + "T" + event.end + ":00",
+                        id: event.id,
+                        text: schedule.classes[event.index].title,
+    
+                    });
+                    dp.events.add(e);
                 });
-                dp.events.add(e);
             });
-        });
-        dp.update();
-        
+            dp.update(); */
+
         var schedulesdiv = document.getElementById('possSchedules');
         $(schedulesdiv).hide();
 
-        
+
         var element = document.getElementById("starButt");
-        if(schedules[currentScheduleIndex].starred)
+        if (schedules[currentScheduleIndex].starred)
             $(element).addClass('starred');
         else
             $(element).removeClass('starred');
 
         var commitdiv = document.getElementById('commSchedule');
+        var commitheight = window.screen.height * .70;
+        $(commitdiv).css("height", commitheight + "px");
+        createLargeSchedule(schedule);
+
         $(commitdiv).show();
+
+    }
+
+    function createLargeSchedule(schedule) {
+        var html = "";
+        var days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+        var daysAbbrev = ['M', 'T', 'W', 'Th', 'F'];
+        var uniqueClasses = [];
+        var commitheight = (window.screen.height * .70) / 840;
+        var yval = 0;
+        html += '<div>';
+        var index = 0;
+
+        html += '<div style="width: 11%" class="largeCondDay">'
+        for (var x = 8; x < 23; x++) {
+            yval = 95 + (((x - 8) * 60)) * commitheight;
+            html += '<p style="position: absolute; top:' + yval + 'px; font-size: 10px;">' + x + ':00</p>';
+        }
+        html += '</div>'
+
+        html += '<div  style="align: right;"';
+
+        $.each(schedule.events, function (index, dayEvents) {
+            html += '\t<div class="largeCondDay" id="' + days[index] + '">\n';
+            html += '\t\t<div class="dayTitle">' + daysAbbrev[index] + ' </div>\n';
+
+            $.each(dayEvents, function (index, event) {
+                console.log(event);
+                var hour = parseInt(event.start.substring(0, 2));
+                var minute = parseInt(event.start.substring(3, 5));
+                yval = 100 + (((hour - 8) * 60 + minute)) * commitheight;
+                console.log(commitheight);
+                var ylength = event.length * commitheight;
+                console.log(yval);
+                var courseIndex = classNameIndex.findIndex(id => id === event.id);
+                var color;
+                if (courseIndex >= 0) {
+                    color = 'style="position: absolute; top:' + yval + 'px; height: ' + ylength + 'px;background-color:' + colors[courseIndex] + ';"';
+                } else {
+                    classNameIndex.push(event.id);
+                    color = 'style="position: absolute; top:' + yval + '; background-color:' + colors[classNameIndex.length - 1] + ';"';
+                }
+
+                html += '\t\t\t<div ' + color + ' class="largeClass">' + event.id + '</div>\n';
+
+            });
+            html += '\t</div>\n';
+            index++;
+
+        });
+        html += '</div></div>\n';
+
+        var commitdiv = document.getElementById("upclosediv");
+        commitdiv.innerHTML = html;
+        /*console.log(commitdiv.innerHTML);*/
     }
 
     function createHTML() {
@@ -133,14 +212,14 @@ function seeNewSchedule(scheduleHTML) {
             else {
                 timeday = 'afternoon';
             }
-            html += '<div id="' + index + '" onClick="seeNewSchedule(this)" class="schClick content type-' + timeday + ' type-' + schedule.numClasses; 
+            html += '<div id="' + index + '" onClick="seeNewSchedule(this)" class="schClick content type-' + timeday + ' type-' + schedule.numClasses;
             $.each(schedule.classes, function (index, course) {
                 html += ' type-' + course.id.replace(/\s/g, '');
-                if(uniqueClasses.indexOf(course.id) === -1) {
+                if (uniqueClasses.indexOf(course.id) === -1) {
                     uniqueClasses.push(course.id);
                 }
             });
-            if(window.location.href.includes("possibleSchedulesB"))
+            if (window.location.href.includes("possibleSchedulesB"))
                 html += ' condB';
             html += '">\n';
             $.each(schedule.events, function (index, dayEvents) {
@@ -150,31 +229,31 @@ function seeNewSchedule(scheduleHTML) {
                 $.each(dayEvents, function (index, event) {
                     var courseIndex = classNameIndex.findIndex(id => id === event.id);
                     var color;
-                    if(courseIndex >= 0) {
-                        color = 'style="background-color:'+colors[courseIndex]+';"';
-                    }else {
+                    if (courseIndex >= 0) {
+                        color = 'style="background-color:' + colors[courseIndex] + ';"';
+                    } else {
                         classNameIndex.push(event.id);
-                        color = 'style="background-color:'+colors[classNameIndex.length-1]+';"';
+                        color = 'style="background-color:' + colors[classNameIndex.length - 1] + ';"';
                     }
                     if (event.length > 60)
-                        html += '\t\t\t<div '+color+' class="class longClass"><span style="margin-left: .3em;float: left;font-size: 9px">' + event.start +'</span><br>' + event.id + '</div>\n';
+                        html += '\t\t\t<div ' + color + ' class="class longClass"><span style="margin-left: .3em;float: left;font-size: 9px">' + event.start + '</span><br>' + event.id + '</div>\n';
                     else {
-                        html += '\t\t\t<div '+color+' class="class shortClass"><span style="margin-left: .3em;float: left;font-size: 9px">' + event.start +'</span><br>' + event.id + '</div>\n';
+                        html += '\t\t\t<div ' + color + ' class="class shortClass"><span style="margin-left: .3em;float: left;font-size: 9px">' + event.start + '</span><br>' + event.id + '</div>\n';
                     }
 
                 });
                 html += '\t</div>\n';
 
+            });
+            if (!window.location.href.includes("possibleSchedulesB")) {
+                html += '<div style=" background-color: #696969; opacity: .8;height: 3.1em; width:100%; margin-top: .5em; margin-bottom: 0px;" >';
+
+                html += '<button class="btn btn-lg" style="float: left; background-color:#696969; border-radius: 2px;"><i class="fas fa-expand-arrows-alt"></i></button>';
+
+                html += '<button style="float: right; background-color:#696969; z-index: 100;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation(), starSchedule(this); "><i class="fas fa-star"></i></button>';
+            }
+            html += '</div></div>\n';
         });
-        if (!window.location.href.includes("possibleSchedulesB")) {
-            html += '<div style=" background-color: #696969; opacity: .8;height: 3.1em; width:100%; margin-top: .5em; margin-bottom: 0px;" >';
-
-            html += '<button class="btn btn-lg" style="float: left; background-color:#696969; border-radius: 2px;"><i class="fas fa-expand-arrows-alt"></i></button>';
-
-            html += '<button style="float: right; background-color:#696969; z-index: 100;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation(), starSchedule(this); "><i class="fas fa-star"></i></button>';
-        }
-        html += '</div></div>\n';
-    });
         $("#class-filter").append(html);
 
         var i = 0;
@@ -186,7 +265,7 @@ function seeNewSchedule(scheduleHTML) {
 
         });
         update();
-}
+    }
 
     function createSchedule(subset, schedules) {
         var schedule = {};
@@ -194,11 +273,11 @@ function seeNewSchedule(scheduleHTML) {
             var morningCounter = 0;
             var numUnits = 0;
             var events = [
-            [],
-            [],
-            [],
-            [],
-            []
+                [],
+                [],
+                [],
+                [],
+                []
             ];
             var event = {};
             $.each(classSubset, function (index, course) {
@@ -217,7 +296,7 @@ function seeNewSchedule(scheduleHTML) {
                     }
                     var day = getDay(time.day);
                     var i;
-                    for(i=0; i < events[day].length && hrToMinutes(events[day][i].start) < hrToMinutes(event.start); i++){
+                    for (i = 0; i < events[day].length && hrToMinutes(events[day][i].start) < hrToMinutes(event.start); i++) {
                     }
                     events[day].splice(i, 0, event);
 
@@ -265,21 +344,21 @@ function seeNewSchedule(scheduleHTML) {
         var s = [];
         if (k <= input.length) {
             for (var i = 0; (s[i] = i) < k - 1; i++);
-                subset.push(getSubset(input, s));
+            subset.push(getSubset(input, s));
             for (; ;) {
                 var i;
                 for (i = k - 1; i >= 0 && s[i] == input.length - k + i; i--);
-                    if (i < 0) {
-                        break;
-                    }
-                    s[i]++;
-                    for (++i; i < k; i++) {
-                        s[i] = s[i - 1] + 1;
-                    }
-                    subset.push(getSubset(input, s));
+                if (i < 0) {
+                    break;
                 }
+                s[i]++;
+                for (++i; i < k; i++) {
+                    s[i] = s[i - 1] + 1;
+                }
+                subset.push(getSubset(input, s));
             }
         }
+    }
 
     // generate actual subset by index sequence
     function getSubset(input, subset) {
@@ -301,23 +380,23 @@ function seeNewSchedule(scheduleHTML) {
                 currentScheduleIndex = e.parentElement.parentElement.id;
                 var element2 = document.getElementById('star' + currentScheduleIndex);
                 $(element2.children[0]).toggleClass('starred');
-                
+
             }
             else {
                 var element2 = document.getElementById('star' + currentScheduleIndex);
                 $(element).toggleClass('starred');
                 $(element2.children[0]).toggleClass('starred');
-    
+
             }
         }
         else {
             $(element).toggleClass('starred');
         }
-    
-    
-    
+
+
+
         schedules[currentScheduleIndex].starred = !schedules[currentScheduleIndex].starred;
-    
+
         if (schedules[currentScheduleIndex].starred) {
             $('div[id=' + currentScheduleIndex + ']').each(function () {
                 $(this).addClass("type-starred");
@@ -331,7 +410,7 @@ function seeNewSchedule(scheduleHTML) {
         update();
     }
 
-    function hideNewSchedule(){
+    function hideNewSchedule() {
         var schedulesdiv = document.getElementById('possSchedules');
         $(schedulesdiv).show();
 
@@ -339,12 +418,12 @@ function seeNewSchedule(scheduleHTML) {
         $(commitdiv).hide();
     }
 
-    function sendToEmail(e){
+    function sendToEmail(e) {
         var response = prompt("Please enter your email: ");
-        if (response != null){
+        if (response != null) {
             alert("Schedule sent to: " + response);
         }
-        else{
+        else {
         }
     }
 

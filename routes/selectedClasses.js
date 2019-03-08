@@ -1,5 +1,4 @@
-var fs = require("fs");
-var path = require('path');
+
 exports.view = async function(req, res){
    // req.app.locals.slectedClassesJson = JSON.stringify(req.body, null, 4);
    // console.log(req.app.locals.slectedClassesJson);
@@ -8,26 +7,26 @@ exports.view = async function(req, res){
 
    // Create a visit record to be stored in the database
    const selectedClasses = {
-      key: datastore.key(['selectedClasses', email]),
    	timestamp: new Date(),
-   	jsonData: req.body
+   	jsonData: req.body,
    };
-
    try {
-   	await insertData(selectedClasses, email);
-	res.json(JSON.parse(selectedClasses.jsonData));    
+   	await insertData(selectedClasses, datastore.key(['selectedClasses', email]));
+         console.log("sucsees");
+         datastore.key(['schedules', email]).delete()
+	     res.json(selectedClasses.jsonData);    
    } catch (error) {
+      console.log(error);
    	res.send(error);
    }
 
-/**
- * Insert a selectedClasses record into the database.
- *
- * @param {object} selectedClasses The selectedClasses record to insert.
- */
-   function insertData(selectedClasses, id) {
-      await datastore.upsert(selectedClasses);
- 	console(req.app.locals.datastore);
+ function insertData(data, key) {
+   console.log("saved ");
+   console.log(data);
+   return datastore.save({
+      key: key,
+      data: data,
+   });
  }
 
 };
