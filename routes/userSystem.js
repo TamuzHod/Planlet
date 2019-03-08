@@ -30,8 +30,6 @@ exports.register = async function(req, res){
       minor: "noMinor",
       college: "noCollege"
    };
-   console.log("saved " + [kind, newUser.email]);
-
    try {
    	await insertData(newUser);
       var response = {

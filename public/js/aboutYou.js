@@ -21,13 +21,12 @@ function startNewSchedule() {
 	}
 	else {
 		var user = {
-			user: major,
-			user: minor,
-			user: college,
-			user: email
+			major: major,
+			minor: minor,
+			college: college,
+			email: email
 		}
 
-        localStorage.setItem('user/', JSON.stringify(user));
 
 		$.postJSON('/update',  user, function (result) {
             console.log('result', result);
