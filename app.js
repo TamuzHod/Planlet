@@ -53,7 +53,6 @@ app.get('/classes/:email/:major/:minor/:college', classes.view);
 app.get('/availability/:email/:major/:minor/:college', availability.view);
 app.get('/userinfo/:email/:major/:minor/:college', userinfo.view);
 app.get('/possibleSchedules/:email', possibleSchedules.view);
-app.get('/possibleSchedulesB/:email', possibleSchedules.viewAlt);
 app.post('/logIn', userSystem.logIn);
 app.post('/register', userSystem.register);
 app.post('/update', userSystem.update);
