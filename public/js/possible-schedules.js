@@ -34,12 +34,12 @@ var subset3 = [];
 var subset4 = [];
 var subset5 = [];
 
-$.getJSON('/getSelectedClasses/'+window.user.email, function (data) {
+$.getJSON('/getSelectedClasses/'+$("#emailInput").text(), function (data) {
     if(!$('#0').length){
 	data = data;
-        var link = '/classes/' + data.majorName +'/'+ data.minorName + '/' + data.collegeName;
+        var link = '/classes/' +$("#emailInput").text()+"/"+ data.majorName +'/'+ data.minorName + '/' + data.collegeName;
         $("#backToClasses").attr("href", link);
-        link = '/userInfo/' + data.majorName +'/'+ data.minorName + '/' + data.collegeName;
+        link = '/userInfo/' + $("#emailInput").text()+"/"+data.majorName +'/'+ data.minorName + '/' + data.collegeName;
         $("#toSettings").attr("href", link);
 
 
