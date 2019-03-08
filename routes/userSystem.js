@@ -8,6 +8,8 @@ exports.save = async function(req, res){
          succses: true,
          error: 'Sucssess',
       }
+      console.log("saved");
+      console.log([req.params.kind, req.params.id]);
       res.json(response);   
    } catch (error) {
      console.log(error);

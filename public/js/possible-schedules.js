@@ -6,7 +6,7 @@ var colors = ["Chocolate", "Peru", "Sienna", "Goldenrod", "Brown", "Maroon", "pi
 var classNameIndex = [];
 
 
-$( window ).unload(function() {
+$( window )..on('beforeunload', function(){
   $.postJSON('/save/schedules/'+email, schedules, function (result) {
         console.log('result', result);
     });
