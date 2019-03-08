@@ -6,13 +6,10 @@ exports.register = async function(req, res){
    // console.log(req.app.locals.slectedClassesJson);
    // res.json(JSON.stringify(req.body, null, 4))
 
-   const query = datastore
-   .createQuery(kind)
-   .filter('email', '=', req.body.email)
-   .limit(1);
 
-   var user = await  datastore.runQuery(query);
-   user = user[0][0];
+   var taskKey = datastore.key([kind, req.body.email]);
+   var user = await  datastore.get(taskKey);
+   user = user[0];
 
    if(user){
       var response = {
@@ -28,20 +25,19 @@ exports.register = async function(req, res){
    const newUser = {
    	timestamp: new Date(),
       email: req.body.email,
-      data: req.body,
       password:  req.body.password,
       major: "noMajor",
       minor: "noMinor",
       college: "noCollege"
    };
-   console.log("saved" + [kind, newUser.email]);
+   console.log("saved " + [kind, newUser.email]);
 
    try {
    	await insertData(newUser);
       var response = {
          succses: true,
          error: 'Sucssess',
-         address: '/alittleaboutyou/'+user.email
+         address: '/alittleaboutyou/'+newUser.email
       }
       res.json(response);   
    } catch (error) {
@@ -60,7 +56,7 @@ exports.register = async function(req, res){
  * @param {object} selectedClasses The selectedClasses record to insert.
  */
  function insertData(newUser) {
-   console.log("saved" + [kind, newUser.email]);
+   console.log("saved " + [kind, newUser.email]);
  	return datastore.save({
  		key: datastore.key([kind, newUser.email]),
  		data: newUser,
@@ -104,9 +100,6 @@ exports.logIn = async function(req, res){
    var major = user.major; 
    var minor = user.minor; 
    var college = user.college; 
-   console.log('classes majorName = ' + major + ' minorName = ' + minor + ' collegeName = ' + college);
-   console.log("noMajor =? " + major);
-   console.log(major === "noMajor");
    if(major === "noMajor"){
       console.log("no Major");
       var response = {
