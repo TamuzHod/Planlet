@@ -109,16 +109,16 @@ exports.logIn = async function(req, res){
    var minor = user.minor; 
    var college = user.college; 
 
-   taskKey = datastore.key(['selectedClasses', req.body.email]);
+   taskKey = datastore.key(['selectedClasses', user.email]);
    var selectedClasses = await  datastore.get(taskKey);
    selectedClasses = selectedClasses[0];
 
    if(selectedClasses){
-      console.log("no Major");
+      console.log("Found Selected classes");
       var response = {
          succses: true,
          error: 'Sucssess',
-         address: '/possibleSchedules/'+req.body.email
+         address: '/possibleSchedules/'+user.email
       }
       res.json(response);    
    } else if(major === "noMajor"){
