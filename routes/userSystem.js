@@ -3,7 +3,7 @@ const kind = 'user';
 
 exports.save = async function(req, res){
    try {
-      await insertData(JSON.parse(req.body.data), datastore.key([req.params.kind, req.params.id]));
+      await insertData(req.body, datastore.key([req.params.kind, req.params.id]));
       var response = {
          succses: true,
          error: 'Sucssess',
