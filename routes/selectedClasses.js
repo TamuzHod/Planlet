@@ -12,6 +12,7 @@ exports.view = async function(req, res){
    	timestamp: new Date(),
    	jsonData: req.body
    };
+   console("saving " + selectedClasses);
 
    try {
    	await insertData(selectedClasses, email);
@@ -26,8 +27,8 @@ exports.view = async function(req, res){
  * @param {object} selectedClasses The selectedClasses record to insert.
  */
    function insertData(selectedClasses) {
-         console("saving " + selectedClasses);
          console(datastore.upsert(selectedClasses));
+         console("saved " + selectedClasses);
  }
 
 };
