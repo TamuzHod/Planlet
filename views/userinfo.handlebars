@@ -50,7 +50,7 @@
 
                 <div style="float: left;" class="form-group">
                     <div class="grid-item" id="lblEmail">Email</div>
-                    <input id="emailInput" type="text" value = "{{[1].email}}" readonly></input>
+                    <input id="emailInput0" type="text" value = "{{[1].email}}" readonly></input>
                 </div>
             </div>
             <div class="form-group">
@@ -82,6 +82,8 @@
                     <option>Revelle</option>
                 </select>
             </div>
+
+                <div style="visibility: hidden;" id="emailInput">{{[1].email}}</div>
 
             <!--Select tag and option tag, https://blink.ucsd.edu/instructors/academic-info/majors/minor-codes.html-->
 
