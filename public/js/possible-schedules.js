@@ -6,11 +6,11 @@ var colors = ["Chocolate", "Peru", "Sienna", "Goldenrod", "Brown", "Maroon", "pi
 var classNameIndex = [];
 
 
-$(window).on('beforeunload', function () {
-    $.postJSON('/save/schedules/' + $("#emailInput").text(), schedules, function (result) {
-        console.log('result', result);
-    });
-});
+// $(window).on('beforeunload', function () {
+//     $.postJSON('/save/schedules/' + $("#emailInput").text(), schedules, function (result) {
+//         console.log('result', result);
+//     });
+// });
 
 $.postJSON = function (url, data, success, args) {
     args = $.extend({
