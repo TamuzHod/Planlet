@@ -7,7 +7,7 @@ var classNameIndex = [];
 
 
 $( window ).on('beforeunload', function(){
-  $.postJSON('/save/schedules/'+email, schedules, function (result) {
+    $.postJSON('/save/schedules/'+$("#emailInput").text(), schedules, function (result) {
         console.log('result', result);
     });
 });
@@ -184,16 +184,16 @@ function seeNewSchedule(scheduleHTML) {
                 });
                 html += '\t</div>\n';
 
+            });
+            if (!window.location.href.includes("possibleSchedulesB")) {
+                html += '<div style=" background-color: #696969; opacity: .8;height: 3.1em; width:100%; margin-top: .5em; margin-bottom: 0px;" >';
+
+                html += '<button class="btn btn-lg" style="float: left; background-color:#696969; border-radius: 2px;"><i class="fas fa-expand-arrows-alt"></i></button>';
+
+                html += '<button style="float: right; background-color:#696969; z-index: 100;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation(), starSchedule(this); "><i class="fas fa-star"></i></button>';
+            }
+            html += '</div></div>\n';
         });
-        if (!window.location.href.includes("possibleSchedulesB")) {
-            html += '<div style=" background-color: #696969; opacity: .8;height: 3.1em; width:100%; margin-top: .5em; margin-bottom: 0px;" >';
-
-            html += '<button class="btn btn-lg" style="float: left; background-color:#696969; border-radius: 2px;"><i class="fas fa-expand-arrows-alt"></i></button>';
-
-            html += '<button style="float: right; background-color:#696969; z-index: 100;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation(), starSchedule(this); "><i class="fas fa-star"></i></button>';
-        }
-        html += '</div></div>\n';
-    });
         $("#class-filter").append(html);
 
         var i = 0;
@@ -205,7 +205,7 @@ function seeNewSchedule(scheduleHTML) {
 
         });
         update();
-}
+    }
 
     function createSchedule(subset, schedules) {
         var schedule = {};
@@ -326,17 +326,17 @@ function seeNewSchedule(scheduleHTML) {
                 var element2 = document.getElementById('star' + currentScheduleIndex);
                 $(element).toggleClass('starred');
                 $(element2.children[0]).toggleClass('starred');
-    
+
             }
         }
         else {
             $(element).toggleClass('starred');
         }
-    
-    
-    
+
+
+
         schedules[currentScheduleIndex].starred = !schedules[currentScheduleIndex].starred;
-    
+
         if (schedules[currentScheduleIndex].starred) {
             $('div[id=' + currentScheduleIndex + ']').each(function () {
                 $(this).addClass("type-starred");
