@@ -9,12 +9,11 @@ exports.send = async function(req, res){
 	var email = req.params.email; 
 
 	var taskKey = datastore.key(['selectedClasses',email]);
-	var user = await  datastore.get(taskKey);
-	user = user[0];
+	var content = await  datastore.get(taskKey);
+	content = content[0];
 
-	content = await  datastore.runQuery(query);
 	console.log(content);
-	res.json(selectedClasses.jsonData);          
+	res.json(content.jsonData);          
 	
 };
 
