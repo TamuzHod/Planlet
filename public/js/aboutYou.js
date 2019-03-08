@@ -9,7 +9,7 @@ function startNewSchedule() {
 	var major = $("#selMajor :selected").val();
 	var college =  $("#selCollege :selected").text();
 	var minor =  $("#selMinor :selected").val();
-	var email = $("#emailinput").text();
+	var email = $("#emailInput").text();
 
 	if(major == 'Select a Major'){
 		alert("Please select a major");
