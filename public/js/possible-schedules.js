@@ -93,6 +93,7 @@ function danceLoop(i, j) {
 "2015-01-01T00:00:00"
 
 
+
 function seeNewSchedule(scheduleHTML) {
 
     //ga("send", "event", "lookedAtSchedule", "action");
