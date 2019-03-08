@@ -90,7 +90,7 @@ exports.logIn = async function(req, res){
    console.log(user);
 
 
-   if(!user){
+   if(!user || or user.password != req.body.password){
       console.log("wrong password or email");
 
       var response = {
