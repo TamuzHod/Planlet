@@ -13,7 +13,7 @@ exports.view = async function(req, res){
    console.log("saving " + selectedClasses);
 
    try {
-   	await insertData(selectedClasses, datastore.key(['selectedClasses', email]);
+   	await insertData(selectedClasses, datastore.key(['selectedClasses', email]));
          console.log("sucsees");
 	     res.json(JSON.parse(selectedClasses.jsonData));    
    } catch (error) {
