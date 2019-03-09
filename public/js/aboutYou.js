@@ -1,9 +1,7 @@
 
 function httpFix(){
-	/*
 	if(window.location.protocol==="https:")
 	 window.location.protocol="http";
-	 */
  }
 
 
