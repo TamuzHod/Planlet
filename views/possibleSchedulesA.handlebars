@@ -49,7 +49,6 @@
 	<link rel="stylesheet" href="/css/schedule_style.css">
 
 
-
 	<!-- Google Analytics
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,9 +68,6 @@
 
 	<!--what will show when schedule is clicked on-->
 	<div id="commSchedule">
-
-
-
 		<div
 			style="background-color: white; position: fixed; left: 0em;top: 0em; height: 3.5em;width: 100%; z-index: 4;">
 			<button id="backButt" class="btn" onclick="hideNewSchedule()"><i class="fas fa-arrow-left"></i></button>
@@ -80,6 +76,7 @@
 		<div id="upclosediv" class="upclose">
 		</div>
 		<br><br>
+
 		<div id="page">
 			<header></header>
 			<main>
@@ -94,6 +91,31 @@
 			<!-- Add a button to close the popup (optional) -->
 			<button class="JPO_close">Close</button>
 		</div>
+		<br><br>
+		<br>
+		<footer>
+			<div class="container" style="width: 100%; padding: 0px;">
+				<button style="border-radius: 0px;" class="btn btn-lg" onclick="sendToEmail()"><i
+						class="far fa-envelope"></i></button>
+				<button style="border-radius: 0px; float: right;" id="starButt" class="btn btn-lg "
+					onclick="starSchedule(this)"><i class="fas fa-star"></i></button>
+			</div>
+			<!--//end container -->
+		</footer>
+				<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+		<!-- Include jQuery Popup Overlay -->
+		<script src="https://cdn.jsdelivr.net/gh/vast-engineering/jquery-popup-overlay@2/jquery.popupoverlay.min.js">
+		</script>
+		<script>
+      $(document).ready(function() {
+
+        // Initialize the plugin
+        $('#JPO').popup();
+
+        // Set default `pagecontainer` for all popups (optional, but recommended for screen readers and iOS*)
+        $.fn.popup.defaults.pagecontainer = '#page'
+      }); </script>
 
 		<br><br>
 		<br>
@@ -186,23 +208,5 @@
 
 
 </body>
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-
-<!-- Include jQuery Popup Overlay -->
-<script src="https://cdn.jsdelivr.net/gh/vast-engineering/jquery-popup-overlay@2/jquery.popupoverlay.min.js">
-</script>
-<script>
-	$(document).ready(function () {
-
-		// Initialize the plugin
-		$('#JPO').popup();
-
-		// Set default `pagecontainer` for all popups (optional, but recommended for screen readers and iOS*)
-		$.fn.popup.defaults.pagecontainer = '#page'
-	});
-
-</script>
 
 </html>
