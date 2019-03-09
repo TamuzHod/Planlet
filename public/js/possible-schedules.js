@@ -165,7 +165,7 @@ function seeNewSchedule(scheduleHTML) {
         html += '<div  style="align: right;"';
 
         $.each(schedule.events, function (index, dayEvents) {
-            html += '\t<div class="largeCondDay" id="' + days[index] + '">\n';
+            html += '\t<div class="largeCondDay class="JPO_open"" id="' + days[index] + '">\n';
             html += '\t\t<div class="dayTitle">' + daysAbbrev[index] + ' </div>\n';
 
             $.each(dayEvents, function (index, event) {
@@ -427,3 +427,12 @@ function seeNewSchedule(scheduleHTML) {
         }
     }
 
+
+    $(document).ready(function() {
+
+        // Initialize the plugin
+        $('#JPO').popup();
+
+        // Set default `pagecontainer` for all popups (optional, but recommended for screen readers and iOS*)
+        $.fn.popup.defaults.pagecontainer = '#page'
+      });
