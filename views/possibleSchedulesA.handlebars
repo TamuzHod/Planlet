@@ -47,6 +47,11 @@
 	<link rel="stylesheet" href="/css/planlet.css">
 	<link type="text/css" rel="stylesheet" href="/css/calendar_green.css" />
 	<link rel="stylesheet" href="/css/schedule_style.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+	<!-- Include jQuery Popup Overlay -->
+	<script src="https://cdn.jsdelivr.net/gh/vast-engineering/jquery-popup-overlay@2/jquery.popupoverlay.min.js">
+	</script>
 
 
 	<!-- Google Analytics
@@ -68,6 +73,22 @@
 
 	<!--what will show when schedule is clicked on-->
 	<div id="commSchedule">
+
+		<div id="page">
+			<header></header>
+			<main>
+				<button class="JPO_open">Open popup</button>
+			</main>
+			<footer></footer>
+		</div>
+
+		<!-- Add content to the popup -->
+		<div id="JPO">
+			<p id="content">blablabla</p>
+			<!-- Add a button to close the popup (optional) -->
+			<button class="JPO_close">Close</button>
+		</div>
+
 		<div
 			style="background-color: white; position: fixed; left: 0em;top: 0em; height: 3.5em;width: 100%; z-index: 4;">
 			<button id="backButt" class="btn" onclick="hideNewSchedule()"><i class="fas fa-arrow-left"></i></button>
@@ -125,7 +146,8 @@
 						</div>
 					</div>
 					<br>
-					<label style="margin-bottom: 0px; text-align: center; width: 100%; font-size: 10px;">Sort by class:</label>
+					<label style="margin-bottom: 0px; text-align: center; width: 100%; font-size: 10px;">Sort by
+						class:</label>
 					<div class="filters" style="display: flex; align-items: center; justify-content: space-around;">
 						<div style="height: 100%;" id="courseID">
 						</div>
