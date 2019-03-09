@@ -26,13 +26,13 @@ function startNewSchedule() {
 			college: college,
 			email: email
 		}
-
+        window.location.href = '/classes/' + email +'/'+ major +'/'+ minor + '/' + college;
 
 		$.postJSON('/update',  user, function (result) {
             console.log('result', result);
             window.location.href = '/classes/' + email +'/'+ major +'/'+ minor + '/' + college;
         });
-        
+
 	}
 	
 };
@@ -49,4 +49,5 @@ $.postJSON = function (url, data, success, args) {
     }, args);
     return $.ajax(args);
 };
+
 
