@@ -112,22 +112,14 @@ th {
 
 
 .condB.type-starred {
-  box-shadow: 0 0 25px 15px gold;
+  box-shadow: 0 0 25px 15px #e5e500;
 } 
 
 .schClick.type-starred {
-  box-shadow: 0 0 15px gold;
+  box-shadow: 0 0 15px #e5e500;
 } 
 
 
 #commSchedule{
   display: none;
-}
-
-.popup_content {
-  margin: 10px;
-  padding: 0 10px;
-  max-width: 60%;
-  border: 2px solid #444;
-  background: white;
 }
