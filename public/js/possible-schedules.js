@@ -182,7 +182,7 @@ function seeNewSchedule(scheduleHTML) {
                     color = 'style="position: absolute; top:' + yval + '; background-color:' + colors[classNameIndex.length - 1] + ';"';
                 }
 
-                html += '\t\t\t<div ' + color + ' class="largeClass" class="JPO_open" id="div'+event.id + '" onclick="callPopup('+event+')">' + event.id + '</div>\n';
+                html += '\t\t\t<div ' + color + ' class="largeClass" class="JPO_open" id="div'+event.id + '" onclick="callPopup()">' + event.id + '</div>\n';
 
             });
             html += '\t</div>\n';
@@ -204,7 +204,9 @@ function seeNewSchedule(scheduleHTML) {
         $.fn.popup.defaults.pagecontainer = '#page'
     });
 
-    function callPopup(divEvent){
+    function callPopup(){
+        var newid = this.id;
+        newid = (newid.substring("div"))[1];
         /*console.log(divEvent);*/
         console.log("popup");
         var popup = document.getElementById("#content");
