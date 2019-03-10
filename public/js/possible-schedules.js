@@ -208,11 +208,18 @@ function seeNewSchedule(scheduleHTML) {
     function callPopup(eventid){
         console.log(this);
         /*console.log(divEvent);*/
+	var classObject = "";
+	for (var counter = 0; counter < this.schedule.classes.length; counter++){
+		console.log(schedule.classes[counter].id+"    "+eventid);
+		if (schedule.classes[counter].id  == eventid){
+			classObject = schedule.classes[counter];
+		}
+	}
         console.log("popup");
         var popup = document.getElementById("content");
         /*$(popup).popup(); */
         console.log(popup.innerHTML);
-	popup.innerHTML = eventid;
+	popup.innerHTML = '<h3>'+classObject.title+'</h3><h6>Units: '+classObject.units+'</h6>';
 	  
     }
 
