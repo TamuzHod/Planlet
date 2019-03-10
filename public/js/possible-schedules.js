@@ -204,7 +204,7 @@ function seeNewSchedule(scheduleHTML) {
         $.fn.popup.defaults.pagecontainer = '#page'
     });
 
-    function callPopup(){
+    function callPopup(divEvent){
         /*console.log(divEvent);*/
         console.log("popup");
         var popup = document.getElementById("#content");
