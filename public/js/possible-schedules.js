@@ -182,7 +182,7 @@ function seeNewSchedule(scheduleHTML) {
                     color = 'style="position: absolute; top:' + yval + '; background-color:' + colors[classNameIndex.length - 1] + ';"';
                 }
 
-                html += '\t\t\t<div ' + color + ' class="largeClass" class="JPO_open" id="div'+event.id + ' onclick="callPopup(event)">' + event.id + '</div>\n';
+                html += '\t\t\t<div ' + color + ' class="largeClass" class="JPO_open" id="div'+event.id + ' onclick="callPopup('+event+')">' + event.id + '</div>\n';
 
             });
             html += '\t</div>\n';
