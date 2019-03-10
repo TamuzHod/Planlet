@@ -157,7 +157,7 @@ function seeNewSchedule(scheduleHTML) {
 
         html += '<div style="width: 11%" class="largeCondDay">'
         for (var x = 8; x < 23; x++) {
-            yval = 95 + (((x - 8) * 60)) * commitheight;
+            yval = (((x - 8) * 60)) * commitheight;
             html += '<p style="position: absolute; top:' + yval + 'px; font-size: 10px;">' + x + ':00</p>';
         }
         html += '</div>'
@@ -165,14 +165,14 @@ function seeNewSchedule(scheduleHTML) {
         html += '<div  style="align: right;"';
 
         $.each(schedule.events, function (index, dayEvents) {
-            html += '\t<div class="largeCondDay class="JPO_open"" id="' + days[index] + '">\n';
+            html += '\t<div class="largeCondDay  id="' + days[index] + '">\n';
             html += '\t\t<div class="dayTitle">' + daysAbbrev[index] + ' </div>\n';
 
             $.each(dayEvents, function (index, event) {
                 console.log(event);
                 var hour = parseInt(event.start.substring(0, 2));
                 var minute = parseInt(event.start.substring(3, 5));
-                yval = 100 + (((hour - 8) * 60 + minute)) * commitheight;
+                yval = 10+(((hour - 8) * 60 + minute)) * commitheight;
                 console.log(commitheight);
                 var ylength = event.length * commitheight;
                 console.log(yval);
@@ -185,7 +185,7 @@ function seeNewSchedule(scheduleHTML) {
                     color = 'style="position: absolute; top:' + yval + '; background-color:' + colors[classNameIndex.length - 1] + ';"';
                 }
 
-                html += '\t\t\t<div ' + color + ' class="largeClass">' + event.id + '</div>\n';
+                html += '\t\t\t<div ' + color + ' class="largeClass" class="JPO_open" id="div'+event.id + ' onclick="callPopup(event)">' + event.id + '</div>\n';
 
             });
             html += '\t</div>\n';
@@ -197,6 +197,16 @@ function seeNewSchedule(scheduleHTML) {
         var commitdiv = document.getElementById("upclosediv");
         commitdiv.innerHTML = html;
         /*console.log(commitdiv.innerHTML);*/
+    }
+
+    function callPopup(divEvent){
+        var popup = document.getElementById("#JPO");
+        $(popup).popup();
+        popup.innerHTML = "professor " + divEvent.id;
+
+
+        // Set default `pagecontainer` for all popups (optional, but recommended for screen readers and iOS*)
+        $.fn.popup.defaults.pagecontainer = '#page'
     }
 
     function createHTML() {
