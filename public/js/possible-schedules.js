@@ -200,7 +200,7 @@ function seeNewSchedule(scheduleHTML) {
         console.log(divEvent);
         console.log("popup");
         var popup = document.getElementById("#JPO");
-        $(popup).popup();
+        /*$(popup).popup(); */
         popup.innerHTML = "professor " + divEvent.id;
 
 
