@@ -157,7 +157,7 @@ function seeNewSchedule(scheduleHTML) {
 
         html += '<div style="width: 11%" class="largeCondDay">'
         for (var x = 8; x < 23; x++) {
-            yval = (((x - 8) * 60)) * commitheight;
+            yval = 90+ (((x - 8) * 60)) * commitheight;
             html += '<p style="position: absolute; top:' + yval + 'px; font-size: 10px;">' + x + ':00</p>';
         }
         html += '</div>'
@@ -169,13 +169,10 @@ function seeNewSchedule(scheduleHTML) {
             html += '\t\t<div class="dayTitle">' + daysAbbrev[index] + ' </div>\n';
 
             $.each(dayEvents, function (index, event) {
-                console.log(event);
                 var hour = parseInt(event.start.substring(0, 2));
                 var minute = parseInt(event.start.substring(3, 5));
-                yval = 10+(((hour - 8) * 60 + minute)) * commitheight;
-                console.log(commitheight);
+                yval = 100+(((hour - 8) * 60 + minute)) * commitheight;
                 var ylength = event.length * commitheight;
-                console.log(yval);
                 var courseIndex = classNameIndex.findIndex(id => id === event.id);
                 var color;
                 if (courseIndex >= 0) {
@@ -200,6 +197,8 @@ function seeNewSchedule(scheduleHTML) {
     }
 
     function callPopup(divEvent){
+        console.log(divEvent);
+        console.log("popup");
         var popup = document.getElementById("#JPO");
         $(popup).popup();
         popup.innerHTML = "professor " + divEvent.id;
