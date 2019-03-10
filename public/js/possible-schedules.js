@@ -181,8 +181,9 @@ function seeNewSchedule(scheduleHTML) {
                     classNameIndex.push(event.id);
                     color = 'style="position: absolute; top:' + yval + '; background-color:' + colors[classNameIndex.length - 1] + ';"';
                 }
+		   /* var newid =' "'+event.id+'"';*/
 
-                html += '\t\t\t<div ' + color + ' class="largeClass" class="JPO_open" id="div'+event.id + '" onclick="callPopup("'+event.id+'")">' + event.id + '</div>\n';
+                html += '\t\t\t<div ' + color + ' class="largeClass JPO_open" id="div'+event.id + '" onclick="callPopup(&quot;'+event.id+'&quot;)">' + event.id + '</div>\n';
 
             });
             html += '\t</div>\n';
@@ -205,12 +206,14 @@ function seeNewSchedule(scheduleHTML) {
     });
 
     function callPopup(eventid){
-        console.log(eventid);
+        console.log(this);
         /*console.log(divEvent);*/
         console.log("popup");
-        var popup = document.getElementById("#content");
+        var popup = document.getElementById("content");
         /*$(popup).popup(); */
         console.log(popup.innerHTML);
+	popup.innerHTML = eventid;
+	  
     }
 
     function createHTML() {
