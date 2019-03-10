@@ -196,10 +196,18 @@ function seeNewSchedule(scheduleHTML) {
         /*console.log(commitdiv.innerHTML);*/
     }
 
-    function callPopup(divEvent){
-        console.log(divEvent);
+    $(document).ready(function () {
+        // Initialize the plugin
+        $('#JPO').popup();
+
+        // Set default `pagecontainer` for all popups (optional, but recommended for screen readers and iOS*)
+        $.fn.popup.defaults.pagecontainer = '#page'
+    });
+
+    function callPopup(){
+        /*console.log(divEvent);*/
         console.log("popup");
-        var popup = document.getElementById("#JPO");
+        var popup = document.getElementById("#content");
         /*$(popup).popup(); */
         popup.innerHTML = "professor " + divEvent.id;
 
