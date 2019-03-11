@@ -57,6 +57,8 @@ app.post('/logIn', userSystem.logIn);
 app.post('/register', userSystem.register);
 app.post('/update', userSystem.update);
 app.post('/save/:kind/:id', userSystem.save);
+app.post('/saveNotIndexed/:kind/:id', userSystem.saveNotIndexed);
+
 
 app.locals.slectedClassesJson;
 

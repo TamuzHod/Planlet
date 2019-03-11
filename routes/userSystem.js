@@ -1,6 +1,29 @@
 var programs = require('../programs.json');
 const kind = 'user';
 
+
+exports.saveNotIndexed = async function(req, res){
+   try {
+      var data = req.body;
+      data.excludeFromIndexes = true,
+      await insertData(data, datastore.key([req.params.kind, req.params.id]));
+      var response = {
+         succses: true,
+         error: 'Sucssess',
+      }
+      console.log("saved");
+      console.log([req.params.kind, req.params.id]);
+      res.json(response);   
+   } catch (error) {
+     console.log(error);
+      var response = {
+         succses: false,
+         error: 'Error upon enetering data to database' + error,
+      }
+     res.json(response);
+  }
+}
+
 exports.save = async function(req, res){
    try {
       await insertData(req.body, datastore.key([req.params.kind, req.params.id]));

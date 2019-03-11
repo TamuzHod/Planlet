@@ -7,7 +7,7 @@ var colors = ["Chocolate", "Peru", "Sienna", "Goldenrod", "Brown", "Maroon", "pi
 var classNameIndex = [];
 
 $(window).on('beforeunload', function () {
-    $.postJSON('/save/schedules/' + $("#emailInput").text(), {classesObject, schedules}, function (result) {
+    $.postJSON('/saveNotIndexed/schedules/' + $("#emailInput").text(), {classesObject, schedules}, function (result) {
         console.log('result', result);
     });
 });
