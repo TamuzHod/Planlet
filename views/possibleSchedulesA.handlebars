@@ -42,12 +42,15 @@
 	<script src="/js/bootstrap.js"></script>
 	<script src="/js/jquery.fitvids.js"></script>
 	<script src="/js/daypilot-all.min.js"></script>
-	<script src="/js/possible-schedules.js"></script>
 	<script src="/js/colorfrog.js"></script>
 	<link rel="stylesheet" href="/css/planlet.css">
 	<link type="text/css" rel="stylesheet" href="/css/calendar_green.css" />
 	<link rel="stylesheet" href="/css/schedule_style.css">
-
+	<script src="https://cdn.jsdelivr.net/gh/vast-engineering/jquery-popup-overlay@2/jquery.popupoverlay.min.js"></script>
+	<script src="/js/possible-schedules.js"></script>
+	<script>
+ 
+	</script>
 
 	<!-- Google Analytics
 		<script>
@@ -73,9 +76,37 @@
 			<button id="backButt" class="btn" onclick="hideNewSchedule()"><i class="fas fa-arrow-left"></i></button>
 		</div>
 		<br><br>
-		<div id="upclosediv" class="upclose">
+
+		<br><br>
+
+		<div id="page">
+			<header></header>
+			<main>
+
+						<div id="upclosediv" class="upclose">
+		</div>
+			</main>
+			<footer></footer>
+		</div>
+
+		<!-- Add content to the popup -->
+		<div id="JPO">
+			<p id="content">blablabla</p>
+			<!-- Add a button to close the popup (optional) -->
 		</div>
 		<br><br>
+		<br>
+		<footer>
+			<div class="container" style="width: 100%; padding: 0px;">
+				<button style="border-radius: 0px;" class="btn btn-lg" onclick="sendToEmail()"><i
+						class="far fa-envelope"></i></button>
+				<button style="border-radius: 0px; float: right;" id="starButt" class="btn btn-lg "
+					onclick="starSchedule(this)"><i class="fas fa-star"></i></button>
+			</div>
+			<!--//end container -->
+		</footer>
+
+		<!-- Include jQuery Popup Overlay -->
 
 
 		<br><br>
@@ -125,7 +156,8 @@
 						</div>
 					</div>
 					<br>
-					<label style="margin-bottom: 0px; text-align: center; width: 100%; font-size: 10px;">Sort by class:</label>
+					<label style="margin-bottom: 0px; text-align: center; width: 100%; font-size: 10px;">Sort by
+						class:</label>
 					<div class="filters" style="display: flex; align-items: center; justify-content: space-around;">
 						<div style="height: 100%;" id="courseID">
 						</div>

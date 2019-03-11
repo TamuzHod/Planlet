@@ -157,7 +157,7 @@ function seeNewSchedule(scheduleHTML) {
 
         html += '<div style="width: 11%" class="largeCondDay">'
         for (var x = 8; x < 23; x++) {
-            yval = 95 + (((x - 8) * 60)) * commitheight;
+            yval = 90+ (((x - 8) * 60)) * commitheight;
             html += '<p style="position: absolute; top:' + yval + 'px; font-size: 10px;">' + x + ':00</p>';
         }
         html += '</div>'
@@ -165,17 +165,14 @@ function seeNewSchedule(scheduleHTML) {
         html += '<div  style="align: right;"';
 
         $.each(schedule.events, function (index, dayEvents) {
-            html += '\t<div class="largeCondDay" id="' + days[index] + '">\n';
+            html += '\t<div class="largeCondDay  id="' + days[index] + '">\n';
             html += '\t\t<div class="dayTitle">' + daysAbbrev[index] + ' </div>\n';
 
             $.each(dayEvents, function (index, event) {
-                console.log(event);
                 var hour = parseInt(event.start.substring(0, 2));
                 var minute = parseInt(event.start.substring(3, 5));
-                yval = 100 + (((hour - 8) * 60 + minute)) * commitheight;
-                console.log(commitheight);
+                yval = 100+(((hour - 8) * 60 + minute)) * commitheight;
                 var ylength = event.length * commitheight;
-                console.log(yval);
                 var courseIndex = classNameIndex.findIndex(id => id === event.id);
                 var color;
                 if (courseIndex >= 0) {
@@ -184,8 +181,9 @@ function seeNewSchedule(scheduleHTML) {
                     classNameIndex.push(event.id);
                     color = 'style="position: absolute; top:' + yval + '; background-color:' + colors[classNameIndex.length - 1] + ';"';
                 }
+		   /* var newid =' "'+event.id+'"';*/
 
-                html += '\t\t\t<div ' + color + ' class="largeClass">' + event.id + '</div>\n';
+                html += '\t\t\t<div ' + color + ' class="largeClass JPO_open" id="div'+event.id + '" onclick="callPopup(&quot;'+event.id+'&quot;)">' + event.id + '</div>\n';
 
             });
             html += '\t</div>\n';
@@ -197,6 +195,32 @@ function seeNewSchedule(scheduleHTML) {
         var commitdiv = document.getElementById("upclosediv");
         commitdiv.innerHTML = html;
         /*console.log(commitdiv.innerHTML);*/
+    }
+
+    $(document).ready(function () {
+        // Initialize the plugin
+        $('#JPO').popup();
+
+        // Set default `pagecontainer` for all popups (optional, but recommended for screen readers and iOS*)
+        $.fn.popup.defaults.pagecontainer = '#page'
+    });
+
+    function callPopup(eventid){
+        console.log(this);
+        /*console.log(divEvent);*/
+	var classObject = "";
+	for (var counter = 0; counter < this.schedule.classes.length; counter++){
+		console.log(schedule.classes[counter].id+"    "+eventid);
+		if (schedule.classes[counter].id  == eventid){
+			classObject = schedule.classes[counter];
+		}
+	}
+        console.log("popup");
+        var popup = document.getElementById("content");
+        /*$(popup).popup(); */
+        console.log(popup.innerHTML);
+	popup.innerHTML = '<h3>'+classObject.title+'</h3><h6>Units: '+classObject.units+'</h6>';
+	  
     }
 
     function createHTML() {
@@ -426,4 +450,5 @@ function seeNewSchedule(scheduleHTML) {
         else {
         }
     }
+
 
