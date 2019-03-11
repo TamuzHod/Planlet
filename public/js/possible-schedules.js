@@ -64,7 +64,7 @@ $(document).ready(function () {
             link = '/userInfo/' + $("#emailInput").text() + "/" + data.majorName + '/' + data.minorName + '/' + data.collegeName;
             $("#toSettings").attr("href", link);
 
-
+            data = data.classes;
             for(var i=0;i<data.length;i++){
                 classesObject[data[i].id] = data[i];
             }
