@@ -82,7 +82,6 @@ $(document).ready(function () {
         if (window.location.href.includes("possibleSchedulesB")) {
             danceLoop(schedules.length, 0);
         }
-    }
 
     });
 });
