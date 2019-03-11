@@ -60,7 +60,7 @@ nav {
     background-color: #f5f5f5; }
 
 /*
-*	Hero unit + Sub hero
+* Hero unit + Sub hero
 */
 .jumbotron {
   padding: 5px;
@@ -98,8 +98,8 @@ nav {
 .content {
   /*
   h1 {
-  	margin-bottom: 20px;
-  	margin-top: 0;
+    margin-bottom: 20px;
+    margin-top: 0;
   }
   */ }
   .content .row {
@@ -519,7 +519,7 @@ iframe {
   margin-bottom: 40px; }
 
 /*
-*	Footer
+* Footer
 */
 footer {
 
@@ -846,15 +846,25 @@ form {
   color: #a2a2a2; }
 .blue img.green, .blue img.bw, .blue img.orange {
   display: none; }
-.blue .filters {
+/*.blue .filters {
   background-color: #F8F7F7; }
   .blue .filters a:hover {
     background: #029fe2;
     color: #fff; }
   .blue .filters .active-filter {
-    /*background: #d8f3ff; */
     background: #029fe2;
-    color: #fff;}
+    color: #fff;} */
+    a.filters{
+      background-color:#F8F7F7 ;
+    }
+    a.active-filter{
+      background: #029fe2;
+      color: #fff; 
+    }
+    a.active-filter{
+      background: #029fe2;
+      color: #fff;
+    }
 
 /*
 * // end blue styles
