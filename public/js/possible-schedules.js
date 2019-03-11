@@ -7,7 +7,11 @@ var colors = ["Chocolate", "Peru", "Sienna", "Goldenrod", "Brown", "Maroon", "pi
 var classNameIndex = [];
 
 $(window).on('beforeunload', function () {
-    $.postJSON('/saveNotIndexed/schedules/' + $("#emailInput").text(), {classesObject, schedules}, function (result) {
+    var starStatus = [];
+    for(var i=0;i<schedules.length;i++){
+        starStatus.push(schedules[i].starred)
+    }
+    $.postJSON('/saveNotIndexed/schedules/' + $("#emailInput").text(), starStatus, function (result) {
         console.log('result', result);
     });
 });
@@ -54,7 +58,7 @@ var subset4 = [];
 var subset5 = [];
 $(document).ready(function () {
     $.getJSON('/getSelectedClasses/' + $("#emailInput").text(), function (data) {
-        if (data.majorName) {
+        if (!data.majorName) {
             var link = '/classes/' + $("#emailInput").text() + "/" + data.majorName + '/' + data.minorName + '/' + data.collegeName;
             $("#backToClasses").attr("href", link);
             link = '/userInfo/' + $("#emailInput").text() + "/" + data.majorName + '/' + data.minorName + '/' + data.collegeName;
