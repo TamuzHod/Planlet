@@ -96,52 +96,21 @@ function danceLoop(i, j) {
 
 function seeNewSchedule(scheduleHTML) {
 
-    //ga("send", "event", "lookedAtSchedule", "action");
-
-        /*var dp = new DayPilot.Calendar("DP");
-        dp.viewType = "Days";
-        dp.days = 5; */
         currentScheduleIndex = scheduleHTML.id;
         schedule = schedules[currentScheduleIndex];
-        /*dp.theme = "calendar_green";
-        dp.businessBeginsHour = 7;
-        dp.businessEndsHour = 20;
-            // view
-            dp.startDate = "2019-02-11";  // or just dp.startDate = "2013-03-25";
-            dp.headerDateFormat = "dddd";
-            dp.showNonBusiness = false;
-            dp.init();
-    
-            $.each(schedule.events, function(index, day) {
-                $.each(day, function(index, event) {
-                    var e = new DayPilot.Event({
-                        start: dp.startDate.value.substring(0,9) + (1+getDay(event.day)) + "T" + event.start + ":00",
-                        end: dp.startDate.value.substring(0,9) + (1+getDay(event.day)) + "T" + event.end + ":00",
-                        id: event.id,
-                        text: schedule.classes[event.index].title,
-    
-                    });
-                    dp.events.add(e);
-                });
-            });
-            dp.update(); */
 
-        var schedulesdiv = document.getElementById('possSchedules');
-        $(schedulesdiv).hide();
+        $('#possSchedules').hide();
 
-
-        var element = document.getElementById("starButt");
         if (schedules[currentScheduleIndex].starred)
-            $(element).addClass('starred');
+            $('#starButt').addClass('starred');
         else
-            $(element).removeClass('starred');
+            $('#starButt').removeClass('starred');
 
-        var commitdiv = document.getElementById('commSchedule');
-        var commitheight = window.screen.height * .70;
-        $(commitdiv).css("height", commitheight + "px");
+        var commitHeight = window.screen.height * .70;
+        $('#commSchedule').css("height", commitHeight + "px");
         createLargeSchedule(schedule);
 
-        $(commitdiv).show();
+        $('#commSchedule').show();
 
     }
 
@@ -392,32 +361,20 @@ function seeNewSchedule(scheduleHTML) {
         return result;
     }
 
-
-
-
-
     function starSchedule(e) {
-        var element = document.getElementById("starButt");
         /*if schedule has class starred --> toggle color of star*/
-        if (!window.location.href.includes("possibleSchedulesB")) {
-            if (e.id != "starButt") {
-                currentScheduleIndex = e.parentElement.parentElement.id;
-                var element2 = document.getElementById('star' + currentScheduleIndex);
-                $(element2.children[0]).toggleClass('starred');
+        if (e.id != "starButt") {
+            currentScheduleIndex = e.parentElement.parentElement.id;
+            var element2 = document.getElementById('star' + currentScheduleIndex);
+            $(element2.children[0]).toggleClass('starred');
 
-            }
-            else {
-                var element2 = document.getElementById('star' + currentScheduleIndex);
-                $(element).toggleClass('starred');
-                $(element2.children[0]).toggleClass('starred');
-
-            }
         }
         else {
-            $(element).toggleClass('starred');
+            var element2 = document.getElementById('star' + currentScheduleIndex);
+            $('#starButt').toggleClass('starred');
+            $(element2.children[0]).toggleClass('starred');
+
         }
-
-
 
         schedules[currentScheduleIndex].starred = !schedules[currentScheduleIndex].starred;
 
