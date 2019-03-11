@@ -131,7 +131,7 @@ function seeNewSchedule(scheduleHTML) {
 
         html += '<div style="width: 11%" class="largeCondDay">'
         for (var x = 8; x < 23; x++) {
-            yval = 90+ (((x - 8) * 60)) * commitheight;
+            yval = 95+ (((x - 8) * 60)) * commitheight;
             html += '<p style="position: absolute; top:' + yval + 'px; font-size: 10px;">' + x + ':00</p>';
         }
         html += '</div>'
