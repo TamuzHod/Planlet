@@ -4,6 +4,8 @@
       "id": "COGS 1",
       "tags": "morning",
       "title": "Introduction to CogSci",
+      "prof": "Boyle, Mary",
+      "rating": "3.5",
       "units": "4",
       "times": [
         {
@@ -27,6 +29,8 @@
       "id": "COGS 14B",
       "tags": "morning",
       "title": "Intro to Statistical Analysis",
+      "prof": "Hoffman, Drew Ellen",
+      "rating": "4.1",
       "units": "4",
       "times": [
         {
@@ -55,6 +59,8 @@
       "id": "COGS 100",
       "tags": "morning",
       "title": "Cyborgs Now and In the Future",
+      "prof": "Scott, Taylor Jackson",
+      "rating": "5.0",
       "units": "4",
       "times": [
         {
@@ -73,6 +79,8 @@
       "id": "COGS 101A",
       "tags": "morning",
       "title": "Sensation and Perception",
+      "prof": "Staff",
+      "rating": "",
       "units": "4",
       "times": [
         {
@@ -101,6 +109,8 @@
       "id": "COGS 101B",
       "tags": "afternoon",
       "title": "Learning, Memory, and Attention",
+      "prof": "Hoffman, Drew Ellen",
+      "rating": "4.1",
       "units": "4",
       "times": [
         {
@@ -129,6 +139,8 @@
       "id": "COGS 101C",
       "tags": "afternoon",
       "title": "Language",
+      "prof": "Staff",
+      "rating": "",
       "units": "4",
       "times": [
         {
@@ -152,6 +164,8 @@
       "id": "COGS 120",
       "tags": "afternoon",
       "title": "Interaction Design",
+      "prof": "Guo, Philip J",
+      "rating": "4.5",
       "units": "5",
       "times": [
         {
@@ -170,6 +184,8 @@
       "id": "COGS 121",
       "tags": "afternoon",
       "title": "HCI Program Study",
+      "prof": "Guo, Philip J",
+      "rating": "4.5",
       "units": "4",
       "times": [
         {
@@ -190,6 +206,8 @@
       "id": "LIGN 8",
       "tags": "morning",
       "title": "Sign Languages & Their Cultures",
+      "prof": "McIntosh, Justin Daniel",
+      "rating": "2.0",
       "units": "4",
       "times": [
         {
@@ -213,6 +231,8 @@
       "id": "LIGN 101",
       "tags": "afternoon",
       "title": "Introduction to the Study of Language",
+      "prof": "Styler, William Francis",
+      "rating": "5.0",
       "units": "4",
       "times": [
         {
@@ -231,6 +251,8 @@
       "id": "LIGN 130",
       "tags": "afternoon",
       "title": "Semantics",
+      "prof": "Caponigro, Ivano",
+      "rating": "4.6",
       "units": "4",
       "times": [
         {
@@ -249,6 +271,8 @@
       "id": "LIGN 148",
       "tags": "morning",
       "title": "Psycholinguistics of Sign Language",
+      "prof": "Mayberry, Rachel ",
+      "rating": "2.7",
       "units": "4",
       "times": [
         {
@@ -269,6 +293,8 @@
       "id": "CSE 12",
       "tags": "afternoon",
       "title": "Basic Data Structures and Object-Oriented Design",
+      "prof": "Gillespie, Gary N",
+      "rating": "3.2",
       "units": "4",
       "times": [
         {
@@ -287,6 +313,8 @@
       "id": "CSE 15L",
       "tags": "morning",
       "title": "Software Tools & Techniques Lab",
+      "prof": "Altintas De Callaf, Ilkay",
+      "rating": "3.5",
       "units": "2",
       "times": [
         {
@@ -310,6 +338,8 @@
       "id": "CSE 20",
       "tags": "morning",
       "title": "Discrete Mathematics",
+      "prof": "Politz, Joseph Gibbs",
+      "rating": "4.8",
       "units": "4",
       "times": [
         {
@@ -333,6 +363,8 @@
       "id": "CSE 30",
       "tags": "morning",
       "title": "Computer Organization and Systems Programming",
+      "prof": "Ord, Richard",
+      "rating": "4.3",
       "units": "4",
       "times": [
         {
@@ -359,6 +391,8 @@
       "id": "WCWP 10A",
       "tags": "morning",
       "title": "The Writing Course A",
+      "prof": "Gagnon, Jeffrey C",
+      "rating": "4.5",
       "units": "4",
       "times": [
         {
@@ -377,6 +411,8 @@
       "id": "WCWP 10B",
       "tags": "afternoon",
       "title": "The Writing Course B",
+      "prof": "Gagnon, Jeffrey C",
+      "rating": "4.5",
       "units": "4",
       "times": [
         {
@@ -395,6 +431,8 @@
       "id": "Phil 27",
       "tags": "morning",
       "title": "Ethics and Society I",
+      "prof": "Lamey, Andy M. ",
+      "rating": "4.5",
       "units": "4",
       "times": [
         {
@@ -413,6 +451,8 @@
       "id": "Phil 28",
       "tags": "afternoon",
       "title": "Ethics and Society II",
+      "prof": "Lamey, Andy M. ",
+      "rating": "4.5",
       "units": "4",
       "times": [
         {
@@ -438,6 +478,8 @@
       "id": "HUM 2",
       "tags": "afternoon",
       "title": "Rome,Christianity & Middle Ages",
+      "prof": "Markman, Kristina",
+      "rating": "5.0",
       "units": "6",
       "times": [
         {
@@ -466,6 +508,8 @@
       "id": "HUM 5",
       "tags": "morning",
       "title": "Modern Culture (1848-Present)",
+      "prof": "Lyon, Antony J",
+      "rating": "4.3",
       "units": "6",
       "times": [
         {
