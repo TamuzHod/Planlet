@@ -58,35 +58,32 @@ var subset4 = [];
 var subset5 = [];
 $(document).ready(function () {
     $.getJSON('/getSelectedClasses/' + $("#emailInput").text(), function (data) {
-        if (!data.majorName) {
-            var link = '/classes/' + $("#emailInput").text() + "/" + data.majorName + '/' + data.minorName + '/' + data.collegeName;
-            $("#backToClasses").attr("href", link);
-            link = '/userInfo/' + $("#emailInput").text() + "/" + data.majorName + '/' + data.minorName + '/' + data.collegeName;
-            $("#toSettings").attr("href", link);
+        
+        var link = '/classes/' + $("#emailInput").text() + "/" + data.majorName + '/' + data.minorName + '/' + data.collegeName;
+        $("#backToClasses").attr("href", link);
+        link = '/userInfo/' + $("#emailInput").text() + "/" + data.majorName + '/' + data.minorName + '/' + data.collegeName;
+        $("#toSettings").attr("href", link);
 
 
-            data = data.classes;
-            for(var i=0;i<data.length;i++){
-                classesObject[data[i].id] = data[i];
-            }
-
-            getSubsetsofSizeK(data, 3, subset3);
-            getSubsetsofSizeK(data, 4, subset4);
-            getSubsetsofSizeK(data, 5, subset5);
-            createSchedule(subset3, schedules);
-            createSchedule(subset4, schedules);
-            createSchedule(subset5, schedules);
-
-            createHTML(schedules);
-
-            if (window.location.href.includes("possibleSchedulesB")) {
-                danceLoop(schedules.length, 0);
-            }
+        var classes = data.classes;
+        for(var i=0;i<classes.length;i++){
+            classesObject[classes[i].id] = classes[i];
         }
-        else {
-            schedules = data;
-            createHTML(schedules);
+
+        getSubsetsofSizeK(classes, 3, subset3);
+        getSubsetsofSizeK(classes, 4, subset4);
+        getSubsetsofSizeK(classes, 5, subset5);
+        createSchedule(subset3, schedules);
+        createSchedule(subset4, schedules);
+        createSchedule(subset5, schedules);
+
+        createHTML(schedules);
+
+        if (window.location.href.includes("possibleSchedulesB")) {
+            danceLoop(schedules.length, 0);
         }
+    }
+
     });
 });
 

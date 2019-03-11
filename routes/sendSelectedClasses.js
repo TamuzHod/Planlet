@@ -13,7 +13,7 @@ exports.send = async function(req, res){
 	var starredStatus = await  datastore.get(taskKey);
 	starredStatus = starredStatus[0];
 
-	if(schedules){
+	if(starredStatus){
 		content.starredStatus = starredStatus;
 		res.json(content);
 	}else{
