@@ -4,9 +4,14 @@ const kind = 'user';
 
 exports.saveNotIndexed = async function(req, res){
    try {
-      var data = req.body;
-      data.excludeFromIndexes = true,
-      await insertData(data, datastore.key([req.params.kind, req.params.id]));
+      var fileds =  Object.keys(req.body);
+
+      var entity = {
+         key: datastore.key([req.params.kind, req.params.id]),
+         data: req.body,
+         excludeFromIndexes: fileds
+      };
+      await insertData(entity);
       var response = {
          succses: true,
          error: 'Sucssess',
@@ -42,6 +47,13 @@ exports.save = async function(req, res){
       }
      res.json(response);
   }
+}
+
+
+function insertData(entity) {
+   console.log("saved ");
+   console.log(entity.key);
+   return datastore.save(entity);
 }
 
 function insertData(data, key) {
