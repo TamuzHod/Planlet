@@ -10,11 +10,12 @@ exports.send = async function(req, res){
 
 
 	var taskKey = datastore.key(['schedules', email]);
-	var schedules = await  datastore.get(taskKey);
-	schedules = schedules[0];
+	var starredStatus = await  datastore.get(taskKey);
+	starredStatus = starredStatus[0];
 
 	if(schedules){
-		res.json(schedules);
+		content.starredStatus = starredStatus;
+		res.json(content);
 	}else{
 		taskKey = datastore.key(['selectedClasses',email]);
 		var content = await  datastore.get(taskKey);
