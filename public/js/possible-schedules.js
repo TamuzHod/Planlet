@@ -184,9 +184,9 @@ function seeNewSchedule(scheduleHTML) {
         /*console.log(divEvent);*/
 	var classObject = "";
 	for (var counter = 0; counter < this.schedule.classes.length; counter++){
-		console.log(schedule.classes[counter].id+"    "+eventid);
-		if (schedule.classes[counter].id  == eventid){
-			classObject = schedule.classes[counter];
+		console.log(schedule.classes[counter]+"    "+eventid);
+		if (schedule.classes[counter]  == eventid){
+			classObject = classesObject[schedule.classes[counter]];
 		}
 	}
         console.log("popup");
