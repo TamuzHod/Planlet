@@ -107,6 +107,9 @@ function generate() {
     if (n < 3) {
         alert("Please select at least 3 classes.")
     }
+    if (n > 12) {
+        alert("Please select less then 13 classes.")
+    }
     else {
         var selectedClasses = {classes : []};
         $('.courseCheckMajor').each(function (i, obj) {

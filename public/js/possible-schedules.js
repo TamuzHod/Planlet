@@ -1,16 +1,17 @@
 
 var schedules = [];
 var currentScheduleIndex;
+var classesObject = {};
 
 var colors = ["Chocolate", "Peru", "Sienna", "Goldenrod", "Brown", "Maroon", "pink", "orange", "violet", "Tomato", "DarkRed", "LightCoral"]
 var classNameIndex = [];
 
+$(window).on('beforeunload', function () {
+    $.postJSON('/save/schedules/' + $("#emailInput").text(), {classesObject, schedules}, function (result) {
+        console.log('result', result);
+    });
+});
 
-// $(window).on('beforeunload', function () {
-//     $.postJSON('/save/schedules/' + $("#emailInput").text(), schedules, function (result) {
-//         console.log('result', result);
-//     });
-// });
 
 $.postJSON = function (url, data, success, args) {
     args = $.extend({
@@ -61,6 +62,10 @@ $(document).ready(function () {
 
 
             data = data.classes;
+            for(var i=0;i<data.length;i++){
+                classesObject[data[i].id] = data[i];
+            }
+
             getSubsetsofSizeK(data, 3, subset3);
             getSubsetsofSizeK(data, 4, subset4);
             getSubsetsofSizeK(data, 5, subset5);
@@ -207,9 +212,9 @@ function seeNewSchedule(scheduleHTML) {
             }
             html += '<div id="' + index + '" onClick="seeNewSchedule(this)" class="schClick content type-' + timeday + ' type-' + schedule.numClasses;
             $.each(schedule.classes, function (index, course) {
-                html += ' type-' + course.id.replace(/\s/g, '');
-                if (uniqueClasses.indexOf(course.id) === -1) {
-                    uniqueClasses.push(course.id);
+                html += ' type-' + course.replace(/\s/g, '');
+                if (uniqueClasses.indexOf(course) === -1) {
+                    uniqueClasses.push(course);
                 }
             });
             if (window.location.href.includes("possibleSchedulesB"))
@@ -302,12 +307,14 @@ function seeNewSchedule(scheduleHTML) {
                     break;
                 }
             }
-
+            var classes = [];
+            for(var i=0; i<classSubset.length; i++)
+                classes.push(classSubset[i].id);
             schedule = {
                 morning: morningCounter > 0,
                 numClasses: classSubset.length,
                 starred: false,
-                classes: classSubset,
+                classes: classes,
                 events: events
             };
             if (!collision)
