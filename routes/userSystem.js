@@ -4,12 +4,10 @@ const kind = 'user';
 
 exports.saveNotIndexed = async function(req, res){
    try {
-      var fileds =  Object.keys(req.body);
-
       var entity = {
          key: datastore.key([req.params.kind, req.params.id]),
-         data: req.body,
-         excludeFromIndexes: fileds
+         data: JSON.stringify(req.body),
+         excludeFromIndexes: 'data'
       };
       await insertEntity(entity);
       var response = {
