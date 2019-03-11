@@ -17,8 +17,10 @@ exports.send = async function(req, res){
 	content = content[0];
 
 	if(schedules){
-		schedules = schedules[0];
-		res.json({content, JSON.parse(schedules)});
+		console.log(schedules);
+		schedules = JSON.parse(schedules[0]);
+		console.log(schedules);
+		res.json({content, schedules});
 	}else{
 		
 
