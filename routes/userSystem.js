@@ -11,7 +11,7 @@ exports.saveNotIndexed = async function(req, res){
          data: req.body,
          excludeFromIndexes: fileds
       };
-      await insertData(entity);
+      await insertEntity(entity);
       var response = {
          succses: true,
          error: 'Sucssess',
@@ -50,7 +50,7 @@ exports.save = async function(req, res){
 }
 
 
-function insertData(entity) {
+function insertEntity(entity) {
    console.log("saved ");
    console.log(entity.key);
    return datastore.save(entity);
