@@ -86,10 +86,7 @@ $(document).ready(function () {
 
 function weedOutBlockedTimes(schedules, blockedTimes) {
     for(var i=0; i<schedules.length; i++){
-        if(cheackBlockedTimes(schedules[i])){
-            schedules.splice(i, 1);
-            i--;
-        }
+        schedules[i].hide = cheackBlockedTimes(schedules[i])
     }
 }
 
@@ -226,6 +223,9 @@ function seeNewSchedule(scheduleHTML) {
         var daysAbbrev = ['M', 'T', 'W', 'T', 'F'];
         var uniqueClasses = [];
         $.each(schedules, function (index, schedule) {
+            if(schedule.hide){
+                return;
+            }
             var timeday = '';
             if (schedule.morning == true) {
                 timeday = 'morning';
@@ -338,7 +338,8 @@ function seeNewSchedule(scheduleHTML) {
                 numClasses: classSubset.length,
                 starred: false,
                 classes: classes,
-                events: events
+                events: events,
+                hide: false
             };
             if (!collision)
                 schedules.push(schedule);
