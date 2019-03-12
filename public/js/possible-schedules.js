@@ -67,7 +67,7 @@ $(document).ready(function () {
         link = '/userInfo/' + $("#emailInput").text() + "/" + data.majorName + '/' + data.minorName + '/' + data.collegeName;
         $("#toSettings").attr("href", link);
        
-        if(!incomingSchdules){
+        if(!incomingSchdules || incomingSchdules.length == 0){
             getSubsetsofSizeK(classes, 3, subset3);
             getSubsetsofSizeK(classes, 4, subset4);
             getSubsetsofSizeK(classes, 5, subset5);
