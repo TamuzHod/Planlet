@@ -132,6 +132,14 @@ th {
   background: white;
 }
 
+#JPO_background{
+    cursor:pointer;
+}
+
+#JPO_wrapper{
+    cursor: pointer;
+}
+
 
 #unitspan{
 
