@@ -154,7 +154,7 @@ function seeNewSchedule(scheduleHTML) {
 
         html += '<div style="width: 11%" class="largeCondDay">'
         for (var x = 8; x < 23; x++) {
-            yval = 30+ (((x - 8) * 60)) * commitheight;
+            yval = 55+ (((x - 8) * 60)) * commitheight;
             html += '<p style="position: absolute; top:' + yval + 'px; font-size: 10px;">' + x + ':00</p>';
         }
         html += '</div>'
@@ -163,7 +163,7 @@ function seeNewSchedule(scheduleHTML) {
 
         $.each(schedule.events, function (index, dayEvents) {
             html += '\t<div class="largeCondDay  id="' + days[index] + '">\n';
-            html += '\t\t<div style="position: absolute; top:40px; width: 15%;" class="dayTitle">' + daysAbbrev[index] + ' </div>\n';
+            html += '\t\t<div style="position: absolute; top:30px; width: 15%;" class="dayTitle">' + daysAbbrev[index] + ' </div>\n';
 
             $.each(dayEvents, function (index, event) {
                 var hour = parseInt(event.start.substring(0, 2));
