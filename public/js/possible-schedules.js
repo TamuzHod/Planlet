@@ -202,31 +202,26 @@ function seeNewSchedule(scheduleHTML) {
 
     function callPopup(eventid){
         console.log(this);
-	var classObject = "";
-	for (var counter = 0; counter < this.schedule.classes.length; counter++){
-		console.log(schedule.classes[counter]+"    "+eventid);
-		if (schedule.classes[counter]  == eventid){
-			classObject = classesObject[schedule.classes[counter]];
-		}
-	}
-        console.log("popup");
+	    var classObject = "";
+    	for (var counter = 0; counter < this.schedule.classes.length; counter++){
+		    if (schedule.classes[counter]  == eventid){
+		    	classObject = classesObject[schedule.classes[counter]];
+		    }
+	    }
         var popup = document.getElementById("content");
-        /*$(popup).popup(); */
-        console.log(popup.innerHTML);
-
         var newHTML = '';
-        newHTML += '<center>\n<h1>COGS 120 : Interaction Design\n</h1>\n</center>';
+        newHTML += '<center>\n<h1>'+classObject.id+' : '+classObject.title+'\n</h1>\n</center>';
         newHTML+= '<p>\n	<h4>\n	<span id="unitspan"><span class="titlespan">Units : </span>'+classObject.units+'</span><br> \n	<span class="titlespan" id="timetitle">Times : <span><br>';
         for (var i = 0; i < classObject.times.length; i++){
             newHTML+='<span class="timespan">'+classObject.times[i].day + ' : '+ classObject.times[i].start + ' - ' + classObject.times[i].end + '</span><br>';
         }
         newHTML+='<br>\n<span class="titlespan" id="profspan">Professor : ' + classObject.prof +'<span><br>\n';
-        newHTML+='<span class="titlespan">Rate My Prof : </span><a href="'+classObject.profLink+'" target="_blank">'+classObject.rating+'</a> \n';
+        if (classObject.profLink != ""){
+            newHTML+='<span class="titlespan">Rate My Prof : </span><a href="'+classObject.profLink+'" target="_blank">'+classObject.rating+'</a> \n';
+        }
         newHTML += '</h4>\n';
         newHTML +='</p>';
-
 	    popup.innerHTML = newHTML;
-	  
     }
 
     function createHTML() {
