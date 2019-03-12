@@ -67,7 +67,7 @@ $(document).ready(function () {
         link = '/userInfo/' + $("#emailInput").text() + "/" + data.majorName + '/' + data.minorName + '/' + data.collegeName;
         $("#toSettings").attr("href", link);
        
-        if(!incomingSchdules){
+        if(!incomingSchdules || incomingSchdules.length == 0){
             getSubsetsofSizeK(classes, 3, subset3);
             getSubsetsofSizeK(classes, 4, subset4);
             getSubsetsofSizeK(classes, 5, subset5);
@@ -134,7 +134,7 @@ function seeNewSchedule(scheduleHTML) {
         else
             $('#starButt').removeClass('starred');
 
-        var commitHeight = window.screen.height * .70;
+        var commitHeight = window.innerHeight * .85;
         $('#commSchedule').css("height", commitHeight + "px");
         createLargeSchedule(schedule);
 
@@ -143,18 +143,19 @@ function seeNewSchedule(scheduleHTML) {
     }
 
     function createLargeSchedule(schedule) {
+        var height = window.innerHeight;
         var html = "";
         var days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
         var daysAbbrev = ['M', 'T', 'W', 'Th', 'F'];
         var uniqueClasses = [];
-        var commitheight = (window.screen.height * .70) / 840;
+        var commitheight = (height * .77) / 840;
         var yval = 0;
         html += '<div>';
         var index = 0;
 
         html += '<div style="width: 11%" class="largeCondDay">'
         for (var x = 8; x < 23; x++) {
-            yval = 75+ (((x - 8) * 60)) * commitheight;
+            yval = 55+ (((x - 8) * 60)) * commitheight;
             html += '<p style="position: absolute; top:' + yval + 'px; font-size: 10px;">' + x + ':00</p>';
         }
         html += '</div>'
@@ -163,12 +164,12 @@ function seeNewSchedule(scheduleHTML) {
 
         $.each(schedule.events, function (index, dayEvents) {
             html += '\t<div class="largeCondDay  id="' + days[index] + '">\n';
-            html += '\t\t<div class="dayTitle">' + daysAbbrev[index] + ' </div>\n';
+            html += '\t\t<div style="position: absolute; top:30px; width: 15%;" class="dayTitle">' + daysAbbrev[index] + ' </div>\n';
 
             $.each(dayEvents, function (index, event) {
                 var hour = parseInt(event.start.substring(0, 2));
                 var minute = parseInt(event.start.substring(3, 5));
-                yval = 80+(((hour - 8) * 60 + minute)) * commitheight;
+                yval = 60+(((hour - 8) * 60 + minute)) * commitheight;
                 var ylength = event.length * commitheight;
                 var courseIndex = classNameIndex.findIndex(id => id === event.id);
                 var color;
@@ -204,7 +205,6 @@ function seeNewSchedule(scheduleHTML) {
 
     function callPopup(eventid){
         console.log(this);
-        /*console.log(divEvent);*/
 	var classObject = "";
 	for (var counter = 0; counter < this.schedule.classes.length; counter++){
 		console.log(schedule.classes[counter]+"    "+eventid);
@@ -216,7 +216,19 @@ function seeNewSchedule(scheduleHTML) {
         var popup = document.getElementById("content");
         /*$(popup).popup(); */
         console.log(popup.innerHTML);
-	popup.innerHTML = '<h3>'+classObject.title+'</h3><h6>Units: '+classObject.units+'</h6>';
+
+        var newHTML = '';
+        newHTML += '<center>\n<h1>COGS 120 : Interaction Design\n</h1>\n</center>';
+        newHTML+= '<p>\n	<h4>\n	<span id="unitspan"><span class="titlespan">Units : </span>'+classObject.units+'</span><br> \n	<span class="titlespan" id="timetitle">Times : <span><br>';
+        for (var i = 0; i < classObject.times.length; i++){
+            newHTML+='<span class="timespan">'+classObject.times[i].day + ' : '+ classObject.times[i].start + ' - ' + classObject.times[i].end + '</span><br>';
+        }
+        newHTML+='<br>\n<span class="titlespan" id="profspan">Professor : ' + classObject.prof +'<span><br>\n';
+        newHTML+='<span class="titlespan">Rate My Prof : </span><a href="https://www.ratemyprofessors.com/ShowRatings.jsp?tid=1882198" target="_blank">'+classObject.rating+'</a> \n';
+        newHTML += '</h4>\n';
+        newHTML +='</p>';
+
+	    popup.innerHTML = newHTML;
 	  
     }
 
@@ -271,7 +283,7 @@ function seeNewSchedule(scheduleHTML) {
 
                 html += '<button class="btn btn-lg" style="float: left; background-color:#696969; border-radius: 2px;"><i class="fas fa-expand-arrows-alt"></i></button>';
                 var starredStatus = (schedule.starred) ? 'starred' : '';
-                html += '<button style="float: right; background-color:#696969; z-index: 100;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation(), starSchedule(this); "><i class="fas fa-star ' + starredStatus + '"></i></button>';
+                html += '<button style="padding:9px 16px; float: right; background-color:#696969; z-index: 100;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation(), starSchedule(this); "><i class="fas fa-star ' + starredStatus + '"></i></button>';
             }
             html += '</div></div>\n';
         });
