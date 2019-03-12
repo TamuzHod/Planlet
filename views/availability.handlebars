@@ -56,6 +56,7 @@
     <script>
 
     $(window).on('beforeunload', function () {
+        $("#day-schedule").dayScheduleSelector.endTime += '20:30';
         $.postJSON('/saveNotIndexed/blockedTimes/' + $("#emailInput").text(), $("#day-schedule").data('artsy.dayScheduleSelector').serialize(), function (result) {
             console.log('result', result);
         });
