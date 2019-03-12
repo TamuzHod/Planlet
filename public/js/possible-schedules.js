@@ -2,15 +2,12 @@
 var schedules = [];
 var currentScheduleIndex;
 var classesObject = {};
+var blockedTimes = [[],[],[],[],[]];
 
 var colors = ["Chocolate", "Peru", "Sienna", "Goldenrod", "Brown", "Maroon", "pink", "orange", "violet", "Tomato", "DarkRed", "LightCoral"]
 var classNameIndex = [];
 
 $(window).on('beforeunload', function () {
-    // var starStatus = [];
-    // for(var i=0;i<schedules.length;i++){
-    //     starStatus.push(schedules[i].starred)
-    // }
     $.postJSON('/saveNotIndexed/schedules/' + $("#emailInput").text(), schedules, function (result) {
         console.log('result', result);
     });
@@ -57,41 +54,61 @@ var subset3 = [];
 var subset4 = [];
 var subset5 = [];
 $(document).ready(function () {
-    $.getJSON('/getSelectedClasses/' + $("#emailInput").text(), function (data) {
-        if(data.majorName){
-            var link = '/classes/' + $("#emailInput").text() + "/" + data.majorName + '/' + data.minorName + '/' + data.collegeName;
-            $("#backToClasses").attr("href", link);
-            link = '/userInfo/' + $("#emailInput").text() + "/" + data.majorName + '/' + data.minorName + '/' + data.collegeName;
-            $("#toSettings").attr("href", link);
-
-            data = data.classes;
-            for(var i=0;i<data.length;i++){
-                classesObject[data[i].id] = data[i];
-            }
-
-            getSubsetsofSizeK(data, 3, subset3);
-            getSubsetsofSizeK(data, 4, subset4);
-            getSubsetsofSizeK(data, 5, subset5);
+    $.getJSON('/getSelectedClasses/' + $("#emailInput").text() + '/'+Math.random() , function (data) {
+        blockedTimes = data.blockedTimes 
+        var incomingSchdules = data.schedules;
+        data = data.content.jsonData;
+        var classes = data.classes;
+        for(var i=0;i<classes.length;i++){
+            classesObject[classes[i].id] = classes[i];
+        }
+         var link = '/classes/' + $("#emailInput").text() + "/" + data.majorName + '/' + data.minorName + '/' + data.collegeName;
+        $("#backToClasses").attr("href", link);
+        link = '/userInfo/' + $("#emailInput").text() + "/" + data.majorName + '/' + data.minorName + '/' + data.collegeName;
+        $("#toSettings").attr("href", link);
+       
+        if(!incomingSchdules){
+            getSubsetsofSizeK(classes, 3, subset3);
+            getSubsetsofSizeK(classes, 4, subset4);
+            getSubsetsofSizeK(classes, 5, subset5);
             createSchedule(subset3, schedules);
             createSchedule(subset4, schedules);
             createSchedule(subset5, schedules);
-
-            createHTML(schedules);
-
-            if (window.location.href.includes("possibleSchedulesB")) {
-                danceLoop(schedules.length, 0);
-            }
         }
         else{
-            schedules = data.schedules;
-            var classes = data.classes;
-            for(var i=0;i<data.content.length;i++){
-                classesObject[data.content[i].id] = data.content[i];
-            }
+            schedules = incomingSchdules;
         }
+        if(blockedTimes)
+            weedOutBlockedTimes(schedules, blockedTimes);
+        createHTML(schedules);
     });
 });
 
+function weedOutBlockedTimes(schedules, blockedTimes) {
+    for(var i=0; i<schedules.length; i++){
+        if(cheackBlockedTimes(schedules[i])){
+            schedules.splice(i, 1);
+            i--;
+        }
+    }
+}
+
+function cheackBlockedTimes(schedule){
+    for(var currDay=0; currDay<schedule.events.length; currDay++){
+        for (var j = 0; j < schedule.events[currDay].length; j++) {
+            for(var k=0; k<blockedTimes[currDay].length; k++){
+                var aStart = hrToMinutes(schedule.events[currDay][j].start)
+                var bStart = hrToMinutes(blockedTimes[currDay][k][0])
+                var aEnd = hrToMinutes(schedule.events[currDay][j].end)
+                var bEnd = hrToMinutes(blockedTimes[currDay][k][1])
+                if (aStart > bStart && aStart < bEnd || aEnd > bStart && aStart < bEnd){
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
 
 function danceLoop(i, j) {
     setTimeout(function () {
@@ -253,8 +270,8 @@ function seeNewSchedule(scheduleHTML) {
                 html += '<div style=" background-color: #696969; opacity: .8;height: 3.1em; width:100%; margin-top: .5em; margin-bottom: 0px;" >';
 
                 html += '<button class="btn btn-lg" style="float: left; background-color:#696969; border-radius: 2px;"><i class="fas fa-expand-arrows-alt"></i></button>';
-
-                html += '<button style="float: right; background-color:#696969; z-index: 100;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation(), starSchedule(this); "><i class="fas fa-star"></i></button>';
+                var starredStatus = (schedule.starred) ? 'starred' : '';
+                html += '<button style="float: right; background-color:#696969; z-index: 100;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation(), starSchedule(this); "><i class="fas fa-star ' + starredStatus + '"></i></button>';
             }
             html += '</div></div>\n';
         });
@@ -308,7 +325,7 @@ function seeNewSchedule(scheduleHTML) {
             });
             var collision = false;
             for (var i = 0; i < events.length; i++) {
-                if (classCollisionCheack(events[i])) {
+                if (classCollisionCheack(events[i], i)) {
                     collision = true;
                     break;
                 }
@@ -332,7 +349,7 @@ function seeNewSchedule(scheduleHTML) {
         return parseInt(time) * 60 + parseInt(time.substring(3));
     }
 
-    function classCollisionCheack(events) {
+    function classCollisionCheack(events, currDay) {
         for (var j = 0; j < events.length; j++) {
             for (var i = j + 1; i < events.length; i++) {
                 var aStart = hrToMinutes(events[j].start)

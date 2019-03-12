@@ -167,7 +167,7 @@ function update(e) {
 
 function checkLength() {
 	if (currFilters.includes('all')) {
-		if (contentLength = $('.type-all', $('.filter-all')).length == 0) {
+		if ($('.filter-all')[0].childElementCount == 0) {
 			$('.outerdiv').remove()
 			$('<div class="outerdiv"><br><div style="text-align: center; font-size: 12px"><b><p style="font-size: 16px;">No schedules due to conflicts.</p></b>Select more classes!<br><br><i style="font-size: 50px; " class="fas fa-sad-tear"></i></div></div>').appendTo($('.filter-all'));
 		}
