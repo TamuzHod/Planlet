@@ -134,7 +134,7 @@ function seeNewSchedule(scheduleHTML) {
         else
             $('#starButt').removeClass('starred');
 
-        var commitHeight = window.screen.height * .70;
+        var commitHeight = window.innerHeight * .85;
         $('#commSchedule').css("height", commitHeight + "px");
         createLargeSchedule(schedule);
 
@@ -143,11 +143,12 @@ function seeNewSchedule(scheduleHTML) {
     }
 
     function createLargeSchedule(schedule) {
+        var height = window.innerHeight;
         var html = "";
         var days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
         var daysAbbrev = ['M', 'T', 'W', 'Th', 'F'];
         var uniqueClasses = [];
-        var commitheight = (window.screen.height * .70) / 840;
+        var commitheight = (height * .77) / 840;
         var yval = 0;
         html += '<div>';
         var index = 0;
