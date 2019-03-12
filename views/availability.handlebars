@@ -14,12 +14,14 @@
 
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet'
         type='text/css'>
-    <link href="favicon.ico" rel="shortcut icon" type="/image/x-icon" />
-
+    <link href="/favicon.ico" rel="shortcut icon" type="/image/x-icon" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="/js/bootstrap.min.js"></script>
 
     <script src="/js/respond.min.js"></script>
+    <link rel="stylesheet" href="/css/planlet.css">
 
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="/js/bootstrap.js"></script>
@@ -42,48 +44,63 @@
 
 <body class="blue">
 
-    <div class="container" style="padding: 0px;">
-         <a href="/userinfo/{{email}}/{{majorName}}/{{minorName}}/{{collegeName}}"> <button  class="settings"> </button> </a>
+    <div class="container">
+        <button style="top: .5em;" class="btn" id="backButt" onclick="window.history.back()"><i class="fas fa-arrow-left"></i></button>
+        <br>
     </div> <!-- //end container -->
-
-    <div class="jumbotron">
-        <div class="container">
-            <h5>Select which times you will be unavailable.</h5>
-        </div>
-    </div> <!-- //end hero-unit -->
-
-
 
     <div id="weekly-schedule"></div>
 
     <div id="day-schedule"></div>
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/schedule.js"></script>
-    <script>
-        (function ($) {
-            $("#day-schedule").dayScheduleSelector({
-                days: [0, 1, 2, 3, 4],
-                startTime: '07:00',
-                endTime: '20:00',
-                interval: 30,
-                stringDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-            });
 
-        })($);
+    <script>
+
+    $(window).on('beforeunload', function () {
+        $.postJSON('/saveNotIndexed/blockedTimes/' + $("#emailInput").text(), $("#day-schedule").data('artsy.dayScheduleSelector').serialize(), function (result) {
+            console.log('result', result);
+        });
+    }); 
+
+    $.postJSON = function (url, data, success, args) {
+        args = $.extend({
+            url: url,
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: true,
+            success: success
+        }, args);
+        return $.ajax(args);
+    }; 
+    $( document ).ready(function() {  
+        var schedule = {
+            days: [0, 1, 2, 3, 4],
+            startTime: '07:00',
+            endTime: '20:00',
+            interval: 30,
+            stringDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+        };
+
+        $("#day-schedule").dayScheduleSelector(schedule);
+        $.getJSON('/getData/blockedTimes/' + $("#emailInput").text() + '/'+Math.random() , function (data) {
+            $("#day-schedule").data('artsy.dayScheduleSelector').deserialize(JSON.parse(data.data.data));
+        });
+    });
+    function clearData(){
+        $("#day-schedule").data('artsy.dayScheduleSelector').clear();
+    }
     </script>
     <br><br><br>
     <div style="display: flex; align-content:center;">
-    <button class="btn btn-small clear"  onclick="clearClick()">Clear Info</button></div>
+    <button class="btn btn-small clear"  onclick="clearData()">Clear Info</button></div>
     <br>
     <hr>
     <hr>
+    		<div style="visibility: hidden;" id="emailInput">{{email}}</div>
+
     <footer>
         <div class="footerdiv"></div>
-        <div class="container" style="width: 100%; padding: 0px;">
-            <a href="/alittleaboutyou"><button class="btn bckBtn" type="submit">Back</button></a>
-            <a href="/classes/{{email}}/{{majorName}}/{{minorName}}/{{collegeName}}"><button class="btn nxtBtn" type="submit">Next</button></a>
-        </div>
         <!--//end container -->
     </footer>
 

@@ -4,10 +4,5 @@
  */
 
 exports.view = function(req, res){
-	var major = req.params.major; 
-	var minor = req.params.minor; 
-	var college = req.params.college; 
-
- 	res.render('availability', {'majorName': major, 'minorName': minor, 'collegeName': college});
+ 	res.render('availability', {email: req.params.email});
 };
-

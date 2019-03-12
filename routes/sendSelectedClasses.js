@@ -16,17 +16,16 @@ exports.send = async function(req, res){
 	var content = await  datastore.get(taskKey);
 	content = content[0];
 
-	if(schedules){
-		console.log(schedules);
-		schedules = JSON.parse(schedules.data);
-		console.log(schedules);
-		res.json({content, schedules});
-	}else{
-		
+    taskKey = datastore.key(['blockedTimes',email]);
+	var blockedTimes = await  datastore.get(taskKey);
+	blockedTimes = blockedTimes[0];
 
-		console.log(content);
-		res.json(content.jsonData);        
-	}
+
+	if(schedules)
+		schedules = JSON.parse(schedules.data);
+    if(blockedTimes)
+        blockedTimes = JSON.parse(blockedTimes.data);
+	res.json({content, schedules, blockedTimes});
 
 
 

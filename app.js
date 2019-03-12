@@ -50,7 +50,7 @@ app.get('/', index.view);
 app.get('/alittleaboutyou/:email', alittleaboutyou.view);
 app.get('/forgottenPassword', forgottenPassword.view);
 app.get('/classes/:email/:major/:minor/:college', classes.view);
-app.get('/availability/:email/:major/:minor/:college', availability.view);
+app.get('/availability/:email', availability.view);
 app.get('/userinfo/:email/:major/:minor/:college', userinfo.view);
 app.get('/possibleSchedules/:email', possibleSchedules.view);
 app.post('/logIn', userSystem.logIn);
@@ -58,13 +58,14 @@ app.post('/register', userSystem.register);
 app.post('/update', userSystem.update);
 app.post('/save/:kind/:id', userSystem.save);
 app.post('/saveNotIndexed/:kind/:id', userSystem.saveNotIndexed);
+app.get('/getData/:kind/:id/:random', userSystem.getData);
 
 
 app.locals.slectedClassesJson;
 
 app.post('/selectedClasses/:email', selectedClasses.view);
 
-app.get('/getSelectedClasses/:email', sendSelectedClasses.send);
+app.get('/getSelectedClasses/:email/:random', sendSelectedClasses.send);
 
 var jsonClassesData = require('./classes.json');
 app.get('/classes', (req, res) => {

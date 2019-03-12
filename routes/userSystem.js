@@ -2,14 +2,17 @@ var programs = require('../programs.json');
 const kind = 'user';
 
 
+exports.getData = async function(req, res){
+    var taskKey = datastore.key([req.params.kind, req.params.id]);
+	var data = await  datastore.get(taskKey);
+	data = data[0];
+	res.json({data});
+}
+
 exports.saveNotIndexed = async function(req, res){
    try {
-      var entity = {
-         key: datastore.key([req.params.kind, req.params.id]),
-         data: JSON.stringify(req.body),
-         excludeFromIndexes: 'data'
-      };
-      await insertEntity(entity);
+
+      await insertUnindexedData({data: JSON.stringify(req.body)}, ['data'], datastore.key([req.params.kind, req.params.id]));
       var response = {
          succses: true,
          error: 'Sucssess',
@@ -48,10 +51,14 @@ exports.save = async function(req, res){
 }
 
 
-function insertEntity(entity) {
+function insertUnindexedData(data, fileds, key) {
    console.log("saved ");
-   console.log(entity.key);
-   return datastore.save(entity);
+   console.log(key);
+   return datastore.save({
+      key: key,
+      data: data,
+      excludeFromIndexes: fileds,
+   });
 }
 
 function insertData(data, key) {

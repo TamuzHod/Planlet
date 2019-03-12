@@ -221,6 +221,22 @@
     })
   }
 
+   /**
+   * Clear the selections
+   * @public
+   */
+  DayScheduleSelector.prototype.clear = function () {
+    var plugin = this
+
+    $.each(this.options.days, function (_, v) {
+      plugin.$el.find(".time-slot[data-day='" + v + "']").each(function () {
+        if (isSlotSelected($(this))) {
+        plugin.deselect($(this));       
+        }
+      });
+    })
+  };
+
   $.fn.dayScheduleSelector = Plugin;
 
   /**
