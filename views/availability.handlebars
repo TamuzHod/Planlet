@@ -48,6 +48,13 @@
         <button style="top: .5em;" class="btn" id="backButt" onclick="window.history.back()"><i class="fas fa-arrow-left"></i></button>
         <br>
     </div> <!-- //end container -->
+    <br>
+    <div class="jumbotron">
+        <div class="container">
+            <h6 style="float: left;">Select when you're unavailable.</h6>
+            <button style="position: relative; top: 5px;" class="btn btn-small clear" id="clearBtn" onclick="clearData()">Clear Info</button>
+        </div>
+    </div>
 
     <div id="weekly-schedule"></div>
 
@@ -77,8 +84,8 @@
     $( document ).ready(function() {  
         var schedule = {
             days: [0, 1, 2, 3, 4],
-            startTime: '07:00',
-            endTime: '20:00',
+            startTime: '08:00',
+            endTime: '22:00',
             interval: 30,
             stringDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
         };
@@ -93,12 +100,13 @@
         $("#day-schedule").data('artsy.dayScheduleSelector').clear();
     }
     </script>
-    <br><br><br>
+    <br><br>
+    <!--
     <div style="display: flex; align-content:center;">
     <button class="btn btn-small clear"  onclick="clearData()">Clear Info</button></div>
     <br>
     <hr>
-    <hr>
+    <hr>-->
     		<div style="visibility: hidden;" id="emailInput">{{email}}</div>
 
     <footer>
