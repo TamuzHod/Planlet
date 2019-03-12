@@ -224,7 +224,7 @@ function seeNewSchedule(scheduleHTML) {
             newHTML+='<span class="timespan">'+classObject.times[i].day + ' : '+ classObject.times[i].start + ' - ' + classObject.times[i].end + '</span><br>';
         }
         newHTML+='<br>\n<span class="titlespan" id="profspan">Professor : ' + classObject.prof +'<span><br>\n';
-        newHTML+='<span class="titlespan">Rate My Prof : </span><a href="https://www.ratemyprofessors.com/ShowRatings.jsp?tid=1882198" target="_blank">'+classObject.rating+'</a> \n';
+        newHTML+='<span class="titlespan">Rate My Prof : </span><a href="'+classObject.profLink+'" target="_blank">'+classObject.rating+'</a> \n';
         newHTML += '</h4>\n';
         newHTML +='</p>';
 
