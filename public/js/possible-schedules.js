@@ -281,7 +281,7 @@ function seeNewSchedule(scheduleHTML) {
             if (!window.location.href.includes("possibleSchedulesB")) {
                 html += '<div style=" background-color: #696969; opacity: .8;height: 3.1em; width:100%; margin-top: .5em; margin-bottom: 0px;" >';
 
-                html += '<button class="btn btn-lg" style="float: left; background-color:#696969; border-radius: 2px;"><i class="fas fa-expand-arrows-alt"></i></button>';
+                html += '<button class="btn btn-lg" style="style="padding:9px 16px; float: left; background-color:#696969; border-radius: 2px;"><i class="fas fa-expand-arrows-alt"></i></button>';
                 var starredStatus = (schedule.starred) ? 'starred' : '';
                 html += '<button style="padding:9px 16px; float: right; background-color:#696969; z-index: 100;border-radius: 2px; " id="star' + index + '"  class="btn btn-lg possStar"	onclick="event.stopPropagation(), starSchedule(this); "><i class="fas fa-star ' + starredStatus + '"></i></button>';
             }
