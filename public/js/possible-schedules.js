@@ -216,7 +216,7 @@ function seeNewSchedule(scheduleHTML) {
         }
         newHTML+='<br>\n<span class="titlespan" id="profspan"><u>Professor</u>:  ' + classObject.prof +'<span><br>\n';
         if (classObject.profLink != ""){
-            newHTML+='<span class="titlespan"><br><u>Rate My Prof</u>:  </span><a href="'+classObject.profLink+'" target="_blank">'+classObject.rating+'</a> \n';
+            newHTML+='<span class="titlespan"><br><u>Rate My Prof</u>:  </span><a style="text-decoration: none;" href="'+classObject.profLink+'" target="_blank">'+classObject.rating+'</a> \n';
         }
         newHTML += '</h5>\n';
         newHTML +='</p>';
