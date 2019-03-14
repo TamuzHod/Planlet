@@ -201,7 +201,6 @@ function seeNewSchedule(scheduleHTML) {
     });
 
     function callPopup(eventid){
-        console.log(this);
 	    var classObject = "";
     	for (var counter = 0; counter < this.schedule.classes.length; counter++){
 		    if (schedule.classes[counter]  == eventid){

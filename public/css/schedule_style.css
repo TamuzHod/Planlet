@@ -127,7 +127,7 @@ th {
 .popup_content {
   margin: 10px;
   padding: 0 10px;
-  max-width: 70%;
+  width: 70%;
   border: 2px solid #444;
   background: white;
 }
@@ -138,21 +138,4 @@ th {
 
 #JPO_wrapper{
     cursor: pointer;
-}
-
-
-#unitspan{
-
-}
-.titlespan{
-
-}
-#timetitle{
-
-}
-.timespan{
-
-}
-#profspan{
-    
 }
