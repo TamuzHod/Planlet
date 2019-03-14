@@ -210,16 +210,16 @@ function seeNewSchedule(scheduleHTML) {
 	    }
         var popup = document.getElementById("content");
         var newHTML = '';
-        newHTML += '<center>\n<h1>'+classObject.id+' : '+classObject.title+'\n</h1>\n</center>';
-        newHTML+= '<p>\n	<h4>\n	<span id="unitspan"><span class="titlespan">Units : </span>'+classObject.units+'</span><br> \n	<span class="titlespan" id="timetitle">Times : <span><br>';
+        newHTML += '<center>\n<h5 style="margin-bottom: 0em;">'+classObject.id+'</h5><h4  style="margin-top: .2em; margin-bottom: 1em;">'+classObject.title+'\n</h4>\n</center>';
+        newHTML+= '<p>\n	<h5>\n	<span id="unitspan"><span class="titlespan"><u>Units</u>:  </span>'+classObject.units+'</span><br> \n<span class="titlespan" id="timetitle"><br><u>Times</u>:  <span><br>';
         for (var i = 0; i < classObject.times.length; i++){
-            newHTML+='<span class="timespan">'+classObject.times[i].day + ' : '+ classObject.times[i].start + ' - ' + classObject.times[i].end + '</span><br>';
+            newHTML+='<span class="timespan">'+classObject.times[i].day + ':  '+ classObject.times[i].start + ' - ' + classObject.times[i].end + '</span><br>';
         }
-        newHTML+='<br>\n<span class="titlespan" id="profspan">Professor : ' + classObject.prof +'<span><br>\n';
+        newHTML+='<br>\n<span class="titlespan" id="profspan"><u>Professor</u>:  ' + classObject.prof +'<span><br>\n';
         if (classObject.profLink != ""){
-            newHTML+='<span class="titlespan">Rate My Prof : </span><a href="'+classObject.profLink+'" target="_blank">'+classObject.rating+'</a> \n';
+            newHTML+='<span class="titlespan"><br><u>Rate My Prof</u>:  </span><a href="'+classObject.profLink+'" target="_blank">'+classObject.rating+'</a> \n';
         }
-        newHTML += '</h4>\n';
+        newHTML += '</h5>\n';
         newHTML +='</p>';
 	    popup.innerHTML = newHTML;
     }
