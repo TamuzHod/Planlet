@@ -92,8 +92,9 @@
 
         $("#day-schedule").dayScheduleSelector(schedule);
         $.getJSON('/getData/blockedTimes/' + $("#emailInput").text() + '/'+Math.random() , function (data) {
-            $("#day-schedule").data('artsy.dayScheduleSelector').deserialize(JSON.parse(data.data.data));
-            $("#day-schedule").dayScheduleSelector.endTime += '20:00';
+            if(data.data)
+                $("#day-schedule").data('artsy.dayScheduleSelector').deserialize(JSON.parse(data.data.data));
+            //$("#day-schedule").dayScheduleSelector.endTime += '20:00';
         });
     });
     function clearData(){
