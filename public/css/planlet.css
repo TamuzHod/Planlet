@@ -71,6 +71,12 @@ body{
 	padding: 0em; position: fixed; left:.5em; z-index: 5; top: .2em; font-size: 30px; background: none; color: #029fe2;
 }
 
+#switchtosignup{
+	background-color: gray;
+  opacity: .5;
+  font-size: 8px;
+}
+
 /*
 #newSchedule{
 	border: solid 2px;
